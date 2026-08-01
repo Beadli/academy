@@ -1,0 +1,81 @@
+site_name: Beadli Lab Academy
+site_url: https://academy.beadli.com/
+site_description: >-
+  Build, operate, defend, and attack your own mock enterprise environment.
+  A free, hands-on infrastructure & security curriculum — from zero to hero.
+site_author: Steve
+
+repo_url: https://github.com/beadli-lab-academy/academy
+repo_name: beadli-lab-academy/academy
+edit_uri: edit/main/docs/
+
+copyright: >-
+  Course text &copy; Steve — CC BY-NC-SA 4.0 ·
+  Code samples & playbooks — MIT
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - "Module 0 — Orientation": modules/00-orientation/index.md
+  - "Module 1 — The Engineer's Toolkit": modules/01-engineers-toolkit/index.md
+  - "Module 2 — Scripting Foundations": modules/02-scripting-foundations/index.md
+  - "Module 3 — Virtualization": modules/03-virtualization/index.md
+  - "Module 4 — Virtual Networking": modules/04-virtual-networking/index.md
+  - "Module 5 — Windows Server & AD DS": modules/05-windows-server-ad/index.md
+  - "Module 6 — Linux Server & Docker": modules/06-linux-docker/index.md
+  - "Module 7 — PKI": modules/07-pki/index.md
+  - "Module 8 — Identity & SSO": modules/08-identity-sso/index.md
+  - "Module 9 — Automation with Ansible": modules/09-ansible/index.md
+  - "Module 10 — Monitoring & Detection": modules/10-monitoring-detection/index.md
+  - "Module 11 — Vulnerability Management": modules/11-vulnerability-management/index.md
+  - "Module 12 — Adversary Simulation": modules/12-adversary-simulation/index.md
+  - "Module 13 — Operate Like a Professional": modules/13-operate-professional/index.md
+  - "Module 14 — Capstone": modules/14-capstone/index.md
+  - About: about.md
