@@ -6,6 +6,23 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
+import LabArchitecture from '@site/static/img/lab-architecture.svg';
+
+function LabPreview() {
+  return (
+    <section className={styles.labSection}>
+      <div className="container">
+        <Heading as="h2">The lab you'll build</Heading>
+        <p className={styles.labCaption}>
+          Every module adds a piece. This is where you end up: a segmented,
+          monitored, attacked-and-defended enterprise, on one machine. The
+          tier badges show when each piece arrives.
+        </p>
+        <LabArchitecture className={styles.labDiagram} role="img" aria-label="Architecture diagram of the full lab: an OPNsense firewall splitting a WAN segment holding the Kali attacker box from a LAN segment holding the domain controller, issuing CA, AD FS server, offline root CA, and an Ubuntu Docker host running Wazuh, Grafana and Gitea, with a Suricata sensor watching both segments, all on one laptop." />
+      </div>
+    </section>
+  );
+}
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -36,6 +53,7 @@ export default function Home() {
       description="A free, hands-on infrastructure and security curriculum: build, operate, defend, and attack your own mock enterprise.">
       <HomepageHeader />
       <main>
+        <LabPreview />
         <HomepageFeatures />
       </main>
     </Layout>

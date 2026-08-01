@@ -3,12 +3,21 @@ title: "0.3 The lab you'll build"
 sidebar_position: 3
 ---
 
+import LabArchitecture from '@site/static/img/lab-architecture.svg';
+
 # 0.3 The lab you'll build
 
 This course is modeled on a lab I run for real: same architecture, same
 services, scaled down to fit on hardware a student can own. Everything you
 build here, I operate a bigger version of, which is where the war stories
 come from.
+
+Here's the destination, all of it, before we talk about the road:
+
+<LabArchitecture role="img" aria-label="Architecture diagram of the full lab on one laptop: OPNsense firewall splitting a WAN segment (Kali attacker box) from a LAN segment (domain controller, issuing CA, AD FS, offline root CA, Ubuntu Docker host running Wazuh, Grafana and Gitea), with a Suricata sensor watching both segments." style={{width: '100%', height: 'auto'}} />
+
+The tier badges (T1, T2, T3) mark when each piece arrives, and that's
+what the rest of this lesson explains.
 
 The lab grows in three tiers. You pick a tier based on the machine you
 have, not the machine you wish you had, and the course tells you at the

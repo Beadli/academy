@@ -1,0 +1,119 @@
+<svg viewBox="0 0 1200 660" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <style>
+      .box { fill: var(--ifm-background-surface-color, #ffffff); stroke: currentColor; stroke-opacity: 0.75; stroke-width: 1.5; }
+      .name { fill: currentColor; font-size: 15px; font-weight: 600; text-anchor: middle; }
+      .role { fill: currentColor; fill-opacity: 0.62; font-size: 11px; text-anchor: middle; }
+      .wire { stroke: currentColor; stroke-opacity: 0.45; stroke-width: 1.5; fill: none; }
+      .zonelabel { font-size: 12px; font-weight: 600; letter-spacing: 0.4px; }
+      .pilltext { fill: #ffffff; font-size: 10px; font-weight: 700; text-anchor: middle; }
+      .legend { fill: currentColor; fill-opacity: 0.7; font-size: 11px; }
+      .t1 { fill: var(--ifm-color-primary, #2e8555); }
+      .t2 { fill: #f76b15; }
+      .t3 { fill: #8e4ec6; }
+    </style>
+  </defs>
+
+  <!-- internet -->
+  <rect x="540" y="16" width="120" height="36" rx="18" class="box"/>
+  <text x="600" y="39" class="name" font-size="12" letter-spacing="1.5">INTERNET</text>
+  <line x1="600" y1="52" x2="600" y2="140" class="wire"/>
+  <text x="612" y="76" class="legend">NAT</text>
+
+  <!-- laptop boundary -->
+  <rect x="24" y="84" width="1152" height="548" rx="16" fill="none" stroke="currentColor" stroke-opacity="0.55" stroke-width="2"/>
+  <text x="48" y="112" fill="currentColor" font-size="13" font-weight="700" letter-spacing="1.2">YOUR LAPTOP</text>
+  <text x="48" y="130" class="legend">one machine runs everything</text>
+
+  <!-- tier legend -->
+  <rect x="806" y="99" width="30" height="18" rx="9" class="t1"/>
+  <text x="821" y="112" class="pilltext">T1</text>
+  <text x="842" y="112" class="legend">16 GB</text>
+  <rect x="896" y="99" width="30" height="18" rx="9" class="t2"/>
+  <text x="911" y="112" class="pilltext">T2</text>
+  <text x="932" y="112" class="legend">32 GB</text>
+  <rect x="986" y="99" width="30" height="18" rx="9" class="t3"/>
+  <text x="1001" y="112" class="pilltext">T3</text>
+  <text x="1022" y="112" class="legend">64 GB+</text>
+
+  <!-- firewall -->
+  <rect x="530" y="140" width="140" height="64" rx="10" class="box"/>
+  <text x="600" y="166" class="name">FW01</text>
+  <text x="600" y="184" class="role">OPNsense firewall</text>
+  <rect x="636" y="132" width="30" height="18" rx="9" class="t2"/>
+  <text x="651" y="145" class="pilltext">T2</text>
+
+  <!-- legs to zones -->
+  <polyline points="600,204 600,232 206,232 206,260" class="wire"/>
+  <polyline points="600,232 766,232 766,260" class="wire"/>
+  <text x="380" y="226" class="legend">WAN</text>
+  <text x="700" y="226" class="legend">LAN</text>
+
+  <!-- WAN zone -->
+  <rect x="56" y="260" width="300" height="300" rx="12" fill="#e5484d" fill-opacity="0.05" stroke="#e5484d" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="76" y="288" fill="#e5484d" fill-opacity="0.85" class="zonelabel">WAN · the hostile side</text>
+
+  <rect x="131" y="330" width="150" height="64" rx="10" class="box" stroke="#e5484d" stroke-opacity="0.8"/>
+  <text x="206" y="356" class="name">KALI01</text>
+  <text x="206" y="374" class="role">Kali · attacker box</text>
+  <rect x="247" y="322" width="30" height="18" rx="9" class="t1"/>
+  <text x="262" y="335" class="pilltext">T1</text>
+
+  <!-- LAN zone -->
+  <rect x="388" y="260" width="756" height="300" rx="12" fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.045" stroke="var(--ifm-color-primary, #2e8555)" stroke-opacity="0.45" stroke-width="1.5"/>
+  <text x="408" y="288" fill="var(--ifm-color-primary, #2e8555)" class="zonelabel">LAN · lab.cyber.internal</text>
+
+  <!-- LAN row 1 -->
+  <rect x="420" y="316" width="150" height="64" rx="10" class="box"/>
+  <text x="495" y="342" class="name">DC01</text>
+  <text x="495" y="360" class="role">Active Directory · DNS</text>
+  <rect x="536" y="308" width="30" height="18" rx="9" class="t1"/>
+  <text x="551" y="321" class="pilltext">T1</text>
+
+  <rect x="600" y="316" width="150" height="64" rx="10" class="box"/>
+  <text x="675" y="342" class="name">SUBCA01</text>
+  <text x="675" y="360" class="role">issuing CA · PKI</text>
+  <rect x="716" y="308" width="30" height="18" rx="9" class="t2"/>
+  <text x="731" y="321" class="pilltext">T2</text>
+
+  <rect x="780" y="316" width="150" height="64" rx="10" class="box"/>
+  <text x="855" y="342" class="name">ADFS01</text>
+  <text x="855" y="360" class="role">single sign-on</text>
+  <rect x="896" y="308" width="30" height="18" rx="9" class="t2"/>
+  <text x="911" y="321" class="pilltext">T2</text>
+
+  <g opacity="0.55">
+    <rect x="960" y="316" width="150" height="64" rx="10" class="box" stroke-dasharray="5 4"/>
+    <text x="1035" y="342" class="name">ROOTCA01</text>
+    <text x="1035" y="360" class="role">offline root · powered off</text>
+    <rect x="1076" y="308" width="30" height="18" rx="9" class="t2"/>
+    <text x="1091" y="321" class="pilltext">T2</text>
+  </g>
+
+  <!-- UBNT01 with docker chips -->
+  <rect x="420" y="412" width="420" height="122" rx="10" class="box"/>
+  <text x="630" y="438" class="name">UBNT01</text>
+  <text x="630" y="456" class="role">Ubuntu · Docker host · Ansible control</text>
+  <rect x="806" y="404" width="30" height="18" rx="9" class="t1"/>
+  <text x="821" y="417" class="pilltext">T1</text>
+
+  <rect x="440" y="470" width="125" height="44" rx="8" fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+  <text x="502" y="496" class="role" fill-opacity="0.85">Wazuh SIEM</text>
+  <rect x="580" y="470" width="110" height="44" rx="8" fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+  <text x="635" y="496" class="role" fill-opacity="0.85">Grafana</text>
+  <rect x="705" y="470" width="90" height="44" rx="8" fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+  <text x="750" y="496" class="role" fill-opacity="0.85">Gitea</text>
+
+  <!-- Suricata sensor -->
+  <rect x="880" y="440" width="230" height="64" rx="10" class="box"/>
+  <text x="995" y="466" class="name">SENSOR01</text>
+  <text x="995" y="484" class="role">Suricata · network IDS</text>
+  <rect x="1076" y="432" width="30" height="18" rx="9" class="t3"/>
+  <text x="1091" y="445" class="pilltext">T3</text>
+  <polyline points="995,504 995,540 206,540 206,504" stroke="currentColor" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+  <text x="560" y="533" class="legend">sees both segments</text>
+
+  <!-- hypervisor bar -->
+  <rect x="44" y="588" width="1112" height="32" rx="8" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-opacity="0.35" stroke-width="1"/>
+  <text x="600" y="609" class="role" font-size="12" fill-opacity="0.75">VMware Workstation Pro · the hypervisor (VirtualBox works too)</text>
+</svg>

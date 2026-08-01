@@ -21,3 +21,26 @@
   align-items: center;
   justify-content: center;
 }
+
+.labSection {
+  padding: 3.5rem 1rem 1.5rem;
+  text-align: center;
+}
+
+.labSection h2 {
+  margin-bottom: 0.5rem;
+}
+
+.labCaption {
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  opacity: 0.75;
+}
+
+.labDiagram {
+  width: 100%;
+  max-width: 1040px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
