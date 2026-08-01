@@ -1,9 +1,9 @@
 ---
 sidebar_position: 8
-title: "Module 8 — Identity & Single Sign-On"
+title: "Module 8: Identity and single sign-on"
 ---
 
-# Module 8 — Identity & Single Sign-On
+# Module 8: Identity and single sign-on
 
 :::warning Not yet published
 This module is under construction.

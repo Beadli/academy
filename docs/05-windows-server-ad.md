@@ -1,9 +1,9 @@
 ---
 sidebar_position: 5
-title: "Module 5 — Windows Server & Active Directory"
+title: "Module 5: Windows Server and Active Directory"
 ---
 
-# Module 5 — Windows Server & Active Directory
+# Module 5: Windows Server and Active Directory
 
 :::warning Not yet published
 This module is under construction.
