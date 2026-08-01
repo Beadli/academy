@@ -1,9 +1,9 @@
 ---
-sidebar_position: 16
-title: "Module 16: The capstone incident"
+sidebar_position: 17
+title: "Module 17: The capstone incident"
 ---
 
-# Module 16: The capstone incident
+# Module 17: The capstone incident
 
 :::warning Not yet published
 This module is under construction.

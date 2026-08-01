@@ -73,7 +73,7 @@ Two honest limits before you over-trust it. Snapshots live on the same
 laptop as the VM, so they're an undo button, not a backup; a dead SSD
 takes both. And a pile of old snapshots quietly eats disk and slows the
 VM, so keep one or two meaningful ones per machine, not a museum.
-Module 14 covers real backups.
+Module 15 covers real backups.
 
 ## Now delete the whole thing
 
@@ -87,5 +87,5 @@ servers are **cattle, not pets**. The VM was never the valuable thing.
 The valuable thing is that you now know how to make another one, and
 the proof is that you can do it from memory tonight. Every permanent
 machine in your lab will die and be rebuilt eventually, some of them on
-purpose in Module 9, and the students who struggle with that are always
+purpose in Module 10, and the students who struggle with that are always
 the ones who let a VM become precious. Yours never will.

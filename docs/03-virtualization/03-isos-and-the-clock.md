@@ -91,7 +91,7 @@ comfortably past a year, which is longer than this course.
 Third, and this is the mindset shift: **by the time a clock ever runs
 out, rebuilding will be cheap.** A domain controller that took you a
 weekend in Module 5 takes an evening once you've done it twice, and
-Module 9 teaches automation that rebuilds machines while you make
+Module 10 teaches automation that rebuilds machines while you make
 dinner. Labs aren't heirlooms. The knowledge is in your journal and
 your playbooks, not in any single VM's disk file.
 

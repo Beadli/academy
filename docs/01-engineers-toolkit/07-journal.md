@@ -25,7 +25,7 @@ understood it.
 
 Under **open questions**: anything that still feels like magic. Candid
 entries here become satisfying to cross off later. "Why does Git need a
-staging step at all?" is a great one; Module 9 makes the answer obvious.
+staging step at all?" is a great one; Module 10 makes the answer obvious.
 
 Then close the loop with the rhythm from this module:
 

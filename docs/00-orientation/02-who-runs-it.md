@@ -31,7 +31,7 @@ IT because so few people can explain it end to end.
 
 **Security analyst** watches the SIEM, triages alerts, and decides what's
 real. The scanner-on-the-domain-controller story from lesson 0.1 is a day
-in this person's life. Module 11 puts you here.
+in this person's life. Module 12 puts you here.
 
 **Detection engineer** builds and tunes what the analyst watches. Writing a
 rule is easy; writing a rule that doesn't cry wolf four hundred times a day
@@ -39,7 +39,7 @@ is a craft. You'll feel this personally when your own lab starts paging you
 about nothing.
 
 **Penetration tester / red team** attacks all of the above, with written
-permission, to find the gaps first. Module 13 gives you a taste, aimed
+permission, to find the gaps first. Module 14 gives you a taste, aimed
 strictly at your own lab.
 
 **GRC analyst** (governance, risk, and compliance) answers the question
@@ -49,7 +49,7 @@ control frameworks, assess what's really implemented versus what's
 claimed, and write the documents that decisions get made on. The role
 has a reputation for paperwork, and the reputation is earned exactly
 when the analyst has never touched the systems they're assessing. You
-won't have that problem: in Module 15 you'll formally assess the lab
+won't have that problem: in Module 16 you'll formally assess the lab
 you built with your own hands, and produce the documents GRC careers
 are interviewed on.
 

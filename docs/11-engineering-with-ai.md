@@ -1,9 +1,9 @@
 ---
-sidebar_position: 10
-title: "Module 10: Engineering with AI"
+sidebar_position: 11
+title: "Module 11: Engineering with AI"
 ---
 
-# Module 10: Engineering with AI
+# Module 11: Engineering with AI
 
 :::warning Not yet published
 This module is under construction.

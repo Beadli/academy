@@ -1,9 +1,9 @@
 ---
-sidebar_position: 11
-title: "Module 11: Monitoring and detection"
+sidebar_position: 12
+title: "Module 12: Monitoring and detection"
 ---
 
-# Module 11: Monitoring and detection
+# Module 12: Monitoring and detection
 
 :::warning Not yet published
 This module is under construction.

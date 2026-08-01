@@ -31,6 +31,30 @@ click through every install manually before you're allowed to automate it,
 because you can't troubleshoot a playbook that builds a thing you've never
 built yourself. The suffering is the curriculum. It's also temporary.
 
+## Why the lab is on-premises, in 2026
+
+You'll notice the machines in this course live on your laptop rather
+than in a cloud account, and it's worth saying plainly that this is a
+decision rather than an oversight.
+
+Cloud identity is a synchronization *of* something. Conditional access
+policies apply to accounts that came from somewhere. The hybrid setups
+that most real enterprises run have an on-premises directory at one
+end, and the people who struggle with them are the ones who only
+ever learned the cloud end. So this course builds the half that
+everything else hangs off, and then bridges it: in Module 9 you'll sync
+the directory you built to a cloud tenant of your own and sign in to a
+cloud service with credentials you created in Module 5. From Module 4
+onward you'll also see short "in cloud terms" notes translating what
+you just built into its Azure equivalent, so the vocabulary is familiar
+long before you need it.
+
+There's a practical reason too. Your laptop costs nothing per month,
+runs on a plane, and lets you break things in ways no cloud account
+should ever let you break them. Rented infrastructure would put a
+credit card between you and the material, and this course refuses to do
+that.
+
 ## One domain for everyone
 
 Every screenshot, command, and checkpoint in this course uses the same

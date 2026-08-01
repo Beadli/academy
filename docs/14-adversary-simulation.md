@@ -1,9 +1,9 @@
 ---
-sidebar_position: 13
-title: "Module 13: Adversary simulation"
+sidebar_position: 14
+title: "Module 14: Adversary simulation"
 ---
 
-# Module 13: Adversary simulation
+# Module 14: Adversary simulation
 
 :::warning Not yet published
 This module is under construction.

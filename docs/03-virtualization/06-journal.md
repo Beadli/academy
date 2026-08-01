@@ -28,7 +28,7 @@ is; if you can't, that's a fine open question.
 Under **open questions**: how the VM got an IP address without you
 configuring one is an excellent thing to wonder about, and Module 4
 exists to answer it. So is "what's the difference between reverting a
-snapshot and restoring a backup," which Module 14 takes seriously.
+snapshot and restoring a backup," which Module 15 takes seriously.
 
 Commit and push:
 

@@ -132,8 +132,8 @@ git log --oneline
 
 Make a change to any note, save it, and run the three again. Then once
 more. The rhythm you're building (`status`, `add`, `commit`) is the
-same one you'll use on Ansible playbooks in Module 9 and detection
-rules in Module 11. There's a cheatsheet already in your vault at
+same one you'll use on Ansible playbooks in Module 10 and detection
+rules in Module 12. There's a cheatsheet already in your vault at
 `Resources/cheatsheets/git-basics.md`, which also covers `git diff` and
 `git restore`, the two commands for when something went sideways.
 

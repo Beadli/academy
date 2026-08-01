@@ -1,9 +1,9 @@
 ---
-sidebar_position: 15
-title: "Module 15: GRC, assess your own system"
+sidebar_position: 16
+title: "Module 16: GRC, assess your own system"
 ---
 
-# Module 15: GRC, assess your own system
+# Module 16: GRC, assess your own system
 
 :::warning Not yet published
 This module is under construction.

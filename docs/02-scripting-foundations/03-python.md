@@ -13,7 +13,7 @@ Python is usually the shortest path, and that's exactly today's job.
 The data source is worth knowing on its own. CISA (the US cybersecurity
 agency) publishes the **Known Exploited Vulnerabilities catalog**: not
 every CVE ever filed, just the ones attackers are *confirmed to be using
-right now*. When vulnerability counts get overwhelming (and in Module 12
+right now*. When vulnerability counts get overwhelming (and in Module 13
 you'll see scanners hand you hundreds per host), KEV is the shortlist
 that tells you what to fix first. A bigger cousin of today's script runs
 in my lab every morning and compares this exact feed against my own

@@ -1,9 +1,9 @@
 ---
-sidebar_position: 14
-title: "Module 14: Operate like a professional"
+sidebar_position: 15
+title: "Module 15: Operate like a professional"
 ---
 
-# Module 14: Operate like a professional
+# Module 15: Operate like a professional
 
 :::warning Not yet published
 This module is under construction.

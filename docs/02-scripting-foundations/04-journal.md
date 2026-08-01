@@ -25,7 +25,7 @@ own words. Your words, not the lesson's; copying mine teaches nothing.
 
 Under **open questions**: anything still murky. "Why does awk count
 fields from the end with NF?" is a good one. So is "when would I choose
-Python over Bash?", which Module 9 and Module 11 will answer with
+Python over Bash?", which Module 10 and Module 12 will answer with
 examples instead of rules.
 
 Then commit and push, and make sure the three scripts went with it:

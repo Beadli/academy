@@ -68,30 +68,30 @@ loop: encounter, understand, record.
 ## There's a deeper end, and it's locked for a reason
 
 What you've set up here is the shallow end: a chat window and two
-rules. Module 10 is the deep end. There, Claude stops being a tab in
+rules. Module 11 is the deep end. There, Claude stops being a tab in
 your browser and starts working inside your terminal and your repos as
 an agent: reading your lab's files, drafting your documentation in your
 voice, and running procedures you've packaged for it. It's the closest
 thing this course has to a superpower, and working engineers use it
 every day. I do.
 
-So why make you wait nine modules for it?
+So why make you wait ten modules for it?
 
 Because this course runs on an escalation ladder. First you build
 things with your hands. Then you script what you understood. Then, in
-Module 9, you automate what you scripted. Delegating to an AI agent is
+Module 10, you automate what you scripted. Delegating to an AI agent is
 the top rung of that same ladder, and every rung depends on the one
 below it, for one reason: **you can only safely delegate what you can
 verify.** An agent's output looks equally polished whether it's right
 or subtly wrong, and the only defense is a reviewer who has built the
-thing before. Nine modules from now, that reviewer is you. Today it
+thing before. Ten modules from now, that reviewer is you. Today it
 isn't, and an agent handed to you today wouldn't make you faster; it
 would make you confidently wrong at scale.
 
 You learned arithmetic before you were handed a calculator, and not
 because anyone hated you. Same deal. Endure the manual work between
-here and Module 10 and you arrive there with the one thing the agent
+here and Module 11 and you arrive there with the one thing the agent
 can't supply: judgment. Skip ahead and you'll finish with a lab you
 can't explain in an interview, which is worth exactly nothing.
 
-The pain has a payoff date. It's Module 10.
+The pain has a payoff date. It's Module 11.

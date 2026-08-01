@@ -1,9 +1,9 @@
 ---
-sidebar_position: 9
-title: "Module 9: Automation with Ansible"
+sidebar_position: 10
+title: "Module 10: Automation with Ansible"
 ---
 
-# Module 9: Automation with Ansible
+# Module 10: Automation with Ansible
 
 :::warning Not yet published
 This module is under construction.

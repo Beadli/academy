@@ -13,14 +13,15 @@ watching the list grow is what carries you through the slow weeks.
 - [ ] Module 6: Linux server and Docker
 - [ ] Module 7: PKI
 - [ ] Module 8: Identity and single sign-on
-- [ ] Module 9: Automation with Ansible
-- [ ] Module 10: Engineering with AI
-- [ ] Module 11: Monitoring and detection
-- [ ] Module 12: Vulnerability management
-- [ ] Module 13: Adversary simulation
-- [ ] Module 14: Operate like a professional
-- [ ] Module 15: GRC, assess your own system
-- [ ] Module 16: The capstone incident
+- [ ] Module 9: Hybrid identity with Entra ID
+- [ ] Module 10: Automation with Ansible
+- [ ] Module 11: Engineering with AI
+- [ ] Module 12: Monitoring and detection
+- [ ] Module 13: Vulnerability management
+- [ ] Module 14: Adversary simulation
+- [ ] Module 15: Operate like a professional
+- [ ] Module 16: GRC, assess your own system
+- [ ] Module 17: The capstone incident
 
 ## My setup
 
