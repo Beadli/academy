@@ -11,21 +11,22 @@ Workstation or VirtualBox, from a bare laptop to a full homelab.
 
 ## Repo layout
 
-- `docs/` — course content (MkDocs Material)
-- `mkdocs.yml` — site configuration
+- `docs/` — course modules (Docusaurus, MDX-capable Markdown)
+- `src/` — landing page and theme components
+- `docusaurus.config.js` — site configuration
 - `.github/workflows/deploy.yml` — builds and deploys to GitHub Pages on
   every push to `main`
 
 ## Local development
 
 ```bash
-python3 -m venv .venv
-.venv/bin/pip install -r requirements.txt
-.venv/bin/mkdocs serve -a 127.0.0.1:8001   # live preview at http://127.0.0.1:8001
+npm ci
+npm start -- --port 8002        # live-reload dev server at http://127.0.0.1:8002
+npm run build                    # production build into build/
+npm run serve -- --port 8002    # serve the production build
 ```
 
-(The non-default port avoids collisions with other services; on devserver,
-8000 is taken by SO-CRATES.)
+(The non-default port avoids collisions with other services on the dev host.)
 
 ## Licensing
 
