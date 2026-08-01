@@ -1,0 +1,6 @@
+# Per-machine Obsidian state: window layout, open tabs, cache. Syncing
+# these between machines causes pointless conflicts, so Git ignores them.
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/
