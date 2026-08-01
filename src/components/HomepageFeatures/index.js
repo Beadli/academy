@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 const FeatureList = [
   {
     title: 'One lab, built by you',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/card-lab.svg').default,
     description: (
       <>
         Every module adds to the same environment: Active Directory, PKI,
@@ -17,7 +17,7 @@ const FeatureList = [
   },
   {
     title: 'You will know why it works',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/card-why.svg').default,
     description: (
       <>
         Every step explains the concept behind it and how the same thing is
@@ -29,7 +29,7 @@ const FeatureList = [
   },
   {
     title: 'Then attack it',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: require('@site/static/img/card-attack.svg').default,
     description: (
       <>
         Kali against your own lab: run the attacks, watch your detections
@@ -40,7 +40,7 @@ const FeatureList = [
   },
   {
     title: 'AI as a working tool',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/card-ai.svg').default,
     description: (
       <>
         Claude is part of the toolkit from Module 1. You&apos;ll use it the

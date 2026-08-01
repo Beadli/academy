@@ -1,0 +1,18 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- terminal window -->
+  <rect x="28" y="48" width="140" height="110" rx="10"/>
+  <line x1="28" y1="74" x2="168" y2="74"/>
+  <g fill="currentColor" stroke="none">
+    <circle cx="44" cy="61" r="4"/>
+    <circle cx="58" cy="61" r="4"/>
+    <circle cx="72" cy="61" r="4"/>
+  </g>
+  <!-- prompt -->
+  <polyline points="48,96 64,110 48,124"/>
+  <line x1="76" y1="124" x2="98" y2="124"/>
+  <!-- sparkles -->
+  <g fill="var(--ifm-color-primary)" stroke="none">
+    <path d="M150 10 L156 27 L173 33 L156 39 L150 56 L144 39 L127 33 L144 27 Z"/>
+    <path d="M178 62 L181 70 L189 73 L181 76 L178 84 L175 76 L167 73 L175 70 Z"/>
+  </g>
+</svg>

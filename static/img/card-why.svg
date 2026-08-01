@@ -1,0 +1,21 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- gear -->
+  <circle cx="82" cy="88" r="36"/>
+  <circle cx="82" cy="88" r="13"/>
+  <g>
+    <line x1="82" y1="52" x2="82" y2="38"/>
+    <line x1="82" y1="124" x2="82" y2="138"/>
+    <line x1="46" y1="88" x2="32" y2="88"/>
+    <line x1="118" y1="88" x2="132" y2="88"/>
+    <line x1="107" y1="63" x2="117" y2="53"/>
+    <line x1="57" y1="113" x2="47" y2="123"/>
+    <line x1="107" y1="113" x2="117" y2="123"/>
+    <line x1="57" y1="63" x2="47" y2="53"/>
+  </g>
+  <!-- magnifier -->
+  <g stroke="var(--ifm-color-primary)">
+    <circle cx="128" cy="126" r="31"/>
+    <line x1="150" y1="148" x2="172" y2="170" stroke-width="10"/>
+  </g>
+  <text x="128" y="128" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="34" font-weight="700" fill="var(--ifm-color-primary)" stroke="none">?</text>
+</svg>
