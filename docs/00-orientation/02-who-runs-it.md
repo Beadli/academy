@@ -42,6 +42,17 @@ about nothing.
 permission, to find the gaps first. Module 13 gives you a taste, aimed
 strictly at your own lab.
 
+**GRC analyst** (governance, risk, and compliance) answers the question
+everyone else forgets is being asked: can you *prove* this environment is
+secured, to an auditor, a regulator, or a customer? They map systems to
+control frameworks, assess what's really implemented versus what's
+claimed, and write the documents that decisions get made on. The role
+has a reputation for paperwork, and the reputation is earned exactly
+when the analyst has never touched the systems they're assessing. You
+won't have that problem: in Module 15 you'll formally assess the lab
+you built with your own hands, and produce the documents GRC careers
+are interviewed on.
+
 There's no module-per-role mapping to memorize. The point is the opposite:
 in your lab you are all of these people at once, which is exactly what the
 first job at a small company feels like. When you later join a bigger org
