@@ -22,9 +22,18 @@ machines; the day it matches something, I want to know before breakfast.
 ## Install Python
 
 ```powershell
-# Windows
-winget install --id Python.Python.3.12 -e
+# Windows. Python's winget package id has the version baked into it
+# (Python.Python.3.12, 3.13, ...), and any specific number printed in
+# a course goes stale. So ask winget what's current, then install the
+# newest 3.x it lists:
+winget search Python.Python.3
+
+winget install --id Python.Python.3.13 -e   # use the newest id FROM YOUR SEARCH, not this line
 ```
+
+(If you'd rather click than search, the installer at
+[python.org/downloads](https://www.python.org/downloads/) always offers
+the current version. Tick "Add python.exe to PATH" during install.)
 
 ```bash
 # Debian/Ubuntu (usually already present; this makes sure)
