@@ -21,8 +21,11 @@ Workstation or VirtualBox, from a bare laptop to a full homelab.
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
-.venv/bin/mkdocs serve   # live preview at http://127.0.0.1:8000
+.venv/bin/mkdocs serve -a 127.0.0.1:8001   # live preview at http://127.0.0.1:8001
 ```
+
+(The non-default port avoids collisions with other services; on devserver,
+8000 is taken by SO-CRATES.)
 
 ## Licensing
 
