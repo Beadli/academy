@@ -60,12 +60,61 @@ git init
 git status
 ```
 
-Notice `.obsidian/workspace.json` in that list. That file is Obsidian
-remembering which tabs you had open, and it changes every time you
-breathe. The starter vault ships a `.gitignore` that tells Git to
-disregard it; open `.gitignore` and read it, because knowing *why* a
-file is ignored is the difference between using a config and cargo
-culting one.
+## The ignore rules
+
+Before the first commit, a problem worth meeting on purpose. Obsidian
+keeps a file called `.obsidian/workspace.json` that remembers which tabs
+you had open, and it changes every time you breathe. Snapshot it and
+every future commit fills up with noise about nothing.
+
+Git's answer is a file named `.gitignore`: a plain-text list of paths
+Git pretends not to see. There's nothing to activate or turn on. If the
+file exists in the repository, Git reads it, every time, automatically.
+The starter vault shipped one; confirm it survived the unzip, since
+files starting with a dot like to play hidden:
+
+```bash
+# -a lists dotfiles too. You should see .gitignore here.
+ls -a
+
+# Print it. Every line is a path Git will skip, and the comments
+# explain why each one deserves to be skipped.
+cat .gitignore
+```
+
+You should be looking at this:
+
+```text
+# Per-machine Obsidian state: window layout, open tabs, cache. Syncing
+# these between machines causes pointless conflicts, so Git ignores them.
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/
+```
+
+Note what's *not* ignored: the rest of `.obsidian/`, including the
+daily-notes and template settings. Those you want travelling with the
+vault to any future machine. The line between the two is the principle:
+share configuration, ignore per-machine state. You'll redraw that line
+in every tool you ever put under version control.
+
+Now watch the rules work:
+
+```bash
+# -uall makes status name every untracked file individually instead
+# of collapsing folders. The .obsidian settings files appear;
+# workspace.json does not, because the rules are already active.
+git status -uall
+
+# And the direct question: "would Git ignore this path?" If it
+# prints the path back, the answer is yes. Silence means no.
+git check-ignore .obsidian/workspace.json
+```
+
+Knowing *why* a file is ignored is the difference between using a
+config and cargo-culting one, which is why the checkpoint at the end of
+this module asks Git this exact question again.
 
 ## The daily rhythm
 

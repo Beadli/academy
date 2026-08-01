@@ -22,5 +22,5 @@ you've written your own first entry.
 ## Open questions
 
 - Why does Obsidian create a workspace.json that Git keeps flagging?
-  (Answered in lesson 1.4: it's per-machine UI state, and it belongs in
+  (Answered in lesson 1.3: it's per-machine UI state, and it belongs in
   .gitignore.)
