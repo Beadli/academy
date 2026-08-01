@@ -7,7 +7,7 @@ sidebar_position: 0
 
 No VMs yet. This module sets up the tools you'll use every single day for
 the rest of the course, and I put it before the fun stuff on purpose:
-every hour spent here pays back for fifteen modules.
+every hour spent here pays back for sixteen modules.
 
 Here's the uncomfortable truth this module is built on. The thing that
 separates engineers who grow fast from engineers who stall isn't talent,

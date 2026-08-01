@@ -19,7 +19,8 @@ watching the list grow is what carries you through the slow weeks.
 - [ ] Module 12: Vulnerability management
 - [ ] Module 13: Adversary simulation
 - [ ] Module 14: Operate like a professional
-- [ ] Module 15: The capstone incident
+- [ ] Module 15: GRC, assess your own system
+- [ ] Module 16: The capstone incident
 
 ## My setup
 
