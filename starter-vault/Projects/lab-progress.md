@@ -14,11 +14,12 @@ watching the list grow is what carries you through the slow weeks.
 - [ ] Module 7: PKI
 - [ ] Module 8: Identity and single sign-on
 - [ ] Module 9: Automation with Ansible
-- [ ] Module 10: Monitoring and detection
-- [ ] Module 11: Vulnerability management
-- [ ] Module 12: Adversary simulation
-- [ ] Module 13: Operate like a professional
-- [ ] Module 14: The capstone incident
+- [ ] Module 10: Engineering with AI
+- [ ] Module 11: Monitoring and detection
+- [ ] Module 12: Vulnerability management
+- [ ] Module 13: Adversary simulation
+- [ ] Module 14: Operate like a professional
+- [ ] Module 15: The capstone incident
 
 ## My setup
 

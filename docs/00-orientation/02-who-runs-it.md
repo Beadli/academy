@@ -31,7 +31,7 @@ IT because so few people can explain it end to end.
 
 **Security analyst** watches the SIEM, triages alerts, and decides what's
 real. The scanner-on-the-domain-controller story from lesson 0.1 is a day
-in this person's life. Module 10 puts you here.
+in this person's life. Module 11 puts you here.
 
 **Detection engineer** builds and tunes what the analyst watches. Writing a
 rule is easy; writing a rule that doesn't cry wolf four hundred times a day
@@ -39,7 +39,7 @@ is a craft. You'll feel this personally when your own lab starts paging you
 about nothing.
 
 **Penetration tester / red team** attacks all of the above, with written
-permission, to find the gaps first. Module 12 gives you a taste, aimed
+permission, to find the gaps first. Module 13 gives you a taste, aimed
 strictly at your own lab.
 
 There's no module-per-role mapping to memorize. The point is the opposite:
