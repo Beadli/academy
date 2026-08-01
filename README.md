@@ -1,10 +1,10 @@
 # Beadli Lab Academy
 
-**Build the enterprise yourself — then defend it.**
+**Build the enterprise yourself. Then defend it.**
 
-A free, hands-on infrastructure & security curriculum. Students build,
-operate, defend, and attack their own mock enterprise environment — Active
-Directory, PKI, SSO, Docker, Ansible, monitoring & detection — on VMware
+A free, hands-on infrastructure and security curriculum. Students build,
+operate, defend, and attack their own mock enterprise environment (Active
+Directory, PKI, SSO, Docker, Ansible, monitoring and detection) on VMware
 Workstation or VirtualBox, from a bare laptop to a full homelab.
 
 **Live site:** <https://academy.beadli.com>

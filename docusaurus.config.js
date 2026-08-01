@@ -4,7 +4,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Beadli Lab Academy',
-  tagline: 'Build the enterprise yourself — then defend it.',
+  tagline: 'Build the enterprise yourself. Then defend it.',
   favicon: 'img/favicon.ico',
 
   future: {

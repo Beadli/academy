@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <Layout
       title={siteConfig.title}
-      description="Free, hands-on infrastructure & security curriculum — build, operate, defend, and attack your own mock enterprise.">
+      description="A free, hands-on infrastructure and security curriculum: build, operate, defend, and attack your own mock enterprise.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

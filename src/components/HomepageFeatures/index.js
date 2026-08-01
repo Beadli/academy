@@ -8,20 +8,22 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Not isolated exercises. Every module adds to the same environment —
-        Active Directory, PKI, SSO, Docker, Ansible, monitoring — until you
-        are running a mock enterprise on your own hardware.
+        Every module adds to the same environment: Active Directory, PKI,
+        single sign-on, Docker, Ansible, monitoring. By the capstone you are
+        running a mock enterprise on your own hardware, not a pile of
+        disconnected exercises.
       </>
     ),
   },
   {
-    title: 'The why, not just the how',
+    title: 'You will know why it works',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Every step explains the concept behind it and how it plays out in a
-        real enterprise, with war stories from a lab that actually runs.
-        A 16 GB laptop gets you through most of it.
+        Every step explains the concept behind it and how the same thing is
+        done in a real enterprise. The war stories come from a lab that
+        exists and breaks like any other. A 16 GB laptop gets you through
+        most of it.
       </>
     ),
   },
@@ -41,11 +43,12 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        You&apos;ll work with Claude from Module 1 the way engineers actually
-        do — troubleshooting errors, drafting docs from your shell history,
-        reviewing configs — and learn the discipline that goes with it:
-        verify before you run, never paste secrets, understand before you
-        apply.
+        Claude is part of the toolkit from Module 1. You&apos;ll use it the
+        way working engineers do: troubleshooting errors, turning shell
+        history into documentation, reviewing configs before they ship. The
+        discipline comes with it, starting with the two rules that matter
+        most: understand a command before you run it, and keep secrets out
+        of the chat window.
       </>
     ),
   },
