@@ -28,3 +28,20 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Lead-in role names (lesson 0.2). A warm red that reads as an editorial
+   accent in both themes, so a reader scanning the page sees every career
+   path before deciding to read the prose. */
+:root {
+  --lab-accent-role: #c0362c;
+}
+
+[data-theme='dark'] {
+  --lab-accent-role: #ff7b72;
+}
+
+.roleList p > strong:first-child {
+  color: var(--lab-accent-role);
+  font-size: 1.06rem;
+  letter-spacing: 0.15px;
+}

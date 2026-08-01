@@ -10,6 +10,8 @@ small one, it's run by two exhausted people. Either way the work divides
 into a few recognizable roles, and it helps to know them now, because this
 course will sit you in every one of these chairs at some point.
 
+<div className="roleList">
+
 **Helpdesk / desktop support** is where most careers start. Password
 resets, broken printers, "the internet is down." Underrated, because it's
 where you learn what users really do all day, which is knowledge the other roles
@@ -57,6 +59,8 @@ when the analyst has never touched the systems they're assessing. You
 won't have that problem: in Module 16 you'll formally assess the lab
 you built with your own hands, and produce the documents GRC careers
 are interviewed on.
+
+</div>
 
 There's no module-per-role mapping to memorize. The point is the opposite:
 in your lab you are all of these people at once, which is exactly what the
