@@ -25,9 +25,14 @@ segmentation around it belong to this chair.
 
 **Identity engineer** is a specialization most people discover by accident:
 who are you, how do you prove it, what are you allowed to touch. Active
-Directory, Kerberos, certificates, single sign-on. Modules 5, 7, and 8 are
+Directory, Kerberos, certificates, single sign-on, and the sync that
+carries all of it up into a cloud directory. Modules 5, 7, 8, and 9 are
 identity work, and it's some of the best-paid, least-crowded territory in
-IT because so few people can explain it end to end.
+IT. Part of that is how few people can explain the on-premises half end to
+end. The rest is that the job is now two worlds joined at a seam, with an
+Active Directory on one side and a cloud tenant on the other. People who
+know only one side are easy to hire. People who can follow a broken login
+across the seam are the ones who get called at 2am, and paid accordingly.
 
 **Security analyst** watches the SIEM, triages alerts, and decides what's
 real. The scanner-on-the-domain-controller story from lesson 0.1 is a day
