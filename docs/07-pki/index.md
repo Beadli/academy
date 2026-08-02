@@ -53,5 +53,40 @@ Here are the two chains this module builds, side by side:
 
 <PkiChains role="img" aria-label="Two panels. Tier 1: a step-ca root running in a container on UBNT01 signs the certificate for git.lab.internal directly, and the root is installed by hand into each machine's trust store. Tier 2: ROOTCA01 is an offline root, powered off, which signed SUBCA01 the issuing CA; SUBCA01 in turn signs both a step-ca intermediate that issues ACME certificates for Linux services and certificates autoenrolled by Windows machines, and Group Policy pushes the root to every domain machine." style={{width: '100%', height: 'auto'}} />
 
+### How to read that picture
+
+**Every arrow means "signed by."** The thing at the top of an arrow
+vouched for the thing at the bottom. That's the only relationship in
+either panel, repeated.
+
+**Validation runs the other way.** When a browser is handed a
+certificate, it walks *up* the arrows asking "who signed this, and do I
+trust them?", and keeps climbing until it either reaches something in
+its own trust store or runs out of chain. Reaching the top means a
+padlock. Running out means the warning you've seen twice. That's why the
+green boxes at the bottom of each panel matter as much as the chains
+above them: installing the root is what puts the top of the chain inside
+the machine's trust store, and without it the climb fails no matter how
+correct everything else is.
+
+**The left panel** is two boxes and one arrow. A step-ca root, running
+in a container, signs your server certificates directly. It's the
+smallest thing that can honestly be called a PKI, and it works.
+
+**The right panel** is the same idea with the responsibilities split up.
+ROOTCA01 is drawn dashed and faded because it's **powered off**; it
+signed the issuing CA once and then went dark, which is the whole reason
+the extra layer exists. SUBCA01 does the daily work, and two different
+kinds of certificate come off it: Linux services get theirs through the
+step-ca intermediate using ACME, and Windows machines get theirs by
+autoenrolling from Active Directory. Two very different mechanisms,
+one chain of trust underneath.
+
+**The difference that matters** is at the bottom of each panel. On the
+left you install the root on each machine by hand. On the right, Group
+Policy does it for every domain member, including machines that don't
+exist yet. That's the same distinction as everywhere else in this
+course: doing a thing, versus building the thing that does it for you.
+
 Budget an evening either side of 7.4. Nothing here is difficult; there's
 just a lot of it, and the concepts in 7.1 carry the rest.
