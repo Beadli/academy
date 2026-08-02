@@ -22,7 +22,8 @@ What's in it:
 
 - **3.1** what a hypervisor is, and why we're using this one
 - **3.2** install VMware Workstation Pro (VirtualBox path included)
-- **3.3** collect your ISOs, verify them, and meet the 180-day clock
+- **3.3** where VMs and installers live, collecting and verifying your
+  ISOs, and the 180-day clock
 - **3.4** build a practice VM and install Ubuntu Server on it
 - **3.5** snapshots: break the machine, then undo it
 - **3.6** journal entry

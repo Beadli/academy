@@ -10,9 +10,11 @@ is more checklist than command output. Two commands first, run on your
 host machine:
 
 ```bash
-# The ISO shelf is stocked. You should see Ubuntu Server, Windows
-# Server eval, and the Kali VM image.
-ls ~/lab/isos
+# The ISO shelf is stocked: Ubuntu Server and the Windows Server
+# evaluation. (Kali is a VM, so it lives under VMs instead.)
+# Windows PowerShell: use  ls C:\ISOs  and  ls C:\VMs
+ls ~/ISOs
+ls ~/VMs
 
 # Disk reality check after the downloads: you still need room for
 # the real VMs. df on Linux/mac; Get-PSDrive C on Windows.
@@ -23,9 +25,12 @@ df -h ~
 
 - [ ] The hypervisor installs and opens cleanly (lesson 3.2), and you
       know which one you're on for the rest of the course
-- [ ] All three images are in `~/lab/isos`: Ubuntu Server LTS, the
-      newest Windows Server evaluation ISO, and the Kali prebuilt VM
-      image (lesson 3.3)
+- [ ] Folders exist and are used: installers in `ISOs`, one folder per
+      machine under `VMs`, and neither is inside a synced folder like
+      OneDrive (lesson 3.3)
+- [ ] All three images are downloaded: Ubuntu Server LTS and the newest
+      Windows Server evaluation ISO in `ISOs`, and the Kali prebuilt VM
+      unpacked into its own folder under `VMs` (lesson 3.3)
 - [ ] You verified the Ubuntu and Kali checksums against the vendor's
       published values, and you can say in one sentence what that
       proved and what the Microsoft download's assurance rests on

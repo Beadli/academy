@@ -22,6 +22,11 @@ like this. Every choice teaches something, so the reasons ride along:
   are the curriculum.
 - **Name**: `practice01`. Boring names sort well; you'll appreciate
   this when there are seven VMs.
+- **Location**: `C:\VMs\practice01` (or `~/VMs/practice01` on Linux and
+  macOS). The wizard will suggest somewhere in your Documents or user
+  profile, and you're overriding that on purpose, per the folder rules
+  in lesson 3.3. Make sure the path ends in the machine's own name so
+  this VM gets a folder to itself.
 - **CPU**: 2 cores. Enough to feel responsive, small enough to share.
 - **RAM**: 2 GB. A headless Ubuntu Server idles far below this.
 - **Disk**: 25 GB, and here's the setting worth understanding: the
@@ -36,10 +41,13 @@ like this. Every choice teaches something, so the reasons ride along:
 
 :::info VirtualBox difference
 Same decisions, different wizard: **Machine > New**, and untick any
-"unattended install" option so you get the real installer. RAM and CPU
-live on the first screens; pick "dynamically allocated" for the disk,
-which is VirtualBox's name for grow-as-used. Networking defaults to
-NAT already.
+"unattended install" option so you get the real installer. The first
+screen has both the name and the **Folder** where the machine is
+stored; point that at `C:\VMs` (VirtualBox appends the machine name to
+it, giving you `C:\VMs\practice01`). RAM and CPU live on the following
+screens; pick "dynamically allocated" for the disk, which is
+VirtualBox's name for grow-as-used. Networking defaults to NAT
+already.
 :::
 
 ## Install Ubuntu Server

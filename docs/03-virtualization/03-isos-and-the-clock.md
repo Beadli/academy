@@ -10,34 +10,94 @@ into one file your hypervisor can pretend is a DVD. Tonight you're
 collecting the three the lab needs. They're large, so start the
 downloads and read the rest of the lesson while they run.
 
-Make a home for them first, because ISOs scattered across a Downloads
-folder is how you end up installing the wrong thing at midnight:
+## Where everything lives
+
+Set up your folders before you download anything. This looks like
+housekeeping and it isn't: a VM is not one file, it's a directory full of
+them (a virtual disk that grows to gigabytes, a config file, log files,
+snapshot data, sometimes a saved copy of the machine's memory). Let two
+VMs share a folder and you can no longer move, back up, or delete either
+one without holding your breath.
+
+The convention for this course, and the one I use:
+
+```powershell
+# Windows PowerShell. Two folders off the root of C: so paths stay
+# short and predictable.
+New-Item -ItemType Directory -Force -Path C:\VMs, C:\ISOs
+```
 
 ```bash
-# One folder, all installers. Adjust the base path to taste.
-mkdir -p ~/lab/isos
+# Linux and macOS. Same idea, in your home directory.
+mkdir -p ~/VMs ~/ISOs
 ```
+
+Installers go in `ISOs`. Every virtual machine gets **its own folder**
+under `VMs`, named after the machine: `C:\VMs\practice01`,
+`C:\VMs\DC01`, `C:\VMs\UBNT01`, and so on. When you build a VM in lesson
+3.4 the wizard will ask where to put it, and that's the answer.
+
+Three rules that will save you real grief later:
+
+- **One folder per VM, always.** Deleting a machine becomes "delete that
+  folder." Moving one to a bigger disk becomes "drag that folder."
+  Backing one up is the same. All of that is only true if nothing else
+  is living in there.
+- **Name the folder after the machine, not the project.** In six months
+  `DC01` tells you what it is. `test-thing-2` does not.
+- **Never put VMs in OneDrive, Dropbox, iCloud, or any synced folder.**
+  This one bites Windows users especially, because `Documents` is often
+  OneDrive-backed by default and a VM parked there is the default
+  suggestion. Sync clients try to upload a multi-gigabyte disk file
+  while the VM is writing to it, which is slow at best and corrupts the
+  disk at worst. `C:\VMs` sits outside all of that, which is exactly why
+  I put it there.
 
 ## The three downloads
 
-**Ubuntu Server.** From
-[ubuntu.com/download/server](https://ubuntu.com/download/server), take
-the **LTS** release, which the page marks clearly. LTS means five years
-of support, which is why it's what real servers run and what this
-course runs.
+Whatever your browser saves to `Downloads`, move it into your `ISOs`
+folder when it finishes. Do that each time, or by Module 5 you'll be
+hunting through Downloads wondering which of three similar files is the
+one you want.
 
-**Windows Server evaluation.** From the [Microsoft Evaluation
-Center](https://www.microsoft.com/evalcenter/), find Windows Server,
-pick the **newest version offered**, and download the **64-bit ISO**
-edition of the evaluation. It asks for a name and email; give it
-something real enough to pass validation.
+**Ubuntu Server.** Go to
+[ubuntu.com/download/server](https://ubuntu.com/download/server) and
+take the **LTS** release the page leads with. Two ways to take the wrong
+thing here, and beginners take both:
 
-**Kali Linux.** From
-[kali.org/get-kali](https://www.kali.org/get-kali/), grab the
-**pre-built virtual machine image** for your hypervisor (VMware or
-VirtualBox) rather than the installer ISO. Kali publishes ready-made
-lab VMs, and when we build KALI01 you'll import one instead of
-installing from scratch. Less time watching progress bars, same result.
+- **Ubuntu Server, not Ubuntu Desktop.** Desktop is a different download
+  with a graphical environment attached. Real servers don't have one,
+  this course doesn't use one, and the desktop version will waste your
+  RAM running a login screen nobody looks at.
+- **LTS, not the interim release.** If the site offers a newer
+  non-LTS version, skip it. LTS means five years of support, which is
+  why it's what production runs.
+
+You'll get a file named something like
+`ubuntu-<version>-live-server-amd64.iso`, a couple of gigabytes. The
+"amd64" part just means standard 64-bit Intel or AMD, which is right for
+your machine regardless of whose CPU is in it.
+
+**Windows Server evaluation.** Go to the [Microsoft Evaluation
+Center](https://www.microsoft.com/evalcenter/), find Windows Server, and
+pick the **newest version offered**. Microsoft asks for a name, email,
+and company before it lets you download; give it something real enough
+to pass validation. When it offers formats, choose the **64-bit ISO**,
+not the VHD and not the Azure option. It's a large file, 5 GB or more,
+so start it early.
+
+**Kali Linux.** Go to [kali.org/get-kali](https://www.kali.org/get-kali/)
+and choose **Virtual Machines**, not the installer image. Kali publishes
+ready-made VMs, so when KALI01 joins the lab later you'll import one
+instead of sitting through another install. Pick the build matching your hypervisor (VMware
+or VirtualBox).
+
+It arrives as a compressed archive rather than an ISO, so you'll need an
+unpacking tool: Windows users want [7-Zip](https://www.7-zip.org/), and
+Linux or macOS can install `p7zip`. Unpack it into its own folder under
+`VMs` (so `C:\VMs\KALI01`), following the same one-folder-per-machine
+rule from above. This is the one download that lands in `VMs` rather
+than `ISOs`, because it *is* a virtual machine rather than an installer.
 
 ## Verify what you downloaded
 
@@ -51,17 +111,17 @@ checksums right next to their download links.
 ```bash
 # Linux (and Git Bash on Windows): fingerprint the file, then
 # compare it by eye to the value on the vendor's download page.
-sha256sum ~/lab/isos/ubuntu-*.iso
+sha256sum ~/ISOs/ubuntu-*.iso
 ```
 
 ```powershell
 # Windows PowerShell equivalent.
-Get-FileHash ~\lab\isos\ubuntu-*.iso -Algorithm SHA256
+Get-FileHash C:\ISOs\ubuntu-*.iso -Algorithm SHA256
 ```
 
 ```bash
 # macOS ships shasum instead.
-shasum -a 256 ~/lab/isos/ubuntu-*.iso
+shasum -a 256 ~/ISOs/ubuntu-*.iso
 ```
 
 Honest note: Microsoft's evaluation center doesn't publish a checksum
