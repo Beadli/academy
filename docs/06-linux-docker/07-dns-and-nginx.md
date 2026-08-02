@@ -7,7 +7,7 @@ sidebar_position: 7
 
 Right now your Git server is reachable at `127.0.0.1:3000` on one
 machine and nowhere else. By the end of this lesson it answers to
-`git.lab.cyber.internal` from anywhere in your lab, and you'll have
+`git.lab.internal` from anywhere in your lab, and you'll have
 built the pattern every service in this course uses from here on.
 
 ## Two problems, one shape
@@ -33,20 +33,20 @@ it by hand:
 
 ```powershell
 # An A record maps a name to an address. This creates
-# git.lab.cyber.internal pointing at UBNT01.
+# git.lab.internal pointing at UBNT01.
 Add-DnsServerResourceRecordA -Name "git" `
-                            -ZoneName "lab.cyber.internal" `
+                            -ZoneName "lab.internal" `
                             -IPv4Address "10.10.10.20"
 
 # Read it back.
-Get-DnsServerResourceRecord -ZoneName "lab.cyber.internal" -Name "git"
+Get-DnsServerResourceRecord -ZoneName "lab.internal" -Name "git"
 ```
 
 Then test resolution from UBNT01, which proves the whole chain: your
 Linux server asking your Windows DNS server about a name you invented.
 
 ```bash
-dig +short git.lab.cyber.internal      # expect 10.10.10.20
+dig +short git.lab.internal      # expect 10.10.10.20
 ```
 
 If that returns nothing, your DNS settings from lesson 6.1 are the
@@ -69,7 +69,7 @@ sudo nano /etc/nginx/sites-available/gitea
 ```nginx
 server {
     listen 80;
-    server_name git.lab.cyber.internal;
+    server_name git.lab.internal;
 
     # Gitea pushes repositories over HTTP, and nginx's default 1 MB
     # body limit will reject anything larger. This is the setting
@@ -120,7 +120,7 @@ error caught by `-t` costs you five seconds; the same error found by
 
 ## Use it
 
-From your own computer, browse to **`http://git.lab.cyber.internal`**.
+From your own computer, browse to **`http://git.lab.internal`**.
 
 Your laptop resolved that name from your domain controller, reached
 nginx on UBNT01, and nginx handed the request to a container listening

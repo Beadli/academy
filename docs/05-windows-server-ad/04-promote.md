@@ -43,7 +43,7 @@ Now read each screen, because each one is a decision:
 
 **Deployment configuration.** Choose **Add a new forest**. The other
 options join an existing domain, and there isn't one. Root domain name:
-`lab.cyber.internal`, exactly, from your course conventions in lesson
+`lab.internal`, exactly, from your course conventions in lesson
 0.4.
 
 **Domain controller options.** Leave the forest and domain functional
@@ -60,7 +60,7 @@ need it.
 **DNS options.** You'll see a warning that a delegation for this DNS
 server could not be created. **This is expected. Continue.** It's
 telling you there's no parent DNS zone anywhere that knows about
-`lab.cyber.internal`, which is entirely correct, because you invented
+`lab.internal`, which is entirely correct, because you invented
 this domain and nothing outside your lab has heard of it. The wizard
 would say the same thing in most real greenfield builds.
 
@@ -102,7 +102,7 @@ Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 # 2. Promote to the first DC of a new forest. -InstallDns matches the
 #    ticked box in the wizard; the NetBIOS name matches what it
 #    proposed. It will prompt for the DSRM password.
-Install-ADDSForest -DomainName "lab.cyber.internal" `
+Install-ADDSForest -DomainName "lab.internal" `
                    -DomainNetbiosName "LAB" `
                    -InstallDns
 

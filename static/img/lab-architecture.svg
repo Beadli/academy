@@ -79,7 +79,7 @@
 
   <!-- LAN zone -->
   <rect x="388" y="260" width="756" height="300" rx="12" fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.045" stroke="var(--ifm-color-primary, #2e8555)" stroke-opacity="0.45" stroke-width="1.5"/>
-  <text x="408" y="288" fill="var(--ifm-color-primary, #2e8555)" class="zonelabel">LAN · lab.cyber.internal</text>
+  <text x="408" y="288" fill="var(--ifm-color-primary, #2e8555)" class="zonelabel">LAN · lab.internal</text>
 
   <!-- LAN row 1 -->
   <rect x="420" y="316" width="150" height="64" rx="10" class="box"/>

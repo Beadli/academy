@@ -78,7 +78,7 @@
         fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.045"
         stroke="var(--ifm-color-primary, #2e8555)" stroke-opacity="0.45" stroke-width="1.5"/>
   <text x="638" y="350" fill="var(--ifm-color-primary, #2e8555)" class="zonelabel">
-    LAN · host-only · 10.10.10.0/24 · lab.cyber.internal
+    LAN · host-only · 10.10.10.0/24 · lab.internal
   </text>
   <rect x="650" y="362" width="130" height="58" rx="9" class="later"/>
   <text x="715" y="386" class="name" fill-opacity="0.55">DC01</text>

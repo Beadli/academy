@@ -34,7 +34,7 @@ auditors really ask about.
 
 Open **Group Policy Management** (`gpmc.msc`).
 
-1. Expand **Forest > Domains > lab.cyber.internal**.
+1. Expand **Forest > Domains > lab.internal**.
 2. Right-click the domain name and choose **Create a GPO in this domain,
    and Link it here**. Name it `Lab - Logon Notice`.
 

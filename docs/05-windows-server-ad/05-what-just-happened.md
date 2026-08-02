@@ -28,7 +28,7 @@ reach any of them, all worth knowing:
 Any of them opens the same console. This is the one administrators have
 used for a quarter of a century, and you'll spend real time in it.
 
-Expand `lab.cyber.internal` and look at what the promotion created for
+Expand `lab.internal` and look at what the promotion created for
 you:
 
 - **Builtin** and **Users**: containers holding the accounts and groups
@@ -55,7 +55,7 @@ Get-ADDomainController
 ## DNS exists, and it's yours now
 
 Open **DNS Manager** (`dnsmgmt.msc`) and expand your server, then
-**Forward Lookup Zones**, then `lab.cyber.internal`.
+**Forward Lookup Zones**, then `lab.internal`.
 
 Look for a folder called `_tcp`, and inside it records named things like
 `_ldap` and `_kerberos`. Those are **service records**, and they are the
@@ -72,7 +72,7 @@ Check your own DNS settings changed too:
 Get-DnsClientServerAddress -InterfaceAlias "Ethernet0"
 
 # Ask the directory's DNS for its own service records.
-Resolve-DnsName -Type SRV _ldap._tcp.lab.cyber.internal
+Resolve-DnsName -Type SRV _ldap._tcp.lab.internal
 ```
 
 If DNS is still pointing at your gateway, set it to the machine itself
@@ -94,7 +94,7 @@ first place to look.
 Lesson 4.5 promised you'd come back for this, and here it is. FW01 is
 handing out DNS settings to everything on your LAN, and it's currently
 telling them to use a resolver that has never heard of
-`lab.cyber.internal`. Any machine that takes that answer will be able to
+`lab.internal`. Any machine that takes that answer will be able to
 browse the internet and unable to join your domain, which is exactly the
 confusing failure lesson 5.1 warned about.
 
@@ -117,7 +117,7 @@ has already happened to you. Look at the evidence:
 klist
 ```
 
-Among the entries you should find one for `krbtgt/LAB.CYBER.INTERNAL`.
+Among the entries you should find one for `krbtgt/LAB.INTERNAL`.
 That's your **ticket-granting ticket**, the thing the domain controller
 issued when it verified your password. Here's the model in three
 sentences:

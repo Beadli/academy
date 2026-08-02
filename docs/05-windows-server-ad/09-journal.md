@@ -10,7 +10,7 @@ Two notes today: one permanent, one daily.
 **Permanent.** Create `Projects/lab-domain.md` in your vault and record
 the facts you'll look up for the next twelve modules:
 
-- Domain name `lab.cyber.internal`, NetBIOS name `LAB`, and the date you
+- Domain name `lab.internal`, NetBIOS name `LAB`, and the date you
   promoted it
 - DC01's address, and that it's also your DNS server
 - Where you wrote the Administrator and DSRM passwords
@@ -41,7 +41,7 @@ seriously.
 ```bash
 cd ~/git/lab-journal
 git add -A
-git commit -m "journal: module 5, lab.cyber.internal exists"
+git commit -m "journal: module 5, lab.internal exists"
 git push
 ```
 

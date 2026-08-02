@@ -10,7 +10,7 @@ host. Time to collect.
 
 ## Make a home for it
 
-In Gitea, at `http://git.lab.cyber.internal`, signed in as the account
+In Gitea, at `http://git.lab.internal`, signed in as the account
 you created:
 
 1. Click the **+** in the top right and choose **New Repository**.
@@ -40,7 +40,7 @@ git remote -v
 git remote rename origin github
 
 # Add your own server as the new default.
-git remote add origin http://git.lab.cyber.internal/sam/lab-journal.git
+git remote add origin http://git.lab.internal/sam/lab-journal.git
 
 # Push everything, and set this remote as the tracking default.
 git push -u origin main
@@ -71,7 +71,7 @@ Then, from a *different* machine (your workstation if the vault lives on
 your laptop, or the other way round), clone it fresh:
 
 ```bash
-git clone http://git.lab.cyber.internal/sam/lab-journal.git
+git clone http://git.lab.internal/sam/lab-journal.git
 ```
 
 Two copies, one server, both in step. That's the workflow every
@@ -105,7 +105,7 @@ treatment. Create a `docker-stacks` repository in Gitea and push the
 
 ```bash
 cd ~/docker
-git remote add origin http://git.lab.cyber.internal/sam/docker-stacks.git
+git remote add origin http://git.lab.internal/sam/docker-stacks.git
 git push -u origin main
 ```
 

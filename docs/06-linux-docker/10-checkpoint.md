@@ -15,9 +15,9 @@ ip route
 
 # DNS points at the domain controller, and the domain answers.
 resolvectl status | head -20
-dig +short lab.cyber.internal
-dig -t SRV _ldap._tcp.lab.cyber.internal +short
-dig +short git.lab.cyber.internal
+dig +short lab.internal
+dig -t SRV _ldap._tcp.lab.internal +short
+dig +short git.lab.internal
 
 # The server is hardened.
 sudo sshd -T | grep -E "^(passwordauthentication|permitrootlogin|pubkeyauthentication)"
@@ -29,7 +29,7 @@ docker compose -f ~/docker/gitea/compose.yaml ps
 
 # The proxy is healthy and the site answers by name.
 sudo nginx -t
-curl -I http://git.lab.cyber.internal
+curl -I http://git.lab.internal
 
 # tmux is where you're working.
 tmux ls
@@ -57,7 +57,7 @@ tmux ls
       published to `127.0.0.1`, and are under Git (lesson 6.5)
 - [ ] You can say what a volume is for, and which directory holds
       Gitea's real data (lessons 6.5, 6.6)
-- [ ] `git.lab.cyber.internal` resolves from DNS you configured, and
+- [ ] `git.lab.internal` resolves from DNS you configured, and
       loads Gitea through nginx (lessons 6.6, 6.7)
 - [ ] You ran `nginx -t` before reloading, and you know why that order
       matters (lesson 6.7)

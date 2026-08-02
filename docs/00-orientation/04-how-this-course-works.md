@@ -80,7 +80,7 @@ that.
 ## One domain for everyone
 
 Every screenshot, command, and checkpoint in this course uses the same
-internal domain: **`lab.cyber.internal`**. Use it exactly, even if it
+internal domain: **`lab.internal`**. Use it exactly, even if it
 feels odd not to pick your own. When your screen matches the material
 character for character, you always know whether a difference is a mistake
 or a decision. A later module explains internal naming properly, including

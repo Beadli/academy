@@ -12,7 +12,7 @@ who get hired from administrators who get breached.
 ## Build an OU structure first
 
 Open **Active Directory Users and Computers**, right-click
-`lab.cyber.internal`, and choose **New > Organizational Unit**. Create
+`lab.internal`, and choose **New > Organizational Unit**. Create
 `Lab`. Then right-click `Lab` and create three OUs inside it: `Users`,
 `Servers`, and `Groups`.
 
@@ -20,13 +20,13 @@ Or, since you already met PowerShell in Module 2:
 
 ```powershell
 # The parent OU, directly under the domain. The -Path is written
-# in LDAP's own notation: DC=lab,DC=cyber,DC=internal is
-# lab.cyber.internal, read right to left.
-New-ADOrganizationalUnit -Name "Lab" -Path "DC=lab,DC=cyber,DC=internal"
+# in LDAP's own notation: DC=lab,DC=internal is
+# lab.internal, read right to left.
+New-ADOrganizationalUnit -Name "Lab" -Path "DC=lab,DC=internal"
 
 # Three children inside it.
 foreach ($ou in "Users", "Servers", "Groups") {
-    New-ADOrganizationalUnit -Name $ou -Path "OU=Lab,DC=lab,DC=cyber,DC=internal"
+    New-ADOrganizationalUnit -Name $ou -Path "OU=Lab,DC=lab,DC=internal"
 }
 ```
 
@@ -50,16 +50,16 @@ Two accounts, and the reason for two is the actual lesson.
 New-ADUser -Name "Sam Okoth" `
            -GivenName "Sam" -Surname "Okoth" `
            -SamAccountName "sokoth" `
-           -UserPrincipalName "sokoth@lab.cyber.internal" `
-           -Path "OU=Users,OU=Lab,DC=lab,DC=cyber,DC=internal" `
+           -UserPrincipalName "sokoth@lab.internal" `
+           -Path "OU=Users,OU=Lab,DC=lab,DC=internal" `
            -AccountPassword (Read-Host -AsSecureString "Password") `
            -Enabled $true
 
 # 2. Your admin account, separate, and obviously named as one.
 New-ADUser -Name "Sam Okoth (admin)" `
            -SamAccountName "sokoth.adm" `
-           -UserPrincipalName "sokoth.adm@lab.cyber.internal" `
-           -Path "OU=Users,OU=Lab,DC=lab,DC=cyber,DC=internal" `
+           -UserPrincipalName "sokoth.adm@lab.internal" `
+           -Path "OU=Users,OU=Lab,DC=lab,DC=internal" `
            -AccountPassword (Read-Host -AsSecureString "Password") `
            -Enabled $true
 
@@ -90,7 +90,7 @@ your logs can't tell you *which person* did something.
 # A group, in the OU you made for groups.
 New-ADGroup -Name "Lab Engineers" `
             -GroupScope Global -GroupCategory Security `
-            -Path "OU=Groups,OU=Lab,DC=lab,DC=cyber,DC=internal"
+            -Path "OU=Groups,OU=Lab,DC=lab,DC=internal"
 
 Add-ADGroupMember -Identity "Lab Engineers" -Members "sokoth"
 
@@ -125,7 +125,7 @@ console, not the thinking.
 
 ```powershell
 # Everyone you created, with which OU they landed in.
-Get-ADUser -Filter * -SearchBase "OU=Lab,DC=lab,DC=cyber,DC=internal" |
+Get-ADUser -Filter * -SearchBase "OU=Lab,DC=lab,DC=internal" |
     Select-Object Name, SamAccountName, DistinguishedName
 
 # Who holds the keys to the kingdom? Should be Administrator and

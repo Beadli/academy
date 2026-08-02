@@ -36,7 +36,7 @@ password again. Lesson 5.5 shows you your own tickets.
 You'll hear these constantly, and they're simpler than they sound:
 
 **Domain.** One directory with one set of accounts and one security
-boundary. Yours will be `lab.cyber.internal`.
+boundary. Yours will be `lab.internal`.
 
 **Forest.** One or more domains sharing a common configuration and
 trusting each other. Yours will contain exactly one domain, which is
@@ -84,7 +84,7 @@ enough to feel psychic.
 ## What you're about to build
 
 One Windows Server, promoted to be the first domain controller of a new
-forest, holding the domain `lab.cyber.internal`, serving DNS for it, and
+forest, holding the domain `lab.internal`, serving DNS for it, and
 sitting at `10.10.10.10` where your addressing plan said it would.
 
 Everything after this module attaches to it.

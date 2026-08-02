@@ -6,7 +6,7 @@ sidebar_position: 0
 # Module 5: Windows Server and Active Directory
 
 This is the one. Everything so far has been groundwork; today
-`lab.cyber.internal` stops being a string in a planning document and
+`lab.internal` stops being a string in a planning document and
 becomes a real domain, with a real directory, holding real accounts that
 really authenticate.
 

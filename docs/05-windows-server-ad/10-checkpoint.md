@@ -18,7 +18,7 @@ Get-NetIPConfiguration
 
 # The directory you built.
 Get-ADOrganizationalUnit -Filter * | Select-Object Name
-Get-ADUser -Filter * -SearchBase "OU=Lab,DC=lab,DC=cyber,DC=internal" |
+Get-ADUser -Filter * -SearchBase "OU=Lab,DC=lab,DC=internal" |
     Select-Object Name, SamAccountName
 Get-ADGroupMember -Identity "Domain Admins" | Select-Object Name
 
@@ -39,7 +39,7 @@ w32tm /query /status
 And from KALI01, on the lab network:
 
 ```bash
-dig @10.10.10.10 -t SRV _ldap._tcp.lab.cyber.internal +short
+dig @10.10.10.10 -t SRV _ldap._tcp.lab.internal +short
 sudo nmap -Pn 10.10.10.10
 ```
 
@@ -47,7 +47,7 @@ sudo nmap -Pn 10.10.10.10
 
 - [ ] DC01 answers to that name, sits at `10.10.10.10` statically, and
       its DNS points at itself (lessons 5.3, 5.5)
-- [ ] `Get-ADDomain` reports `lab.cyber.internal` with NetBIOS name
+- [ ] `Get-ADDomain` reports `lab.internal` with NetBIOS name
       `LAB` (lesson 5.4)
 - [ ] You can explain what the DSRM password is and why it isn't the
       Administrator password (lesson 5.4)

@@ -26,15 +26,15 @@ On KALI01, point questions at the DC directly with `dig @`:
 
 ```bash
 # Does it answer for the domain at all?
-dig @10.10.10.10 lab.cyber.internal +short
+dig @10.10.10.10 lab.internal +short
 
 # The service records from lesson 5.1. This is the question a
 # Windows machine asks when it needs to log someone in: "who
 # provides LDAP for this domain?"
-dig @10.10.10.10 -t SRV _ldap._tcp.lab.cyber.internal +short
+dig @10.10.10.10 -t SRV _ldap._tcp.lab.internal +short
 
 # And the authentication one.
-dig @10.10.10.10 -t SRV _kerberos._tcp.lab.cyber.internal +short
+dig @10.10.10.10 -t SRV _kerberos._tcp.lab.internal +short
 ```
 
 Those replies name DC01 and the ports it serves on. That is the entire

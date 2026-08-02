@@ -65,5 +65,5 @@ Green across the board means your lab has a real network with a plan
 behind it, which is more than a lot of production environments can say.
 
 Module 5 is the big one: Windows Server, your first domain controller,
-and the moment `lab.cyber.internal` stops being a string in a document
+and the moment `lab.internal` stops being a string in a document
 and starts being a domain.

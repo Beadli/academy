@@ -78,7 +78,7 @@ network:
         addresses:
           - 10.10.10.10
         search:
-          - lab.cyber.internal
+          - lab.internal
 ```
 
 Read what you just wrote, because it's the four questions from lesson
@@ -130,11 +130,11 @@ firewall's DHCP at the domain controller.
 ```bash
 # Can this machine resolve the domain, and reach the DC?
 ping -c 3 10.10.10.10
-dig +short lab.cyber.internal
+dig +short lab.internal
 
 # The service record from lesson 5.8. A machine that can answer this
 # question is a machine that could join the domain.
-dig -t SRV _ldap._tcp.lab.cyber.internal +short
+dig -t SRV _ldap._tcp.lab.internal +short
 
 # And the internet still works, through the same path.
 ping -c 3 1.1.1.1
