@@ -27,7 +27,8 @@ appear, which is also how you'll meet them for the rest of your career.
 The three tasks:
 
 - **2.1** PowerShell: measure your machine and file the report in your
-  vault, properly this time
+  vault, properly this time (and set up the editor you'll write all three
+  scripts in)
 - **2.2** Bash: dig the attacker out of a hostile `auth.log`
 - **2.3** Python: query CISA's live catalog of actively exploited
   vulnerabilities

@@ -34,6 +34,11 @@ fixed, so `5 203.0.113.42` on top means your pipeline is correct, and
 anything else means a stage is grabbing the wrong thing. Debug it
 stage by stage, the way you built it.
 
+If that line fails with an error mentioning `bash\r` or a stray `^M`
+rather than printing a ranking at all, that's the line-endings trap from
+lesson 2.2 and not your pipeline. `sed -i 's/\r$//' Resources/scripts/failed-logins.sh`
+and try again.
+
 ## Pass criteria
 
 - [ ] `failed-logins.sh` ranks the sample log with `5 203.0.113.42`

@@ -81,8 +81,10 @@ auth logs run to millions of lines, and this pipeline doesn't care.
 
 ## Now make it a script
 
-One-liners evaporate; scripts accumulate. Save this as
-`failed-logins.sh` next to the log:
+One-liners evaporate; scripts accumulate. In VS Code, which you set up in
+lesson 2.1, right-click `Resources/scripts` in the file tree, choose
+**New File**, and name it `failed-logins.sh`, extension included. Paste
+this in and save it next to the log you planted a moment ago:
 
 ```bash
 #!/usr/bin/env bash
@@ -109,12 +111,70 @@ echo
 grep "Failed password" "$logfile" | awk '{print $(NF-3)}' | sort | uniq -c | sort -rn
 ```
 
-Make it executable and run it. `chmod` changes a file's permissions, and
-`+x` adds "may be executed":
+### Windows users: the invisible character that breaks this
+
+Before you run it, look at the bottom-right of the VS Code window, at the
+`LF` or `CRLF` indicator from lesson 2.1. If it says **CRLF**, click it
+and choose **LF**, then save again.
+
+That indicator is worth understanding, because this is a genuinely
+confusing failure and you'll meet it for years. Windows ends each line of a text file with two
+invisible characters, carriage return plus line feed, written `\r\n`.
+Linux and macOS use just the line feed, `\n`. Windows editors default to
+the Windows convention, quite reasonably.
+
+Bash does not forgive it. The first line of your script says the file
+should be run by `bash`, but with Windows line endings it actually says
+run this with a program called `bash\r`, and no such program exists. The
+error is spectacularly unhelpful:
+
+```text
+/usr/bin/env: ‘bash\r’: No such file or directory
+```
+
+The exact wording varies between Git Bash and Linux; the meaning doesn't.
+Any error naming a command you did type, with something odd stuck to the
+end of it, is this. It is not your pipeline, your quoting, or your typing.
+
+If it already happened, fix the file in place from the terminal:
+
+```bash
+# Delete a carriage return at the end of every line. The $ means
+# "at end of line", so it only removes the ones causing trouble.
+sed -i 's/\r$//' failed-logins.sh
+
+# Confirm. A healthy script says "Bourne-Again shell script"; a sick
+# one adds "with CRLF line terminators".
+file failed-logins.sh
+```
+
+Linux and macOS students: nothing above applies to you today. Read it
+anyway. The day you're handed a script that somebody wrote on Windows,
+you'll recognise it in five seconds instead of an hour.
+
+## Make it executable and run it
+
+`chmod` changes a file's permissions, and `+x` adds "may be executed":
 
 ```bash
 chmod +x failed-logins.sh
 ./failed-logins.sh auth.log
+```
+
+A file you can execute is not the same as a file you can read, which is
+why this step exists at all. Bash refuses to run a script that nobody
+gave permission to run, and `Permission denied` here means you skipped
+the `chmod`.
+
+Run it with no argument as well, to watch the safety check you wrote do
+its job:
+
+```bash
+./failed-logins.sh
+```
+
+```text
+Usage: ./failed-logins.sh <logfile>
 ```
 
 You just wrote a program with an argument, a variable, a conditional,

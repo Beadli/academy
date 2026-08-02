@@ -116,10 +116,101 @@ Those last two are the self-rescue kit. Between them and lesson 1.6's
 rule about understanding a command before running it, you can work out
 almost anything without leaving the shell.
 
+## Something to write the script in
+
+Everything so far has been typed straight into a shell, which runs one
+line and forgets it. A script is a *file*, so it needs somewhere to be
+written and saved. The shell is not that place.
+
+**Linux and macOS readers, this part is yours too.** You're skipping the
+PowerShell script below, but you write a real bash script in the very
+next lesson, and it's less annoying to set this up now.
+
+What you need is a **plain-text editor**. Not a word processor: Word,
+Pages, and Google Docs quietly replace your straight quotes with curly
+ones and save in their own formats, and a shell cannot read any of it.
+The quotes are the cruel part, because the file looks right on screen and
+still fails.
+
+I'm going to point you at **Visual Studio Code**, free, on all three
+operating systems, and open all day on a large fraction of this
+industry's machines. The reason I'm picking it for beginners rather than
+Notepad is narrow and practical: it shows you the two properties of a
+file that Notepad hides, and one of them causes a failure in the next
+lesson that looks exactly like a broken script.
+
+### Install it
+
+**The wrong turn to avoid:** *Visual Studio Code* and *Visual Studio* are
+two different products from the same company with almost the same name.
+Visual Studio is a multi-gigabyte suite for building applications and you
+don't want it today. If your download is measured in gigabytes, you
+clicked the wrong one. Code is a few hundred megabytes.
+
+```powershell
+# Windows. -e means "exact id", so you get Microsoft's package and not
+# something similarly named.
+winget install --id Microsoft.VisualStudioCode -e
+```
+
+```bash
+# Ubuntu and other snap-capable Linux. --classic is required; without
+# it the install fails with a confusing confinement error.
+sudo snap install code --classic
+```
+
+On **macOS**, and on any Linux without snap, download it from
+[code.visualstudio.com](https://code.visualstudio.com/). The site detects
+your platform and offers the right build. On macOS you drag the app into
+Applications yourself; nothing installs it for you.
+
+Success looks like an editor that opens to a Welcome tab. If you want to
+launch it from a terminal later, `code .` opens the current folder.
+That works out of the box on Windows and Linux. On macOS it doesn't until
+you press `Cmd+Shift+P`, type "shell command", and pick **Install 'code'
+command in PATH**, which is a step nobody tells you about.
+
+### Open the vault, not the file
+
+Choose **File > Open Folder** and pick your vault (`lab-journal`), not an
+individual file. You get a file tree down the left, and every file you
+make lands inside the vault instead of in whatever folder the save dialog
+happened to remember. Fighting a save dialog over where your scripts live
+is a waste of a perfectly good evening.
+
+To create the script: right-click `Resources/scripts` in that tree,
+choose **New File**, and type the full name including the extension, so
+`machine-report.ps1` rather than `machine-report`. Paste the contents,
+then `Ctrl+S` (`Cmd+S` on macOS) to save.
+
+### The two things in the bottom-right corner
+
+Once the file has a real extension, look at the status bar along the
+bottom of the window. On the right you'll see something like
+`PowerShell` and `CRLF` or `LF`.
+
+The first is the **language**, which VS Code guessed from your file
+extension. Your script turning multicoloured is the signal that the
+extension is right. A `.ps1` that stays plain grey text usually means the
+file is actually named `machine-report.ps1.txt`, which is Notepad's
+favourite trick and is why I'd rather you weren't using Notepad.
+
+The second is the **line endings**, and it's the one that bites in lesson
+2.2. Windows ends every line of a text file with two invisible
+characters; Linux and macOS use one. Nothing in this lesson cares. Bash
+cares enormously. You'll meet it properly next lesson, with the fix.
+
+Later in the course, when you're editing files on a server over SSH with
+no desktop at all, you'll use `nano` in the terminal instead. That
+arrives in Module 6, where you'll need it. Two editors for two situations
+is normal: one for files on the machine in front of you, one for files on
+a machine somewhere else.
+
 ## The script
 
-Save this as `machine-report.ps1` in `Resources/scripts/` in your vault.
-Read every comment; the comments are the lesson.
+Create `machine-report.ps1` in `Resources/scripts/` in your vault, the
+way you just practised, and paste this in. Read every comment; the
+comments are the lesson.
 
 ```powershell
 # machine-report.ps1

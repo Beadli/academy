@@ -47,8 +47,12 @@ Windows) prints a version.
 
 ## The script
 
-Save as `kev-check.py` in `Resources/scripts/`. Everything it uses comes
-with Python; nothing extra to install.
+Same routine as the last two lessons: **New File** in
+`Resources/scripts`, named `kev-check.py` with the extension, paste, save.
+Everything it uses comes with Python; nothing extra to install. The line
+endings that mattered in lesson 2.2 don't bite here, because you hand
+this file to `python3` yourself rather than asking the system to find an
+interpreter from the first line.
 
 ```python
 #!/usr/bin/env python3
