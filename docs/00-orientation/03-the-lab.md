@@ -53,6 +53,15 @@ network segment worth defending. This is old-desktop territory, and used
 office machines with lots of RAM sell cheap. Retired workstations make
 better lab boxes than new laptops.
 
+Two of those get their own virtual machines rather than joining the
+containers on the Ubuntu host, for different reasons worth
+distinguishing. **Suricata** needs its own because of *where it sits*:
+it has to see traffic addressed to other machines, which means its own
+network cards in a listening mode. **OpenVAS** needs its own because of
+*what it is*: vulnerability scanners are heavy, and a scanner living on
+a machine it also scans gives you muddled answers. Real organizations
+deploy scanners as their own appliances for exactly that second reason.
+
 ## Hardware honesty
 
 Some plain talk before you spend money, because lab guides that pretend
