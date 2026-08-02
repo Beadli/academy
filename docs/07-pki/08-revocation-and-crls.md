@@ -1,9 +1,9 @@
 ---
-title: "7.7 Revocation, CRLs, and the day it all stops (Tier 2)"
-sidebar_position: 7
+title: "7.8 Revocation, CRLs, and the day it all stops (Tier 2)"
+sidebar_position: 8
 ---
 
-# 7.7 Revocation, CRLs, and the day it all stops (Tier 2)
+# 7.8 Revocation, CRLs, and the day it all stops (Tier 2)
 
 Certificates expire on their own. The harder question is what happens
 when one needs to stop being valid *before* its expiry date: a server is
@@ -42,7 +42,7 @@ list forever and hide a revoked certificate. So clients are strict: a
 CRL past its date is treated as no CRL at all, and depending on what's
 checking, that means certificates start being rejected.
 
-Now put that together with lesson 7.5. **Your root CA is powered off.**
+Now put that together with lesson 7.2. **Your root CA is powered off.**
 It's the only thing that can sign a new CRL for itself. So its CRL sits
 there, silently counting down, on a machine nobody has looked at in a
 year.

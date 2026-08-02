@@ -90,7 +90,7 @@ You'll see the subject (who it's for), the issuer (who vouched), and the
 validity window. Note how short that window is: public certificates now
 last weeks or months rather than years, because short lifetimes limit
 the damage when a key leaks. That's why automation matters, and why
-lesson 7.4 sets up renewal rather than a yearly reminder.
+lesson 7.6 sets up renewal rather than a yearly reminder.
 
 Now the same for one of your own:
 
@@ -105,4 +105,4 @@ they're different: something vouched for something else. On a
 self-signed one they're identical, which is the mathematical form of
 "trust me, I'm me."
 
-That's the problem. Lesson 7.2 becomes the somebody else.
+That's the problem. Lesson 7.4 becomes the somebody else.

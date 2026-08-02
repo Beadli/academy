@@ -1,9 +1,9 @@
 ---
-title: "7.9 Checkpoint: trusted certificates"
-sidebar_position: 9
+title: "7.10 Checkpoint: trusted certificates"
+sidebar_position: 10
 ---
 
-# 7.9 Checkpoint: trusted certificates
+# 7.10 Checkpoint: trusted certificates
 
 On **UBNT01**:
 
@@ -45,40 +45,44 @@ Everyone:
 - [ ] You can explain what a certificate proves, and why a self-signed
       one fails (lesson 7.1)
 - [ ] You can read a certificate with `openssl` and say who the
-      subject, issuer, and SAN are (lessons 7.1, 7.4)
+      subject, issuer, and SAN are (lessons 7.1, 7.6)
 - [ ] step-ca runs on UBNT01, and you recorded its root fingerprint
-      and admin password in your journal (lesson 7.2)
+      and admin password in your journal (lesson 7.4)
 - [ ] You can say where your CA's root private key lives, and what
-      someone could do with it (lesson 7.2)
+      someone could do with it (lesson 7.4)
 - [ ] The root certificate is in your Linux trust store and your
       Windows **Local Computer** store, and you know why the user
-      store would have been wrong (lesson 7.3)
+      store would have been wrong (lesson 7.5)
 - [ ] **`https://git.lab.internal` loads with no warning**, in a
-      browser, and the issuer is your CA (lesson 7.4)
+      browser, and the issuer is your CA (lesson 7.6)
 - [ ] You forced a renewal and watched nginx reload without you
-      (lesson 7.4)
+      (lesson 7.6)
 - [ ] You can say what a full chain is and why installing only the
-      leaf certificate breaks other people's browsers (lesson 7.4)
+      leaf certificate breaks other people's browsers (lesson 7.6)
 
 Tier 2 as well:
 
 - [ ] ROOTCA01 exists, is **not** domain-joined, and is **powered off**
-      with its network disconnected (lesson 7.5)
+      with its network disconnected (lesson 7.2)
 - [ ] SUBCA01 is an Enterprise Subordinate CA whose certificate was
-      signed by ROOTCA01, and its service is running (lesson 7.5)
-- [ ] You can explain in one breath why the root is offline (lesson 7.5)
+      signed by ROOTCA01, and its service is running (lesson 7.3)
+- [ ] You can explain in one breath why the root is offline (lesson 7.2)
+- [ ] step-ca's intermediate is signed by SUBCA01, so your lab has a
+      single chain of trust back to the offline root. (If you fell back
+      to standalone, you noted that decision and know you have two
+      roots.) (lesson 7.4)
 - [ ] The root certificate reaches domain machines via Group Policy,
-      not by hand (lesson 7.3)
+      not by hand (lesson 7.5)
 - [ ] A `Lab Computer` template exists, is **published** for issuance,
-      and grants Autoenrol to Domain Computers (lesson 7.6)
+      and grants Autoenrol to Domain Computers (lesson 7.7)
 - [ ] A domain machine holds a certificate it requested automatically
-      (lesson 7.6)
+      (lesson 7.7)
 - [ ] You can say why a permissive template is a privilege escalation
-      path (lesson 7.6)
+      path (lesson 7.7)
 - [ ] The root CA's CRL expiry date is written in your journal,
-      together with what to do before it and why (lesson 7.7)
+      together with what to do before it and why (lesson 7.8)
 - [ ] OPNsense serves your certificate, and its warning is gone
-      (lesson 7.4)
+      (lesson 7.6)
 
 ## Two warnings, collected
 

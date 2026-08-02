@@ -1,9 +1,9 @@
 ---
-title: "7.8 Journal: you are a certificate authority"
-sidebar_position: 8
+title: "7.9 Journal: you are a certificate authority"
+sidebar_position: 9
 ---
 
-# 7.8 Journal: you are a certificate authority
+# 7.9 Journal: you are a certificate authority
 
 The permanent note this time is closer to an operations runbook than a
 set of facts, because PKI is the part of your lab most likely to break
@@ -14,12 +14,12 @@ long after you've forgotten how you built it.
 - Your CA's name, where it runs, and where the root private key lives
 - The root certificate's fingerprint, and its expiry date
 - Which machines trust it, and how they were told to (by hand, or by
-  the Group Policy from lesson 7.3)
+  the Group Policy from lesson 7.5)
 - Which certificates are currently issued, for which names, and by
   which CA
 - How renewal happens, and how you would know if it stopped
 - Tier 2: where ROOTCA01 is, that it is powered off deliberately, the
-  CRL expiry date from lesson 7.7, and exactly what to do before then
+  CRL expiry date from lesson 7.8, and exactly what to do before then
 - Tier 2: which templates exist and who may enrol for them
 
 That list is close to what a real PKI runbook contains, and writing it

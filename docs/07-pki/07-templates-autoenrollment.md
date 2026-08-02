@@ -1,9 +1,9 @@
 ---
-title: "7.6 Templates and autoenrollment (Tier 2)"
-sidebar_position: 6
+title: "7.7 Templates and autoenrollment (Tier 2)"
+sidebar_position: 7
 ---
 
-# 7.6 Templates and autoenrollment (Tier 2)
+# 7.7 Templates and autoenrollment (Tier 2)
 
 An issuing CA that people have to ask is an issuing CA that gets used
 twice a year. The reason enterprise PKI is worth building is what this
@@ -92,7 +92,7 @@ validated by a root that is currently powered off in a drawer.
 :::tip[In cloud terms]
 The same problem exists in cloud environments and is solved with the
 same shapes. Managed certificate services issue and renew for you the
-way ACME did in lesson 7.4; key vaults hold private keys the way an
+way ACME did in lesson 7.6; key vaults hold private keys the way an
 offline root holds yours, with access policies instead of a locked room;
 and workload identity is the cloud version of the machine certificate
 you just autoenrolled, a service proving what it is without a password.

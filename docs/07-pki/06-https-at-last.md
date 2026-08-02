@@ -1,9 +1,9 @@
 ---
-title: "7.4 HTTPS at last, issued automatically"
-sidebar_position: 4
+title: "7.6 HTTPS at last, issued automatically"
+sidebar_position: 6
 ---
 
-# 7.4 HTTPS at last, issued automatically
+# 7.6 HTTPS at last, issued automatically
 
 Time to collect on the promise from lesson 6.7. Gitea gets a real
 certificate, from your own CA, and your browser stops complaining.
@@ -17,7 +17,7 @@ You're going to do it the modern way instead, with **ACME**: the server
 proves it controls the name, gets a certificate automatically, and
 renews itself forever without anyone remembering anything. Same protocol
 Let's Encrypt uses. Your CA already speaks it, because you turned it on
-in lesson 7.2.
+in lesson 7.4.
 
 ## Install an ACME client
 

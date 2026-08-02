@@ -21,27 +21,31 @@ end is much smaller than the number of job postings that ask for it.
 What's in it:
 
 - **7.1** what a certificate is, and why yours isn't trusted
-- **7.2** build a certificate authority you control
-- **7.3** teach your machines to trust it
-- **7.4** HTTPS at last, issued automatically
-- **7.5** the enterprise pattern: an offline root and an issuing CA (Tier 2)
-- **7.6** templates and autoenrollment: certificates nobody requests (Tier 2)
-- **7.7** revocation, CRLs, and the day the lab stopped working (Tier 2)
-- **7.8** journal entry
-- **7.9** checkpoint
+- **7.2** the offline root (Tier 2)
+- **7.3** the issuing CA (Tier 2)
+- **7.4** a CA that issues certificates automatically
+- **7.5** teach your machines to trust it
+- **7.6** HTTPS at last, issued automatically
+- **7.7** templates and autoenrollment: certificates nobody requests (Tier 2)
+- **7.8** revocation, CRLs, and the day it all stops (Tier 2)
+- **7.9** journal entry
+- **7.10** checkpoint
 
-**Everyone does 7.1 through 7.4** and finishes with a real certificate
-authority and real HTTPS, running in a container on UBNT01 with no extra
-virtual machines. That's not a consolation prize: step-ca is production
-software, it speaks the same protocol that issues certificates for most
-of the public internet, and my own lab runs one.
+The module builds one hierarchy, top down, which is the order a real
+organization builds in. **Tier 2 starts at 7.2** with the offline root
+and the issuing CA beneath it. **Tier 1 starts building at 7.4**, where
+step-ca gives you a real certificate authority in a container with no
+extra virtual machines, and finishes with the same working HTTPS.
 
-**Tier 2 continues into 7.5 through 7.7**, which is the Microsoft
-enterprise PKI most Windows shops actually run: an offline root, an
-issuing CA, certificate templates, autoenrollment, and revocation. If
-you're aiming at a Windows infrastructure or identity role, those three
-lessons are the ones to read even if you can't build them.
+Tier 1 should still read 7.2 and 7.3. They're short, they're the PKI
+most Windows employers actually run, and the offline-root idea in 7.2 is
+the concept the rest of the module hangs off. This is the same
+arrangement Module 4 used for the firewall lessons.
 
-Budget an evening for the first four lessons and a second evening for
-the Tier 2 half. Nothing here is difficult; there's just a lot of it,
-and the concepts in 7.1 carry the rest.
+The payoff is shared: by 7.6 everyone has certificates issued
+automatically and renewed without a human, and both browser warnings are
+gone. Tier 2 then continues into templates, autoenrollment, and
+revocation.
+
+Budget an evening either side of 7.4. Nothing here is difficult; there's
+just a lot of it, and the concepts in 7.1 carry the rest.

@@ -1,9 +1,9 @@
 ---
-title: "7.3 Teach your machines to trust it"
-sidebar_position: 3
+title: "7.5 Teach your machines to trust it"
+sidebar_position: 5
 ---
 
-# 7.3 Teach your machines to trust it
+# 7.5 Teach your machines to trust it
 
 A certificate authority nobody trusts is a very elaborate way of
 producing the same warning you already had. This lesson is the other
@@ -22,7 +22,7 @@ sudo chmod a+r /tmp/lab-root.crt
 openssl x509 -in /tmp/lab-root.crt -noout -subject -dates -fingerprint -sha256
 ```
 
-That fingerprint should match the one step-ca printed in lesson 7.2.
+That fingerprint should match the one step-ca printed in lesson 7.4.
 Checking it is not ceremony: it's how you'd catch a substituted file,
 and the whole point of a root certificate is that you install *the right
 one*.
@@ -111,5 +111,5 @@ believe them.
 
 That's not a reason to avoid running a private CA. Every organization
 runs one. It's a reason to know exactly where that key is, which is why
-lesson 7.2 made you think about it and why the offline root in lesson
+lesson 7.4 made you think about it and why the offline root in lesson
 7.5 exists at all.
