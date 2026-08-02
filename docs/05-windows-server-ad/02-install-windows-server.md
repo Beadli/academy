@@ -84,9 +84,15 @@ between host and guest without being trapped, and copy-paste. Reboot
 when it asks.
 
 **Find PowerShell.** Right-click the Start button and choose the
-Windows PowerShell or Terminal entry marked **(Admin)**. Most of what
-follows can be done in a window or typed in a shell, and Module 2 was
-practice for the shell. Check it responds:
+Windows PowerShell or Terminal entry marked **(Admin)**. From here to
+the end of the course you'll spend real time in this window, so if you
+read lesson 2.1 without a Windows machine to try it on, go back and
+skim its "Running PowerShell" section now: running commands one at a
+time, what the backtick at the end of a line means, and how to escape
+the `>>` prompt when a command isn't finished. Ten minutes there saves
+an hour of confusion here.
+
+Check it responds:
 
 ```powershell
 # Which Windows is this, and which build? Useful in every support

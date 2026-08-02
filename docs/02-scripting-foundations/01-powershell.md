@@ -27,6 +27,95 @@ PowerShell for real against Windows Server in Module 5. (PowerShell does
 install on Linux and macOS, but a script that can't query your hardware
 teaches you nothing today.)
 
+## Running PowerShell, before you write any
+
+You'll type PowerShell commands in this course far more often than
+you'll write PowerShell files, so learn the console first.
+
+**Open it as Administrator.** Right-click the Start button and choose
+the **Windows PowerShell (Admin)** or **Terminal (Admin)** entry. Most
+of what you'll do to a server needs administrator rights, and the
+failure when you don't have them is a confusing "access denied" rather
+than a helpful "run me as admin". You'll know it worked because the
+window title says Administrator.
+
+You get a prompt that looks like `PS C:\Users\you>`. Type a command,
+press Enter, read what comes back. That's the whole interaction:
+
+```powershell
+# Try these one at a time. Type, Enter, read.
+Get-Date
+Get-Location
+Get-ChildItem
+```
+
+**Code blocks in this course usually hold several separate commands.**
+Run them one line at a time unless the lesson says otherwise. Pasting a
+whole block works too and PowerShell will run each line in order, but
+going one at a time means you see which command produced which output,
+and when something fails you know exactly what failed.
+
+### The backtick, and the trap that comes with it
+
+Some commands are too long for one line, so you'll see them broken up
+with a backtick at the end of each line:
+
+```powershell
+New-Item -ItemType Directory `
+         -Path C:\Temp\example
+```
+
+That trailing `` ` `` means "this command continues on the next line."
+When you meet one, **paste or type the whole thing including every
+continued line**, then press Enter once at the end. It's one command
+wearing several lines.
+
+Here's the trap, and it catches everyone once: **nothing may follow the
+backtick, not even a space.** One invisible space after it and
+PowerShell treats the line as finished, then chokes on the next line as
+if it were a new command. If you type these by hand rather than copying,
+this is the single most likely thing to go wrong.
+
+### When the prompt turns into `>>`
+
+Sooner or later you'll press Enter and get this instead of your normal
+prompt:
+
+```text
+>>
+```
+
+That's PowerShell saying "your command isn't finished, keep going." It
+means something was left open: a backtick at the end, an unclosed quote,
+an unmatched brace. It looks like a hang, and it isn't.
+
+To get out: press **Ctrl+C**. Your prompt comes back and nothing was
+run. Then look at what you pasted for the unclosed thing.
+
+### Four keys that make this bearable
+
+- **Tab** completes what you're typing. Type `Get-Chi` and press Tab.
+  It also completes parameter names after a `-`, which is faster and
+  more accurate than remembering them.
+- **Up arrow** brings back your previous commands. Most of what you type
+  is a small edit of something you already typed.
+- **Ctrl+C** stops a command that's running or a line you've made a mess
+  of.
+- **`Get-Help`** is the built-in manual, and `-Examples` is the part
+  worth reading:
+
+```powershell
+# What does this command do, with realistic examples?
+Get-Help Get-ChildItem -Examples
+
+# What commands exist for a thing I only half remember?
+Get-Command *service*
+```
+
+Those last two are the self-rescue kit. Between them and lesson 1.6's
+rule about understanding a command before running it, you can work out
+almost anything without leaving the shell.
+
 ## The script
 
 Save this as `machine-report.ps1` in `Resources/scripts/` in your vault.

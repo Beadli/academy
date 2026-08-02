@@ -15,6 +15,28 @@ checkpoint. The repetition is deliberate. By Module 6 you'll write the
 journal entry without being told, and that habit is worth more than any
 single lesson in this course.
 
+## How to read the code in this course
+
+Code blocks look like this, and the label above the box tells you which
+shell it belongs in: `powershell` runs on a Windows machine,
+`bash` on a Linux one.
+
+Two conventions worth knowing before you meet your first one:
+
+**The comments are the lesson.** Lines starting with `#` explain what
+the next line does and why. They're not decoration to skip past, and
+they're the reason the code blocks in this course are longer than the
+commands they contain.
+
+**A block usually holds several separate commands, not one long
+program.** Run them one at a time, read what each returns, and move on.
+Where a block is meant to be run as a whole, or saved as a file, the
+lesson says so.
+
+Lesson 2.1 covers actually driving a shell: opening it, running
+commands, escaping when you've typed something it won't accept, and
+getting help without leaving the window. Nothing before that needs it.
+
 ## Checkpoints
 
 A checkpoint is how you know you're done, instead of hoping you're done.
