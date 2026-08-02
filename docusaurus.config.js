@@ -70,24 +70,17 @@ const config = {
       },
       footer: {
         style: 'dark',
+        // Flat array (no title/items) selects Docusaurus's "simple" footer:
+        // one centred row of links. Two links never justified two titled
+        // columns, and the headings were most of the footer's height.
         links: [
           {
-            title: 'Course',
-            items: [
-              {
-                label: 'Start with Module 0',
-                to: '/modules/intro',
-              },
-            ],
+            label: 'Start with Module 0',
+            to: '/modules/intro',
           },
           {
-            title: 'Community',
-            items: [
-              {
-                label: 'GitHub Discussions',
-                href: 'https://github.com/beadli-lab-academy/academy/discussions',
-              },
-            ],
+            label: 'GitHub Discussions',
+            href: 'https://github.com/beadli-lab-academy/academy/discussions',
           },
         ],
         copyright: `Course text © ${new Date().getFullYear()} Steve — CC BY-NC-SA 4.0 · Code — MIT`,

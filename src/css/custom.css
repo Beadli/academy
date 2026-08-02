@@ -78,3 +78,126 @@
   font-size: 1.06rem;
   letter-spacing: 0.15px;
 }
+
+/* Footer on a single line.
+
+   Docusaurus stacks the link row above the copyright, which makes a tall
+   band for two links and one sentence. This lays the footer container out
+   as one centred flex row so the links and the copyright share a line, and
+   trims the vertical padding to match.
+
+   Layout only, no colours, so light and dark are unaffected. Wraps to two
+   lines on narrow screens instead of overflowing. */
+.footer {
+  --ifm-footer-padding-vertical: 0.85rem;
+}
+
+.footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1.1rem;
+  row-gap: 0.35rem;
+}
+
+/* Docusaurus spaces the two blocks apart vertically; on one line that
+   spacing is what keeps them looking stacked. */
+.footer .footer__links,
+.footer .footer__bottom {
+  margin: 0;
+}
+
+.footer .footer__copyright {
+  font-size: 0.9rem;
+}
+
+/* Heading scale.
+
+   Docusaurus sizes lesson headings on CLASS selectors, at every width:
+     .markdown h1:first-child   3rem
+     .markdown > h2             2rem
+     .markdown > h3             1.5rem
+   Class selectors beat :root custom properties, so overriding the :root
+   variables alone does nothing to lesson headings. The scale has to be
+   restated on the same selectors, which is what this block does.
+
+   3rem for a lesson title is a marketing-page size. These pages are read,
+   not landed on, so the title should introduce the lesson rather than
+   dominate the screen.
+
+   Body text stays at the 16px default on purpose. These are long reading
+   lessons, and shrinking body copy is the quickest way to make a course
+   painful to read. The wasted space was all in the headings. */
+:root {
+  --ifm-h1-font-size: 1.9rem;
+  --ifm-h2-font-size: 1.5rem;
+  --ifm-h3-font-size: 1.25rem;
+}
+
+.markdown h1:first-child {
+  --ifm-h1-font-size: 2.25rem;
+}
+
+.markdown > h2 {
+  --ifm-h2-font-size: 1.55rem;
+}
+
+.markdown > h3 {
+  --ifm-h3-font-size: 1.25rem;
+}
+
+.hero__title {
+  font-size: 2.5rem;
+}
+
+/* Phones. Declared after the rules above so it wins at small widths, and
+   it repeats the .markdown selectors for the same specificity reason.
+   Docusaurus ships its own <=576px block; this one is later in the bundle,
+   so these values are what actually apply. */
+@media (max-width: 768px) {
+  :root {
+    --ifm-h1-font-size: 1.75rem;
+    --ifm-h2-font-size: 1.4rem;
+    --ifm-h3-font-size: 1.18rem;
+  }
+
+  .markdown h1:first-child {
+    --ifm-h1-font-size: 1.95rem;
+  }
+
+  .markdown > h2 {
+    --ifm-h2-font-size: 1.4rem;
+  }
+
+  .markdown > h3 {
+    --ifm-h3-font-size: 1.18rem;
+  }
+
+  .hero__title {
+    font-size: 2rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.05rem;
+  }
+}
+
+/* Lesson prose on laptops and up.
+
+   Phone body size is right at the 16px default (confirmed on device), so
+   this starts above the phone breakpoint and leaves small screens alone.
+
+   Deliberately set on the .markdown container rather than on the root font
+   size. Headings are sized in rem, which is root-relative, so shrinking the
+   root would drag the heading scale down with it and undo the sizes settled
+   above. Scoping it here moves the prose and leaves the headings put.
+
+   Code blocks inherit from this container (--ifm-code-font-size is a
+   percentage), so they scale with the prose, which keeps code and text in
+   proportion instead of leaving code looking oversized. */
+@media (min-width: 769px) {
+  .markdown {
+    font-size: 0.95rem;
+  }
+}
