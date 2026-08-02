@@ -5,7 +5,7 @@ title: "Module 9: Hybrid identity with Entra ID"
 
 # Module 9: Hybrid identity with Entra ID
 
-:::warning Not yet published
+:::warning[Not yet published]
 This module is under construction.
 :::
 

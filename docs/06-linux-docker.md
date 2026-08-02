@@ -5,7 +5,7 @@ title: "Module 6: Linux server and Docker"
 
 # Module 6: Linux server and Docker
 
-:::warning Not yet published
+:::warning[Not yet published]
 This module is under construction.
 :::
 

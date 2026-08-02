@@ -33,7 +33,7 @@ it's a one-time toll.
 
 Windows may ask to reboot after install. Let it.
 
-:::info VirtualBox difference
+:::info[VirtualBox difference]
 VirtualBox skips the portal saga entirely: download it from
 [virtualbox.org](https://www.virtualbox.org), install with defaults,
 and also install the matching **Extension Pack** from the same page

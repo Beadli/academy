@@ -5,7 +5,7 @@ title: "Module 12: Monitoring and detection"
 
 # Module 12: Monitoring and detection
 
-:::warning Not yet published
+:::warning[Not yet published]
 This module is under construction.
 :::
 

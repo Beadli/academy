@@ -25,7 +25,7 @@ Snapshot**. Name it `clean-install`, and put something in the
 description; six VMs from now, "snapshot 3" tells you nothing. Naming
 discipline starts with the first one.
 
-:::info VirtualBox difference
+:::info[VirtualBox difference]
 Machine tools menu > **Snapshots**, then the Take button. Same concept,
 same advice about names.
 :::

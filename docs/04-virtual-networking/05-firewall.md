@@ -5,7 +5,7 @@ sidebar_position: 5
 
 # 4.5 Build a real firewall (Tier 2)
 
-:::note Tier 2 from here
+:::note[Tier 2 from here]
 This lesson and the next need the 32 GB tier, because they add a
 seventh machine and a second network segment. **Tier 1 students: read
 both anyway, then skip to 4.7.** Nothing later in the course breaks

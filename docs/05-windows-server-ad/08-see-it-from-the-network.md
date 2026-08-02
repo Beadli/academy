@@ -11,7 +11,7 @@ about itself to the network is both how legitimate machines find it and
 the first thing an attacker enumerates. Same information, two very
 different intentions.
 
-:::note Tier 2: your firewall will block this, and that's correct
+:::note[Tier 2: your firewall will block this, and that's correct]
 KALI01 sits outside your boundary and cannot reach `10.10.10.0/24`,
 which is exactly what you proved in lesson 4.6. To do this lesson,
 shut Kali down, move its network adapter to the LAN segment, and boot

@@ -112,7 +112,7 @@ permissions were granted to Sam directly, you're hunting through file
 shares and applications for years afterwards. Every organization has an
 archaeology layer of permissions granted to people who left in 2019.
 
-:::tip In cloud terms
+:::tip[In cloud terms]
 These are the objects Module 9 will synchronise. Your `sokoth` becomes a
 user in a cloud directory, `Lab Engineers` becomes a cloud group, and
 the on-premises directory stays the authority for both. Cloud identity

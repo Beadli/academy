@@ -5,7 +5,7 @@ title: "Module 8: Identity and single sign-on"
 
 # Module 8: Identity and single sign-on
 
-:::warning Not yet published
+:::warning[Not yet published]
 This module is under construction.
 :::
 

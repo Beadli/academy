@@ -65,7 +65,7 @@ Set-DnsClientServerAddress -InterfaceAlias "Ethernet0" `
                            -ServerAddresses 10.10.10.254
 ```
 
-:::warning You may lose the console for a second
+:::warning[You may lose the console for a second]
 If you're working through a remote session the address change will drop
 it. You're at the VM's own console, so you'll be fine, but the same
 command on a real remote server is how people lock themselves out of

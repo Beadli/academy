@@ -83,7 +83,7 @@ Module 14 you'll run these again from a position of having
 compromised something, and having today's baseline to compare against is
 what turns "I poked at it" into an assessment.
 
-:::tip In GRC language
+:::tip[In GRC language]
 What you just built and tested has a name in control frameworks:
 **boundary protection**, SC-7 in NIST 800-53, and it's one of the
 controls auditors ask about first. Notice what made it assessable: not
@@ -96,7 +96,7 @@ this exact control on this exact lab.
 
 ## Optional: reach your lab from anywhere
 
-:::note Tier 3, and genuinely optional
+:::note[Tier 3, and genuinely optional]
 Skip this without guilt. It's here because it's the piece people ask
 about most once their lab exists.
 :::

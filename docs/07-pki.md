@@ -5,7 +5,7 @@ title: "Module 7: PKI"
 
 # Module 7: PKI
 
-:::warning Not yet published
+:::warning[Not yet published]
 This module is under construction.
 :::
 

@@ -29,7 +29,7 @@ Before you power it on, set its network:
   like a real one, and getting from there to your domain is what Module
   14 is about.
 
-:::info VirtualBox difference
+:::info[VirtualBox difference]
 Use **Machine > Add** and pick the `.vbox` file from the unpacked
 folder. Set the adapter in **Settings > Network** to your `lab-nat` NAT
 Network (Tier 1) or leave it on the NAT Network as the outer segment

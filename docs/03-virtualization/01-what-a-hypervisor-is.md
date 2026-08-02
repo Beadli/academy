@@ -37,7 +37,7 @@ difference.
 runs the same lab, and if you already use it, keep it. Wherever the two
 tools genuinely differ, you'll see a callout box like this:
 
-:::info VirtualBox difference
+:::info[VirtualBox difference]
 Boxes like this one translate the step for VirtualBox users. If there's
 no box, the step is the same in both tools apart from cosmetics.
 :::

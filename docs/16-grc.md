@@ -5,7 +5,7 @@ title: "Module 16: GRC, assess your own system"
 
 # Module 16: GRC, assess your own system
 
-:::warning Not yet published
+:::warning[Not yet published]
 This module is under construction.
 :::
 

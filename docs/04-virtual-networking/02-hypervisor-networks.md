@@ -67,7 +67,7 @@ course does not use it. Three reasons, none of them theoretical:
 If you later have a reason to bridge a machine deliberately, you'll know
 why you're doing it. Until then, don't.
 
-:::info VirtualBox difference
+:::info[VirtualBox difference]
 The names map almost directly: NAT Network, Host-only Adapter, Internal
 Network, Bridged Adapter. One trap worth knowing: VirtualBox offers both
 **NAT** and **NAT Network**. Plain "NAT" gives each VM its own private

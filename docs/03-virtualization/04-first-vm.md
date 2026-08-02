@@ -39,7 +39,7 @@ like this. Every choice teaches something, so the reasons ride along:
   that means and what the alternatives are; today the VM just needs
   the internet.
 
-:::info VirtualBox difference
+:::info[VirtualBox difference]
 Same decisions, different wizard: **Machine > New**, and untick any
 "unattended install" option so you get the real installer. The first
 screen has both the name and the **Folder** where the machine is

@@ -64,7 +64,7 @@ Then walk the installer:
 Log in. You'll land on a desktop with **Server Manager** opening by
 itself, which is the console you'll use for the next few lessons.
 
-:::info VirtualBox difference
+:::info[VirtualBox difference]
 Same install, and one setting worth checking first: in
 **Settings > System**, make sure **Enable EFI** matches how you intend
 to boot. VirtualBox defaults vary by version, and a Windows Server ISO

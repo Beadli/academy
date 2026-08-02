@@ -5,7 +5,7 @@ title: "Module 14: Adversary simulation"
 
 # Module 14: Adversary simulation
 
-:::warning Not yet published
+:::warning[Not yet published]
 This module is under construction.
 :::
 

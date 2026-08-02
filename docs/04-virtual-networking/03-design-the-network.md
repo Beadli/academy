@@ -56,7 +56,7 @@ Copy that table into your journal now, under a heading like "lab
 addressing plan." You will look it up more than any other note you take
 in this course.
 
-:::tip In cloud terms
+:::tip[In cloud terms]
 This is the same exercise cloud engineers do before creating anything.
 Your `10.10.10.0/24` is a **subnet** inside what Azure calls a **virtual
 network**; the firewall you're about to build does the job of a **network
@@ -91,7 +91,7 @@ next lesson boots a VM, run `ip route` and read the address on the
 `default` line. Reading the answer off the machine beats trusting any
 document, including this one.
 
-:::info VirtualBox difference
+:::info[VirtualBox difference]
 Use **File > Tools > Network Manager**, the **NAT Networks** tab, and
 create one named `lab-nat` with the range `10.10.10.0/24`. Tick
 **Supports DHCP**. VirtualBox's gateway convention is `.1`, so read
@@ -120,7 +120,7 @@ internet except through the firewall you'll build in 4.5.
    you'll reach the firewall's web interface in 4.5 without needing
    another VM to browse from.
 
-:::info VirtualBox difference
+:::info[VirtualBox difference]
 Make the outer segment a **NAT Network** as above, and the inner one a
 **Host-only Network** in the same Network Manager, set to
 `10.10.10.0/24` with its **DHCP Server disabled** on the host-only tab.
