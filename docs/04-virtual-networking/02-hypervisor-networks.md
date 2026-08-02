@@ -52,11 +52,11 @@ address from your home router and your phone can ping it.
 It's the mode beginners reach for because it feels simplest, and this
 course does not use it. Three reasons, none of them theoretical:
 
-- **You're about to run a DHCP server.** Later in this module and again
-  in Module 5, machines in your lab start handing out addresses. On a
-  bridged network they'd hand them to your housemate's laptop and your
-  TV. Rogue DHCP is a genuinely miserable thing to diagnose from the
-  other side.
+- **You're about to run a DHCP server.** Later in this module your own
+  firewall starts handing out addresses (Tier 2), and on Tier 1 your
+  hypervisor already is. On a bridged network those offers would reach
+  your housemate's laptop and your TV. Rogue DHCP is a genuinely
+  miserable thing to diagnose from the other side.
 - **You're about to run deliberately vulnerable things.** A Kali box and
   an unpatched Windows Server belong behind a boundary, not on the same
   network as the family iPad.
