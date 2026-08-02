@@ -1,0 +1,90 @@
+<svg viewBox="0 0 1160 470" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <style>
+      .box { fill: var(--ifm-background-surface-color, #ffffff); stroke: currentColor; stroke-opacity: 0.75; stroke-width: 1.5; }
+      .later { fill: none; stroke: currentColor; stroke-opacity: 0.4; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .name { fill: currentColor; font-size: 14px; font-weight: 600; text-anchor: middle; }
+      .role { fill: currentColor; fill-opacity: 0.6; font-size: 11px; text-anchor: middle; }
+      .wire { stroke: currentColor; stroke-opacity: 0.45; stroke-width: 1.5; fill: none; }
+      .zonelabel { font-size: 11.5px; font-weight: 600; letter-spacing: 0.3px; }
+      .panel { font-size: 15px; font-weight: 700; fill: currentColor; }
+      .note { fill: currentColor; fill-opacity: 0.62; font-size: 11px; }
+    </style>
+  </defs>
+
+  <!-- ============ PANEL A: TIER 1 ============ -->
+  <text x="30" y="28" class="panel">Tier 1: one network</text>
+  <text x="30" y="46" class="note">the hypervisor is your router</text>
+
+  <rect x="230" y="66" width="120" height="34" rx="17" class="box"/>
+  <text x="290" y="88" class="name" font-size="11" letter-spacing="1.4">INTERNET</text>
+  <line x1="290" y1="100" x2="290" y2="150" class="wire"/>
+  <text x="300" y="126" class="note">NAT</text>
+
+  <rect x="40" y="150" width="500" height="290" rx="12"
+        fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.045"
+        stroke="var(--ifm-color-primary, #2e8555)" stroke-opacity="0.45" stroke-width="1.5"/>
+  <text x="58" y="176" fill="var(--ifm-color-primary, #2e8555)" class="zonelabel">
+    hypervisor NAT network · 10.10.10.0/24
+  </text>
+  <text x="58" y="194" class="note">gateway and DHCP provided by VMware or VirtualBox</text>
+
+  <rect x="70" y="230" width="150" height="60" rx="9" class="box" stroke="#e5484d" stroke-opacity="0.8"/>
+  <text x="145" y="255" class="name">KALI01</text>
+  <text x="145" y="272" class="role">attacker box</text>
+  <text x="145" y="304" class="note" text-anchor="middle">built in 4.4</text>
+
+  <rect x="250" y="230" width="130" height="60" rx="9" class="later"/>
+  <text x="315" y="255" class="name" fill-opacity="0.55">DC01</text>
+  <text x="315" y="272" class="role">Module 5</text>
+
+  <rect x="400" y="230" width="120" height="60" rx="9" class="later"/>
+  <text x="460" y="255" class="name" fill-opacity="0.55">UBNT01</text>
+  <text x="460" y="272" class="role">Module 6</text>
+
+  <text x="70" y="360" class="note">Everything shares one segment. Simple, and enough</text>
+  <text x="70" y="378" class="note">for every module in the course.</text>
+  <text x="70" y="410" class="note">The attacker sits beside its targets, which is the</text>
+  <text x="70" y="428" class="note">one thing Tier 2 improves on.</text>
+
+  <!-- ============ PANEL B: TIER 2 ============ -->
+  <text x="620" y="28" class="panel">Tier 2: two segments, one firewall</text>
+  <text x="620" y="46" class="note">you are the router</text>
+
+  <rect x="810" y="66" width="120" height="34" rx="17" class="box"/>
+  <text x="870" y="88" class="name" font-size="11" letter-spacing="1.4">INTERNET</text>
+  <line x1="870" y1="100" x2="870" y2="122" class="wire"/>
+
+  <!-- WAN zone -->
+  <rect x="620" y="122" width="510" height="92" rx="12"
+        fill="#e5484d" fill-opacity="0.05" stroke="#e5484d" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="638" y="146" fill="#e5484d" fill-opacity="0.85" class="zonelabel">
+    WAN · hypervisor NAT · the hostile side
+  </text>
+  <rect x="650" y="156" width="150" height="46" rx="9" class="box" stroke="#e5484d" stroke-opacity="0.8"/>
+  <text x="725" y="175" class="name">KALI01</text>
+  <text x="725" y="192" class="role">attacker box</text>
+
+  <!-- firewall straddling -->
+  <line x1="960" y1="214" x2="960" y2="242" class="wire"/>
+  <rect x="855" y="242" width="210" height="58" rx="9" class="box"/>
+  <text x="960" y="266" class="name">FW01</text>
+  <text x="960" y="283" class="role">OPNsense · 10.10.10.254</text>
+  <line x1="960" y1="300" x2="960" y2="326" class="wire"/>
+  <text x="700" y="232" class="note">default policy: inbound denied, outbound allowed</text>
+
+  <!-- LAN zone -->
+  <rect x="620" y="326" width="510" height="114" rx="12"
+        fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.045"
+        stroke="var(--ifm-color-primary, #2e8555)" stroke-opacity="0.45" stroke-width="1.5"/>
+  <text x="638" y="350" fill="var(--ifm-color-primary, #2e8555)" class="zonelabel">
+    LAN · host-only · 10.10.10.0/24 · lab.cyber.internal
+  </text>
+  <rect x="650" y="362" width="130" height="58" rx="9" class="later"/>
+  <text x="715" y="386" class="name" fill-opacity="0.55">DC01</text>
+  <text x="715" y="403" class="role">Module 5</text>
+  <rect x="800" y="362" width="130" height="58" rx="9" class="later"/>
+  <text x="865" y="386" class="name" fill-opacity="0.55">UBNT01</text>
+  <text x="865" y="403" class="role">Module 6</text>
+  <text x="1035" y="392" class="note" text-anchor="middle">and the rest</text>
+</svg>
