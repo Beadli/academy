@@ -3,6 +3,8 @@ title: "6.7 Give it a real name: DNS and a reverse proxy"
 sidebar_position: 7
 ---
 
+import ReverseProxy from '@site/static/img/module6-reverse-proxy.svg';
+
 # 6.7 Give it a real name: DNS and a reverse proxy
 
 Right now your Git server is reachable at `127.0.0.1:3000` on one
@@ -24,6 +26,8 @@ normal ports, looks at which *name* the browser asked for, and forwards
 the request to the right service on loopback. One front door, many rooms
 behind it. It's also the natural place to terminate TLS, which is why
 Module 7 comes back here.
+
+<ReverseProxy role="img" aria-label="Request flow: your laptop asks DC01's DNS who git.lab.internal is and gets 10.10.10.20, then sends the request to that address on port 443. On UBNT01, nginx is the only thing listening on ports 80 and 443; it reads the name requested and forwards to services bound to 127.0.0.1 only, which are unreachable from the network: Gitea on port 3000, and step-ca on port 9000 arriving in Module 7." style={{width: '100%', height: 'auto'}} />
 
 ## Create the DNS record
 

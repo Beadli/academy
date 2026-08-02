@@ -3,6 +3,8 @@ title: "Module 7: PKI and certificates"
 sidebar_position: 0
 ---
 
+import PkiChains from '@site/static/img/module7-pki-chains.svg';
+
 # Module 7: PKI and certificates
 
 You have collected two browser warnings so far. OPNsense threw one in
@@ -46,6 +48,10 @@ The payoff is shared: by 7.6 everyone has certificates issued
 automatically and renewed without a human, and both browser warnings are
 gone. Tier 2 then continues into templates, autoenrollment, and
 revocation.
+
+Here are the two chains this module builds, side by side:
+
+<PkiChains role="img" aria-label="Two panels. Tier 1: a step-ca root running in a container on UBNT01 signs the certificate for git.lab.internal directly, and the root is installed by hand into each machine's trust store. Tier 2: ROOTCA01 is an offline root, powered off, which signed SUBCA01 the issuing CA; SUBCA01 in turn signs both a step-ca intermediate that issues ACME certificates for Linux services and certificates autoenrolled by Windows machines, and Group Policy pushes the root to every domain machine." style={{width: '100%', height: 'auto'}} />
 
 Budget an evening either side of 7.4. Nothing here is difficult; there's
 just a lot of it, and the concepts in 7.1 carry the rest.

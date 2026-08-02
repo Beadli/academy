@@ -1,0 +1,76 @@
+<svg viewBox="0 0 1160 470" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <style>
+      .box   { fill: var(--ifm-background-surface-color, #ffffff); stroke: currentColor; stroke-opacity: 0.75; stroke-width: 1.5; }
+      .later { fill: none; stroke: currentColor; stroke-opacity: 0.4; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .name  { fill: currentColor; font-size: 14px; font-weight: 600; text-anchor: middle; }
+      .role  { fill: currentColor; fill-opacity: 0.62; font-size: 11px; text-anchor: middle; }
+      .note  { fill: currentColor; fill-opacity: 0.65; font-size: 11px; }
+      .wire  { stroke: currentColor; stroke-opacity: 0.5; stroke-width: 1.6; fill: none; }
+      .flow  { stroke: var(--ifm-color-primary, #2e8555); stroke-width: 1.9; fill: none; }
+      .zone  { font-size: 11.5px; font-weight: 600; }
+    </style>
+    <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--ifm-color-primary, #2e8555)"/>
+    </marker>
+    <marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" fill-opacity="0.5"/>
+    </marker>
+  </defs>
+
+  <!-- browser -->
+  <rect x="24" y="150" width="180" height="76" rx="10" class="box"/>
+  <text x="114" y="180" class="name">your laptop</text>
+  <text x="114" y="199" class="role">git.lab.internal</text>
+  <text x="114" y="216" class="role">in the address bar</text>
+
+  <!-- DNS lookup, up and over to DC01 -->
+  <polyline points="114,150 114,84 372,84" class="wire" marker-end="url(#arwg)"/>
+  <text x="130" y="76" class="note">1. who is git.lab.internal?</text>
+
+  <rect x="372" y="52" width="200" height="62" rx="10" class="box"/>
+  <text x="472" y="77" class="name">DC01</text>
+  <text x="472" y="95" class="role">DNS · answers 10.10.10.20</text>
+
+  <!-- the request itself -->
+  <line x1="204" y1="188" x2="404" y2="188" class="flow" marker-end="url(#arw)"/>
+  <text x="218" y="180" class="note">2. request to</text>
+  <text x="218" y="196" class="note">10.10.10.20 : 443</text>
+
+  <!-- UBNT01 boundary -->
+  <rect x="404" y="132" width="732" height="300" rx="14" fill="none"
+        stroke="currentColor" stroke-opacity="0.55" stroke-width="2"/>
+  <text x="424" y="158" class="zone" fill="currentColor">UBNT01 · 10.10.10.20</text>
+
+  <!-- nginx -->
+  <rect x="430" y="180" width="180" height="96" rx="10" class="box"/>
+  <text x="520" y="207" class="name">nginx</text>
+  <text x="520" y="226" class="role">listens on :80 and :443</text>
+  <text x="520" y="244" class="role">the only open ports</text>
+  <text x="520" y="264" class="role">reads the name asked for</text>
+
+  <!-- loopback zone -->
+  <rect x="676" y="168" width="436" height="240" rx="12"
+        fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.045"
+        stroke="var(--ifm-color-primary, #2e8555)" stroke-opacity="0.45"
+        stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="696" y="193" fill="var(--ifm-color-primary, #2e8555)" class="zone">
+    127.0.0.1 only · unreachable from the network
+  </text>
+
+  <!-- routed services -->
+  <polyline points="610,214 646,214 646,240 706,240" class="flow" marker-end="url(#arw)"/>
+  <rect x="706" y="214" width="230" height="56" rx="9" class="box"/>
+  <text x="821" y="238" class="name">Gitea</text>
+  <text x="821" y="256" class="role">127.0.0.1 : 3000</text>
+  <text x="952" y="245" class="note">git.lab.internal</text>
+
+  <polyline points="610,250 646,250 646,330 706,330" class="flow" marker-end="url(#arw)"/>
+  <rect x="706" y="304" width="230" height="56" rx="9" class="later"/>
+  <text x="821" y="328" class="name" fill-opacity="0.55">step-ca</text>
+  <text x="821" y="346" class="role">127.0.0.1 : 9000 · Module 7</text>
+  <text x="952" y="335" class="note">ca.lab.internal</text>
+
+  <text x="706" y="388" class="note">every later service joins here: one file per name,</text>
+  <text x="706" y="404" class="note">no new ports opened to the network</text>
+</svg>

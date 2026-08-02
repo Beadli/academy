@@ -1,0 +1,99 @@
+<svg viewBox="0 0 1180 600" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <style>
+      .box   { fill: var(--ifm-background-surface-color, #ffffff); stroke: currentColor; stroke-opacity: 0.75; stroke-width: 1.5; }
+      .off   { fill: none; stroke: currentColor; stroke-opacity: 0.45; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .name  { fill: currentColor; font-size: 14px; font-weight: 600; text-anchor: middle; }
+      .role  { fill: currentColor; fill-opacity: 0.62; font-size: 11px; text-anchor: middle; }
+      .note  { fill: currentColor; fill-opacity: 0.62; font-size: 11px; }
+      .panel { fill: currentColor; font-size: 15px; font-weight: 700; }
+      .sign  { stroke: var(--ifm-color-primary, #2e8555); stroke-width: 1.8; fill: none; }
+      .pill  { fill: #ffffff; font-size: 10px; font-weight: 700; text-anchor: middle; }
+      .t1    { fill: var(--ifm-color-primary, #2e8555); }
+      .t2    { fill: #f76b15; }
+    </style>
+    <marker id="sig" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--ifm-color-primary, #2e8555)"/>
+    </marker>
+  </defs>
+
+  <!-- ================= PANEL A : TIER 1 ================= -->
+  <text x="28" y="30" class="panel">Tier 1: one root, short chain</text>
+  <text x="28" y="50" class="note">no extra virtual machines</text>
+  <rect x="270" y="16" width="30" height="18" rx="9" class="t1"/>
+  <text x="285" y="29" class="pill">T1</text>
+
+  <rect x="120" y="90" width="230" height="62" rx="10" class="box"/>
+  <text x="235" y="115" class="name">step-ca root</text>
+  <text x="235" y="133" class="role">container on UBNT01</text>
+
+  <line x1="235" y1="152" x2="235" y2="212" class="sign" marker-end="url(#sig)"/>
+  <text x="248" y="187" class="note">signs</text>
+
+  <rect x="120" y="212" width="230" height="62" rx="10" class="box"/>
+  <text x="235" y="237" class="name">git.lab.internal</text>
+  <text x="235" y="255" class="role">issued by ACME, auto-renewed</text>
+
+  <rect x="60" y="330" width="350" height="86" rx="10"
+        fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.05"
+        stroke="var(--ifm-color-primary, #2e8555)" stroke-opacity="0.4" stroke-width="1.5"/>
+  <text x="80" y="356" class="note" font-weight="600">Trust: install the root by hand</text>
+  <text x="80" y="376" class="note">Linux trust store, Windows machine store,</text>
+  <text x="80" y="394" class="note">Firefox separately (lesson 7.5).</text>
+
+  <text x="60" y="460" class="note">One link to verify, one root to install.</text>
+  <text x="60" y="478" class="note">Everything a browser needs is two files.</text>
+
+  <!-- divider -->
+  <line x1="500" y1="70" x2="500" y2="520" stroke="currentColor" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3 5"/>
+
+  <!-- ================= PANEL B : TIER 2 ================= -->
+  <text x="556" y="30" class="panel">Tier 2: offline root, delegated downward</text>
+  <text x="556" y="50" class="note">the shape real organizations run</text>
+  <rect x="1060" y="16" width="30" height="18" rx="9" class="t2"/>
+  <text x="1075" y="29" class="pill">T2</text>
+
+  <!-- offline root -->
+  <rect x="700" y="80" width="290" height="64" rx="10" class="off"/>
+  <text x="845" y="105" class="name" fill-opacity="0.6">ROOTCA01</text>
+  <text x="845" y="123" class="role">offline root · POWERED OFF</text>
+  <text x="1005" y="112" class="note">signs once,</text>
+  <text x="1005" y="128" class="note">then goes dark</text>
+
+  <line x1="845" y1="144" x2="845" y2="196" class="sign" marker-end="url(#sig)"/>
+
+  <!-- issuing CA -->
+  <rect x="700" y="196" width="290" height="64" rx="10" class="box"/>
+  <text x="845" y="221" class="name">SUBCA01 · Lab Issuing CA</text>
+  <text x="845" y="239" class="role">online, domain-joined</text>
+
+  <!-- split to two children -->
+  <polyline points="845,260 845,286 665,286 665,318" class="sign" marker-end="url(#sig)"/>
+  <polyline points="845,286 1025,286 1025,318" class="sign" marker-end="url(#sig)"/>
+
+  <!-- left child: step-ca intermediate -->
+  <rect x="556" y="318" width="220" height="62" rx="10" class="box"/>
+  <text x="666" y="343" class="name">step-ca intermediate</text>
+  <text x="666" y="361" class="role">speaks ACME</text>
+
+  <line x1="666" y1="380" x2="666" y2="424" class="sign" marker-end="url(#sig)"/>
+
+  <rect x="556" y="424" width="220" height="62" rx="10" class="box"/>
+  <text x="666" y="449" class="name">git.lab.internal</text>
+  <text x="666" y="467" class="role">Linux services, auto-renewed</text>
+
+  <!-- right child: Windows autoenrolled -->
+  <rect x="915" y="318" width="220" height="62" rx="10" class="box"/>
+  <text x="1025" y="343" class="name">Windows machines</text>
+  <text x="1025" y="361" class="role">autoenrolled, nobody asks</text>
+
+  <text x="915" y="404" class="note">templates decide who may</text>
+  <text x="915" y="421" class="note">request what (lesson 7.7)</text>
+
+  <!-- trust -->
+  <rect x="556" y="512" width="579" height="66" rx="10"
+        fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.05"
+        stroke="var(--ifm-color-primary, #2e8555)" stroke-opacity="0.4" stroke-width="1.5"/>
+  <text x="576" y="538" class="note" font-weight="600">Trust: Group Policy pushes the root to every domain machine</text>
+  <text x="576" y="558" class="note">One root to install, including on machines that do not exist yet.</text>
+</svg>
