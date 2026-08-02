@@ -13,12 +13,26 @@ machines that ask through Active Directory. It is much less pleasant for
 a Linux server that wants a certificate for a web service, renewed
 automatically, forever, without a human.
 
-That job belongs to **ACME**, the protocol Let's Encrypt uses to issue
-most of the public internet's certificates, and you're going to run a CA
-that speaks it: **step-ca**, in one container on UBNT01.
+That job belongs to **ACME**, which stands for **Automated Certificate
+Management Environment**. It's a protocol that replaces the entire
+manual dance with a conversation between two programs: your server asks
+a certificate authority for a certificate, the CA challenges it to prove
+it controls the name, the server proves it, and a certificate comes
+back. No forms, no email, no human.
 
-The skill transfers directly. Once you can do this against your own CA,
-doing it against a public one is the same commands with a different URL.
+It matters for one reason above all others. Because issuing is free of
+human effort, certificates can be **short-lived** and renewed
+constantly, and short lifetimes are what limit the damage when a private
+key leaks. That's why public certificates went from lasting years to
+lasting weeks: it only became safe to shorten them once nobody had to
+remember anything. ACME is the reason HTTPS went from something
+expensive that expensive websites had, to something every website has.
+
+Let's Encrypt issues most of the public internet's certificates this
+way. You're going to run a certificate authority that speaks the same
+protocol: **step-ca**, in one container on UBNT01. The skill transfers
+directly, because doing this against a public CA later is the same
+commands with a different URL.
 
 ## Two paths, one lesson
 

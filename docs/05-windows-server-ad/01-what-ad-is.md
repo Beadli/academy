@@ -18,9 +18,15 @@ anyone still cares about printers. It's stored on machines called
 
 Two things make it more than a spreadsheet.
 
-It's **queryable over the network**, by a protocol called LDAP. When an
-application asks "does the account `jsmith` exist, and which groups is
-it in?", that's an LDAP query to a domain controller. You'll watch this
+It's **queryable over the network**, by a protocol called **LDAP**, the
+Lightweight Directory Access Protocol. The name is a historical joke at
+this point (its predecessor was heavier), but the idea is simple: a
+standard way to ask a directory questions. When an application asks
+"does the account `jsmith` exist, and which groups is it in?", that's an
+LDAP query to a domain controller. It matters because it's not a
+Microsoft invention: the same protocol queries directories on Linux and
+in cloud services, so once you can read an LDAP query you can read them
+everywhere. You'll watch this
 happen in lesson 5.8.
 
 And it **vouches for people**. When someone logs in, the domain
