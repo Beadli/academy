@@ -30,6 +30,10 @@ gpresult /r /scope:computer
 
 # The evaluation clock (opens a dialog).
 slmgr /dli
+
+# Time, which Kerberos cares about within five minutes.
+Get-Date
+w32tm /query /status
 ```
 
 And from KALI01, on the lab network:
@@ -69,6 +73,13 @@ sudo nmap -Pn 10.10.10.10
       `10.10.10.10` (lesson 5.8)
 - [ ] You know your evaluation's remaining days, and the command that
       extends it (lesson 5.3)
+- [ ] You can open an administration console three ways, and know what
+      `dsa.msc` means (lesson 5.5)
+- [ ] You can say why a wrong clock breaks authentication, and what
+      tolerance Kerberos allows (lesson 5.5)
+- [ ] Tier 2: FW01 now hands out `10.10.10.10` as the DNS server for
+      the LAN, so machines built from Module 6 onward can find the
+      domain (lesson 5.5)
 - [ ] `Projects/lab-domain.md` written, journal committed and pushed,
       DC01 snapshotted as `domain-built` (lesson 5.9)
 

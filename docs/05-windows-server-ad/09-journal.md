@@ -48,3 +48,13 @@ git push
 Tick Module 5 in `Projects/lab-progress.md`, and take a snapshot of DC01
 called `domain-built`. You've just crossed the biggest single milestone
 in this course, and a snapshot means the next module can't cost you it.
+
+:::warning[Snapshotting domain controllers: fine here, dangerous at work]
+Worth knowing now so you don't carry the habit somewhere it hurts.
+Reverting a domain controller to an old snapshot in a domain with
+*several* of them can corrupt replication: the reverted DC starts
+handing out change numbers it has already used, the others get
+confused, and the fix is unpleasant. Your lab has exactly one DC and
+nothing to replicate with, so snapshot away. In production, the answer
+is a proper backup and restore, which Module 15 covers.
+:::

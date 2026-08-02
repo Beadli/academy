@@ -13,9 +13,20 @@ controller you can inspect is a domain controller you can fix.
 
 ## The directory exists
 
-Open **Active Directory Users and Computers**: Start menu, or type
-`dsa.msc`. This is the console administrators have used for a quarter of
-a century, and you'll spend real time in it.
+Open **Active Directory Users and Computers**. Windows administration
+tools have short names ending in `.msc`, and there are three ways to
+reach any of them, all worth knowing:
+
+- Press the **Windows key**, start typing the tool's name, and press
+  Enter when it appears.
+- Press **Windows key + R** for the Run box, type the short name
+  (`dsa.msc` for this one), and press Enter. This is the fast way, and
+  it's how you'll see experienced admins do it.
+- In **Server Manager**, use the **Tools** menu, which lists everything
+  installed.
+
+Any of them opens the same console. This is the one administrators have
+used for a quarter of a century, and you'll spend real time in it.
 
 Expand `lab.cyber.internal` and look at what the promotion created for
 you:
@@ -75,7 +86,26 @@ Set-DnsClientServerAddress -InterfaceAlias "Ethernet0" `
 
 Internet names still resolve, by the way, because your DNS server
 forwards anything it isn't authoritative for. Check **Forwarders** in
-the DNS Manager properties to see where it sends them.
+the DNS Manager properties to see where it sends them. If internet
+names *don't* resolve from this machine, that forwarder list is the
+first place to look.
+
+:::note[Tier 2: tell your firewall about the domain]
+Lesson 4.5 promised you'd come back for this, and here it is. FW01 is
+handing out DNS settings to everything on your LAN, and it's currently
+telling them to use a resolver that has never heard of
+`lab.cyber.internal`. Any machine that takes that answer will be able to
+browse the internet and unable to join your domain, which is exactly the
+confusing failure lesson 5.1 warned about.
+
+In the OPNsense web interface, go to **Services > ISC DHCPv4 > [LAN]**
+(or the Dnsmasq/Kea equivalent your version uses) and set the **DNS
+servers** handed out to `10.10.10.10`. Save and apply.
+
+DC01 itself is unaffected, because you gave it a static address and it
+now points at itself. This is for UBNT01 in Module 6 and every machine
+after it.
+:::
 
 ## Kerberos exists, and you're holding a ticket
 
@@ -103,6 +133,37 @@ that output: tickets are deliberately short-lived, which is why a
 disabled account stops working across an organization within hours
 rather than instantly. Knowing that lag exists is the kind of detail
 that separates an answer from a good answer in an interview.
+
+## Why the clock matters more than you'd think
+
+One more thing Kerberos cares about, and it bites lab users specifically.
+
+Tickets are stamped with times, and to stop an attacker replaying an old
+one, every machine checks that the times are close to its own. The
+default tolerance is **five minutes**. Beyond that, authentication
+fails, and it fails with messages that don't obviously say "your clock
+is wrong."
+
+In a real domain this is handled for you: the domain controller is the
+time authority and members sync to it. In a lab it goes wrong for a
+reason production doesn't have. **Virtual machines that were suspended,
+snapshotted, or left powered off for a week come back with the wrong
+time.** Come back to your lab after a break, find you can't
+authenticate, and this is the first thing to check.
+
+```powershell
+# What does this machine think the time is?
+Get-Date
+
+# Force a resync and report what happened.
+w32tm /resync
+w32tm /query /status
+```
+
+Add it to your mental checklist: if authentication breaks after your lab
+has been off for a while, check the clocks before you check anything
+else. It costs ten seconds and it's the answer more often than it has
+any right to be.
 
 ## Where the database actually lives
 
