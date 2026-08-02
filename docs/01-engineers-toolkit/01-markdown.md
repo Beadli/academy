@@ -1,15 +1,25 @@
 ---
-title: "1.1 Markdown, the format everything uses"
+title: "1.1 Note-taking with Markdown"
 sidebar_position: 1
 ---
 
-# 1.1 Markdown, the format everything uses
+# 1.1 Note-taking with Markdown
 
-Markdown is plain text with a little punctuation that means something. It
-was designed so that the raw file is readable on its own, and that
-property is why it won: your notes, this course, GitHub READMEs, and half
-the documentation on the internet are all Markdown. Twenty minutes here
-covers everything you'll use.
+Everything you write for the rest of this course goes into notes: what
+you built, what broke, and how you fixed it. Before the note-taking app
+arrives in the next lesson, you need the format those notes are written
+in, and it takes about twenty minutes to learn all of it.
+
+That format is **Markdown**: plain text with a little punctuation that
+means something. `**bold**` renders as **bold**, a line starting with
+`#` becomes a heading, and the file stays perfectly readable even if
+nothing is rendering it. That last property is why it won. Your notes,
+this course, GitHub READMEs, and half the documentation on the internet
+are all Markdown.
+
+You don't need any special software today. Notepad, TextEdit, or
+whatever editor you already have is fine; the app that makes these
+notes searchable and linkable comes in lesson 1.2.
 
 ## The whole syntax you need
 

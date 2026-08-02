@@ -25,7 +25,7 @@ impressive.
 
 What's in it:
 
-- **1.1** Markdown, the format everything else uses
+- **1.1** note-taking with Markdown, the format your journal is written in
 - **1.2** Obsidian and the starter vault
 - **1.3** Git, the five commands that matter
 - **1.4** a remote: your journal, off your laptop
