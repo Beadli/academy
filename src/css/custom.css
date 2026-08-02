@@ -29,17 +29,50 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-/* Lead-in role names (lesson 0.2). A warm red that reads as an editorial
-   accent in both themes, so a reader scanning the page sees every career
-   path before deciding to read the prose. */
+/* ---------------------------------------------------------------------
+   Emphasis colours.
+
+   Bold is used heavily in the lessons (UI paths, tier markers, warnings,
+   key terms). Colouring all of it would be noise, so only bold that
+   OPENS a paragraph or list item gets an accent: those are acting as
+   section markers, and colouring them lets a reader scan a lesson's
+   structure without reading it. Mid-sentence bold stays default.
+
+   Two accents, both defined per theme because a colour that reads well
+   on white goes muddy on a dark background:
+     --lab-accent-lead  amber, for lead-in emphasis. Warm enough to draw
+                        the eye, distinct from the green/teal links so
+                        nobody tries to click it.
+     --lab-accent-role  red, reserved for the career-role names in
+                        lesson 0.2.
+   --------------------------------------------------------------------- */
+
 :root {
+  --lab-accent-lead: #a35a00;
   --lab-accent-role: #c0362c;
 }
 
 [data-theme='dark'] {
+  --lab-accent-lead: #f0a95c;
   --lab-accent-role: #ff7b72;
 }
 
+/* Lead-in emphasis, in rendered markdown only (docs pages, not the
+   hand-built landing page). */
+.markdown p > strong:first-child,
+.markdown li > strong:first-child {
+  color: var(--lab-accent-lead);
+}
+
+/* Admonitions carry their own colour already; leave their contents alone
+   so a tip or warning box doesn't end up with two competing accents. */
+.markdown .theme-admonition p > strong:first-child,
+.markdown .theme-admonition li > strong:first-child {
+  color: inherit;
+}
+
+/* Lesson 0.2's role names. Declared after the general rule so it wins
+   the specificity tie. */
 .roleList p > strong:first-child {
   color: var(--lab-accent-role);
   font-size: 1.06rem;
