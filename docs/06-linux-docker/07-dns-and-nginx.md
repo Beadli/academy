@@ -29,6 +29,41 @@ Module 7 comes back here.
 
 <ReverseProxy role="img" aria-label="Request flow: your laptop asks DC01's DNS who git.lab.internal is and gets 10.10.10.20, then sends the request to that address on port 443. On UBNT01, nginx is the only thing listening on ports 80 and 443; it reads the name requested and forwards to services bound to 127.0.0.1 only, which are unreachable from the network: Gitea on port 3000, and step-ca on port 9000 arriving in Module 7." style={{width: '100%', height: 'auto'}} />
 
+### What that picture is showing
+
+Follow one request through it, in the four numbered steps.
+
+**1. Your laptop asks DNS a question.** You type `git.lab.internal` and
+your machine has no idea what that means, so it asks its DNS server,
+which is DC01, the domain controller you built in Module 5. DC01 holds
+the record you're about to create and answers `10.10.10.20`. Nothing
+about this step involves nginx or Gitea; it's pure name lookup, and if
+it fails nothing else in the picture ever happens.
+
+**2. The request goes to that address, on port 443.** Your browser
+connects to UBNT01. Notice what it does *not* do: it never mentions port
+3000, and it doesn't know Gitea exists. From the outside, this machine
+appears to offer one website.
+
+**3. nginx reads which name you asked for.** This is the part that makes
+the whole arrangement work. A single HTTPS request carries the hostname
+inside it, so nginx can look at "this person asked for
+`git.lab.internal`" and match it against the `server_name` lines in its
+configuration. One listener, many sites, chosen by name.
+
+**4. nginx forwards the request to a service on loopback.** Gitea is
+listening on `127.0.0.1:3000`, which means it accepts connections *from
+the machine itself and nowhere else*. That's the dashed box in the
+diagram. nginx is on that machine, so it can reach Gitea; your laptop
+cannot, and neither can an attacker on your network. The reply travels
+back the same way.
+
+The dimmed `step-ca` box is the next service to arrive, in Module 7. It
+gets its own name, its own file in `sites-available`, and its own
+loopback port, and the network-facing surface of this server does not
+grow by a single port. That's the property worth remembering: **adding a
+service should not mean opening a door.**
+
 ## Create the DNS record
 
 On **DC01**, in an administrator PowerShell window. This is the DNS

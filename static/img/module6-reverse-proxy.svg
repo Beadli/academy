@@ -47,7 +47,8 @@
   <text x="520" y="207" class="name">nginx</text>
   <text x="520" y="226" class="role">listens on :80 and :443</text>
   <text x="520" y="244" class="role">the only open ports</text>
-  <text x="520" y="264" class="role">reads the name asked for</text>
+  <text x="520" y="264" class="role">3. reads the name asked for</text>
+  <text x="520" y="300" class="role">4. forwards on loopback</text>
 
   <!-- loopback zone -->
   <rect x="676" y="168" width="436" height="240" rx="12"
