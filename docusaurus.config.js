@@ -69,7 +69,12 @@ const config = {
         title: 'Beadli Lab Academy',
         logo: {
           alt: 'Beadli Lab Academy',
+          // Two files rather than one currentColor file on purpose: the
+          // navbar renders the logo via <img src>, which isolates the SVG
+          // document, so currentColor never resolves against the page and
+          // would render black in both themes.
           src: 'img/logo.svg',
+          srcDark: 'img/logo-dark.svg',
         },
         items: [
           {
