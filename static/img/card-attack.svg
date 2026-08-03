@@ -1,10 +1,16 @@
-<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-  <!-- crosshair -->
-  <circle cx="100" cy="100" r="55"/>
-  <circle cx="100" cy="100" r="29" stroke="var(--ifm-color-primary)"/>
-  <line x1="100" y1="30" x2="100" y2="56"/>
-  <line x1="100" y1="144" x2="100" y2="170"/>
-  <line x1="30" y1="100" x2="56" y2="100"/>
-  <line x1="144" y1="100" x2="170" y2="100"/>
-  <circle cx="100" cy="100" r="7" fill="var(--ifm-color-primary)" stroke="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Crosshair target with concentric rings" fill="none">
+  <g stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="48" cy="48" r="25"/>
+    <circle cx="48" cy="48" r="18"/>
+
+    <line x1="48" y1="5" x2="48" y2="15"/>
+    <line x1="48" y1="81" x2="48" y2="91"/>
+    <line x1="5" y1="48" x2="15" y2="48"/>
+    <line x1="81" y1="48" x2="91" y2="48"/>
+  </g>
+
+  <g stroke="var(--ifm-color-primary, #2e8555)" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="48" cy="48" r="11"/>
+  </g>
+  <circle cx="48" cy="48" r="3" fill="var(--ifm-color-primary, #2e8555)"/>
 </svg>
