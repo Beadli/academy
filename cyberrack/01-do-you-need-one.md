@@ -48,28 +48,23 @@ spend money:
   lunch. It's a bad permanent home for a lab and an excellent temporary
   one.
 
-## The costs people forget
+## Two ongoing costs, and why the design is small
 
-If you're still reading, budget for these, because they're what turns an
-exciting purchase into a regret:
+**Electricity** is the one that continues forever. CyberRack draws around
+125 watts idle, which is roughly 90 kilowatt-hours a month, about $13.50
+at $0.15 per unit. Work out your own rate, because that number is the
+difference between a lab you keep and one you quietly switch off.
 
-**Electricity.** A lab running continuously costs real money every month,
-forever. Work out your local rate per kilowatt-hour and multiply. A build
-drawing 125 watts costs roughly 90 kilowatt-hours a month, which at $0.15
-is about $13.50. That's manageable; at 500 watts it isn't.
+**Time** is the other. Hardware you own is hardware you maintain. That's
+part of the learning, and it's also evenings not spent on the curriculum.
 
-**Noise.** Enterprise servers from eBay are cheap because they sound like
-a hairdryer and were designed for a room nobody sits in. If the lab lives
-where you sleep or work, this decides what you can buy far more than price
-does.
-
-**Heat.** Everything above turns into warmth in a room you're in.
-
-**Time.** Hardware you own is hardware you maintain. That's part of the
-learning, and it's also evenings you don't spend on the curriculum.
-
-**Where it lives.** Whether the machine is welcome in a shared space is a
-real constraint and worth settling before it arrives rather than after.
+Everything else people warn you about (noise, heat, whether it's welcome
+in the room) is what the small form factor already buys you. Used
+enterprise rack servers are tempting because they're cheap, and they're
+cheap because they sound like a hairdryer, draw several hundred watts, and
+were designed for a room nobody sits in. CyberRack is built from mini PCs
+specifically so the lab can live where you do. If you go a different way,
+that's the trade you're making.
 
 ## The honest recommendation
 
