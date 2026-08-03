@@ -76,12 +76,12 @@ course with students, that's exactly what it's for.
 
 ## Getting in touch
 
-- **Questions about the course:** GitHub Discussions *(link once the org
-  exists)*
-- **Corrections and bug reports:** open an issue on the repository, or send
-  a pull request. Errors in the material are treated as defects and get
-  fixed.
-- **Email:** *(pending)*
+- **Questions about the course:**
+  [GitHub Discussions](https://github.com/beadli/academy/discussions)
+- **Corrections and bug reports:** open an issue on
+  [the repository](https://github.com/beadli/academy), or send a pull
+  request. Errors in the material are treated as defects and get fixed.
+- **Email:** steve@beadli.com
 
 If something in a lesson doesn't work, that's worth telling me. The course
 is verified by one person on one set of hardware, and the failures that

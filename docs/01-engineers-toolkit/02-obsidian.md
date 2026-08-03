@@ -27,7 +27,7 @@ with skills you need anyway.
 ## Get the starter vault
 
 Download the vault from the course repository:
-[github.com/beadli-lab-academy/starter-vault](https://github.com/beadli-lab-academy/starter-vault),
+[github.com/beadli/starter-vault](https://github.com/beadli/starter-vault),
 green **Code** button, **Download ZIP**. Unzip it somewhere sensible and
 rename the folder to `lab-journal`. On my machine that's
 `~/git/lab-journal`; `Documents\lab-journal` is fine on Windows.
