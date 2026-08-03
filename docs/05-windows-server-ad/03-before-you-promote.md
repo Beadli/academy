@@ -41,28 +41,61 @@ network adapter, and your gateway.
 # The adapter's name, usually "Ethernet" or "Ethernet0".
 Get-NetAdapter
 
-# Your current address and gateway, handed over by DHCP. Note the
-# gateway: Tier 1 it's your hypervisor's NAT device, Tier 2 it's
-# FW01 at 10.10.10.254.
+# Your current address and gateway, handed over by DHCP.
 Get-NetIPConfiguration
 ```
 
-Now set it. Substitute your adapter name and your gateway:
+:::warning[Your gateway depends on your tier. Read it, don't assume it.]
+This is the one place in the module where Tier 1 and Tier 2 genuinely
+differ, and copying the wrong address leaves you with a server that can't
+reach anything.
+
+- **Tier 2**, you built FW01 in lesson 4.5, and your gateway is
+  **`10.10.10.254`**.
+- **Tier 1**, you have no firewall. Your gateway is the hypervisor's own
+  NAT device, and the address depends on your hypervisor: VMware and
+  VirtualBox use different conventions, as lesson 4.2 explained.
+
+**Don't guess either way.** The `Get-NetIPConfiguration` output above
+already tells you, on the `IPv4DefaultGateway` line. That is the number to
+use below.
+:::
+
+Capture it in a variable so the rest of this lesson is correct for both
+tiers, and so you're reading your machine's actual configuration rather
+than trusting a printed address:
+
+```powershell
+# Substitute your adapter name from Get-NetAdapter above.
+$adapter = "Ethernet0"
+
+# Read the gateway DHCP gave you, rather than assuming it.
+$gw = (Get-NetIPConfiguration -InterfaceAlias $adapter).IPv4DefaultGateway.NextHop
+
+# Print it and sanity-check it before going further. Tier 2 should see
+# 10.10.10.254. Tier 1 will see whatever your hypervisor uses.
+$gw
+```
+
+If `$gw` comes back empty, this adapter never got a DHCP lease. Fix that
+before continuing, because everything below depends on it.
+
+Now set the static address:
 
 ```powershell
 # A fixed address for this machine. -PrefixLength 24 is the /24
 # from lesson 4.1.
-New-NetIPAddress -InterfaceAlias "Ethernet0" `
+New-NetIPAddress -InterfaceAlias $adapter `
                  -IPAddress 10.10.10.10 `
                  -PrefixLength 24 `
-                 -DefaultGateway 10.10.10.254
+                 -DefaultGateway $gw
 
 # DNS, for now, is whatever can resolve internet names so the server
 # can reach Windows Update. Point it at your gateway. The promotion
 # in 5.4 changes this to the machine itself, which is correct once
 # it IS the DNS server.
-Set-DnsClientServerAddress -InterfaceAlias "Ethernet0" `
-                           -ServerAddresses 10.10.10.254
+Set-DnsClientServerAddress -InterfaceAlias $adapter `
+                           -ServerAddresses $gw
 ```
 
 :::warning[You may lose the console for a second]
@@ -78,10 +111,19 @@ Verify all four answers from lesson 4.1, from the Windows side:
 # Address, mask, gateway and DNS in one view.
 Get-NetIPConfiguration
 
-# And prove it works.
-ping 10.10.10.254
+# And prove it works, one rung at a time. This is the ladder from
+# lesson 4.4: can I reach my gateway, can I reach the internet by
+# address, can I resolve a name.
+ping $gw
 ping 1.1.1.1
 Resolve-DnsName ubuntu.com
+```
+
+If `$gw` has been lost because you opened a new PowerShell window, read it
+again with the same command as before:
+
+```powershell
+$gw = (Get-NetIPConfiguration -InterfaceAlias "Ethernet0").IPv4DefaultGateway.NextHop
 ```
 
 ## Check the clock, and push it back

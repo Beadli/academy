@@ -14,7 +14,7 @@ to your domain so it can integrate with Active Directory.
 A Windows Server VM, as in lesson 5.2, with these settings:
 
 - **Name:** `SUBCA01`, at **`10.10.10.30`**, per the addressing plan
-  from lesson 4.3. **RAM:** 3 GB.
+  from lesson 4.3. **RAM:** 3 GB. **Disk:** 60 GB, grow-as-used.
 - **Joined to the domain**, unlike the root. This is what makes
   templates and autoenrollment possible in lesson 7.7, and it's the
   difference between an Enterprise CA and a standalone one.

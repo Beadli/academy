@@ -163,11 +163,52 @@ before you've sent it a single event. This surprises everyone, and it's
 why UBNT01 gets the largest allocation in the table above while two
 Windows servers make do with 3 GB each.
 
-Disk: an SSD matters more than its size, but plan on roughly 180 GB free
-for Tier 1 once VMs and ISOs pile up. Disk is where the second domain
-controller does cost you something real: unlike memory, a powered-off VM
-still occupies its whole virtual hard disk. If you're tight, that's the
-one to build last.
+### Disk, which surprises more people than RAM
+
+An SSD matters more than its size. But disk is the one budget that only
+ever grows, and unlike memory a powered-off VM still occupies every byte
+it has written.
+
+Each lesson gives its machine a size when you build it. Collected, so you
+can plan:
+
+<div className="labTable">
+
+| VM | Virtual disk | Tier |
+|---|---|---|
+| DC01 | 60 GB | 1 |
+| DC02 | 60 GB | 1 |
+| UBNT01 | 60 GB | 1 |
+| KALI01 | as the image ships | 1 |
+| FW01 | 20 GB | 2 |
+| SUBCA01 | 60 GB | 2 |
+| ROOTCA01 | 40 GB | 2 |
+
+</div>
+
+**Those are ceilings, not consumption.** Every VM in this course uses
+grow-as-used disks, explained in lesson 3.4: the guest believes it has 60
+GB, and the file on your laptop starts near zero and grows only as data is
+actually written. A freshly built Windows Server occupies something closer
+to 15 or 20 GB in practice.
+
+So the arithmetic that matters is not the column above. Budget instead for:
+
+- **Real consumption**, perhaps a third to a half of the allocated figure
+  early on, growing as you install things
+- **Installer ISOs**, several gigabytes each, and easy to forget because
+  they sit in a different folder
+- **Snapshots**, which is the one that catches people, and which the next
+  paragraph is about
+
+**Roughly 180 GB free for Tier 1** covers all three with room to work.
+Tier 2 roughly doubles it. If you're tight, DC02 is the machine to build
+last: it costs nothing in memory when powered off, but its disk is
+occupied the whole time.
+
+Two habits worth starting immediately: keep VMs and ISOs on the same drive
+so you only watch one number, and check that number occasionally rather
+than discovering it at 11pm when a VM refuses to start.
 
 One hard limitation: **Apple Silicon Macs (M1 through M4) can't take this
 course past the Linux parts.** The lab depends on x86 Windows Server VMs,

@@ -69,11 +69,62 @@ risky in your lab (a patch, a promotion, a config you're not sure
 about) is a snapshot with a decent name. It costs seconds. You've now
 seen exactly what it buys.
 
-Two honest limits before you over-trust it. Snapshots live on the same
-laptop as the VM, so they're an undo button, not a backup; a dead SSD
-takes both. And a pile of old snapshots quietly eats disk and slows the
-VM, so keep one or two meaningful ones per machine, not a museum.
-Module 15 covers real backups.
+Two honest limits before you over-trust it.
+
+**A snapshot is not a backup.** Snapshots live on the same laptop, in the
+same folder, as the VM they protect. A dead SSD takes both. They're an
+undo button for changes you made, not protection against hardware, and
+Module 15 covers the real thing.
+
+## What snapshots cost you
+
+This is the part that surprises people, and it's worth understanding
+before you have eight VMs rather than one.
+
+Taking a snapshot doesn't copy the disk. The hypervisor freezes the
+current disk and starts writing every subsequent change to a **separate
+delta file**. That file starts at nothing and grows with every write the
+VM makes from that moment on.
+
+The consequence catches everyone once: **a snapshot's cost depends on how
+long you keep it and how busy the machine is, not on how big the VM was
+when you took it.** A snapshot taken this morning is nearly free. The same
+snapshot left on a domain controller for two months, through a round of
+Windows updates, can grow larger than the original disk. Windows Update
+alone will do it.
+
+They also slow the machine down, because every read may have to walk back
+through the chain of deltas to find the current data. Several stacked
+snapshots on one VM is genuinely noticeable.
+
+### The rules that keep this from biting
+
+- **Name them properly.** `pre-promotion`, not `Snapshot 1`. In three
+  weeks you will not remember what "Snapshot 3" was for, and an unnamed
+  snapshot is one nobody dares delete.
+- **Take one before something risky, delete it once the risk has passed.**
+  A snapshot's useful life is usually hours. If the change worked, you
+  don't need the escape hatch any more.
+- **One or two per machine, not a museum.** If a VM has five snapshots,
+  that's a decision nobody made.
+- **Check the folder occasionally.** Your VM's directory shows the delta
+  files. If they're bigger than the disk they belong to, that's your
+  answer.
+- **Never leave a snapshot on a machine for weeks** and then wonder where
+  the disk went. This is the single most common way lab builders run out
+  of space.
+
+Deleting a snapshot does not undo your work. It merges the changes
+permanently into the disk and reclaims the space, which is exactly what
+you want once you've decided to keep the changes.
+
+:::warning[Domain controllers are a special case]
+From Module 5 you'll be running domain controllers, and reverting *those*
+to an old snapshot can corrupt Active Directory replication in a way that
+is genuinely painful to repair. Lesson 5.12 explains why and what to do
+instead. Taking snapshots of them is fine; reverting one of a pair on its
+own is not.
+:::
 
 ## Now delete the whole thing
 

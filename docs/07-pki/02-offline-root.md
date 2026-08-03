@@ -68,8 +68,9 @@ protect that arrangement.
 A Windows Server VM, built exactly as in lesson 5.2, with three
 differences that all matter:
 
-- **Name:** `ROOTCA01`. **RAM:** 2 GB. It barely does anything, and it
-  won't be running most of the time.
+- **Name:** `ROOTCA01`. **RAM:** 2 GB. **Disk:** 40 GB, grow-as-used. It
+  barely does anything and won't be running most of the time, so it's the
+  smallest Windows Server in the lab.
 - **Do not join it to the domain.** A domain-joined root is a root that
   can be reached, and attacked, through the domain. Standalone is the
   point.
