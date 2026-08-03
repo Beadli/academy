@@ -48,7 +48,7 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          routeBasePath: 'modules',
+          routeBasePath: 'course',
           editUrl: 'https://github.com/beadli-lab-academy/academy/tree/main/',
         },
         blog: false,
@@ -76,7 +76,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Modules',
+            label: 'Course',
           },
           {
             type: 'docSidebar',
@@ -100,7 +100,7 @@ const config = {
         links: [
           {
             label: 'Start with Module 0',
-            to: '/modules/intro',
+            to: '/course/intro',
           },
           {
             label: 'GitHub Discussions',
