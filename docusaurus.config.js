@@ -112,7 +112,11 @@ const config = {
             href: 'https://github.com/beadli-lab-academy/academy/discussions',
           },
         ],
-        copyright: `Course text © ${new Date().getFullYear()} Steve · CC BY-NC-SA 4.0 · Code MIT`,
+        // Names the brand rather than a person deliberately: LICENSE-CONTENT.md
+        // requires attribution to "Beadli Lab Academy", and for a CC BY licence
+        // the notice's job is to name the party reusers must credit. A personal
+        // name here would contradict it.
+        copyright: `Course text © ${new Date().getFullYear()} Beadli Lab Academy · CC BY-NC-SA 4.0 · Code MIT`,
       },
       prism: {
         theme: prismThemes.github,
