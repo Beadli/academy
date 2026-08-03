@@ -88,6 +88,39 @@ Seize only when the machine is genuinely unrecoverable. If it can be
 booted, transfer instead.
 :::
 
+## When you'd actually move roles
+
+Transfers aren't an exotic operation. The most common reason is the
+dullest one: **you are about to patch and reboot the DC holding them.**
+
+Move the roles to the other DC first, then patch. The reasoning isn't
+really about the few minutes of downtime, because most of these roles
+aren't missed over a reboot. It's about what happens if the patch goes
+badly and that server never comes back up.
+
+- **Roles already moved:** you've lost a replica. Annoying, rebuild it
+  when convenient, nothing urgent.
+- **Roles still on it:** you now have to *seize* them, which per the
+  warning above means that machine can never rejoin the domain and must
+  be demoted forcibly and rebuilt from scratch.
+
+One two-minute command beforehand turns a disaster-recovery exercise into
+a Tuesday. That is the whole argument, and it's why "move the FSMO roles"
+appears in the patching runbook of essentially every organization that has
+been bitten once.
+
+The same logic applies to decommissioning a DC, moving one to different
+hardware, or any planned outage longer than a reboot.
+
+Two habits that go with it, both of which Module 13 revisits when it
+covers patching properly:
+
+- **Never patch both domain controllers at once.** Lesson 5.9 showed you
+  the domain survives losing one. It does not survive losing both, and a
+  patch window is the most common way people accidentally arrange that.
+- **Check where the roles are before you start**, not from memory. The
+  report mode of the script below exists for exactly this.
+
 ## The script
 
 Save this as `move-fsmo.ps1` in `Resources/scripts/` in your vault, the
