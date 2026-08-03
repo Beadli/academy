@@ -77,9 +77,9 @@ course with students, that's exactly what it's for.
 ## Getting in touch
 
 - **Questions about the course:**
-  [GitHub Discussions](https://github.com/beadli/academy/discussions)
+  [GitHub Discussions](https://github.com/Beadli/academy/discussions)
 - **Corrections and bug reports:** open an issue on
-  [the repository](https://github.com/beadli/academy), or send a pull
+  [the repository](https://github.com/Beadli/academy), or send a pull
   request. Errors in the material are treated as defects and get fixed.
 - **Email:** steve@beadli.com
 

@@ -14,7 +14,7 @@ const config = {
   url: 'https://academy.beadli.com',
   baseUrl: '/',
 
-  organizationName: 'beadli',
+  organizationName: 'Beadli',
   projectName: 'academy',
 
   onBrokenLinks: 'throw',
@@ -36,7 +36,7 @@ const config = {
         path: 'cyberrack',
         routeBasePath: 'cyberrack',
         sidebarPath: './sidebarsCyberrack.js',
-        editUrl: 'https://github.com/beadli/academy/tree/main/',
+        editUrl: 'https://github.com/Beadli/academy/tree/main/',
       },
     ],
   ],
@@ -49,7 +49,7 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           routeBasePath: 'course',
-          editUrl: 'https://github.com/beadli/academy/tree/main/',
+          editUrl: 'https://github.com/Beadli/academy/tree/main/',
         },
         blog: false,
         theme: {
@@ -91,7 +91,7 @@ const config = {
             label: 'CyberRack',
           },
           {
-            href: 'https://github.com/beadli/academy',
+            href: 'https://github.com/Beadli/academy',
             label: 'GitHub',
             position: 'right',
           },
@@ -113,7 +113,7 @@ const config = {
           },
           {
             label: 'GitHub Discussions',
-            href: 'https://github.com/beadli/academy/discussions',
+            href: 'https://github.com/Beadli/academy/discussions',
           },
         ],
         // Names the brand rather than a person deliberately: LICENSE-CONTENT.md
