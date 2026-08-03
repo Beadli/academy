@@ -27,6 +27,7 @@ every command and screenshot in every later module matches your screen.
 |---|---|---|
 | `10.10.10.1` | your own computer's adapter on this network, claimed by the hypervisor | already there |
 | `10.10.10.10` | DC01, domain controller and DNS | Module 5 |
+| `10.10.10.11` | DC02, second domain controller and DNS | Module 5 |
 | `10.10.10.20` | UBNT01, Docker and Ansible host | Module 6 |
 | `10.10.10.30` | SUBCA01, issuing certificate authority (Tier 2) | Module 7 |
 | `10.10.10.40` | ADFS01, single sign-on (Tier 2) | Module 8 |
@@ -37,6 +38,13 @@ Servers get the low numbers, statically. The pool starts at `.100` so
 there's no chance of DHCP handing out an address you've already nailed
 to a server, which is a real outage in real companies and an afternoon
 of confusion in a lab.
+
+Notice that the two domain controllers sit next to each other at `.10`
+and `.11`. Keeping machines that do the same job in a contiguous block is
+a small habit with a large payoff: a year later, "the DCs are .10 and .11"
+is something you remember, and a firewall rule covering both of them is
+one line instead of two. Grouping by role beats filling addresses in the
+order you happened to build things.
 
 The firewall sitting at `.254` rather than `.1` is worth a word, because
 `.1` is the more common convention. Your hypervisor claims `.1` for your

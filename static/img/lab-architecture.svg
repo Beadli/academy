@@ -81,31 +81,48 @@
   <rect x="388" y="260" width="756" height="300" rx="12" fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.045" stroke="var(--ifm-color-primary, #2e8555)" stroke-opacity="0.45" stroke-width="1.5"/>
   <text x="408" y="288" fill="var(--ifm-color-primary, #2e8555)" class="zonelabel">LAN · lab.internal</text>
 
-  <!-- LAN row 1 -->
-  <rect x="420" y="316" width="150" height="64" rx="10" class="box"/>
-  <text x="495" y="342" class="name">DC01</text>
-  <text x="495" y="360" class="role">Active Directory · DNS</text>
-  <rect x="536" y="308" width="30" height="18" rx="9" class="t1"/>
-  <text x="551" y="321" class="pilltext">T1</text>
+  <!-- LAN row 1. Five boxes now: DC02 was added 2026-08-03, so the row
+       was re-pitched from 150px boxes to 118px to make room, and the
+       DC01/DC02 gap widened to carry the replication link between them. -->
+  <rect x="420" y="316" width="118" height="64" rx="10" class="box"/>
+  <text x="479" y="342" class="name">DC01</text>
+  <text x="479" y="360" class="role">Active Directory · DNS</text>
+  <rect x="504" y="308" width="30" height="18" rx="9" class="t1"/>
+  <text x="519" y="321" class="pilltext">T1</text>
 
-  <rect x="600" y="316" width="150" height="64" rx="10" class="box"/>
-  <text x="675" y="342" class="name">SUBCA01</text>
-  <text x="675" y="360" class="role">issuing CA · PKI</text>
-  <rect x="716" y="308" width="30" height="18" rx="9" class="t2"/>
-  <text x="731" y="321" class="pilltext">T2</text>
+  <!-- Two-way replication: both DCs are writable, neither is a copy of
+       the other. Same arrowhead as the Entra sync, because both carry
+       directory data; this one points both ways because this one does. -->
+  <line x1="540" y1="348" x2="580" y2="348"
+        stroke="var(--ifm-color-primary, #2e8555)" stroke-opacity="0.8" stroke-width="1.5"
+        marker-start="url(#syncarrow)" marker-end="url(#syncarrow)"/>
 
-  <rect x="780" y="316" width="150" height="64" rx="10" class="box"/>
-  <text x="855" y="342" class="name">ADFS01</text>
-  <text x="855" y="360" class="role">single sign-on</text>
-  <rect x="896" y="308" width="30" height="18" rx="9" class="t2"/>
-  <text x="911" y="321" class="pilltext">T2</text>
+  <g opacity="0.62">
+    <rect x="582" y="316" width="118" height="64" rx="10" class="box" stroke-dasharray="5 4"/>
+    <text x="641" y="342" class="name">DC02</text>
+    <text x="641" y="360" class="role">second DC · often off</text>
+    <rect x="666" y="308" width="30" height="18" rx="9" class="t1"/>
+    <text x="681" y="321" class="pilltext">T1</text>
+  </g>
+
+  <rect x="716" y="316" width="118" height="64" rx="10" class="box"/>
+  <text x="775" y="342" class="name">SUBCA01</text>
+  <text x="775" y="360" class="role">issuing CA · PKI</text>
+  <rect x="800" y="308" width="30" height="18" rx="9" class="t2"/>
+  <text x="815" y="321" class="pilltext">T2</text>
+
+  <rect x="850" y="316" width="118" height="64" rx="10" class="box"/>
+  <text x="909" y="342" class="name">ADFS01</text>
+  <text x="909" y="360" class="role">single sign-on</text>
+  <rect x="934" y="308" width="30" height="18" rx="9" class="t2"/>
+  <text x="949" y="321" class="pilltext">T2</text>
 
   <g opacity="0.55">
-    <rect x="960" y="316" width="150" height="64" rx="10" class="box" stroke-dasharray="5 4"/>
-    <text x="1035" y="342" class="name">ROOTCA01</text>
-    <text x="1035" y="360" class="role">offline root · powered off</text>
-    <rect x="1076" y="308" width="30" height="18" rx="9" class="t2"/>
-    <text x="1091" y="321" class="pilltext">T2</text>
+    <rect x="984" y="316" width="118" height="64" rx="10" class="box" stroke-dasharray="5 4"/>
+    <text x="1043" y="342" class="name">ROOTCA01</text>
+    <text x="1043" y="360" class="role">offline root · off</text>
+    <rect x="1068" y="308" width="30" height="18" rx="9" class="t2"/>
+    <text x="1083" y="321" class="pilltext">T2</text>
   </g>
 
   <!-- UBNT01 with docker chips -->

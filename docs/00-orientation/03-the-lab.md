@@ -14,10 +14,28 @@ come from.
 
 Here's the destination, all of it, before we talk about the road:
 
-<LabArchitecture role="img" aria-label="Architecture diagram of the full lab on one laptop: OPNsense firewall splitting a WAN segment (Kali attacker box) from a LAN segment (domain controller, issuing CA, AD FS, offline root CA, Ubuntu Docker host running Wazuh, Grafana and Gitea), with an OpenVAS vulnerability scanner and a Suricata sensor watching both segments, and the domain controller syncing outward to a Microsoft Entra ID cloud directory." style={{width: '100%', height: 'auto'}} />
+<LabArchitecture role="img" aria-label="Architecture diagram of the full lab on one laptop: OPNsense firewall splitting a WAN segment (Kali attacker box) from a LAN segment holding two domain controllers replicating with each other, an issuing CA, an AD FS server, an offline root CA, and an Ubuntu Docker host running Wazuh, Grafana and Gitea, with an OpenVAS vulnerability scanner and a Suricata sensor watching both segments, and the first domain controller syncing outward to a Microsoft Entra ID cloud directory." style={{width: '100%', height: 'auto'}} />
 
-The tier badges (T1, T2, T3) mark when each piece arrives, and that's
+Three things to read in it before moving on.
+
+**The tier badges (T1, T2, T3)** mark when each piece arrives, and that's
 what the rest of this lesson explains.
+
+**Dashed and faded means the machine is usually switched off.** DC02 and
+ROOTCA01 are both drawn that way. They're real machines you build and
+genuinely use, they just spend most of their lives powered down, for
+different reasons: DC02 because it has done its teaching job after three
+lessons, ROOTCA01 because an offline root CA that stays online isn't one.
+
+**The double-headed arrow between DC01 and DC02** is replication. It
+points both ways deliberately, because neither is a copy of the other:
+both are writable, and a change made on either appears on the other within
+seconds. Contrast it with the single-headed arrow leaving DC01 for the
+cloud, which points one way because your directory is the source of truth
+and Entra ID follows it.
+
+That difference is worth carrying: an arrow's direction in this course
+always means where authority sits, not merely where data moves.
 
 The lab grows in three tiers. You pick a tier based on the machine you
 have, not the machine you wish you had, and the course tells you at the

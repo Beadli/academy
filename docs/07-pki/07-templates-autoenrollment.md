@@ -54,6 +54,12 @@ one that makes it automatic. Publish it as above.
 
 Then the policy, on **DC01**, in a GPO linked at the domain root:
 
+(Editing from DC01 specifically is a habit worth keeping now that you have
+two. The Group Policy console targets whichever domain controller holds
+the **PDC Emulator** role by default, which is DC01 unless you moved it in
+lesson 5.10. Editing the same GPO from two DCs at once is one of the few
+ways to genuinely corrupt policy, so pick one and stay there.)
+
 **Computer Configuration > Policies > Windows Settings > Security
 Settings > Public Key Policies**:
 
