@@ -1,9 +1,52 @@
 ---
-title: "3.1 What a hypervisor is"
+title: "3.1 What virtualization is, and what a hypervisor does"
 sidebar_position: 1
 ---
 
-# 3.1 What a hypervisor is
+# 3.1 What virtualization is, and what a hypervisor does
+
+You're about to run a domain controller, a Linux server and an attacker
+machine on the laptop you're reading this on. Before you do, it's worth
+having a one-sentence answer to what that actually is, because "I set up
+some VMs" and being able to define virtualization are different things in
+an interview.
+
+> **Virtualization is using software to divide one physical computer into
+> several independent computers, each running its own operating system,
+> each isolated from the others, and each behaving as though it owns real
+> hardware.**
+
+Three words in that sentence are doing the work.
+
+**Divide.** One machine's CPU, memory and disk get carved into portions
+and handed out. Nothing is copied or emulated in the slow sense; the
+guest's instructions mostly run directly on your real processor.
+
+**Independent.** Each virtual machine boots, runs and crashes on its own.
+You can reboot one without touching the others, and that's what makes a
+lab like this one possible rather than a single computer you keep
+reinstalling.
+
+**Isolated.** A guest cannot see the others or reach into the host except
+through channels you deliberately open. That's why you'll shortly run
+malware-adjacent tooling on Kali next to a domain controller without
+fear, and it's why the offensive work in Module 14 is safe to do at all.
+
+Organizations virtualize for reasons you'll feel in this course: one
+physical server can do the work of many, machines can be created in
+minutes instead of ordered in weeks, and a broken system can be rolled
+back to a snapshot instead of rebuilt. You'll experience that last one
+personally in lesson 3.5.
+
+Worth knowing that the idea generalizes well beyond servers. Module 4
+virtualizes **networks**, building switches and segments that exist only
+in software. Module 6 introduces **containers**, which chase the same
+isolation with a lighter mechanism. Storage and desktops get the same
+treatment in industry. The pattern is always identical: a layer of
+software presents something that looks like dedicated hardware, backed by
+shared real hardware underneath.
+
+## The program that does it
 
 A hypervisor is a program that lies to operating systems. It presents
 each guest OS with what looks like a computer (a CPU, some RAM, a disk,

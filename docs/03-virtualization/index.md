@@ -20,7 +20,8 @@ guests on the machine you measured in checkpoint 0.6.
 
 What's in it:
 
-- **3.1** what a hypervisor is, and why we're using this one
+- **3.1** what virtualization is, what a hypervisor does, and why we're
+  using this one
 - **3.2** install VMware Workstation Pro (VirtualBox path included)
 - **3.3** where VMs and installers live, collecting and verifying your
   ISOs, and the 180-day clock
