@@ -115,3 +115,64 @@ default via 10.10.10.1 dev ens160 proto dhcp src 10.10.10.25 metric 100
 That says: anything I don't know how to reach, hand to `10.10.10.1`,
 send it out of the interface named `ens160`, I got this instruction from
 DHCP, and my own address is `10.10.10.25`. Four questions, one line.
+
+## Now the names for what you just learned
+
+The four questions are how networking *works*. The rest of this section
+is what the industry *calls* it, and you need both. Not because the
+vocabulary makes you better at fixing things, but because every
+certification exam, job interview, and senior colleague uses it, and
+"the thing that turns names into addresses" gets tiring when the room
+says "layer 7."
+
+Network people describe communication as a stack of layers, each one
+handing work to the one below. The full model has seven layers and is
+called the **OSI model** (Open Systems Interconnection). Four of them
+carry almost all everyday conversation:
+
+| Layer | Name | What lives there | Where you met it |
+|---|---|---|---|
+| 7 | Application | The thing you actually wanted | DNS, HTTP, SSH |
+| 4 | Transport | Which program on that machine, and whether delivery is guaranteed | Ports, TCP, UDP |
+| 3 | Network | Addresses that work across networks | IP address, subnet, gateway |
+| 2 | Data link | Addresses on one local wire | MAC address, switches |
+
+Read your own route line again with that in mind. `10.10.10.25` is layer
+3. The interface `ens160` sends frames at layer 2. When you open a web
+page, the name lookup is layer 7, the connection to port 443 is layer 4,
+the routing to the server is layer 3, and getting onto your local wire is
+layer 2. Every message goes down the stack on the way out and back up on
+the way in.
+
+The practical payoff is that it makes questions specific. "The network is
+broken" is not a question. "Can I ping the gateway?" tests layer 3. "Can
+I resolve the name?" tests layer 7. "Is the cable in?" is layer 1. A
+layered model turns a vague failure into an ordered set of checks, which
+is what lesson 4.6 will have you do for real.
+
+### Layer 4: TCP and UDP, the only two you need today
+
+Layer 4 answers two questions: **which program** on the machine, and
+**do we care whether it arrives?**
+
+The first is the **port number**. One server can run a web server, SSH,
+and DNS at once because each listens on a different port. Ports are why
+firewall rules in lesson 4.5 read like "allow 443 from here to there."
+
+The second is the choice between two protocols:
+
+- **TCP** (Transmission Control Protocol) sets up a connection first,
+  numbers everything, and re-sends whatever goes missing. Slower to
+  start, but nothing is silently lost. Web, SSH, and email use it.
+- **UDP** (User Datagram Protocol) just sends. No setup, no
+  acknowledgement, no retry. Faster and cheaper, and if a packet
+  vanishes, it's gone. DNS, DHCP, and voice or video calls use it.
+
+The trade is honest rather than technical. Ask for a web page and you
+want the whole page, so TCP. Ask a DNS server to resolve a name and it's
+a single question with a single answer, so UDP is fine: if it goes
+missing, just ask again. A stutter in a video call is better than the
+call pausing to recover a fragment of a second nobody will ever see.
+
+You'll watch a TCP connection actually being set up in lesson 4.7, and
+by the end of Module 7 you'll watch one carrying traffic nobody can read.

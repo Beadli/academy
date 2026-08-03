@@ -1,9 +1,9 @@
 ---
-title: "4.7 Journal: the network exists"
-sidebar_position: 7
+title: "4.8 Journal: the network exists"
+sidebar_position: 8
 ---
 
-# 4.7 Journal: the network exists
+# 4.8 Journal: the network exists
 
 This entry is different from the others: part of it is reference
 material you'll come back to for the rest of the course, so give it a
@@ -26,6 +26,13 @@ Then today's daily note, four headings as usual:
 
 Under **what I did**: the networks you created, Kali imported, and for
 Tier 2 the firewall built and both segmentation tests run.
+
+**Save the capture from lesson 4.7.** Paste the Follow-TCP-Stream text of
+your plaintext HTTP request into the entry, under a heading you'll be able
+to find again. Lesson 7.6 asks you to run the same capture against your
+own HTTPS site and put the two side by side, and that comparison is much
+more convincing when the first half is your own traffic from weeks
+earlier rather than a screenshot from a book.
 
 Under **what broke**: something in this module usually does. A VM on the
 wrong virtual switch, DHCP handing out an address from the range you

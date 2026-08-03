@@ -1,9 +1,9 @@
 ---
-title: "6.9 Journal: the Linux half exists"
-sidebar_position: 9
+title: "6.10 Journal: the Linux half exists"
+sidebar_position: 10
 ---
 
-# 6.9 Journal: the Linux half exists
+# 6.10 Journal: the Linux half exists
 
 Lesson 0.4 predicted that by about now you'd be writing these without
 being told. If that's true, write yours and skip the prompts below. If

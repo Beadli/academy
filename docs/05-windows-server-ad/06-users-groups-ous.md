@@ -84,6 +84,28 @@ And stop using the built-in `Administrator` for daily work from here on.
 It's the account every attacker assumes exists, and shared accounts mean
 your logs can't tell you *which person* did something.
 
+:::tip[Least privilege]
+What you just did has a name, and it's worth knowing because you'll be
+asked about it in interviews and you'll meet it in every framework:
+**least privilege**. Give an account, a service, or a person the minimum
+rights needed to do the job, and nothing more.
+
+Two accounts is least privilege applied to you. Permissions on groups
+rather than people, below, is the same idea applied to how rights are
+handed out.
+
+The reason it's a principle rather than a rule is that it has no natural
+stopping point. There's always a way to hold less privilege, so the
+question is never "am I compliant" but "what would this account be able
+to do if someone else were driving it?" Ask that and the answer usually
+suggests the next change.
+
+Boxes like this one will point out the principle whenever the lab hits it
+again. You've already used it once without knowing: back in lesson 2.1
+you allowed scripts to run with `-Scope CurrentUser` rather than for the
+whole machine. Same instinct, applied to a laptop.
+:::
+
 ## Groups, and why permissions go to groups
 
 ```powershell

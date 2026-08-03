@@ -42,6 +42,24 @@ So real PKI splits the job across two tiers:
   from the root, and your root of trust survives. Painful, but
   survivable.
 
+:::tip[Least privilege]
+This is the principle from lesson 5.6 taken to its logical end. There you
+gave yourself a second account so your everyday session held no domain
+rights. Here you take a machine whose only job is to sign one certificate
+a year and **switch it off for the other 364 days**.
+
+An account with no rights can still be phished. A server that is powered
+off cannot be reached, patched, misconfigured, or logged into at all. It
+is the most complete expression of least privilege available to you, and
+it costs nothing but the inconvenience of booting a VM when you genuinely
+need it.
+
+Worth carrying into other work: whenever something must exist but rarely
+needs to run, ask whether it can be off by default. Backup credentials,
+break-glass accounts, and administrative jump hosts all take the same
+treatment.
+:::
+
 That's the entire reasoning. Everything below is ceremony built to
 protect that arrangement.
 

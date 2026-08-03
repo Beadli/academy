@@ -160,6 +160,22 @@ sudo sshd -t
 sudo systemctl restart ssh
 ```
 
+:::tip[Least privilege]
+`PermitRootLogin no` is the principle from lesson 5.6 arriving on Linux.
+Root can do anything, so nothing should be able to log in *as* root
+directly. You log in as yourself, then borrow root for one command at a
+time with `sudo`, which also means the logs record which human did it
+rather than "root did it."
+
+Notice the shape repeating. In Module 5 it was two accounts. In lesson
+7.2 it will be a machine that stays powered off. Here it's an account you
+can use but never log in as. Same question every time: what could
+somebody do if they were holding this, and can they hold less?
+
+The firewall below is the network version of the same idea. Deny by
+default, then open only what you're actually serving.
+:::
+
 ## Hardening, part two: the firewall
 
 Your server should answer only for things it's actually offering.

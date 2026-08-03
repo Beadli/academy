@@ -1,9 +1,9 @@
 ---
-title: "6.10 Checkpoint: a server that hosts things"
-sidebar_position: 10
+title: "6.11 Checkpoint: a server that hosts things"
+sidebar_position: 11
 ---
 
-# 6.10 Checkpoint: a server that hosts things
+# 6.11 Checkpoint: a server that hosts things
 
 Run these on UBNT01, over SSH, inside tmux.
 
@@ -65,6 +65,13 @@ tmux ls
       is kept as `github`, and you have pushed to both (lesson 6.8)
 - [ ] You cloned the journal from a second machine and it matched
       (lesson 6.8)
+- [ ] You opened Gitea's database read-only and can say why `?mode=ro`
+      matters on a running application (lesson 6.9)
+- [ ] You listed which accounts hold admin using a `WHERE` clause, and
+      joined `repository` to `user` to show each repository's owner by
+      name (lesson 6.9)
+- [ ] You can explain why the owner's name is stored once in the `user`
+      table rather than repeated on every repository row (lesson 6.9)
 - [ ] Journal written and pushed, Module 6 ticked, UBNT01 snapshotted
       (lesson 6.9)
 

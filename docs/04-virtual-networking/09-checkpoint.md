@@ -1,9 +1,9 @@
 ---
-title: "4.8 Checkpoint: a network you can describe"
-sidebar_position: 8
+title: "4.9 Checkpoint: a network you can describe"
+sidebar_position: 9
 ---
 
-# 4.8 Checkpoint: a network you can describe
+# 4.9 Checkpoint: a network you can describe
 
 Run these on KALI01, since it's the machine you have.
 
@@ -33,13 +33,22 @@ Everyone:
 - [ ] Your lab network uses `10.10.10.0/24`, with DHCP handing out
       `.100` to `.199` (lesson 4.3)
 - [ ] The addressing plan is written in `Projects/lab-network.md`, and
-      matches what you built (lessons 4.3, 4.7)
+      matches what you built (lessons 4.3, 4.8)
 - [ ] KALI01 boots, has an address from the pool, and its password is
       no longer the published default (lesson 4.4)
 - [ ] All three rungs of the ladder pass from KALI01: gateway, then
       `1.1.1.1`, then a name lookup (lesson 4.4)
 - [ ] You can explain in one sentence why the course doesn't use
       bridged networking (lesson 4.2)
+- [ ] You captured a DNS lookup and can say why it used UDP rather than
+      TCP (lesson 4.7)
+- [ ] You captured the three-way handshake between your machine and
+      KALI01, and can name the three packets in order (lesson 4.7)
+- [ ] You followed the TCP stream and read your own HTTP request back as
+      plain text, and that capture is saved in your journal for the
+      comparison in lesson 7.6 (lesson 4.7)
+- [ ] Given any packet, you can point at which rows in the middle pane
+      are layers 2, 3, 4, and 7 (lessons 4.1, 4.7)
 
 Tier 2 as well:
 

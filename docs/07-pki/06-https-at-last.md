@@ -191,3 +191,77 @@ warning you've been carrying since Module 4. Its web interface has a
 certificate import page under **System > Trust > Certificates**; import
 the certificate and key, then select it under **System > Settings >
 Administration**.
+
+## Look at it on the wire
+
+Everything above is a claim: the traffic is encrypted now. Go and check,
+using the same tool and the same technique as lesson 4.7. This is the
+comparison that makes the whole module land, and it takes five minutes.
+
+Open Wireshark on your own machine, start a capture, and filter for your
+Gitea server on the HTTPS port:
+
+```text
+ip.addr == 10.10.10.20 && tcp.port == 443
+```
+
+Then load `https://git.lab.internal` in a browser, stop the capture, and
+read what you collected.
+
+**First, the handshake.** Before any content moves, look for a packet
+whose Info column says **Client Hello**, and the **Server Hello** that
+answers it. Click the Client Hello and expand the TLS rows in the middle
+pane. You can read, in the clear:
+
+- the TLS version the client is willing to speak
+- the list of cipher suites it supports
+- the **Server Name Indication**, which is the hostname it's asking for
+
+That last one surprises people, and it's worth understanding rather than
+being alarmed by. The client has to say which site it wants *before*
+encryption is negotiated, because the server may host many sites and
+needs to know which certificate to present. So the hostname is visible to
+anyone watching, even though everything after it is not. Encryption hides
+the contents of the conversation, not the fact that it happened or who it
+was with. That distinction is exactly what Module 12 relies on when it
+detects things without decrypting anything.
+
+Then look for the **Certificate** packet from the server. That's your CA
+chain, in flight, being handed to the client so it can do the validation
+you performed by hand in lesson 7.5.
+
+**Now the payoff.** Right-click any packet after the handshake and choose
+**Follow > TCP Stream**, exactly as you did in lesson 4.7.
+
+In Module 4 that gave you this:
+
+```text
+GET / HTTP/1.1
+Host: 10.10.10.50:8000
+User-Agent: curl/8.5.0
+```
+
+This time it gives you a screen of binary rubbish. Same tool, same filter,
+same kind of request, and it is unreadable to you even though **you own
+the network, the server, the certificate, and the certificate authority
+that issued it**. That is the strongest position an attacker on your
+network could ever be in, and it isn't enough.
+
+Put both captures side by side in your journal. You saved the first one in
+lesson 4.8 for exactly this moment.
+
+:::tip[Least privilege]
+Notice what the private key never did: it never crossed the network. It
+sat on the server the whole time and was used to prove possession, not
+transmitted to be checked.
+
+That's the same instinct as the offline root in lesson 7.2, one layer
+down. The secret does the minimum necessary work in the smallest possible
+place. Any protocol that would have sent the key to the other end to be
+verified would be broken by exactly the capture you just ran.
+:::
+
+If you want the contrast in one sitting, re-run the plaintext capture from
+lesson 4.7 against `http://` on port 8000 immediately afterwards. Two
+captures, ten minutes, and you will never again wonder why anyone bothers
+with certificates.

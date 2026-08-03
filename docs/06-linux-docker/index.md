@@ -26,8 +26,9 @@ What's in it:
 - **6.6** Gitea: your own Git server
 - **6.7** give it a real name: DNS and a reverse proxy
 - **6.8** move your journal home
-- **6.9** journal entry
-- **6.10** checkpoint
+- **6.9** open the database your Git server is running on
+- **6.10** journal entry
+- **6.11** checkpoint
 
 **Tier 1 and up.** UBNT01 wants 6 GB of RAM and, like DC01, it stays
 running for the rest of the course. Modules 10, 12, and 13 all install
