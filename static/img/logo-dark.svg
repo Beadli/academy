@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Geometric B monogram built from stacked infrastructure blocks">
   <path fill="#e3e3e3" d="M18 12h18v72H18z"/>
   <path fill="#e3e3e3" d="M32 12h28c13 0 22 7 22 18 0 8-4 14-11 17 9 3 14 9 14 18 0 12-9 19-24 19H32V70h27c7 0 11-3 11-8s-4-8-11-8H32V40h25c7 0 10-3 10-7s-3-7-10-7H32z"/>
-  <rect x="36" y="43" width="34" height="11" rx="2" fill="var(--ifm-color-primary, #2e8555)"/>
+  <rect x="18" y="43" width="52" height="11" rx="2" fill="var(--ifm-color-primary, #2e8555)"/>
 </svg>
