@@ -22,10 +22,24 @@ exists to teach a named enterprise skill, and where the reasoning is
 written down so you can disagree with it deliberately rather than by
 accident.
 
-:::note[You do not need any of this for the course]
-The Beadli Lab Academy course runs entirely on a computer you already
-own, laptop or desktop, with 16 GB of RAM, and buys nothing at all.
-Modules 0 through 17 assume no hardware purchase, ever.
+:::note[You do not need any of this to take the course]
+Be precise about what the course does and doesn't require, because the
+difference matters if you're deciding what to spend.
+
+**Tier 1 needs 16 GB and no purchase at all.** On a computer you already
+own, laptop or desktop, that covers most of the curriculum: Active
+Directory including replication and FSMO roles, Linux, Docker, Ansible,
+scripting, packet capture, basic detection and basic attacks.
+
+**Tiers 2 and 3 need more memory**, and the course says so at the top of
+every module that does. The firewall lessons in Module 4, the two
+certificate authorities in Module 7 and the single sign-on server in
+Module 8 want 32 GB. The full monitoring stack wants 64 GB.
+
+But **more memory is not the same as a rack.** Tier 2 is usually a RAM
+upgrade to a machine you already have, often under $100 and the best value
+purchase in this whole section. Nothing in the curriculum requires the
+build described here, at any tier.
 
 CyberRack sits **beside** the course, not inside it. If you're partway
 through a module and wondering whether you're missing equipment, you

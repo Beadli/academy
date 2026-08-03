@@ -157,8 +157,9 @@ the ceiling, not before.
 There's a whole section on physical labs under **CyberRack** in the top
 menu: what to buy first, in what order, and a fully specified build.
 
-**The course still assumes an ordinary computer you already own**, laptop
-or desktop, and nothing in it requires a purchase. That section sits
+**Nothing in the course requires that build.** Tier 1 needs no purchase at
+all, and the honest upgrade for Tier 2 is usually more RAM in a machine you
+already own rather than anything with a rack in it. That section sits
 beside the curriculum rather than inside it. If you're wondering whether
 you can start on a rack instead, [it answers that
 directly](/cyberrack/start-here-instead), including the two modules you'd
