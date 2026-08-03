@@ -76,6 +76,7 @@ course with students, that's exactly what it's for.
 
 ## Getting in touch
 
+
 - **Questions about the course:**
   [GitHub Discussions](https://github.com/Beadli/academy/discussions)
 - **Corrections and bug reports:** open an issue on
