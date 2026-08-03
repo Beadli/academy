@@ -89,7 +89,15 @@
    Layout only, no colours, so light and dark are unaffected. Wraps to two
    lines on narrow screens instead of overflowing. */
 .footer {
-  --ifm-footer-padding-vertical: 0.85rem;
+  --ifm-footer-padding-vertical: 0.8rem;
+
+  /* Monospace, using the stack Docusaurus already defines for code. No
+     webfont request, no extra weight on every page load. Mono suits a
+     technical course and it sets the footer apart from the body copy
+     without needing a rule or a heavier background. */
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
 }
 
 .footer .container {
@@ -98,7 +106,27 @@
   align-items: center;
   justify-content: center;
   column-gap: 1.1rem;
-  row-gap: 0.35rem;
+  row-gap: 0.3rem;
+}
+
+/* Mono runs wider per character, so the same rem value reads larger than
+   it would in the body face. These sit deliberately small. */
+.footer .footer__link-item {
+  font-size: 0.78rem;
+}
+
+/* The copyright is reference material, not navigation. Quieter than the
+   links so the eye lands on those first. */
+.footer .footer__copyright {
+  font-size: 0.72rem;
+  opacity: 0.72;
+}
+
+/* Docusaurus ships this at 13.5px, which towers over 0.78rem mono. */
+.footer .footer__link-item svg {
+  width: 11px;
+  height: 11px;
+  vertical-align: -1px;
 }
 
 /* Docusaurus spaces the two blocks apart vertically; on one line that

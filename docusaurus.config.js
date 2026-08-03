@@ -112,7 +112,7 @@ const config = {
             href: 'https://github.com/beadli-lab-academy/academy/discussions',
           },
         ],
-        copyright: `Course text © ${new Date().getFullYear()} Steve — CC BY-NC-SA 4.0 · Code — MIT`,
+        copyright: `Course text © ${new Date().getFullYear()} Steve · CC BY-NC-SA 4.0 · Code MIT`,
       },
       prism: {
         theme: prismThemes.github,
