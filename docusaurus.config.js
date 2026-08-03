@@ -108,6 +108,10 @@ const config = {
             to: '/course/intro',
           },
           {
+            label: 'About',
+            to: '/about',
+          },
+          {
             label: 'GitHub Discussions',
             href: 'https://github.com/beadli-lab-academy/academy/discussions',
           },
