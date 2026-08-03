@@ -54,3 +54,67 @@ One honest limitation to carry forward: a type 2 hypervisor shares your
 laptop with everything else you run. Forty browser tabs and three VMs
 will fight, and the VMs will win, because you gave them their RAM up
 front. Close what you don't need on lab nights.
+
+## What you'll meet at work
+
+You will almost certainly not administer VMware Workstation in a job. You
+will administer one of these, so it's worth knowing the names before
+somebody says one in an interview and watches your face.
+
+The reassuring part first: **a virtual machine is a virtual machine.**
+Everything Module 3 teaches you (what a hypervisor does, virtual disks,
+snapshots, virtual network adapters, why you size RAM up front) is the
+same on every platform below. What changes is the management layer and
+the scale: instead of one host you have a cluster, instead of a local disk
+you have shared storage, and instead of shutting a VM down to move it you
+migrate it while it's running.
+
+- **VMware vSphere** (the ESXi hypervisor plus vCenter to manage it) has
+  been the enterprise default for two decades. If you join a large
+  organization, this is the most likely thing you'll find. Its position
+  is less certain than it was: Broadcom's acquisition brought significant
+  licensing and packaging changes, and a lot of shops have been actively
+  evaluating alternatives since. That churn is why the rest of this list
+  matters more than it would have a few years ago.
+- **Microsoft Hyper-V** comes inside Windows Server at no extra cost,
+  which makes it common wherever the estate is already Windows. Managed
+  through Windows Admin Center, Failover Cluster Manager, or System
+  Center. You are already running Windows Server in this course, so this
+  is the shortest hop from what you'll know.
+- **Proxmox VE** is open source, built on Linux KVM, and has grown
+  sharply, particularly in smaller organizations and among the
+  VMware-alternative crowd. It's also the most likely thing you'll run
+  yourself when you outgrow a laptop and buy a dedicated box.
+- **Nutanix AHV** shows up in hyperconverged environments, where compute
+  and storage are sold as one appliance rather than assembled.
+- **KVM with libvirt** is the Linux-native foundation underneath Proxmox
+  and most public cloud. Worth recognising as the layer, not just a
+  product.
+- **The cloud providers** are running hypervisors too. An EC2 instance or
+  an Azure VM is a guest on somebody else's host; you just never touch the
+  host. That's the whole difference.
+
+### The vocabulary changes, the ideas don't
+
+This is the genuinely useful part to carry into an interview, because the
+same concept has a different name on each platform:
+
+<div className="labTable">
+
+| Concept | VMware | Hyper-V | Proxmox |
+|---|---|---|---|
+| point-in-time copy | snapshot | checkpoint | snapshot |
+| move a running VM | vMotion | live migration | migrate |
+| where disks live | datastore | SMB/CSV share | storage pool |
+| management console | vCenter | Windows Admin Center | web UI, built in |
+
+</div>
+
+Don't go and learn all of these. Recognise the names, know which family
+each belongs to, and remember that the concepts underneath are the ones
+this module is teaching you. Somebody who understands snapshots properly
+can work out `checkpoints` in an afternoon. Somebody who only memorised
+where the buttons are in one product cannot.
+
+If one of them interests you, the vendor documentation is free and the
+community editions of Proxmox and Hyper-V cost nothing to try.
