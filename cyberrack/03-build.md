@@ -19,7 +19,14 @@ designed to be looked at large rather than squinted at on a phone.*
 Three matched mini PCs running a **Proxmox VE** cluster, a dedicated
 storage appliance running **TrueNAS SCALE**, an **OPNsense** firewall, and
 a managed switch, in a 10-inch, 10U rack. Roughly the footprint of a large
-shoebox, drawing about 125 watts idle.
+shoebox, targeting about 125 watts idle.
+
+:::warning[Designed, not yet built]
+Nobody has assembled this. Every figure below is a design target or an
+estimate from vendor specifications and used-market prices, not a
+measurement from a running rack. Treat the costs as a shape and the power
+numbers as a budget you'd verify with a plug meter on day one.
+:::
 
 <div className="labTable">
 
@@ -182,10 +189,16 @@ Do not start here. The value is in feeling the difference.
 
 ## Living with it
 
-Around **125 watts idle**, under 300 at peak. Quiet enough for a room you
-sleep in, which is the constraint that ruled out secondhand rack servers
-despite them being cheaper for the same specification.
+The charter sets the targets rather than reporting results: **80 to 150
+watts idle**, under 300 at peak, and quiet enough for a bedroom, dorm or
+home office. That last requirement is what ruled out secondhand rack
+servers, which are cheaper for the same specification and sound like a
+hairdryer.
 
-Work out your own electricity cost before committing: 125 watts running
-continuously is roughly 90 kilowatt-hours a month, and only you know what
-that costs where you live.
+Whether the build meets those targets is exactly the sort of claim worth
+measuring rather than trusting. A cheap plug-in power meter settles the
+first one in a day, and your own ears settle the second.
+
+Work out your electricity cost before committing, using whichever figure
+you end up with: 125 watts running continuously is roughly 90
+kilowatt-hours a month, and only you know what that costs where you live.

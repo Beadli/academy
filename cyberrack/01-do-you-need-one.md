@@ -51,10 +51,12 @@ spend money:
 
 ## Two ongoing costs, and why the design is small
 
-**Electricity** is the one that continues forever. CyberRack draws around
-125 watts idle, which is roughly 90 kilowatt-hours a month, about $13.50
-at $0.15 per unit. Work out your own rate, because that number is the
-difference between a lab you keep and one you quietly switch off.
+**Electricity** is the one that continues forever. CyberRack is designed
+to sit around 125 watts idle, which would be roughly 90 kilowatt-hours a
+month, about $13.50 at $0.15 per unit. Work out your own rate, because
+that number is the difference between a lab you keep and one you quietly
+switch off. Measure the real draw with a plug meter once it's running,
+since a design target is not a bill.
 
 **Time** is the other. Hardware you own is hardware you maintain. That's
 part of the learning, and it's also evenings not spent on the curriculum.

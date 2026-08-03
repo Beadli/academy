@@ -22,6 +22,18 @@ exists to teach a named enterprise skill, and where the reasoning is
 written down so you can disagree with it deliberately rather than by
 accident.
 
+:::warning[Status: designed, not yet built]
+This is a specification, not a build log. The hardware has been chosen and
+the architecture worked out, but nobody has assembled it yet, so every
+number here (power draw, noise, prices) is a **design target or an
+estimate**, not something measured off a running rack.
+
+That's worth saying plainly because the rest of this course leans on war
+stories from a lab that genuinely runs, and this section can't. Read it as
+a design you can copy and argue with. When it exists, the figures get
+replaced with real ones and this box goes away.
+:::
+
 :::note[You do not need any of this to take the course]
 Be precise about what the course does and doesn't require, because the
 difference matters if you're deciding what to spend.
