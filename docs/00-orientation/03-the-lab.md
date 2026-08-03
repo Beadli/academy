@@ -153,6 +153,17 @@ Don't buy hardware yet. Finish this module, measure what you have (that's
 checkpoint 0.6), and start on the tier that fits. Upgrade when you *feel*
 the ceiling, not before.
 
+:::info[If you already have hardware, or want some]
+There's a whole section on physical labs under **CyberRack** in the top
+menu: what to buy first, in what order, and a fully specified build.
+
+**The course still assumes a laptop**, and nothing in it requires a
+purchase. That section sits beside the curriculum rather than inside it.
+If you're wondering whether you can start on a rack instead, [it answers
+that directly](/cyberrack/start-here-instead), including the two modules
+you'd have to adapt.
+:::
+
 RAM is the whole game. The CPU in any laptop from the last decade is fine.
 16 GB is the honest minimum for Tier 1. On 8 GB you can read along and run
 one or two VMs, but you'll be fighting the machine instead of learning,
@@ -183,8 +194,21 @@ can plan:
 | FW01 | 20 GB | 2 |
 | SUBCA01 | 60 GB | 2 |
 | ROOTCA01 | 40 GB | 2 |
+| ADFS01 | 60 GB | 2 |
+| SURICATA01 | 80 GB | 3 |
+| OPENVAS01 | 80 GB | 3 |
+| TS01 | 20 GB | 3 |
+| UBNT01 *(upgraded)* | 150 GB | 3 |
 
 </div>
+
+The Tier 3 figures are starting points rather than requirements, the same
+as its memory numbers. They're larger for a specific reason: those
+machines *store* things rather than just running them. A vulnerability
+scanner keeps a feed database that grows every day, a network sensor
+writes logs continuously, and a full SIEM is the hungriest of the three.
+By the time you reach Tier 3 you'll be sizing from what you observe, which
+is the right way round.
 
 **Those are ceilings, not consumption.** Every VM in this course uses
 grow-as-used disks, explained in lesson 3.4: the guest believes it has 60

@@ -127,7 +127,10 @@ migrate it while it's running.
 - **Proxmox VE** is open source, built on Linux KVM, and has grown
   sharply, particularly in smaller organizations and among the
   VMware-alternative crowd. It's also the most likely thing you'll run
-  yourself when you outgrow a laptop and buy a dedicated box.
+  yourself when you outgrow a laptop and buy a dedicated box. The
+  **CyberRack** section in the top menu specifies exactly that build, and
+  says [what changes if you run the course on it](/cyberrack/start-here-instead)
+  rather than on a laptop.
 - **Nutanix AHV** shows up in hyperconverged environments, where compute
   and storage are sold as one appliance rather than assembled.
 - **KVM with libvirt** is the Linux-native foundation underneath Proxmox
