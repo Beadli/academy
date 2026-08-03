@@ -27,7 +27,7 @@ LDAP query to a domain controller. It matters because it's not a
 Microsoft invention: the same protocol queries directories on Linux and
 in cloud services, so once you can read an LDAP query you can read them
 everywhere. You'll watch this
-happen in lesson 5.8.
+happen in lesson 5.11.
 
 And it **vouches for people**. When someone logs in, the domain
 controller checks their password and issues them a cryptographic ticket

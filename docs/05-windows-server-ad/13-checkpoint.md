@@ -1,9 +1,9 @@
 ---
-title: "5.10 Checkpoint: a working domain"
-sidebar_position: 10
+title: "5.13 Checkpoint: a working domain"
+sidebar_position: 13
 ---
 
-# 5.10 Checkpoint: a working domain
+# 5.13 Checkpoint: a working domain
 
 Run these on DC01, in an administrator PowerShell window.
 
@@ -68,9 +68,9 @@ sudo nmap -Pn 10.10.10.10
       and you have seen the banner at sign-in (lesson 5.7)
 - [ ] From KALI01, the SRV lookup names DC01 and `nmap` shows the
       domain controller's signature ports, and you can name what 88 and
-      389 are (lesson 5.8)
+      389 are (lesson 5.11)
 - [ ] Tier 2: Kali is back on the NAT segment and can no longer reach
-      `10.10.10.10` (lesson 5.8)
+      `10.10.10.10` (lesson 5.11)
 - [ ] You know your evaluation's remaining days, and the command that
       extends it (lesson 5.3)
 - [ ] You can open an administration console three ways, and know what
@@ -80,8 +80,28 @@ sudo nmap -Pn 10.10.10.10
 - [ ] Tier 2: FW01 now hands out `10.10.10.10` as the DNS server for
       the LAN, so machines built from Module 6 onward can find the
       domain (lesson 5.5)
+- [ ] `Get-ADDomainController -Filter *` lists **two** controllers, both
+      global catalogs, and DC02 resolves the domain's SRV records
+      (lesson 5.8)
+- [ ] Each DC's DNS lists both servers, so neither depends only on the
+      other (lesson 5.8)
+- [ ] You created an object on one DC and found it on the other with
+      `-Server`, and `repadmin /replsummary` shows zero failures
+      (lesson 5.9)
+- [ ] You can say why SYSVOL replicating separately from directory
+      objects matters when a GPO stops applying (lesson 5.9)
+- [ ] **You powered DC01 off, confirmed logins and lookups still
+      worked, and wrote the evidence in your journal** (lesson 5.9)
+- [ ] You can name the five FSMO roles and say which one is missed
+      first when its holder dies (lesson 5.10)
+- [ ] You can explain the difference between transferring and seizing,
+      and why a seized-from DC must never come back online (lesson 5.10)
+- [ ] `move-fsmo.ps1` is in `Resources/scripts/`, you ran it in report
+      mode, moved the PDC Emulator to DC02 and back, and confirmed with
+      `netdom query fsmo` rather than trusting the script's own output
+      (lesson 5.10)
 - [ ] `Projects/lab-domain.md` written, journal committed and pushed,
-      DC01 snapshotted as `domain-built` (lesson 5.9)
+      DC01 snapshotted as `domain-built` (lesson 5.12)
 
 ## What you just finished
 

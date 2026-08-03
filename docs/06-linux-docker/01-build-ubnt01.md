@@ -132,7 +132,7 @@ firewall's DHCP at the domain controller.
 ping -c 3 10.10.10.10
 dig +short lab.internal
 
-# The service record from lesson 5.8. A machine that can answer this
+# The service record from lesson 5.11. A machine that can answer this
 # question is a machine that could join the domain.
 dig -t SRV _ldap._tcp.lab.internal +short
 

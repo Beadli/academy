@@ -1,9 +1,9 @@
 ---
-title: "5.9 Journal: you have a domain"
-sidebar_position: 9
+title: "5.12 Journal: you have a domain"
+sidebar_position: 12
 ---
 
-# 5.9 Journal: you have a domain
+# 5.12 Journal: you have a domain
 
 Two notes today: one permanent, one daily.
 
@@ -46,15 +46,26 @@ git push
 ```
 
 Tick Module 5 in `Projects/lab-progress.md`, and take a snapshot of DC01
-called `domain-built`. You've just crossed the biggest single milestone
-in this course, and a snapshot means the next module can't cost you it.
+called `domain-built`, with DC02 shut down at the time. You've just
+crossed the biggest single milestone in this course, and a snapshot means
+the next module can't cost you it.
 
-:::warning[Snapshotting domain controllers: fine here, dangerous at work]
-Worth knowing now so you don't carry the habit somewhere it hurts.
-Reverting a domain controller to an old snapshot in a domain with
-*several* of them can corrupt replication: the reverted DC starts
-handing out change numbers it has already used, the others get
-confused, and the fix is unpleasant. Your lab has exactly one DC and
-nothing to replicate with, so snapshot away. In production, the answer
-is a proper backup and restore, which Module 15 covers.
+:::warning[Snapshotting domain controllers: this now applies to you]
+Reverting a domain controller to an old snapshot in a domain that has
+*more than one* can corrupt replication. The reverted DC starts handing
+out change numbers it has already issued, the other DCs see updates they
+believe they already have, and the two quietly stop agreeing. It's called
+a USN rollback, and the supported fix is to demote the rolled-back DC and
+rebuild it.
+
+**Until lesson 5.8 your lab had one DC and this was purely theoretical.
+It isn't any more.** Two rules from here on:
+
+- Snapshot both DCs at the same time, with both powered off, or not at
+  all. A pair of snapshots taken minutes apart is not a consistent pair.
+- If you do revert one DC on its own, expect to demote and re-promote it
+  rather than hoping. That is genuinely faster than diagnosing it.
+
+In production the answer is a proper backup and restore rather than
+hypervisor snapshots at all, which Module 15 covers.
 :::

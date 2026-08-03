@@ -1,9 +1,9 @@
 ---
-title: "5.8 See your domain from the network"
-sidebar_position: 8
+title: "5.11 See your domain from the network"
+sidebar_position: 11
 ---
 
-# 5.8 See your domain from the network
+# 5.11 See your domain from the network
 
 Everything so far has been the view from inside DC01. Now look at it
 from outside, from KALI01, because what a domain controller announces
