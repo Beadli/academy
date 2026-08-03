@@ -24,6 +24,23 @@ const config = {
     locales: ['en'],
   },
 
+  // Second docs instance for the CyberRack section. Separate from the course
+  // deliberately: the curriculum runs on a laptop and buys no hardware, so
+  // this content must never sit inside the module sidebar where it could be
+  // mistaken for a prerequisite.
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'cyberrack',
+        path: 'cyberrack',
+        routeBasePath: 'cyberrack',
+        sidebarPath: './sidebarsCyberrack.js',
+        editUrl: 'https://github.com/beadli-lab-academy/academy/tree/main/',
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -60,6 +77,13 @@ const config = {
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: 'Modules',
+          },
+          {
+            type: 'docSidebar',
+            docsPluginId: 'cyberrack',
+            sidebarId: 'cyberrackSidebar',
+            position: 'left',
+            label: 'CyberRack',
           },
           {
             href: 'https://github.com/beadli-lab-academy/academy',
