@@ -25,15 +25,37 @@ top of every module which tier it needs.
 
 ## Tier 1: Core (a 16 GB laptop)
 
-| VM | What it is | RAM |
-|---|---|---|
-| DC01 | Windows Server, your domain controller and DNS | 4 GB |
-| UBNT01 | Ubuntu, running Docker, Ansible, and a trimmed SIEM | 6 GB |
-| KALI01 | The attacker box | 3 GB |
+| VM | What it is | RAM | Usually running? |
+|---|---|---|---|
+| DC01 | Windows Server, your domain controller and DNS | 3 GB | yes |
+| DC02 | A second domain controller | 3 GB | **no**, three lessons only |
+| UBNT01 | Ubuntu, running Docker, Ansible, and a trimmed SIEM | 6 GB | yes |
+| KALI01 | The attacker box | 2 GB | when you're attacking |
 
-Around 13 GB of guests, which fits on a 16 GB machine as long as you're
-not also running forty browser tabs. Tier 1 covers most of the course:
-Active Directory, Linux, Docker, Ansible, basic detection, basic attacks.
+That last column is the one that matters, and it's the difference between
+this list looking impossible on a 16 GB laptop and being comfortable.
+
+**A virtual machine only uses memory while it's switched on.** Add those
+numbers up and you get 14 GB, which would indeed be too much. But you will
+almost never run all four at once. Day to day it's DC01, UBNT01 and
+KALI01, which is **11 GB**, and even that overstates it because Kali sits
+off unless you're using it.
+
+DC02 exists so you can learn what every real organization does: run more
+than one domain controller, so that losing one doesn't stop everybody
+working. You build it in Module 5, spend three lessons on replication and
+what happens when a controller dies, and then shut it down. It costs you
+nothing for the rest of the course.
+
+Get used to powering off what you aren't using. It's the single most
+effective thing you can do to make a modest laptop feel adequate, every
+module says which machines it needs, and it's also just how people run
+labs. The root CA in Module 7 takes the same treatment for a much more
+serious reason.
+
+Tier 1 covers most of the course: Active Directory including replication
+and the roles only one controller may hold, Linux, Docker, Ansible, basic
+detection, basic attacks.
 
 ## Tier 2: Enterprise (32 GB)
 
@@ -77,10 +99,15 @@ one or two VMs, but you'll be fighting the machine instead of learning,
 and I'd rather you wait than suffer.
 
 A SIEM is the hungriest thing you'll run. Wazuh wants several gigabytes
-before you've sent it a single event. This surprises everyone.
+before you've sent it a single event. This surprises everyone, and it's
+why UBNT01 gets the largest allocation in the table above while two
+Windows servers make do with 3 GB each.
 
-Disk: an SSD matters more than its size, but plan on roughly 150 GB free
-for Tier 1 once VMs and ISOs pile up.
+Disk: an SSD matters more than its size, but plan on roughly 180 GB free
+for Tier 1 once VMs and ISOs pile up. Disk is where the second domain
+controller does cost you something real: unlike memory, a powered-off VM
+still occupies its whole virtual hard disk. If you're tight, that's the
+one to build last.
 
 One hard limitation: **Apple Silicon Macs (M1 through M4) can't take this
 course past the Linux parts.** The lab depends on x86 Windows Server VMs,

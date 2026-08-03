@@ -31,7 +31,7 @@ which is the same habit Module 7 uses for the offline root CA.
 Same as DC01 in Module 3, with three differences:
 
 - **Name it `DC02`** during Windows setup.
-- **Give it 3 GB** of RAM rather than DC01's allocation.
+- **3 GB of RAM**, the same as DC01, and 60 GB of disk.
 - **Static address `10.10.10.11`**, from the addressing plan you wrote in
   lesson 4.3.
 

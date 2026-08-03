@@ -16,8 +16,10 @@ collected in lesson 3.3:
 
 - **Name and location:** `DC01`, in `C:\VMs\DC01`, per the folder rules
   in 3.3.
-- **RAM:** 4 GB. Windows Server with a desktop is not shy, and this
-  machine runs for the rest of the course.
+- **RAM:** 3 GB. Windows Server with a desktop is not shy, and this
+  machine runs for the rest of the course. If you have memory to spare,
+  4 GB makes the graphical consoles noticeably smoother; 3 GB is the
+  figure the Tier 1 budget in lesson 0.3 is built on.
 - **CPU:** 2 cores.
 - **Disk:** 60 GB, grow-as-used. Windows plus updates plus the
   directory will not fill this, and running out of disk on a domain
