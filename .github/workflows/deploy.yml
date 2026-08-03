@@ -25,6 +25,18 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          # Unset during the review phase, so the site builds for
+          # beadli.github.io/academy/. Set to 1 at launch.
+          CUSTOM_DOMAIN: ${{ vars.CUSTOM_DOMAIN }}
+
+      # GitHub Pages reads a CNAME file in the site root and serves on that
+      # domain. Written only at launch, so the review deployment stays on
+      # beadli.github.io where it belongs.
+      - name: Add CNAME at launch only
+        if: vars.CUSTOM_DOMAIN == '1'
+        run: cp CNAME.launch build/CNAME
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build

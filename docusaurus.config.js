@@ -11,8 +11,15 @@ const config = {
     v4: true,
   },
 
-  url: 'https://academy.beadli.com',
-  baseUrl: '/',
+  // Two deployment targets, one switch. Review phase serves from
+  // beadli.github.io/academy/ (a project site, hence the path in baseUrl);
+  // launch serves from academy.beadli.com at the root. Set CUSTOM_DOMAIN=1
+  // in the deploy workflow to flip, rather than hand-editing three values
+  // and hoping to remember all of them.
+  url: process.env.CUSTOM_DOMAIN === '1'
+    ? 'https://academy.beadli.com'
+    : 'https://beadli.github.io',
+  baseUrl: process.env.CUSTOM_DOMAIN === '1' ? '/' : '/academy/',
 
   organizationName: 'Beadli',
   projectName: 'academy',
