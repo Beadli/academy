@@ -183,6 +183,53 @@
   }
 }
 
+/* Tables.
+
+   Docusaurus tables inherit body size and generous cell padding, which is
+   fine for a two-row table and wasteful for the spec tables in lesson 0.3,
+   where three of them run back to back and the reader is comparing them.
+
+   The base rule tightens every table in the course a little. `.labTable`
+   goes further for the hardware tables specifically, where the content is
+   short tokens rather than prose and the default padding dominates.
+
+   Layout only, no colours, so light and dark are unaffected. */
+.markdown table {
+  font-size: 0.9rem;
+}
+
+.markdown table th,
+.markdown table td {
+  padding: 0.4rem 0.65rem;
+}
+
+.labTable table {
+  font-size: 0.85rem;
+  width: 100%;
+  display: table;
+}
+
+.labTable table th,
+.labTable table td {
+  padding: 0.3rem 0.55rem;
+  white-space: nowrap;
+}
+
+/* The role column is the only one that can be long, so it is the only one
+   allowed to wrap rather than force a horizontal scrollbar. */
+.labTable table td:nth-child(2) {
+  white-space: normal;
+}
+
+/* Phones: the nowrap above would overflow, so let everything wrap and let
+   the table find its own width. */
+@media (max-width: 768px) {
+  .labTable table th,
+  .labTable table td {
+    white-space: normal;
+  }
+}
+
 /* Lesson prose on laptops and up.
 
    Phone body size is right at the 16px default (confirmed on device), so

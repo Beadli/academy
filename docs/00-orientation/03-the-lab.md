@@ -41,23 +41,33 @@ The lab grows in three tiers. You pick a tier based on the machine you
 have, not the machine you wish you had, and the course tells you at the
 top of every module which tier it needs.
 
+Each tier **adds to** the one before it. Tier 2 is everything in Tier 1
+plus four machines; Tier 3 is everything in Tier 2 plus three more. You
+never rebuild, you only extend.
+
 ## Tier 1: Core (a 16 GB laptop)
 
-| VM | What it is | RAM | Usually running? |
+<div className="labTable">
+
+| VM | Role | RAM | On? |
 |---|---|---|---|
-| DC01 | Windows Server, your domain controller and DNS | 3 GB | yes |
-| DC02 | A second domain controller | 3 GB | **no**, three lessons only |
-| UBNT01 | Ubuntu, running Docker, Ansible, and a trimmed SIEM | 6 GB | yes |
-| KALI01 | The attacker box | 2 GB | when you're attacking |
+| DC01 | domain controller, DNS | 3 GB | always |
+| DC02 | second DC: replication, FSMO | 3 GB | 3 lessons |
+| UBNT01 | Docker, Ansible, trimmed SIEM | 6 GB | always |
+| KALI01 | attacker box | 2 GB | as needed |
+
+</div>
+
+**14 GB allocated · 11 GB in normal use**
 
 That last column is the one that matters, and it's the difference between
 this list looking impossible on a 16 GB laptop and being comfortable.
 
-**A virtual machine only uses memory while it's switched on.** Add those
+**A virtual machine only uses memory while it's switched on.** Add the
 numbers up and you get 14 GB, which would indeed be too much. But you will
 almost never run all four at once. Day to day it's DC01, UBNT01 and
-KALI01, which is **11 GB**, and even that overstates it because Kali sits
-off unless you're using it.
+KALI01, which is 11 GB, and even that overstates it because Kali sits off
+unless you're using it.
 
 DC02 exists so you can learn what every real organization does: run more
 than one domain controller, so that losing one doesn't stop everybody
@@ -77,21 +87,53 @@ detection, basic attacks.
 
 ## Tier 2: Enterprise (32 GB)
 
-Adds an OPNsense firewall (1.5 GB) splitting the lab into WAN and LAN
-segments, an issuing certificate authority (3 GB), and an AD FS single
-sign-on server (4 GB). There's also a root CA, but it spends nearly its
-whole life powered off. You build it, it signs your issuing CA, and then
-it goes dark. That isn't a compromise to save RAM. Keeping the root
-offline is exactly how it's done in production, and the fact that your
-laptop forces good practice on you is a happy accident.
+**Everything in Tier 1, plus:**
+
+<div className="labTable">
+
+| VM | Role | RAM | On? |
+|---|---|---|---|
+| FW01 | OPNsense firewall, WAN/LAN split | 1.5 GB | always |
+| SUBCA01 | issuing certificate authority | 3 GB | always |
+| ADFS01 | AD FS single sign-on | 4 GB | always |
+| ROOTCA01 | offline root CA | 2 GB | once, then off |
+
+</div>
+
+**24.5 GB allocated · around 19 GB in normal use**
+
+The root CA is the one to look at. You build it, it signs your issuing CA,
+and then it goes dark for the rest of the course. That isn't a compromise
+to save RAM: keeping the root offline is exactly how it's done in
+production, and your laptop forcing good practice on you is a happy
+accident.
 
 ## Tier 3: Full homelab (64 GB or a dedicated box)
 
-The rest of it: Suricata sniffing the network, a full SIEM deployment,
-OpenVAS vulnerability scanning, Grafana and Prometheus, and a second
-network segment worth defending. This is old-desktop territory, and used
-office machines with lots of RAM sell cheap. Retired workstations make
-better lab boxes than new laptops.
+**Everything in Tier 2, plus:**
+
+<div className="labTable">
+
+| VM | Role | RAM | On? |
+|---|---|---|---|
+| SURICATA01 | network sensor, dual NIC | 4 GB | always |
+| OPENVAS01 | vulnerability scanner | 4 GB | when scanning |
+| TS01 | Tailscale subnet router, remote access | 1 GB | optional |
+| UBNT01 | *upgraded*: full SIEM, Grafana, Prometheus | 12 GB | always |
+
+</div>
+
+**Roughly 37 GB allocated**, plus a second network segment worth
+defending. Note UBNT01 isn't a new machine here, it just gets more memory
+once the SIEM stops being a trimmed one, which is most of the jump.
+
+Treat these four numbers as starting points rather than requirements. By
+the time you reach Tier 3 you'll be sizing machines from what you observe
+them using, which is the right way round and a skill in itself. The Tier 1
+and Tier 2 figures above are the ones I'd hold you to.
+
+This is old-desktop territory, and used office machines with lots of RAM
+sell cheap. Retired workstations make better lab boxes than new laptops.
 
 Two of those get their own virtual machines rather than joining the
 containers on the Ubuntu host, for different reasons worth
