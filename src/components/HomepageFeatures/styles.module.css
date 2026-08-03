@@ -1,12 +1,48 @@
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 1.5rem 0 2rem;
   width: 100%;
 }
 
+/* Icons, not illustrations.
+   These were 150px, which cost roughly 300px of page height across the two
+   rows before a word of copy appeared. At 80px they still read clearly and
+   sit in proportion to the heading beside them. */
 .featureSvg {
-  height: 150px;
-  width: 150px;
-  margin-bottom: 0.75rem;
+  height: 80px;
+  width: 80px;
+  margin-bottom: 0.4rem;
+}
+
+/* Each card is col--6, so the grid is already 2x2. This just stops the
+   rows crowding each other now that the icons are smaller. */
+.featureCard {
+  margin-bottom: 1.75rem;
+}
+
+/* Long lines are hard to read and make the section taller than it needs to
+   be on wide screens. Caps the measure without touching the grid. */
+.featureCard p {
+  max-width: 34rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+}
+
+.featureCard h3 {
+  margin-bottom: 0.35rem;
+}
+
+/* Phones stack to one column, where the extra breathing room between cards
+   matters more than the saved height. */
+@media (max-width: 768px) {
+  .featureSvg {
+    height: 64px;
+    width: 64px;
+  }
+
+  .featureCard {
+    margin-bottom: 2.25rem;
+  }
 }

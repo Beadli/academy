@@ -11,8 +11,8 @@ const FeatureList = [
         Every module adds to the same environment: Active Directory, PKI,
         single sign-on, Docker, Ansible, monitoring. By the capstone you are
         running a mock enterprise on your own hardware, not a pile of
-        disconnected exercises. You&apos;ll even assess it for compliance the
-        way an auditor would, and keep the GRC paperwork to prove it.
+        disconnected exercises, and you&apos;ll have assessed it for
+        compliance the way an auditor would.
       </>
     ),
   },
@@ -44,12 +44,11 @@ const FeatureList = [
     Svg: require('@site/static/img/card-ai.svg').default,
     description: (
       <>
-        Claude is part of the toolkit from Module 1. You&apos;ll use it the
-        way working engineers do: troubleshooting errors, turning shell
-        history into documentation, reviewing configs before they ship. The
-        discipline comes with it, starting with the two rules that matter
-        most: understand a command before you run it, and keep secrets out
-        of the chat window.
+        Claude is part of the toolkit from Module 1, used the way working
+        engineers use it: troubleshooting errors, turning shell history into
+        documentation, reviewing configs before they ship. With two rules
+        that matter more than any prompt: understand a command before you
+        run it, and keep secrets out of the chat window.
       </>
     ),
   },
@@ -57,7 +56,7 @@ const FeatureList = [
 
 function Feature({Svg, title, description}) {
   return (
-    <div className={clsx('col col--6')}>
+    <div className={clsx('col col--6', styles.featureCard)}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
