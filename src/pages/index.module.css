@@ -44,3 +44,26 @@
   display: block;
   margin: 0 auto;
 }
+
+/* Review-phase notice. The announcement bar carries a one-line version of
+ * this; the bar is a strip and cannot hold the explanation, so the reasoning
+ * lives here where there is room for it. Remove both at launch. */
+.reviewNotice {
+  max-width: 720px;
+  margin: 2.5rem auto 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.reviewNotice p {
+  margin: 0;
+}
+
+.reviewNotice p + p {
+  margin-top: 0.6rem;
+}

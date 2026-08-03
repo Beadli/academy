@@ -74,10 +74,17 @@ const config = {
       },
       // Review-phase notice. Remove this block at launch, once the
       // walkthrough has verified the modules on real hardware.
+      //
+      // One line only. The bar is a fixed-height strip, so a paragraph
+      // wraps into a cramped block that reads as a browser warning rather
+      // than part of the site. The longer version of this notice now lives
+      // where it has room to breathe: the callout on the landing page.
       announcementBar: {
         id: 'in-review-2026',
         content:
-          'This course is a working draft. Every module is written but none has been walked start to finish on a clean build yet, so expect steps that skip something obvious. <strong>If you get stuck, that is the bug.</strong> <a target="_blank" rel="noopener noreferrer" href="https://github.com/Beadli/academy/issues">Tell me where it happened.</a>',
+          'Working draft, still being reviewed. <a target="_blank" rel="noopener noreferrer" href="https://github.com/Beadli/academy/issues">Tell me where you got stuck.</a>',
+        backgroundColor: '#1b5e3f',
+        textColor: '#ffffff',
         isCloseable: true,
       },
       navbar: {

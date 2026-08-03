@@ -276,3 +276,52 @@
     font-size: 0.95rem;
   }
 }
+
+/* ---------------------------------------------------------------------------
+ * Review-phase announcement bar
+ *
+ * Docusaurus ships this bar deliberately unstyled so it inherits whatever the
+ * site does, which on a green-branded site reads as an unstyled browser strip.
+ * The classes are hashed at build time (announcementBar_xxxx), so these have to
+ * be attribute-prefix selectors, not plain class names.
+ *
+ * The bar's own default is a fixed 30px strip with no vertical padding. Any
+ * message that wraps therefore collides with its own second line, which is what
+ * the paragraph-length version of this notice was doing. min-height plus real
+ * padding lets it grow gracefully on a phone instead.
+ * ------------------------------------------------------------------------- */
+div[class^='announcementBar_'] {
+  --docusaurus-announcement-bar-height: auto;
+  min-height: 2.25rem;
+  padding: 0.4rem 0;
+  border-bottom: none;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+  line-height: 1.45;
+}
+
+div[class^='announcementBar_'] a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+  font-weight: 600;
+}
+
+div[class^='announcementBar_'] a:hover {
+  color: inherit;
+  text-decoration-thickness: 2px;
+}
+
+/* The close button inherits the page's text colour, which is invisible against
+ * the dark green. Force it to the bar's own ink and dim it so it reads as a
+ * dismiss control rather than a second link. */
+div[class^='announcementBar_'] button[class*='closeButton'] {
+  color: #ffffff;
+  opacity: 0.65;
+}
+
+div[class^='announcementBar_'] button[class*='closeButton']:hover {
+  opacity: 1;
+}
