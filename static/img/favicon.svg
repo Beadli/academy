@@ -2,5 +2,5 @@
   <rect width="96" height="96" rx="20" fill="#2e8555"/>
   <path fill="#ffffff" d="M22 16h16v64H22z"/>
   <path fill="#ffffff" d="M35 16h25c12 0 20 6 20 16 0 7-4 12-10 15 8 3 12 8 12 16 0 11-8 17-21 17H35V64h24c6 0 10-3 10-7s-4-7-10-7H35V38h22c6 0 9-3 9-6s-3-6-9-6H35z"/>
-  <rect x="38" y="44" width="31" height="9" rx="2" fill="#2e8555"/>
+  <rect x="22" y="44" width="47" height="9" rx="2" fill="#2e8555"/>
 </svg>
