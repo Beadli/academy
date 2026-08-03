@@ -123,9 +123,24 @@ Get-ADGroupMember -Identity "Lab Engineers"
 `GroupScope Global` and `GroupCategory Security` are the everyday
 defaults: a security group holds permissions, a distribution group is
 just a mailing list, and scope decides where the group can be used
-across domains. In a single-domain forest like yours, Global is the
-right answer nearly always. Module 8 goes deeper when trusts make scope
-suddenly matter.
+across domains.
+
+There are three scopes, and the difference only bites once a forest holds
+more than one domain: **Domain Local** groups can hold members from
+anywhere but only grant access inside their own domain, **Global** groups
+can hold members only from their own domain but grant access anywhere in
+the forest, and **Universal** groups do both at the cost of replicating
+their membership forest-wide.
+
+**In a single-domain forest like yours, Global is the right answer nearly
+always**, and this course never builds a second domain, so you will not
+feel the difference here. Say so plainly rather than pretending: the
+scenario where scope genuinely matters is a multi-domain or multi-forest
+estate, and if you join one you'll meet the rule that governs it, which
+administrators shorten to **AGDLP**. Accounts go into Global groups,
+Global groups go into Domain Local groups, and permissions are granted to
+the Domain Local group. It sounds fussy until an acquisition doubles your
+forest count.
 
 The rule underneath, and it's one of the few genuinely universal rules
 in administration: **grant permissions to groups, never to individual
