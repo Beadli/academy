@@ -9,7 +9,7 @@ This is the whole design on one page. The [charter](./charter) has the
 reasoning in full; this is the specification and what each part is there
 to teach.
 
-[![CyberRack v1.0: rack elevation, network architecture, compute cluster, storage appliance, VLAN plan, power budget and hardware summary](/img/cyberrack-v1.png)](/img/cyberrack-v1.png)
+[![CyberRack v1.0: 10U rack elevation, network architecture showing an OPNsense firewall routing all seven VLANs over a single 802.1Q trunk to a Layer 2 MikroTik switch, a three-node Proxmox compute cluster, TrueNAS storage appliance, physical connectivity, VLAN and IP plan, power budget and hardware costs](/img/cyberrack-v1.png)](/img/cyberrack-v1.png)
 
 *The diagram is dense. Open it in a new tab for a readable version; it's
 designed to be looked at large rather than squinted at on a phone.*
@@ -89,6 +89,32 @@ Deliberately vulnerable machines belong on a segment that cannot reach
 anything you care about, and building that separation yourself is a
 better lesson than reading about it.
 
+### Who does the routing, and why it matters
+
+**OPNsense routes every VLAN. The MikroTik is a Layer 2 switch.**
+
+Physically there is one 802.1Q trunk between them carrying all seven
+VLANs tagged, and the firewall holds a sub-interface for each. Every
+device in the rack attaches to the switch and nothing attaches to anything
+else.
+
+That arrangement is deliberate, and it costs you something. All traffic
+between VLANs has to travel up to the firewall and back down, which caps
+east-west throughput at what a small N100 box can route. A Layer 3 switch
+would move that traffic at line rate and never bother the firewall.
+
+The reason to accept the cost: **every VLAN-to-VLAN crossing passes
+through a device that can filter and inspect it.** Suricata sees it,
+firewall policy applies to it, and the logs record it. In a lab built to
+practise segmentation and detection, traffic that silently bypasses the
+firewall is the opposite of what you want.
+
+Be aware this is an SMB pattern rather than a large-enterprise one. Real
+enterprises route east-west on Layer 3 switches and reserve firewalls for
+trust boundaries. You'll meet that design, and the [phase 2 upgrade
+path](#phase-2-move-some-routing-to-the-switch) below is how to build your
+way to it deliberately.
+
 ## What each choice teaches
 
 This is the column that justifies the spend. Nothing is here because it
@@ -123,6 +149,36 @@ list. The choices most worth reconsidering for your own situation:
   tidiness and portability, not capability.
 - **The UPS.** The one I would not skip, because it protects the storage
   that everything else depends on.
+
+## Phase 2: move some routing to the switch
+
+Once v1.0 works and you understand it, this is the upgrade worth doing,
+and it's a better lesson than either endpoint on its own.
+
+Migrate **Servers, Backup and Monitoring** routing from OPNsense to Layer
+3 on the MikroTik. Those three are high-volume, low-risk and all inside
+the trusted zone: backup jobs and log shipping have no business
+hairpinning through a firewall. Keep **Guest, IoT and Security Lab** at
+the firewall, because those are exactly the crossings you want inspected.
+
+What it teaches, beyond the configuration:
+
+- **Switched virtual interfaces** and routing on a switch, which is what
+  the distribution layer of a real network does
+- **Static routes** between two routing devices, and why they have to
+  agree
+- **Asymmetric routing**, which you will almost certainly cause by
+  accident the first time, and which is a genuinely common production
+  fault worth having debugged once
+- The architectural judgement itself: **where you put the Layer 3
+  boundary decides what your firewall can see**
+
+Write it up as an Architecture Decision Record, per the charter's §26.2.
+Recording why you moved the boundary, and what visibility you traded for
+throughput, is the part that turns a configuration change into experience
+you can talk about.
+
+Do not start here. The value is in feeling the difference.
 
 ## Living with it
 
