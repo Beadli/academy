@@ -23,9 +23,9 @@ written down so you can disagree with it deliberately rather than by
 accident.
 
 :::note[You do not need any of this for the course]
-The Beadli Lab Academy course runs entirely on a laptop with 16 GB of RAM
-and buys nothing at all. Modules 0 through 17 assume no hardware purchase,
-ever.
+The Beadli Lab Academy course runs entirely on a computer you already
+own, laptop or desktop, with 16 GB of RAM, and buys nothing at all.
+Modules 0 through 17 assume no hardware purchase, ever.
 
 CyberRack sits **beside** the course, not inside it. If you're partway
 through a module and wondering whether you're missing equipment, you

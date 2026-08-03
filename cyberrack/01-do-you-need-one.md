@@ -9,7 +9,7 @@ Before spending anything, it's worth being honest about whether hardware
 solves your problem. Sometimes it does. Often the real constraint is
 somewhere else and a purchase just moves the frustration.
 
-## The signals that a laptop has genuinely stopped being enough
+## The signals that your current machine has genuinely stopped being enough
 
 These are the ones I'd act on:
 
@@ -35,8 +35,9 @@ Every one of these has solved the problem for somebody who was about to
 spend money:
 
 - **More RAM in the machine you own.** Frequently the single best
-  price-to-relief ratio available, and often under $100. Check what your
-  laptop's maximum is before assuming you need a new machine.
+  price-to-relief ratio available, and often under $100. Check the
+  machine's maximum first, and note that a desktop is usually both
+  cheaper and easier to upgrade than a laptop.
 - **An external SSD.** If your complaint is disk space rather than memory,
   this is a fraction of the cost of a server.
 - **Shut things down.** Genuinely. The course's Tier 1 works because

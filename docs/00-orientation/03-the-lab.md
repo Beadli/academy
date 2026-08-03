@@ -14,7 +14,7 @@ come from.
 
 Here's the destination, all of it, before we talk about the road:
 
-<LabArchitecture role="img" aria-label="Architecture diagram of the full lab on one laptop: OPNsense firewall splitting a WAN segment (Kali attacker box) from a LAN segment holding two domain controllers replicating with each other, an issuing CA, an AD FS server, an offline root CA, and an Ubuntu Docker host running Wazuh, Grafana and Gitea, with an OpenVAS vulnerability scanner and a Suricata sensor watching both segments, and the first domain controller syncing outward to a Microsoft Entra ID cloud directory." style={{width: '100%', height: 'auto'}} />
+<LabArchitecture role="img" aria-label="Architecture diagram of the full lab on one computer: OPNsense firewall splitting a WAN segment (Kali attacker box) from a LAN segment holding two domain controllers replicating with each other, an issuing CA, an AD FS server, an offline root CA, and an Ubuntu Docker host running Wazuh, Grafana and Gitea, with an OpenVAS vulnerability scanner and a Suricata sensor watching both segments, and the first domain controller syncing outward to a Microsoft Entra ID cloud directory." style={{width: '100%', height: 'auto'}} />
 
 Three things to read in it before moving on.
 
@@ -45,7 +45,7 @@ Each tier **adds to** the one before it. Tier 2 is everything in Tier 1
 plus four machines; Tier 3 is everything in Tier 2 plus three more. You
 never rebuild, you only extend.
 
-## Tier 1: Core (a 16 GB laptop)
+## Tier 1: Core (16 GB, laptop or desktop)
 
 <div className="labTable">
 
@@ -61,7 +61,7 @@ never rebuild, you only extend.
 **14 GB allocated · 11 GB in normal use**
 
 That last column is the one that matters, and it's the difference between
-this list looking impossible on a 16 GB laptop and being comfortable.
+this list looking impossible on a 16 GB machine and being comfortable.
 
 **A virtual machine only uses memory while it's switched on.** Add the
 numbers up and you get 14 GB, which would indeed be too much. But you will
@@ -76,7 +76,7 @@ what happens when a controller dies, and then shut it down. It costs you
 nothing for the rest of the course.
 
 Get used to powering off what you aren't using. It's the single most
-effective thing you can do to make a modest laptop feel adequate, every
+effective thing you can do to make a modest machine feel adequate, every
 module says which machines it needs, and it's also just how people run
 labs. The root CA in Module 7 takes the same treatment for a much more
 serious reason.
@@ -105,7 +105,7 @@ detection, basic attacks.
 The root CA is the one to look at. You build it, it signs your issuing CA,
 and then it goes dark for the rest of the course. That isn't a compromise
 to save RAM: keeping the root offline is exactly how it's done in
-production, and your laptop forcing good practice on you is a happy
+production, and your hardware forcing good practice on you is a happy
 accident.
 
 ## Tier 3: Full homelab (64 GB or a dedicated box)
@@ -157,14 +157,15 @@ the ceiling, not before.
 There's a whole section on physical labs under **CyberRack** in the top
 menu: what to buy first, in what order, and a fully specified build.
 
-**The course still assumes a laptop**, and nothing in it requires a
-purchase. That section sits beside the curriculum rather than inside it.
-If you're wondering whether you can start on a rack instead, [it answers
-that directly](/cyberrack/start-here-instead), including the two modules
-you'd have to adapt.
+**The course still assumes an ordinary computer you already own**, laptop
+or desktop, and nothing in it requires a purchase. That section sits
+beside the curriculum rather than inside it. If you're wondering whether
+you can start on a rack instead, [it answers that
+directly](/cyberrack/start-here-instead), including the two modules you'd
+have to adapt.
 :::
 
-RAM is the whole game. The CPU in any laptop from the last decade is fine.
+RAM is the whole game. The CPU in any machine from the last decade is fine.
 16 GB is the honest minimum for Tier 1. On 8 GB you can read along and run
 one or two VMs, but you'll be fighting the machine instead of learning,
 and I'd rather you wait than suffer.
@@ -212,7 +213,7 @@ is the right way round.
 
 **Those are ceilings, not consumption.** Every VM in this course uses
 grow-as-used disks, explained in lesson 3.4: the guest believes it has 60
-GB, and the file on your laptop starts near zero and grows only as data is
+GB, and the file on your disk starts near zero and grows only as data is
 actually written. A freshly built Windows Server occupies something closer
 to 15 or 20 GB in practice.
 

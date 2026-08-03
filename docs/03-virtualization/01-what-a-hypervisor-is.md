@@ -6,7 +6,7 @@ sidebar_position: 1
 # 3.1 What virtualization is, and what a hypervisor does
 
 You're about to run a domain controller, a Linux server and an attacker
-machine on the laptop you're reading this on. Before you do, it's worth
+machine on the computer you're reading this on. Before you do, it's worth
 having a one-sentence answer to what that actually is, because "I set up
 some VMs" and being able to define virtualization are different things in
 an interview.
@@ -52,7 +52,8 @@ A hypervisor is a program that lies to operating systems. It presents
 each guest OS with what looks like a computer (a CPU, some RAM, a disk,
 a network card) and secretly maps all of it onto slices of your real
 hardware. The guest can't tell. Windows Server will boot inside your
-laptop genuinely believing it's on a rack somewhere, and that belief is
+desktop or laptop genuinely believing it's on a rack somewhere, and that
+belief is
 what the virtualization setting you checked in 0.6 makes efficient: your
 CPU has instructions specifically built to keep guests fast and
 contained.
@@ -61,8 +62,8 @@ Two flavors exist, and the names come up in interviews. A **type 1**
 hypervisor runs on bare metal with no OS underneath; that's what runs
 enterprise datacenters (VMware ESXi, Proxmox, Hyper-V Server), and my
 own lab runs on one. A **type 2** hypervisor runs as an application on
-top of your normal OS, which is what you'll use, because your laptop
-also needs to stay your laptop.
+top of your normal OS, which is what you'll use, because the computer
+running it also needs to stay your everyday computer.
 
 ## Why VMware Workstation Pro
 
@@ -94,7 +95,7 @@ course, when you graduate to a dedicated homelab box and want the
 type 1 experience.
 
 One honest limitation to carry forward: a type 2 hypervisor shares your
-laptop with everything else you run. Forty browser tabs and three VMs
+computer with everything else you run. Forty browser tabs and three VMs
 will fight, and the VMs will win, because you gave them their RAM up
 front. Close what you don't need on lab nights.
 

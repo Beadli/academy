@@ -19,7 +19,7 @@ function LabPreview() {
           you then sync to a cloud tenant the way real hybrid environments
           do. The tier badges show when each piece arrives.
         </p>
-        <LabArchitecture className={styles.labDiagram} role="img" aria-label="Architecture diagram of the full lab: an OPNsense firewall splitting a WAN segment holding the Kali attacker box from a LAN segment holding two domain controllers replicating with each other, an issuing CA, an AD FS server, an offline root CA, and an Ubuntu Docker host running Wazuh, Grafana and Gitea, with an OpenVAS vulnerability scanner and a Suricata sensor watching both segments, all on one laptop, and the first domain controller syncing outward to a Microsoft Entra ID cloud directory." />
+        <LabArchitecture className={styles.labDiagram} role="img" aria-label="Architecture diagram of the full lab: an OPNsense firewall splitting a WAN segment holding the Kali attacker box from a LAN segment holding two domain controllers replicating with each other, an issuing CA, an AD FS server, an offline root CA, and an Ubuntu Docker host running Wazuh, Grafana and Gitea, with an OpenVAS vulnerability scanner and a Suricata sensor watching both segments, all on one computer, and the first domain controller syncing outward to a Microsoft Entra ID cloud directory." />
       </div>
     </section>
   );
