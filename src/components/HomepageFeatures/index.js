@@ -11,8 +11,7 @@ const FeatureList = [
         Every module adds to the same environment: Active Directory, PKI,
         single sign-on, Docker, Ansible, monitoring. By the capstone you are
         running a mock enterprise on your own hardware, not a pile of
-        disconnected exercises, and you&apos;ll have assessed it for
-        compliance the way an auditor would.
+        disconnected exercises, and performing GRC for compliance.
       </>
     ),
   },
