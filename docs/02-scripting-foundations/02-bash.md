@@ -18,9 +18,10 @@ a day, the triage that found the worst offenders was exactly the pipeline
 you're about to build. This one-liner family has never stopped earning
 its keep.
 
-**Windows users, you're in this lesson.** When you installed Git in
-lesson 1.3 you quietly got Git Bash with it (find it in the Start menu).
-It's a real bash shell, and everything below works in it.
+**Windows users, you're in this lesson**, in Git Bash, per the shell
+rule in lesson 1.3. This is the one where that choice starts paying off:
+`grep` and `awk` below are genuinely bash tools with no PowerShell
+equivalent you'd want to type.
 
 ## Set the scene
 

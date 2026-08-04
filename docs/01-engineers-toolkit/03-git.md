@@ -37,8 +37,55 @@ sudo apt install git
 # command line tools; accept and you're done.
 ```
 
-Close and reopen your terminal afterward, then introduce yourself. Git
-stamps this onto every commit:
+Close and reopen your terminal afterward.
+
+## The shell this course uses
+
+Windows users just got something extra without being told: the Git
+installer ships **Git Bash**, a real bash shell running on Windows. Find
+it in the Start menu, or right-click a folder and choose "Open Git Bash
+here".
+
+That matters because it means every student on this course, whatever
+machine they're on, now has the same shell available. So the course
+picks one:
+
+:::tip[When a block says `bash`, use bash]
+On Linux and macOS that's your normal terminal. On Windows it's **Git
+Bash**, not PowerShell.
+
+Most of those commands would work in PowerShell too, and you're welcome
+to try. The reason the course names one shell rather than saying "either
+is fine" is that "either is fine" quietly makes *you* responsible for
+knowing which commands are the exceptions. You shouldn't have to think
+about it. Open Git Bash and paste.
+:::
+
+**PowerShell is not being taken away from you.** It shows up over ninety
+times in this course, and almost all of it is in Modules 5, 7 and 8,
+where you administer Windows Server: creating users in Active Directory,
+installing roles, issuing certificates. Module 2 teaches you to write
+PowerShell scripts properly. That's the PowerShell worth having, and
+none of it is affected by this.
+
+What you're being spared is the version that isn't really PowerShell.
+Typing `cd` to change folder teaches nobody anything, and it's exactly
+the kind of command where the small differences between shells cost you
+ten minutes for no benefit.
+
+**So from here on, the block tells you where you are.** A `bash` block
+means your own machine (or, from Module 6, a Linux server you've
+connected to). A `powershell` block means you're administering a Windows
+machine. That's a useful signal, and it only works if it's consistent.
+
+:::note[One Git Bash quirk, met once]
+Git Bash writes Windows paths the Unix way: `C:\Users\you` appears as
+`/c/Users/you`. Nothing is wrong when you see that. It's the same folder,
+described in the shell's own dialect, and `~` still means your home
+folder in both.
+:::
+
+Now introduce yourself to Git. It stamps this onto every commit:
 
 ```bash
 git config --global user.name "Your Name"
@@ -74,7 +121,9 @@ The starter vault shipped one; confirm it survived the unzip, since
 files starting with a dot like to play hidden:
 
 ```bash
-# -a lists dotfiles too. You should see .gitignore here.
+# -a lists dotfiles too, and .gitignore is one. This is a bash flag:
+# in PowerShell the equivalent is "Get-ChildItem -Force", which is
+# the sort of difference the shell rule above exists to spare you.
 ls -a
 
 # Print it. Every line is a path Git will skip, and the comments

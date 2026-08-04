@@ -6,8 +6,8 @@ sidebar_position: 8
 # 1.8 Checkpoint: prove the toolkit works
 
 Like every checkpoint from here on, this one is commands plus a
-checklist, and you run it from your vault folder. Everything here works
-in both PowerShell and bash.
+checklist, and you run it from your vault folder. It's a `bash` block, so
+Git Bash on Windows, per lesson 1.3.
 
 ```bash
 cd ~/git/lab-journal    # adjust to your vault path
