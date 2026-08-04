@@ -325,3 +325,39 @@ div[class^='announcementBar_'] button[class*='closeButton'] {
 div[class^='announcementBar_'] button[class*='closeButton']:hover {
   opacity: 1;
 }
+
+/* ---------------------------------------------------------------------------
+ * CyberRack diagrams
+ *
+ * These three SVGs carry a baked light palette (cream paper, charcoal ink)
+ * rather than currentColor, because they are embedded as <img> and an <img>
+ * isolates the SVG document, so currentColor never resolves against the page.
+ * That is the same constraint the navbar logo hit.
+ *
+ * Consequence: they cannot follow the theme. Rather than let a cream rectangle
+ * glare out of a dark page, present them deliberately as figures on paper,
+ * with a frame that does adapt. Reads as intentional in both themes.
+ * ------------------------------------------------------------------------- */
+.diagramCard {
+  margin: 1.5rem 0 2rem;
+  padding: 0.75rem;
+  background: #f7f5ef;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+.diagramCard img {
+  display: block;
+  width: 100%;
+  min-width: 680px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.diagramCaption {
+  margin: -1.25rem 0 2rem;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  text-align: center;
+}

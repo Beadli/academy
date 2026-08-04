@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1024" viewBox="0 0 1800 1024" role="img" aria-label="CyberRack service stack: three matched mini PCs named Atlas, Hermes and Daedalus each running Proxmox VE, a storage appliance running TrueNAS SCALE, and a mini PC running OPNsense, shown as three layers: the hardware each sits on, the platform that runs on the hardware, and the services a user actually logs into.">
+<style>
+.bg{fill:#f7f5ef}
+.card{fill:#fbfaf6;stroke:#737981;stroke-width:2}
+.band{fill:#f3f1eb;stroke:#c9ccc5;stroke-width:1.5}
+.node{fill:#dce8df;stroke:#6f8c78;stroke-width:2}
+.neutral{fill:#f3f1eb;stroke:#4d535a;stroke-width:2}
+.chip{fill:#fbfaf6;stroke:#a8adb3;stroke-width:1.5}
+.chipAccent{fill:#dce8df;stroke:#6f8c78;stroke-width:1.5}
+.dark{fill:#3a3f45;stroke:#1f2327;stroke-width:2}
+.wire{fill:none;stroke:#4d535a;stroke-width:2.5}
+.trunk{fill:none;stroke:#2d3136;stroke-width:9;stroke-linecap:round}
+.vlanline{fill:none;stroke:#6f8c78;stroke-width:2}
+.dashed{fill:none;stroke:#a8adb3;stroke-width:2;stroke-dasharray:8 7}
+.title{font:700 42px Arial,sans-serif;fill:#20252a}
+.sub{font:19px Arial,sans-serif;fill:#555b63}
+.bandlbl{font:700 15px Arial,sans-serif;fill:#496654;letter-spacing:1.5px}
+.bandsub{font:14px Arial,sans-serif;fill:#6b7178}
+.colhead{font:700 19px Arial,sans-serif;fill:#252a2f}
+.colsub{font:14px Arial,sans-serif;fill:#5f666d}
+.label{font:700 17px Arial,sans-serif;fill:#252a2f}
+.body{font:16px Arial,sans-serif;fill:#343a40}
+.small{font:14px Arial,sans-serif;fill:#5f666d}
+.mono{font:700 15px "Courier New",monospace;fill:#343a40}
+.monosm{font:14px "Courier New",monospace;fill:#5f666d}
+.foot{font:14px Arial,sans-serif;fill:#8b9198}
+</style>
+<rect x="0" y="0" width="1800" height="1024" rx="0" class="bg"/>
+<text x="90" y="74" class="title">CyberRack v1.1 · what runs where</text>
+<text x="90" y="112" class="sub">the same rack read as three layers: hardware, the platform on it, and the services you actually log into</text>
+<rect x="90" y="280" width="1668" height="300" rx="10" class="band"/>
+<text x="112" y="314" class="bandlbl">SERVICES</text>
+<text x="112" y="338" class="bandsub">what you log into</text>
+<rect x="90" y="610" width="1668" height="96" rx="10" class="band"/>
+<text x="112" y="644" class="bandlbl">PLATFORM</text>
+<text x="112" y="668" class="bandsub">what runs them</text>
+<rect x="90" y="736" width="1668" height="96" rx="10" class="band"/>
+<text x="112" y="770" class="bandlbl">HARDWARE</text>
+<text x="112" y="794" class="bandsub">what it sits on</text>
+<text x="461.0" y="224" class="colhead" text-anchor="middle">Atlas</text>
+<text x="461.0" y="246" class="colsub" text-anchor="middle">identity</text>
+<rect x="330" y="304" width="262" height="50" rx="8" class="chipAccent"/>
+<text x="461.0" y="335" class="body" text-anchor="middle">Active Directory</text>
+<rect x="330" y="368" width="262" height="50" rx="8" class="chipAccent"/>
+<text x="461.0" y="399" class="body" text-anchor="middle">AD Certificate Services</text>
+<rect x="330" y="432" width="262" height="50" rx="8" class="chipAccent"/>
+<text x="461.0" y="463" class="body" text-anchor="middle">Keycloak</text>
+<rect x="330" y="496" width="262" height="50" rx="8" class="chipAccent"/>
+<text x="461.0" y="527" class="body" text-anchor="middle">DNS and DHCP</text>
+<rect x="330" y="630" width="262" height="56" rx="8" class="node"/>
+<text x="461.0" y="664" class="label" text-anchor="middle">Proxmox VE</text>
+<rect x="330" y="756" width="262" height="56" rx="8" class="neutral"/>
+<text x="461.0" y="780" class="small" text-anchor="middle">Lenovo ThinkCentre M920q</text>
+<text x="461.0" y="800" class="small" text-anchor="middle">64 GB</text>
+<text x="745.0" y="224" class="colhead" text-anchor="middle">Hermes</text>
+<text x="745.0" y="246" class="colsub" text-anchor="middle">security</text>
+<rect x="614" y="304" width="262" height="50" rx="8" class="chipAccent"/>
+<text x="745.0" y="335" class="body" text-anchor="middle">Wazuh (SIEM)</text>
+<rect x="614" y="368" width="262" height="50" rx="8" class="chipAccent"/>
+<text x="745.0" y="399" class="body" text-anchor="middle">Suricata (IDS)</text>
+<rect x="614" y="432" width="262" height="50" rx="8" class="chipAccent"/>
+<text x="745.0" y="463" class="body" text-anchor="middle">log collection</text>
+<rect x="614" y="496" width="262" height="50" rx="8" class="chipAccent"/>
+<text x="745.0" y="527" class="body" text-anchor="middle">Grafana dashboards</text>
+<rect x="614" y="630" width="262" height="56" rx="8" class="node"/>
+<text x="745.0" y="664" class="label" text-anchor="middle">Proxmox VE</text>
+<rect x="614" y="756" width="262" height="56" rx="8" class="neutral"/>
+<text x="745.0" y="780" class="small" text-anchor="middle">Lenovo ThinkCentre M920q</text>
+<text x="745.0" y="800" class="small" text-anchor="middle">64 GB</text>
+<text x="1029.0" y="224" class="colhead" text-anchor="middle">Daedalus</text>
+<text x="1029.0" y="246" class="colsub" text-anchor="middle">platform</text>
+<rect x="898" y="304" width="262" height="50" rx="8" class="chipAccent"/>
+<text x="1029.0" y="335" class="body" text-anchor="middle">Docker</text>
+<rect x="898" y="368" width="262" height="50" rx="8" class="chipAccent"/>
+<text x="1029.0" y="399" class="body" text-anchor="middle">k3s</text>
+<rect x="898" y="432" width="262" height="50" rx="8" class="chipAccent"/>
+<text x="1029.0" y="463" class="body" text-anchor="middle">Gitea</text>
+<rect x="898" y="496" width="262" height="50" rx="8" class="chipAccent"/>
+<text x="1029.0" y="527" class="body" text-anchor="middle">CI/CD runners</text>
+<rect x="898" y="630" width="262" height="56" rx="8" class="node"/>
+<text x="1029.0" y="664" class="label" text-anchor="middle">Proxmox VE</text>
+<rect x="898" y="756" width="262" height="56" rx="8" class="neutral"/>
+<text x="1029.0" y="780" class="small" text-anchor="middle">Lenovo ThinkCentre M920q</text>
+<text x="1029.0" y="800" class="small" text-anchor="middle">64 GB</text>
+<text x="1313.0" y="224" class="colhead" text-anchor="middle">Storage</text>
+<text x="1313.0" y="246" class="colsub" text-anchor="middle">data</text>
+<rect x="1182" y="304" width="262" height="50" rx="8" class="chip"/>
+<text x="1313.0" y="335" class="body" text-anchor="middle">NFS and SMB shares</text>
+<rect x="1182" y="368" width="262" height="50" rx="8" class="chip"/>
+<text x="1313.0" y="399" class="body" text-anchor="middle">iSCSI targets</text>
+<rect x="1182" y="432" width="262" height="50" rx="8" class="chip"/>
+<text x="1313.0" y="463" class="body" text-anchor="middle">ZFS snapshots</text>
+<rect x="1182" y="496" width="262" height="50" rx="8" class="chip"/>
+<text x="1313.0" y="527" class="body" text-anchor="middle">replication targets</text>
+<rect x="1182" y="630" width="262" height="56" rx="8" class="neutral"/>
+<text x="1313.0" y="664" class="label" text-anchor="middle">TrueNAS SCALE</text>
+<rect x="1182" y="756" width="262" height="56" rx="8" class="neutral"/>
+<text x="1313.0" y="780" class="small" text-anchor="middle">AOOSTAR WTR Pro</text>
+<text x="1313.0" y="800" class="small" text-anchor="middle">2 × 4 TB</text>
+<text x="1597.0" y="224" class="colhead" text-anchor="middle">Firewall</text>
+<text x="1597.0" y="246" class="colsub" text-anchor="middle">edge</text>
+<rect x="1466" y="304" width="262" height="50" rx="8" class="chip"/>
+<text x="1597.0" y="335" class="body" text-anchor="middle">VLAN routing</text>
+<rect x="1466" y="368" width="262" height="50" rx="8" class="chip"/>
+<text x="1597.0" y="399" class="body" text-anchor="middle">firewall policy</text>
+<rect x="1466" y="432" width="262" height="50" rx="8" class="chip"/>
+<text x="1597.0" y="463" class="body" text-anchor="middle">VPN</text>
+<rect x="1466" y="496" width="262" height="50" rx="8" class="chip"/>
+<text x="1597.0" y="527" class="body" text-anchor="middle">IDS and IPS</text>
+<rect x="1466" y="630" width="262" height="56" rx="8" class="neutral"/>
+<text x="1597.0" y="664" class="label" text-anchor="middle">OPNsense</text>
+<rect x="1466" y="756" width="262" height="56" rx="8" class="neutral"/>
+<text x="1597.0" y="780" class="small" text-anchor="middle">Intel N100 mini PC</text>
+<text x="1597.0" y="800" class="small" text-anchor="middle">dual-port</text>
+<rect x="90" y="866" width="1668" height="96" rx="10" class="card"/>
+<text x="114" y="902" class="label">The three green nodes are one cluster, not three servers.</text>
+<text x="114" y="930" class="small">Those role names are preferences, not homes. Any workload on Atlas, Hermes or Daedalus can move to either of the others while it is still running, which is the entire reason for buying three matching machines.</text>
+<text x="1758" y="1000" class="foot" text-anchor="end">designed, not yet built</text>
+</svg>

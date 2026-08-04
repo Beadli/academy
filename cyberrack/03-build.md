@@ -9,10 +9,24 @@ This is the whole design on one page. The [charter](./charter) has the
 reasoning in full; this is the specification and what each part is there
 to teach.
 
-[![CyberRack v1.0: 10U rack elevation, network architecture showing an OPNsense firewall routing all seven VLANs over a single 802.1Q trunk to a Layer 2 MikroTik switch, a three-node Proxmox compute cluster, TrueNAS storage appliance, physical connectivity, VLAN and IP plan, power budget and hardware costs](/img/cyberrack-v1.png)](/img/cyberrack-v1.png)
+<div className="diagramCard">
 
-*The diagram is dense. Open it in a new tab for a readable version; it's
-designed to be looked at large rather than squinted at on a phone.*
+![CyberRack v1.1 rack elevation: a 10-inch 10U rack with, from the top, a spare unit, an OPNsense firewall on an Intel N100 mini PC, a MikroTik CRS310 layer 2 switch, a cable management brush panel, a 12-port CAT6 patch panel, three Lenovo ThinkCentre M920q mini PCs named Atlas, Hermes and Daedalus, an AOOSTAR WTR Pro storage appliance, and a power distribution strip. No UPS.](/img/cyberrack-elevation.svg)
+
+</div>
+
+**How to read it.** Numbers down the left are rack units, counted from the
+bottom the way real racks are. The three shaded units in the middle are
+the compute cluster, shaded together because they are one thing, not
+three. U10 is left empty on purpose: a rack with no spare unit is a rack
+you cannot add to.
+
+The two things worth noticing are what is *not* there. There is no
+uninterruptible power supply, for reasons in [its own section
+below](#power-and-why-there-is-no-ups-in-this-rack). And nothing here is a
+server in the rack-mount sense. Every box is a desktop machine on a shelf,
+which is why the whole thing has roughly the footprint of the laptop drawn
+beside it.
 
 ## What it is
 
@@ -72,6 +86,31 @@ Those are preferred placements, not permanent homes. Workloads stay
 migratable between nodes, which is the entire point of running a cluster
 rather than three separate servers.
 
+<div className="diagramCard">
+
+![CyberRack service stack: five columns for Atlas, Hermes, Daedalus, Storage and Firewall, crossed by three horizontal bands. The hardware band shows what each column physically is, the platform band shows Proxmox VE on the three nodes plus TrueNAS SCALE and OPNsense, and the services band lists what each one actually runs.](/img/cyberrack-stack.svg)
+
+</div>
+
+**How to read it.** Read it upward, not across. The bottom band is what
+you buy, the middle band is what you install on it, and the top band is
+what you or anyone else actually logs into. Every column is one physical
+box, and the same box appears in all three bands.
+
+That vertical direction is the useful part. A student looking at a rack
+sees five boxes and no obvious relationship to "Active Directory" or
+"SIEM", because those live two layers above the metal. Following one
+column from the bottom up is the whole answer: an M920q runs Proxmox,
+Proxmox runs virtual machines, and one of those machines is a domain
+controller.
+
+The colour carries the one claim worth making twice. The three green
+columns are a single cluster, so those role names are preferences rather
+than homes, and anything running on one of them can move to another while
+it is still running. Storage and the firewall are grey because they are
+genuinely single points: there is one of each, and if one stops, the thing
+it does stops.
+
 ## The network
 
 Seven VLANs, with inter-VLAN routing controlled by OPNsense and default
@@ -99,6 +138,27 @@ better lesson than reading about it.
 ### Who does the routing, and why it matters
 
 **OPNsense routes every VLAN. The MikroTik is a Layer 2 switch.**
+
+<div className="diagramCard">
+
+![CyberRack network: the internet connects to a single WAN port on the OPNsense firewall. The firewall's second physical port carries seven tagged VLAN sub-interfaces down one 802.1Q trunk cable to a MikroTik layer 2 switch, and every device in the rack attaches to that switch. Side panels explain that only the WAN port reaches the internet, why routing happens at the firewall rather than the switch, and that VLAN 70 holds deliberately vulnerable machines.](/img/cyberrack-network.svg)
+
+</div>
+
+**How to read it.** The thick line is one physical cable. The seven
+labelled chips inside the firewall are not seven cables and not seven
+connections to the internet; they are seven networks sharing that single
+cable, kept apart by a tag added to every frame. That is the part of
+VLANs that reads as magic until someone says it plainly.
+
+Trace a packet to see why the layout matters. A machine on VLAN 20 wants
+to reach the storage on VLAN 30. It goes down to the switch, which reads
+the tag and will not carry it across, so the packet goes up the trunk to
+the firewall, crosses between sub-interfaces there, and comes back down.
+Two trips over one cable for traffic between two boxes sitting inches
+apart.
+
+That is the cost. What it buys is the next paragraph.
 
 Physically there is one 802.1Q trunk between them carrying all seven
 VLANs tagged, and the firewall holds a sub-interface for each. Every

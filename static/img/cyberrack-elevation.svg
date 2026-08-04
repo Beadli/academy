@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200">
+<defs>
+<style>
+.bg{fill:#f7f5ef} .frame{fill:#fbfaf6;stroke:#2d3136;stroke-width:4}
+.rail{fill:#ece9e1;stroke:#2d3136;stroke-width:2} .unit{fill:#f3f1eb;stroke:#4d535a;stroke-width:2}
+.blank{fill:#fbfaf6;stroke:#a8adb3;stroke-width:1.5;stroke-dasharray:8 7}
+.device{fill:#3a3f45;stroke:#1f2327;stroke-width:2} .light{fill:#d7d9d8;stroke:#4c5258;stroke-width:2}
+.accent{fill:#8fae98;stroke:#496654;stroke-width:2} .accentSoft{fill:#dce8df;stroke:#6f8c78;stroke-width:2}
+.panel{fill:#fbfaf6;stroke:#737981;stroke-width:2} .port{fill:#181b1f;stroke:#8f959c;stroke-width:1.3}
+.outlet{fill:#fbfaf6;stroke:#444a50;stroke-width:1.5}
+.title{font:700 42px Arial,sans-serif;fill:#20252a} .sub{font:19px Arial,sans-serif;fill:#555b63}
+.label{font:700 18px Arial,sans-serif;fill:#252a2f} .body{font:16px Arial,sans-serif;fill:#343a40}
+.small{font:14px Arial,sans-serif;fill:#5f666d} .mono{font:700 17px "Courier New",monospace;fill:#343a40}
+.monoSmall{font:14px "Courier New",monospace;fill:#4f565d} .greenText{font:700 16px Arial,sans-serif;fill:#496654}
+.dim{stroke:#70767d;stroke-width:1.7;fill:none;marker-start:url(#arrow);marker-end:url(#arrow)}
+.fine{stroke:#8b9199;fill:none;stroke-width:1.5}
+</style>
+<marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="#70767d"/>
+</marker>
+</defs>
+<rect class="bg" width="1800" height="1200"/>
+<text x="90" y="78" class="title">CyberRack v1.1 — rack elevation</text>
+<text x="90" y="112" class="sub">10-inch desktop infrastructure rack · flat front elevation · designed for portability and incremental growth</text>
+<rect x="120" y="155" width="760" height="870" rx="8" class="frame"/>
+<rect x="152" y="190" width="44" height="790" class="rail"/>
+<rect x="804" y="190" width="44" height="790" class="rail"/>
+<text x="500" y="183" text-anchor="middle" class="small">10U · 10-inch rails · 236.5 mm nominal rail width</text><rect x="210" y="200" width="580" height="70" rx="5" class="blank"/><text x="130" y="242" class="mono">10</text><rect x="210" y="278" width="580" height="70" rx="5" class="unit"/><text x="130" y="320" class="mono">9</text><rect x="210" y="356" width="580" height="70" rx="5" class="unit"/><text x="130" y="398" class="mono">8</text><rect x="210" y="434" width="580" height="70" rx="5" class="unit"/><text x="130" y="476" class="mono">7</text><rect x="210" y="512" width="580" height="70" rx="5" class="unit"/><text x="130" y="554" class="mono">6</text><rect x="210" y="590" width="580" height="70" rx="5" class="accentSoft"/><text x="130" y="632" class="mono">5</text><rect x="210" y="668" width="580" height="70" rx="5" class="accentSoft"/><text x="130" y="710" class="mono">4</text><rect x="210" y="746" width="580" height="70" rx="5" class="accentSoft"/><text x="130" y="788" class="mono">3</text><rect x="210" y="824" width="580" height="70" rx="5" class="unit"/><text x="130" y="866" class="mono">2</text><rect x="210" y="902" width="580" height="70" rx="5" class="unit"/><text x="130" y="944" class="mono">1</text><text x="232" y="242" class="label">SPARE</text>
+<text x="430" y="242" class="small">reserved for future expansion</text><rect x="244" y="293" width="180" height="40" rx="6" class="device"/>
+<rect x="273" y="304" width="34" height="18" rx="2" class="port"/>
+<rect x="318" y="304" width="34" height="18" rx="2" class="port"/>
+<circle cx="394" cy="313" r="4" fill="#8fae98"/>
+<text x="452" y="307" class="label">OPNsense firewall / Intel N100</text>
+<text x="452" y="330" class="small">compact dual-port mini PC</text><rect x="236" y="370" width="312" height="42" rx="5" class="light"/><rect x="258" y="381" width="24" height="17" rx="2" class="port"/><rect x="288" y="381" width="24" height="17" rx="2" class="port"/><rect x="318" y="381" width="24" height="17" rx="2" class="port"/><rect x="348" y="381" width="24" height="17" rx="2" class="port"/><rect x="378" y="381" width="24" height="17" rx="2" class="port"/><rect x="408" y="381" width="24" height="17" rx="2" class="port"/><rect x="438" y="381" width="24" height="17" rx="2" class="port"/><rect x="468" y="381" width="24" height="17" rx="2" class="port"/><rect x="498" y="381" width="24" height="17" rx="2" class="port"/><rect x="528" y="381" width="24" height="17" rx="2" class="port"/><text x="570" y="385" class="label">MikroTik CRS310</text>
+<text x="570" y="408" class="small">L2 switch · 8 copper + 2 SFP+</text><rect x="236" y="449" width="320" height="40" rx="4" class="device"/><line x1="251" y1="454" x2="251" y2="484" stroke="#111417" stroke-width="3"/><line x1="264" y1="454" x2="264" y2="484" stroke="#111417" stroke-width="3"/><line x1="277" y1="454" x2="277" y2="484" stroke="#111417" stroke-width="3"/><line x1="290" y1="454" x2="290" y2="484" stroke="#111417" stroke-width="3"/><line x1="303" y1="454" x2="303" y2="484" stroke="#111417" stroke-width="3"/><line x1="316" y1="454" x2="316" y2="484" stroke="#111417" stroke-width="3"/><line x1="329" y1="454" x2="329" y2="484" stroke="#111417" stroke-width="3"/><line x1="342" y1="454" x2="342" y2="484" stroke="#111417" stroke-width="3"/><line x1="355" y1="454" x2="355" y2="484" stroke="#111417" stroke-width="3"/><line x1="368" y1="454" x2="368" y2="484" stroke="#111417" stroke-width="3"/><line x1="381" y1="454" x2="381" y2="484" stroke="#111417" stroke-width="3"/><line x1="394" y1="454" x2="394" y2="484" stroke="#111417" stroke-width="3"/><line x1="407" y1="454" x2="407" y2="484" stroke="#111417" stroke-width="3"/><line x1="420" y1="454" x2="420" y2="484" stroke="#111417" stroke-width="3"/><line x1="433" y1="454" x2="433" y2="484" stroke="#111417" stroke-width="3"/><line x1="446" y1="454" x2="446" y2="484" stroke="#111417" stroke-width="3"/><line x1="459" y1="454" x2="459" y2="484" stroke="#111417" stroke-width="3"/><line x1="472" y1="454" x2="472" y2="484" stroke="#111417" stroke-width="3"/><line x1="485" y1="454" x2="485" y2="484" stroke="#111417" stroke-width="3"/><line x1="498" y1="454" x2="498" y2="484" stroke="#111417" stroke-width="3"/><line x1="511" y1="454" x2="511" y2="484" stroke="#111417" stroke-width="3"/><line x1="524" y1="454" x2="524" y2="484" stroke="#111417" stroke-width="3"/><line x1="537" y1="454" x2="537" y2="484" stroke="#111417" stroke-width="3"/><text x="570" y="464" class="label">cable management</text>
+<text x="570" y="487" class="small">1U brush panel</text><rect x="236" y="527" width="370" height="40" rx="4" class="light"/><rect x="255" y="538" width="22" height="17" class="port"/><rect x="283" y="538" width="22" height="17" class="port"/><rect x="311" y="538" width="22" height="17" class="port"/><rect x="339" y="538" width="22" height="17" class="port"/><rect x="367" y="538" width="22" height="17" class="port"/><rect x="395" y="538" width="22" height="17" class="port"/><rect x="423" y="538" width="22" height="17" class="port"/><rect x="451" y="538" width="22" height="17" class="port"/><rect x="479" y="538" width="22" height="17" class="port"/><rect x="507" y="538" width="22" height="17" class="port"/><rect x="535" y="538" width="22" height="17" class="port"/><rect x="563" y="538" width="22" height="17" class="port"/><text x="625" y="542" class="label">patch panel / CAT6</text>
+<text x="625" y="565" class="small">12-port keystone</text><rect x="236" y="604" width="340" height="42" rx="5" class="accent"/><rect x="260" y="614" width="205" height="22" rx="4" fill="#2d3136"/><circle cx="533" cy="625" r="5" fill="#dce8df"/><text x="600" y="618" class="greenText">Atlas / identity</text><text x="600" y="641" class="small">Lenovo ThinkCentre M920q</text><rect x="236" y="682" width="340" height="42" rx="5" class="accent"/><rect x="260" y="692" width="205" height="22" rx="4" fill="#2d3136"/><circle cx="533" cy="703" r="5" fill="#dce8df"/><text x="600" y="696" class="greenText">Hermes / security</text><text x="600" y="719" class="small">Lenovo ThinkCentre M920q</text><rect x="236" y="760" width="340" height="42" rx="5" class="accent"/><rect x="260" y="770" width="205" height="22" rx="4" fill="#2d3136"/><circle cx="533" cy="781" r="5" fill="#dce8df"/><text x="600" y="774" class="greenText">Daedalus / platform</text><text x="600" y="797" class="small">Lenovo ThinkCentre M920q</text><rect x="236" y="837" width="260" height="44" rx="5" class="device"/>
+<rect x="270" y="844" width="64" height="30" rx="3" class="port"/>
+<rect x="344" y="844" width="64" height="30" rx="3" class="port"/>
+<circle cx="463" cy="859" r="4" fill="#8fae98"/>
+<text x="530" y="852" class="label">TrueNAS SCALE / storage</text>
+<text x="530" y="875" class="small">AOOSTAR WTR Pro · two visible bays</text><rect x="236" y="917" width="360" height="40" rx="4" class="device"/><rect x="258" y="928" width="34" height="18" rx="5" class="outlet"/><rect x="301" y="928" width="34" height="18" rx="5" class="outlet"/><rect x="344" y="928" width="34" height="18" rx="5" class="outlet"/><rect x="387" y="928" width="34" height="18" rx="5" class="outlet"/><rect x="430" y="928" width="34" height="18" rx="5" class="outlet"/><rect x="473" y="928" width="34" height="18" rx="5" class="outlet"/><rect x="516" y="928" width="34" height="18" rx="5" class="outlet"/><text x="620" y="937" class="label">PDU</text>
+<text x="620" y="960" class="small">power distribution only · no battery</text><rect x="995" y="210" width="610" height="270" rx="12" class="panel"/>
+<text x="1030" y="255" class="label">PORTABILITY &amp; POWER</text>
+<line x1="1030" y1="276" x2="1568" y2="276" class="fine"/>
+<text x="1030" y="323" class="body">~125 W idle</text>
+<text x="1030" y="369" class="body">9U occupied, 1U spare</text>
+<text x="1030" y="415" class="body">carryable: no UPS, no lead-acid</text>
+<text x="1030" y="455" class="small">External surge protection or an off-rack UPS may be added separately.</text>
+
+<rect x="995" y="520" width="610" height="170" rx="12" class="panel"/>
+<text x="1030" y="565" class="label">PHYSICAL DESIGN RULE</text>
+<text x="1030" y="605" class="body">Only equipment designed for, or adapted to, 10-inch rails appears here.</text>
+<text x="1030" y="640" class="body">No battery equipment is placed inside the rack.</text>
+<text x="1030" y="675" class="body">Every active component remains independently replaceable.</text>
+
+<text x="1000" y="760" class="label">Human-scale footprint cue</text>
+<rect x="1040" y="805" width="480" height="210" rx="14" class="fine"/>
+<rect x="1090" y="835" width="380" height="135" rx="8" class="fine"/>
+<line x1="1065" y1="985" x2="1495" y2="985" class="fine"/>
+<line x1="1040" y1="1015" x2="1520" y2="1015" class="dim"/>
+<text x="1280" y="1044" text-anchor="middle" class="monoSmall">15-inch laptop</text>
+<text x="1280" y="1080" text-anchor="middle" class="body">roughly the footprint of a large shoebox</text>
+
+<line x1="210" y1="1055" x2="790" y2="1055" class="dim"/>
+<text x="500" y="1083" text-anchor="middle" class="monoSmall">10-inch rack width</text>
+<text x="1620" y="1145" text-anchor="end" class="small">designed, not yet built</text>
+</svg>

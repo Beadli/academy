@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1080" viewBox="0 0 1800 1080" role="img" aria-label="CyberRack network: the OPNsense firewall has two physical interfaces, one WAN facing the internet and one LAN trunk carrying seven tagged VLANs to a Layer 2 MikroTik switch. Only the WAN interface reaches the internet. Every VLAN is a sub-interface on the LAN side, and all traffic between VLANs is routed by the firewall.">
+<style>
+.bg{fill:#f7f5ef}
+.card{fill:#fbfaf6;stroke:#737981;stroke-width:2}
+.band{fill:#f3f1eb;stroke:#c9ccc5;stroke-width:1.5}
+.node{fill:#dce8df;stroke:#6f8c78;stroke-width:2}
+.neutral{fill:#f3f1eb;stroke:#4d535a;stroke-width:2}
+.chip{fill:#fbfaf6;stroke:#a8adb3;stroke-width:1.5}
+.chipAccent{fill:#dce8df;stroke:#6f8c78;stroke-width:1.5}
+.dark{fill:#3a3f45;stroke:#1f2327;stroke-width:2}
+.wire{fill:none;stroke:#4d535a;stroke-width:2.5}
+.trunk{fill:none;stroke:#2d3136;stroke-width:9;stroke-linecap:round}
+.vlanline{fill:none;stroke:#6f8c78;stroke-width:2}
+.dashed{fill:none;stroke:#a8adb3;stroke-width:2;stroke-dasharray:8 7}
+.title{font:700 42px Arial,sans-serif;fill:#20252a}
+.sub{font:19px Arial,sans-serif;fill:#555b63}
+.bandlbl{font:700 15px Arial,sans-serif;fill:#496654;letter-spacing:1.5px}
+.bandsub{font:14px Arial,sans-serif;fill:#6b7178}
+.colhead{font:700 19px Arial,sans-serif;fill:#252a2f}
+.colsub{font:14px Arial,sans-serif;fill:#5f666d}
+.label{font:700 17px Arial,sans-serif;fill:#252a2f}
+.body{font:16px Arial,sans-serif;fill:#343a40}
+.small{font:14px Arial,sans-serif;fill:#5f666d}
+.mono{font:700 15px "Courier New",monospace;fill:#343a40}
+.monosm{font:14px "Courier New",monospace;fill:#5f666d}
+.foot{font:14px Arial,sans-serif;fill:#8b9198}
+</style>
+<rect x="0" y="0" width="1800" height="1080" rx="0" class="bg"/>
+<text x="90" y="74" class="title">CyberRack v1.1 · how traffic moves</text>
+<text x="90" y="112" class="sub">one cable to the switch, seven networks inside it, and one device deciding what may reach what</text>
+<rect x="250" y="176" width="320" height="66" rx="33" class="neutral"/>
+<text x="410" y="216" class="label" text-anchor="middle">the internet</text>
+<path d="M410 242 L410 300" class="wire"/>
+<text x="424" y="278" class="small">the only way out</text>
+<rect x="150" y="300" width="620" height="340" rx="10" class="card"/>
+<text x="174" y="338" class="label">OPNsense firewall</text>
+<text x="174" y="360" class="small">Intel N100 mini PC · two physical ports, no more</text>
+<rect x="174" y="378" width="180" height="44" rx="6" class="dark"/>
+<text x="264" y="406" class="mono" style="fill:#f3f1eb" text-anchor="middle">WAN  port 1</text>
+<text x="174" y="456" class="small">seven VLAN sub-interfaces, all on port 2</text>
+<rect x="174" y="470" width="133" height="38" rx="6" class="chipAccent"/>
+<text x="240" y="495" class="monosm" text-anchor="middle">10  Management</text>
+<rect x="319" y="470" width="133" height="38" rx="6" class="chipAccent"/>
+<text x="385" y="495" class="monosm" text-anchor="middle">20  Servers</text>
+<rect x="464" y="470" width="133" height="38" rx="6" class="chipAccent"/>
+<text x="530" y="495" class="monosm" text-anchor="middle">30  Backup</text>
+<rect x="609" y="470" width="133" height="38" rx="6" class="chipAccent"/>
+<text x="675" y="495" class="monosm" text-anchor="middle">40  Monitoring</text>
+<rect x="174" y="518" width="133" height="38" rx="6" class="chipAccent"/>
+<text x="240" y="543" class="monosm" text-anchor="middle">50  Guest</text>
+<rect x="319" y="518" width="133" height="38" rx="6" class="chipAccent"/>
+<text x="385" y="543" class="monosm" text-anchor="middle">60  IoT</text>
+<rect x="464" y="518" width="133" height="38" rx="6" class="chipAccent"/>
+<text x="530" y="543" class="monosm" text-anchor="middle">70  Security Lab</text>
+<rect x="174" y="574" width="180" height="44" rx="6" class="dark"/>
+<text x="264" y="602" class="mono" style="fill:#f3f1eb" text-anchor="middle">LAN  port 2</text>
+<path d="M264 640 L264 760" class="trunk"/>
+<rect x="300" y="668" width="400" height="54" rx="8" class="card"/>
+<text x="320" y="702" class="small">one cable · seven tagged VLANs · 802.1Q trunk</text>
+<rect x="150" y="760" width="620" height="108" rx="10" class="neutral"/>
+<text x="174" y="800" class="label">MikroTik CRS310 · Layer 2 switch</text>
+<text x="174" y="828" class="small">passes VLAN tags. Does not route between them.</text>
+<path d="M229 868 L229 940" class="wire"/>
+<rect x="164" y="940" width="130" height="46" rx="6" class="chip"/>
+<text x="229" y="969" class="small" text-anchor="middle">Atlas</text>
+<path d="M381 868 L381 940" class="wire"/>
+<rect x="316" y="940" width="130" height="46" rx="6" class="chip"/>
+<text x="381" y="969" class="small" text-anchor="middle">Hermes</text>
+<path d="M533 868 L533 940" class="wire"/>
+<rect x="468" y="940" width="130" height="46" rx="6" class="chip"/>
+<text x="533" y="969" class="small" text-anchor="middle">Daedalus</text>
+<path d="M685 868 L685 940" class="wire"/>
+<rect x="620" y="940" width="130" height="46" rx="6" class="chip"/>
+<text x="685" y="969" class="small" text-anchor="middle">Storage</text>
+<text x="174" y="1022" class="small">every device attaches to the switch and to nothing else</text>
+<rect x="880" y="176" width="830" height="200" rx="10" class="card"/>
+<text x="906" y="216" class="label">Only one line touches the internet</text>
+<text x="906" y="248" class="body">Port 1 is the WAN. Everything else in this picture lives behind it.</text>
+<text x="906" y="282" class="body">The seven VLANs are not seven connections to the outside world. They are</text>
+<text x="906" y="310" class="body">seven separate networks sharing one cable, kept apart by a tag on every</text>
+<text x="906" y="338" class="body">frame, and the firewall is the only thing that can carry traffic between them.</text>
+<rect x="880" y="406" width="830" height="232" rx="10" class="card"/>
+<text x="906" y="446" class="label">Why route at the firewall and not the switch</text>
+<text x="906" y="478" class="body">It costs throughput. Traffic between two VLANs travels up to the firewall</text>
+<text x="906" y="506" class="body">and back down, capped at what a small N100 box can route. A Layer 3</text>
+<text x="906" y="534" class="body">switch would move it at line rate and never involve the firewall.</text>
+<text x="906" y="574" class="label">That is the point. Every crossing passes something that can inspect it:</text>
+<text x="906" y="604" class="body">Suricata sees it, policy applies to it, and the logs record it. In a lab</text>
+<text x="906" y="626" class="body">built to practise segmentation, invisible traffic is the failure.</text>
+<rect x="880" y="668" width="830" height="152" rx="10" class="card"/>
+<text x="906" y="708" class="label">VLAN 70 is the one to get right</text>
+<text x="906" y="740" class="body">Deliberately vulnerable machines live here. It is the segment that must</text>
+<text x="906" y="768" class="body">not reach anything you care about, and building that boundary yourself</text>
+<text x="906" y="796" class="body">teaches more than reading about it ever does.</text>
+<rect x="880" y="850" width="830" height="136" rx="10" class="band"/>
+<text x="906" y="890" class="label">This is an SMB pattern, not a large-enterprise one</text>
+<text x="906" y="922" class="body">Big networks route east-west on Layer 3 switches and save firewalls for</text>
+<text x="906" y="950" class="body">trust boundaries. Moving some routing to the switch is the phase 2 upgrade.</text>
+<text x="1758" y="1056" class="foot" text-anchor="end">designed, not yet built</text>
+</svg>
