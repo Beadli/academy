@@ -14,7 +14,7 @@ come from.
 
 Here's the destination, all of it, before we talk about the road:
 
-<LabArchitecture role="img" aria-label="Architecture diagram of the full lab on one computer: OPNsense firewall splitting a WAN segment (Kali attacker box) from a LAN segment holding two domain controllers replicating with each other, an issuing CA, an AD FS server, an offline root CA, and an Ubuntu Docker host running Wazuh, Grafana and Gitea, with an OpenVAS vulnerability scanner and a Suricata sensor watching both segments, and the first domain controller syncing outward to a Microsoft Entra ID cloud directory." style={{width: '100%', height: 'auto'}} />
+<LabArchitecture role="img" aria-label="Architecture diagram of the full lab on one computer: OPNsense firewall splitting a WAN segment (Kali attacker box) from a LAN segment holding two domain controllers replicating with each other, an issuing CA, an AD FS server, an offline root CA, and an Ubuntu Docker host running Wazuh, Grafana, Gitea and Keycloak, with an OpenVAS vulnerability scanner and a Suricata sensor watching both segments, and the first domain controller syncing outward to a Microsoft Entra ID cloud directory." style={{width: '100%', height: 'auto'}} />
 
 Three things to read in it before moving on.
 
