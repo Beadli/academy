@@ -11,6 +11,23 @@ to teach.
 
 <div className="diagramCard">
 
+![CyberRack v1.1 overview: a single reference sheet combining the mission statement, a photographic rack elevation of the 10U 10-inch rack, the hardware summary and budget totalling $2,959, the router-on-a-stick network architecture with all seven VLANs and their subnets, physical connectivity showing the switch as the single attachment point, specifications for the three Lenovo ThinkCentre M920q compute nodes and the AOOSTAR WTR Pro storage appliance, the full service stack grouped into identity, security, monitoring, dev-ops and backup, a power budget totalling roughly 125 watts, and operational notes.](/img/cyberrack-overview.png)
+
+</div>
+
+**Everything at once, and then one thing at a time.** The sheet above is
+the build as a whole: real hardware, every number, the full service list.
+It is the picture to send someone who asks what you are building, and the
+one to print and stick above the desk while you buy parts.
+
+It is also, deliberately, too much to learn from. The three diagrams
+further down each take one question and answer it properly: what is
+physically in the rack, what runs where, and how traffic moves. Skim the
+sheet now for the shape of the thing, then use the focused ones when you
+want to actually understand a piece of it.
+
+<div className="diagramCard">
+
 ![CyberRack v1.1 rack elevation: a 10-inch 10U rack with, from the top, a spare unit, an OPNsense firewall on an Intel N100 mini PC, a MikroTik CRS310 layer 2 switch, a cable management brush panel, a 12-port CAT6 patch panel, three Lenovo ThinkCentre M920q mini PCs named Atlas, Hermes and Daedalus, an AOOSTAR WTR Pro storage appliance, and a power distribution strip. No UPS.](/img/cyberrack-elevation.svg)
 
 </div>
@@ -44,14 +61,13 @@ numbers as a budget you'd verify with a plug meter on day one.
 
 <div className="labTable">
 
-| Domain | Standard | Qty | Est. cost |
-|---|---|---|---|
-| Compute | Lenovo ThinkCentre M920q (i5-8500T, 64 GB, 1.5 TB NVMe) | 3 | $1,950 |
-| Storage | AOOSTAR WTR Pro (N100, 32 GB, 2× 4 TB) | 1 | $480 |
-| Firewall | Intel N100 mini PC | 1 | $160 |
-| Switch | MikroTik CRS310-8G+2S+IN | 1 | $179 |
-| Rack | 10-inch rack, panel, shelves, cables | 1 | $150 |
-| Power | PDU strip and cabling | 1 | $40 |
+| Domain | Model | Qty | Unit | Est. total |
+|---|---|---:|---:|---:|
+| Compute | Lenovo ThinkCentre M920q (i5-8500T, 64 GB, 1.5 TB NVMe) | 3 | $650 | $1,950 |
+| Storage | AOOSTAR WTR Pro (N100, 32 GB, 2× 4 TB) | 1 | $499 | $499 |
+| Firewall | OPNsense mini PC (Intel N100, dual 2.5GbE) | 1 | $169 | $169 |
+| Switch | MikroTik CRS310-8G+2S+IN | 1 | $179 | $179 |
+| Rack & accessories | 10-inch rack, panel, patch panel, PDU, cables | 1 | $162 | $162 |
 
 </div>
 
