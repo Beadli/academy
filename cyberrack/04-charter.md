@@ -24,12 +24,129 @@ This reads like a formal charter rather than a lesson, because that's what
 it is. Course modules talk to you; this specifies a system.
 :::
 
+## How to read it
+
+Charters are written for people who already have the vocabulary, and this
+one is no exception: it uses about forty acronyms and expands none of
+them. If you've come to CyberRack without doing the course, that's a wall.
+The glossary below is the missing half. Open it in a second tab.
+
+Three conventions of the genre, which trip people up more than the jargon:
+
+**"Should" is not "must".** Requirements documents use these precisely.
+*Must* is a hard requirement that fails the project if unmet. *Should* is
+a strong default you're allowed to depart from with a reason. Most of this
+charter says should, which is why it reads as opinionated rather than
+rigid.
+
+**"Definition of done" is a real term, not a flourish.** §30 exists so
+that "finished" is decided before the work starts rather than argued about
+afterwards. Every team that has ever shipped late has had this argument.
+
+**"North star" means the tiebreaker.** §32 is what you consult when two
+reasonable options are in front of you and the rest of the document
+doesn't decide between them.
+
+<details>
+
+<summary>Glossary: the acronyms this charter assumes you know</summary>
+
+**Networking**
+
+- **VLAN**, Virtual Local Area Network. One physical switch carved into
+  several separate networks that cannot talk to each other without going
+  through a router.
+- **WAN**, Wide Area Network. Here it means the interface facing your
+  home internet connection.
+- **DHCP**, Dynamic Host Configuration Protocol. What hands a device an
+  address automatically when it joins a network.
+- **DNS**, Domain Name System. Turns names into addresses.
+- **NTP**, Network Time Protocol. Keeps clocks in agreement, which
+  matters more than it sounds: certificates and Kerberos both break when
+  clocks drift.
+- **VPN**, Virtual Private Network. An encrypted tunnel into the network
+  from outside it.
+- **SFP+**, Small Form-factor Pluggable. The cage a fibre or high-speed
+  copper module slots into, as opposed to a fixed RJ45 socket.
+- **SNMP**, Simple Network Management Protocol. How network gear reports
+  its health to monitoring systems.
+
+**Storage**
+
+- **ZFS**. A filesystem and volume manager in one, notable for checksums
+  that detect silent corruption and for cheap snapshots.
+- **NAS**, Network Attached Storage. A box whose job is serving files.
+- **SAN**, Storage Area Network. The enterprise-scale version, listed in
+  this charter only as something deliberately out of scope.
+- **NFS**, Network File System. The usual way Linux and Unix machines
+  share files.
+- **SMB**, Server Message Block. The usual way Windows machines do.
+- **iSCSI**. Presents remote storage as if it were a local disk.
+
+**Identity and certificates**
+
+- **AD**, Active Directory. Microsoft's directory service: the central
+  list of users, computers and groups.
+- **AD CS**, Active Directory Certificate Services. Microsoft's built-in
+  certificate authority.
+- **PKI**, Public Key Infrastructure. The whole system of certificates,
+  the authorities that sign them, and the rules for trusting them.
+- **CA**, Certificate Authority. The thing that signs certificates.
+- **LDAP**, Lightweight Directory Access Protocol. The protocol
+  applications use to ask a directory about users.
+- **SSO**, Single Sign-On. Log in once, reach many applications.
+- **SAML** and **OIDC** (OpenID Connect). The two protocols that make
+  single sign-on work. SAML is older and speaks XML; OIDC is newer, built
+  on OAuth 2.0, and speaks JSON.
+- **TLS**, Transport Layer Security. The encryption behind the *s* in
+  HTTPS.
+- **SSH**, Secure Shell. Encrypted remote command line.
+
+**Security operations**
+
+- **SIEM**, Security Information and Event Management. Collects logs from
+  everything and raises alerts on patterns.
+- **IDS** and **IPS**, Intrusion Detection and Intrusion Prevention
+  System. One watches traffic and warns; the other watches and blocks.
+
+**Platform and practice**
+
+- **HA**, High Availability. Designing so one machine failing doesn't
+  take the service down.
+- **CI/CD**, Continuous Integration and Continuous Delivery. Automatically
+  building and testing changes, then automatically shipping them.
+- **IaC**, Infrastructure as Code. Defining servers and networks in files
+  you version-control, instead of clicking through a console.
+- **ADR**, Architecture Decision Record. A short note recording a
+  decision and, crucially, the reasoning and the alternatives rejected.
+- **API**, Application Programming Interface. The way one program asks
+  another to do something.
+- **k3s**. A stripped-down Kubernetes, small enough to run on a mini PC.
+- **UPS**, Uninterruptible Power Supply. A battery that keeps equipment
+  running briefly when mains power fails. Worth knowing that this build
+  deliberately does not have one; see below.
+
+**Hardware names, which are models rather than acronyms**
+
+- **N100**. A low-power Intel processor common in small firewall boxes.
+- **CRS310-8G+2S+IN**. A MikroTik switch model. The suffix describes it:
+  8 gigabit copper ports, 2 SFP+ cages, indoor.
+- **TrueNAS SCALE**. The Linux-based version of the TrueNAS storage
+  operating system. SCALE is a product name, not an acronym.
+- **NVMe**, Non-Volatile Memory Express. The fast solid-state drive
+  standard that plugs directly into the motherboard.
+
+</details>
+
 :::warning[It contradicts itself in one place, and that's left in]
-§5.4 requires the platform to be portable and easy to relocate. §7's rack
-elevation then puts **UPS and power distribution** in U1 of a ten-inch
-rack. Read those together and they don't hold: the UPS class that phrase
-usually implies is a lead-acid tower that neither fits a ten-inch rack nor
-gets carried anywhere.
+§5.4 requires the platform to be portable and easy to relocate, in a
+ten-inch rack. §4 then budgets for a **UPS**, and §7's rack elevation
+puts **UPS and power distribution** in U1. Those cannot all happen: rack
+UPS units are built for nineteen-inch rails, so none of them mounts in a
+ten-inch rack at all.
+
+Wherever this charter says UPS, read it as an aspiration that did not
+survive contact with what you can actually buy. The build drops it.
 
 The charter is published unedited, so the contradiction stays. It's also
 the most useful thing in here for anyone who has to write one of these.
@@ -37,7 +154,7 @@ Requirements documents contradict themselves constantly, almost always
 between a section about *qualities* and a section about *parts*, and the
 contradiction is invisible until someone tries to buy something.
 
-[The build page](./build#power-and-the-portability-trap) resolves this one
+[The build page](./build#power-and-why-there-is-no-ups-in-this-rack) resolves this one
 by asking what the battery is actually for. Read it as a worked example of
 catching a requirements conflict at the specification stage, which is
 where it is cheap.

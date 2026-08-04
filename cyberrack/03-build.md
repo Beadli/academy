@@ -37,16 +37,16 @@ numbers as a budget you'd verify with a plug meter on day one.
 | Firewall | Intel N100 mini PC | 1 | $160 |
 | Switch | MikroTik CRS310-8G+2S+IN | 1 | $179 |
 | Rack | 10-inch rack, panel, shelves, cables | 1 | $150 |
-| Power | PDU strip, plus a shutdown-grade UPS (see below) | 1 | $150 |
+| Power | PDU strip and cabling | 1 | $40 |
 
 </div>
 
-**Estimated total: $3,069.** Prices are from the used market and move
+**Estimated total: $2,959.** Prices are from the used market and move
 around; treat them as a shape rather than a quote, and keep five to ten
 percent back for the part that arrives broken.
 
 Worth noticing: [the charter](./charter) sets a target of **$2,500**, and
-this bill of materials comes to $3,069. That gap is left visible on
+this bill of materials comes to $2,959. That gap is left visible on
 purpose. Budgets get set before prices get checked, every real project
 meets this moment, and the useful question is which line you cut rather
 than whether the spreadsheet was ever wrong. The stage-by-stage path in
@@ -158,77 +158,49 @@ list. The choices most worth reconsidering for your own situation:
   everything else depends on. Worth sizing properly, for the reasons in
   the next section.
 
-## Power, and the portability trap
+## Power, and why there is no UPS in this rack
 
-The charter asks for a rack that is "desk-friendly, dorm-friendly,
+The charter asks for a platform that is "desk-friendly, dorm-friendly,
 apartment-friendly, quiet, portable, energy efficient, easy to relocate",
-and puts **UPS and power distribution** in U1 of a 10-inch rack. Those two
-requirements fight each other, and an earlier version of this page lost
-the fight by specifying a 1000 VA consumer tower UPS.
+and then puts **UPS and power distribution** in U1 of a ten-inch rack.
+Those two requirements cannot both be met, and an earlier version of this
+page tried anyway by listing a 1000 VA consumer tower UPS.
 
-Three things were wrong with that, and they're worth walking through
-because the reasoning generalises well beyond this rack.
+**There is no ten-inch rack-mount UPS.** A ten-inch rack sets its rails
+236.5 mm apart. Every rack UPS on the market, including the compact 1U
+lithium units, is built for nineteen-inch rails and will not mount. The
+best you can do is stand one on a shelf, which is not mounting it, or
+put it on the floor while the elevation diagram claims it lives in U1.
 
-**It doesn't fit.** A 10-inch rack is ten inches wide. Nearly everything
-sold as a rack-mount UPS is built for the 19-inch standard, and consumer
-units like the one previously listed are tower-shaped and mount in
-nothing at all. It would have sat on the floor beside the rack while the
-elevation diagram claimed it was in U1.
+So it comes out. The rack carries a PDU strip and nothing else.
 
-**It's the heaviest thing you'd own.** Sealed lead-acid is most of the
-weight of a UPS in that class, and weight is the requirement portability
-actually cashes out to. A rack you can lift is a rack you'll take to a
-friend's place, a study group, or an interview. One anchored by a lead
-brick is furniture.
+:::tip[What you lose, and what to do about it]
+A UPS in a lab this size does one job worth having: it gives ZFS and the
+databases underneath your services a few minutes to finish writing and
+shut down cleanly, so a power cut costs you nothing instead of costing a
+rebuild. Without one, an unexpected outage means an unclean shutdown.
 
-**It's sized for a problem this rack doesn't have.** Run the charter's own
-numbers. The target is 80 to 150 watts idle and under 300 at peak:
+ZFS is genuinely good at surviving that, which is part of why it was
+chosen, but "usually fine" is not the same as "fine".
 
-<div className="labTable">
+**If the rack lives in one place**, buy a conventional UPS and stand it
+under the desk, outside the rack. You need very little of one. At the
+charter's targets of 80 to 150 watts idle and under 300 at peak, five
+minutes of runtime is 12.5 to 25 Wh of battery, so almost any consumer
+unit is oversized for the job. Buy one with a USB or network connection
+your machines can read, because a UPS your machines cannot talk to is
+just a delay, not a clean shutdown.
 
-| Load | Runtime | Battery energy needed |
-|---|---|---|
-| 150 W | 5 minutes | 12.5 Wh |
-| 150 W | 10 minutes | 25 Wh |
-| 300 W | 5 minutes | 25 Wh |
-| 300 W | 10 minutes | 50 Wh |
-
-</div>
-
-A 600 watt UPS is twice the wattage this rack will ever ask for, holding
-far more stored energy than the job needs.
-
-:::tip[Size it for shutdown, not for uptime]
-This is the question people get backwards. Ask what the battery is *for*.
-
-You are not trying to keep working through an outage. You're trying to
-give ZFS and the databases underneath your services a few minutes to
-finish writing and shut down cleanly, so a power cut costs you nothing
-instead of costing you a rebuild. That job needs **minutes**, and the
-table above says minutes are cheap.
-
-What that buys you: a small lithium unit instead of a lead-acid tower,
-which is lighter, smaller, has a longer service life, and doesn't need
-the battery replaced every three years.
-
-Two things to check before buying, because I can't check them for you:
-whether the unit physically fits a 10-inch rack or is meant to sit on a
-shelf, and whether it can signal the shutdown. A UPS with no data
-connection is just a delay. You want one your machines can talk to, over
-USB or the network, so they know to shut themselves down.
+**If the rack actually travels**, skip it. Power it down before you move
+it, which you should do anyway, and accept the risk while it's parked.
 :::
 
-**If your rack never moves**, ignore most of this and buy a conventional
-tower UPS. It's cheaper per watt-hour and entirely sensible next to a
-rack that lives in one corner. Just put it *beside* the rack in your own
-plan, not in U1.
-
 :::warning[The other portability cost: spinning disks]
-The storage node's mechanical drives are the second thing that doesn't
-love being carried. Hard drives are far more fragile while spinning than
-when parked, so power the rack down before moving it rather than carrying
-it live. If you expect to move it often, that's a real argument for SSDs
-in the storage node despite the cost per terabyte.
+The storage node's mechanical drives are the second thing that does not
+enjoy being carried. Hard drives are far more fragile spinning than
+parked, so shut the rack down before moving it rather than carrying it
+live. If you expect to move it often, that is a real argument for SSDs in
+the storage node despite the worse cost per terabyte.
 :::
 
 ## Phase 2: move some routing to the switch

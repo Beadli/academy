@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # What to buy first
 
-The v1.0 build specified in this section costs around $2,900. Almost nobody
+The v1.0 build specified in this section costs just under $3,000. Almost nobody
 should buy it in one go, and presenting it as a shopping list is exactly
 how these guides mislead people.
 
@@ -86,11 +86,10 @@ panel, and cable management. These make an existing lab pleasant rather
 than making a lab exist.
 
 Power protection is the one I'd bring forward if your mains is
-unreliable, since it protects the storage you added in stage 2. Size it
-for a clean shutdown rather than for running through an outage, and if
-you intend to actually carry this rack anywhere, keep it small and
-lithium rather than a lead-acid tower. [The build page](./build#power-and-the-portability-trap)
-does that arithmetic.
+unreliable, since it protects the storage you added in stage 2. It goes
+*beside* the rack rather than in it: no UPS is made for ten-inch rails,
+and [the build page](./build#power-and-why-there-is-no-ups-in-this-rack)
+explains why that turns out not to matter much.
 
 ## The order matters more than the parts
 
