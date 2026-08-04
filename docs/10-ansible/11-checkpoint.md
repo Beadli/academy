@@ -48,6 +48,8 @@ ansible windows -m ansible.windows.win_ping
 
 - [ ] Ansible runs from a virtual environment at `~/ansible/.venv`, and you
       know it must be activated in a new shell (lesson 10.2)
+- [ ] `ansible-inventory --graph` shows your groups and hosts as you intended
+      them (lesson 10.2)
 - [ ] `ansible linux -m ansible.builtin.ping` returns `pong` for every Linux
       host in your inventory (lesson 10.2)
 - [ ] `harden.yml` runs and reports `changed=0` on a second run (lessons 10.3,

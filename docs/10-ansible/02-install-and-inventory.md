@@ -185,6 +185,58 @@ and you point a playbook at a group rather than at a list of addresses. That
 is the whole idea: you write automation for "web servers", not for
 "10.10.10.20 and 10.10.10.21 and the new one Dave added".
 
+**Each line has two parts, and the difference matters later.** `ubnt01` is the
+**inventory name**: what Ansible calls the machine, what appears in output, and
+what you type after `--limit`. `ansible_host=10.10.10.20` is **where to
+actually connect**. They are separate on purpose, so you can rename a machine
+in your automation without touching an address, or point a familiar name at a
+new box during a migration.
+
+If you leave out `ansible_host`, Ansible tries to resolve the inventory name
+itself. That works if your DNS knows the name, and lesson 10.7 needs exactly
+that, because Kerberos authenticates against a machine's real name rather than
+its address. Addresses are fine for now.
+
+### Check what Ansible actually read
+
+Do not assume the file parsed the way you intended. Ansible will tell you:
+
+```bash
+# The inventory as a tree of groups and hosts.
+ansible-inventory -i inventory.ini --graph
+```
+
+```text
+@all:
+  |--@ungrouped:
+  |--@linux:
+  |  |--ubnt01
+  |--@windows:
+  |  |--dc01
+  |  |--subca01
+```
+
+```bash
+# Everything Ansible knows about one host, including inherited group vars.
+ansible-inventory -i inventory.ini --host ubnt01
+```
+
+That second command is the one to remember. It shows the variables a host has
+actually inherited, which answers "why is it connecting as the wrong user?"
+in one step instead of by reading three files and guessing.
+
+:::tip[Reach for this when a play says "no hosts matched"]
+That message means the group you named does not exist as far as Ansible is
+concerned. Nearly always one of three things: a typo in the group name, an
+inventory file that is not being loaded, or a `[group]` heading you thought you
+wrote and did not.
+
+`--graph` distinguishes all three in one command. If the group is missing from
+the tree, the file is wrong. If the whole tree is empty, the file is not being
+found at all, which is the failure mode lesson 10.9 warns about when a
+scheduled job runs from the wrong working directory.
+:::
+
 ## Reach out and touch something
 
 Before any playbook, prove the connection works. Ansible can run a single

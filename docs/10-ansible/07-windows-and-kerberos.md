@@ -137,10 +137,20 @@ ansible_port=5985
 ansible_user=sokoth.adm@LAB.INTERNAL
 ```
 
-Hosts in `[windows]` must be reachable **by name**, because Kerberos
-authenticates against the service's name rather than its address. Use
-`ansible_host=dc01.lab.internal` rather than an address, and confirm UBNT01 can
-resolve it:
+**Change the Windows hosts from addresses to names.** Lesson 10.2 wrote them
+as `dc01 ansible_host=10.10.10.10`, which is fine for SSH and wrong here:
+Kerberos authenticates against a service's *name*, so an address will fail
+authentication even though the machine is perfectly reachable.
+
+```ini
+[windows]
+dc01 ansible_host=dc01.lab.internal
+subca01 ansible_host=subca01.lab.internal
+```
+
+That is the distinction 10.2 flagged: the inventory name is the label, and
+`ansible_host` is where to connect. Here the connection target has to be a
+name your DNS resolves. Confirm UBNT01 can:
 
 ```bash
 # Both should work, and the second should return the name you started with.
