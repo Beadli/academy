@@ -236,19 +236,20 @@ list. The choices most worth reconsidering for your own situation:
 
 ## Power, and why there is no UPS in this rack
 
-The charter asks for a platform that is "desk-friendly, dorm-friendly,
-apartment-friendly, quiet, portable, energy efficient, easy to relocate",
-and then puts **UPS and power distribution** in U1 of a ten-inch rack.
-Those two requirements cannot both be met, and an earlier version of this
-page tried anyway by listing a 1000 VA consumer tower UPS.
-
 **There is no ten-inch rack-mount UPS.** A ten-inch rack sets its rails
 236.5 mm apart. Every rack UPS on the market, including the compact 1U
 lithium units, is built for nineteen-inch rails and will not mount. The
-best you can do is stand one on a shelf, which is not mounting it, or
-put it on the floor while the elevation diagram claims it lives in U1.
+best you can do is stand one on a shelf, which is not mounting it, or put
+it on the floor and stop pretending it is in the rack.
 
-So it comes out. The rack carries a PDU strip and nothing else.
+So the rack carries a power distribution unit and nothing else.
+
+This is worth a moment because it is not what the design said originally.
+Charter version 1.0 asked for a platform that was "portable" and "easy to
+relocate" and also put a UPS in U1. Both are sensible requirements, and
+together they are impossible. Nobody spots that by re-reading the
+document; you spot it when you go to buy the thing. [Charter §33](./charter#33-revision-history)
+records the revision, and the reasoning is in [§24.1](./charter#241-power-protection).
 
 :::tip[What you lose, and what to do about it]
 A UPS in a lab this size does one job worth having: it gives ZFS and the
