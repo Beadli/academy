@@ -30,7 +30,7 @@ other thing that decides whether it survives contact with reality.
 This course does the whole arc, on one machine, in one environment that
 grows: hypervisor, directory, PKI, single sign-on, Linux, containers,
 automation, monitoring, then offensive testing against what you built, then
-assessing it the way an auditor would.
+GRC, assessing it for compliance the way an auditor would.
 
 ## Who makes it
 
