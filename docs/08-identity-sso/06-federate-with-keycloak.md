@@ -67,7 +67,8 @@ Note the realm name in that URL. Point it at `master` by mistake and
 authentication will fail for a user who exists, which is a genuinely
 confusing ten minutes.
 
-Confirm the discovery document is reachable before saving:
+Confirm the discovery document is reachable before saving. **Run this on
+UBNT01**, which already resolves `lab.internal` names and has Python:
 
 ```bash
 curl -s https://id.lab.internal/realms/lab/.well-known/openid-configuration |

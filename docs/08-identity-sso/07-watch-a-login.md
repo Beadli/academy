@@ -78,6 +78,8 @@ Get a token to look at. Keycloak's admin console will issue you one, or
 you can decode any JWT you find in the network tab. A JWT is three
 base64url segments separated by dots: header, payload, signature.
 
+**On UBNT01**, which has the tools this uses:
+
 ```bash
 # Paste a JWT into the variable, then decode the middle segment.
 # tr converts base64url to standard base64; the printf pads it to a

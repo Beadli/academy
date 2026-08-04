@@ -42,8 +42,21 @@ sudo apt install python3
 # macOS ships python3; check with: python3 --version
 ```
 
-Reopen your terminal and confirm `python3 --version` (plain `python` on
-Windows) prints a version.
+:::tip[`python3` on Linux and macOS, `python` on Windows]
+Reopen your terminal and confirm it prints a version:
+
+```bash
+python3 --version      # Linux, macOS
+python  --version      # Windows, including Git Bash
+```
+
+**The rest of the course writes `python3`,** because that's what it's
+called on the machines you'll be running it on from Module 4 onward.
+On Windows, type `python`. Windows has no `python3` command: the
+installer creates `python.exe`, and typing `python3` on Windows 11 opens
+the Microsoft Store instead of failing honestly, which is a confusing
+minute the first time.
+:::
 
 ## The script
 

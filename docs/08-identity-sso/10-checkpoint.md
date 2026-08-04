@@ -22,6 +22,8 @@ DNS, certificate, trust, redirect URIs, client credentials and claims.
 
 ## Prove nothing is being faked
 
+**On UBNT01**, which resolves the lab's names and has Python:
+
 ```bash
 # The discovery document your application relies on. Substitute your own
 # identity provider's URL.

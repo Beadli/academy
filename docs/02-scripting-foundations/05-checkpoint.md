@@ -21,7 +21,7 @@ ls Resources/machine-report.md
 ./Resources/scripts/failed-logins.sh Resources/scripts/auth.log
 
 # The Python script reaches the live catalog and prints a count
-# plus five dated entries.
+# plus five dated entries. Windows: "python", per lesson 2.3.
 python3 Resources/scripts/kev-check.py
 
 # Committed and pushed, so the toolbox leaves the building too.
