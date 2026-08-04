@@ -43,7 +43,7 @@ const config = {
         path: 'cyberrack',
         routeBasePath: 'cyberrack',
         sidebarPath: './sidebarsCyberrack.js',
-        editUrl: 'https://github.com/Beadli/academy/tree/main/',
+        editUrl: 'https://github.com/Beadli/academy/edit/main/',
       },
     ],
   ],
@@ -56,7 +56,7 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           routeBasePath: 'course',
-          editUrl: 'https://github.com/Beadli/academy/tree/main/',
+          editUrl: 'https://github.com/Beadli/academy/edit/main/',
         },
         blog: false,
         theme: {
