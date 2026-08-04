@@ -28,9 +28,17 @@ with skills you need anyway.
 
 Download the starter vault from GitHub:
 [github.com/Beadli/starter-vault](https://github.com/Beadli/starter-vault),
-green **Code** button, **Download ZIP**. Unzip it somewhere sensible and
-rename the folder to `lab-journal`. On my machine that's
-`~/git/lab-journal`; `Documents\lab-journal` is fine on Windows.
+green **Code** button, **Download ZIP**.
+
+You'll get a file called `starter-vault-main.zip`. That `-main` is the
+branch name, which GitHub tacks on to every ZIP it makes; it means
+nothing here. Unzip it somewhere sensible and you'll have a folder
+called `starter-vault-main`.
+
+**Rename that folder to `lab-journal`.** On my machine it ends up at
+`~/git/lab-journal`; `Documents\lab-journal` is fine on Windows. The name
+is yours to choose, but the rest of the course says `lab-journal` when it
+needs to name your vault, so following along is easier if you match it.
 
 In Obsidian: **Open folder as vault**, pick `lab-journal`, and say yes to
 trusting the vault.
