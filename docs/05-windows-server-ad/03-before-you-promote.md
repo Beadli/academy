@@ -155,8 +155,8 @@ a fault.
 Set yourself a reminder for a few months out, or better, note the
 install date in your journal now and check `slmgr /dli` whenever you
 come back to the lab after a break. By the time it matters you'll be
-able to rebuild this machine in an evening, and Module 10 will rebuild
-it for you.
+able to rebuild this machine in an evening, and Module 10 will automate
+the configuration half of that for you.
 
 ## One last thing before promoting
 

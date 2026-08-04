@@ -34,6 +34,12 @@ Servers get static addresses, for the reasons lesson 4.1 gave. On Ubuntu
 that's configured by **netplan**, in a YAML file, which is a pleasant
 change from the days of editing three different files.
 
+**YAML** is a text format for structured data, and the thing to know about
+it before you edit one is that **indentation is meaningful**. Two spaces in
+the wrong place is a different document, not a tidier one. It turns up
+everywhere in infrastructure: netplan here, Docker Compose in lesson 6.5,
+and Ansible playbooks in Module 10.
+
 First, find out what your network interface is called, because it varies
 by hypervisor and version and guessing wastes an evening:
 
