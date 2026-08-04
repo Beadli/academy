@@ -75,15 +75,20 @@ const config = {
       // Review-phase notice. Remove this block at launch, once the
       // walkthrough has verified the modules on real hardware.
       //
-      // One line only. The bar is a fixed-height strip, so a paragraph
-      // wraps into a cramped block that reads as a browser warning rather
-      // than part of the site. The longer version of this notice now lives
-      // where it has room to breathe: the callout on the landing page.
+      // One line only. The bar is a fixed-height strip above 997px, so a
+      // paragraph wraps into itself. This is the whole review notice now;
+      // the landing-page callout that carried the longer version was
+      // removed 2026-08-03.
+      //
+      // Warm red rather than the brand green: the bar has to earn a click
+      // from someone who came to read a course, and green reads as chrome.
+      // #c0362b is the red already in the palette (lesson 0.2 role names)
+      // and gives 5.5:1 against white, so it clears WCAG AA for body text.
       announcementBar: {
         id: 'in-review-2026',
         content:
           'Working draft, still being reviewed. <a target="_blank" rel="noopener noreferrer" href="https://github.com/Beadli/academy/issues">Tell me where you got stuck.</a>',
-        backgroundColor: '#1b5e3f',
+        backgroundColor: '#c0362b',
         textColor: '#ffffff',
         isCloseable: true,
       },

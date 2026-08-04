@@ -8,27 +8,6 @@ import Heading from '@theme/Heading';
 import styles from './index.module.css';
 import LabArchitecture from '@site/static/img/lab-architecture.svg';
 
-function ReviewNotice() {
-  return (
-    <div className="container">
-      <aside className={styles.reviewNotice}>
-        <p>
-          <strong>This course is a working draft.</strong> Every module is
-          written, but none has yet been walked start to finish on a clean
-          build, so expect a step that assumes something it never taught you.
-        </p>
-        <p>
-          If you get stuck, that is the bug, not you.{' '}
-          <Link to="https://github.com/Beadli/academy/issues">
-            Tell me where it happened
-          </Link>{' '}
-          and I will fix the lesson.
-        </p>
-      </aside>
-    </div>
-  );
-}
-
 function LabPreview() {
   return (
     <section className={styles.labSection}>
@@ -75,7 +54,6 @@ export default function Home() {
       description="A free, hands-on infrastructure and security curriculum: build, operate, defend, and attack your own mock enterprise.">
       <HomepageHeader />
       <main>
-        <ReviewNotice />
         <LabPreview />
         <HomepageFeatures />
       </main>
