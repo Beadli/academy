@@ -26,7 +26,7 @@ with skills you need anyway.
 
 ## Get the starter vault
 
-Download the vault from the course repository:
+Download the starter vault from GitHub:
 [github.com/Beadli/starter-vault](https://github.com/Beadli/starter-vault),
 green **Code** button, **Download ZIP**. Unzip it somewhere sensible and
 rename the folder to `lab-journal`. On my machine that's
