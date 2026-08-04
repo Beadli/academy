@@ -132,14 +132,18 @@
   <rect x="806" y="404" width="30" height="18" rx="9" class="t1"/>
   <text x="821" y="417" class="pilltext">T1</text>
 
-  <rect x="440" y="470" width="105" height="44" rx="8" fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
-  <text x="492" y="496" class="role" fill-opacity="0.85">Wazuh SIEM</text>
-  <rect x="558" y="470" width="85" height="44" rx="8" fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
-  <text x="600" y="496" class="role" fill-opacity="0.85">Grafana</text>
-  <rect x="656" y="470" width="62" height="44" rx="8" fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
-  <text x="687" y="496" class="role" fill-opacity="0.85">Gitea</text>
-  <rect x="731" y="470" width="88" height="44" rx="8" fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
-  <text x="775" y="496" class="role" fill-opacity="0.85">Keycloak</text>
+  <rect x="440" y="470" width="74" height="44" rx="8" fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+  <text x="477" y="496" class="role" fill-opacity="0.85">Wazuh SIEM</text>
+  <rect x="522" y="470" width="57" height="44" rx="8" fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+  <text x="550" y="496" class="role" fill-opacity="0.85">Grafana</text>
+  <rect x="587" y="470" width="45" height="44" rx="8" fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+  <text x="609" y="496" class="role" fill-opacity="0.85">Gitea</text>
+  <rect x="640" y="470" width="62" height="44" rx="8" fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+  <text x="671" y="496" class="role" fill-opacity="0.85">Keycloak</text>
+  <rect x="710" y="470" width="57" height="44" rx="8" fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+  <text x="738" y="496" class="role" fill-opacity="0.85">step-ca</text>
+  <rect x="775" y="470" width="45" height="44" rx="8" fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+  <text x="797" y="496" class="role" fill-opacity="0.85">nginx</text>
 
   <!-- OpenVAS scanner: its own VM, because scanners are heavy and
        belong on the network rather than on a host they scan -->
