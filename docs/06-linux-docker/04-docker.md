@@ -124,6 +124,78 @@ Inside that shell, run `ls /` and notice it looks like a Linux system
 that isn't yours. Run `ps aux` and notice it can only see its own
 processes. That's the isolation. Type `exit` to leave.
 
+## Whose code did you just run?
+
+Stop and look at what happened there. You typed one word, `nginx`, and a
+machine you administer downloaded a complete Linux filesystem from the
+internet and executed it. You didn't say where from. You didn't read
+anything. It worked, and that is exactly what makes it worth a section.
+
+Lesson 1.2 had you evaluate an Obsidian plugin before installing it, and
+called that your first supply chain decision. This is the same decision
+with more at stake, because of the warning further up this page: you're
+in the `docker` group, so anything that can talk to the daemon is
+effectively root on UBNT01.
+
+**Where it came from.** With no registry named, Docker goes to Docker
+Hub. The name you type tells you who published it:
+
+| What you type | Who published it |
+| --- | --- |
+| `nginx` | A **Docker Official Image**. Bare names with no slash resolve to the `library` namespace, which Docker curates and builds itself. |
+| `gitea/gitea` | The `gitea` organisation's own namespace. The project publishing its own software. |
+| `someperson/nginx` | Anybody at all. An account created five minutes ago can publish this. |
+
+That middle case is the common one and it's where judgement is needed.
+`gitea/gitea` is trustworthy because the Gitea project controls the
+`gitea` account, not because the word appears twice. Docker Hub marks
+some of these as **Verified Publisher**, which means Docker confirmed the
+account belongs to the organisation it claims to.
+
+**The tag is not a version.** In lesson 6.6 you'll pull `gitea/gitea:1`,
+and the `:1` is deliberate. A tag is just a label a publisher sticks on
+an image, and they can move it whenever they like. `latest` is the worst
+offender: it sounds like "the newest stable release" and it means nothing
+of the sort. It's the tag Docker assumes when you don't specify one, and
+plenty of projects don't keep it current at all.
+
+Open the **Tags** tab on any image's Docker Hub page and the fiction
+collapses. You'll find a long list of names: a full version number, the
+same version with `-alpine` on the end, a bare major version, `stable`,
+and others the publisher invented. If `latest` is in there at all, it
+sits among them as one more label with no special powers.
+
+Pinning to a major version, `:1` rather than `latest`, means you get
+security fixes without waking up to a rewritten application because
+upstream shipped version 2 overnight.
+
+:::tip[Reading a Docker Hub page in thirty seconds]
+Before running an image you haven't used before, open its page and check
+four things:
+
+1. **The namespace.** Official, a verified publisher, or a stranger?
+2. **The pull count.** Compare it to what you'd expect for something this
+   widely used. A popular project with a few hundred pulls means you're
+   probably looking at somebody's copy, not the real thing.
+3. **When it was last updated.** An image untouched for two years is
+   carrying two years of unpatched libraries.
+4. **Whether you can see how it was built.** Good publishers link the
+   Dockerfile. If nobody will show you what went in, that is the answer.
+
+Typosquatting is real, and it works the same way here as it does with
+package managers: a name one character off a popular one, riding on
+people not looking.
+:::
+
+None of this means being paranoid about `nginx`. It means knowing the
+difference between an image you chose and an image you typed, and being
+able to say which one you're running when somebody asks.
+
+You'll meet the other half of this in Module 13, where a scanner reads
+the packages inside an image and tells you what's in it that you didn't
+know you'd installed. Right now the useful habit is smaller: look at the
+page before you pull.
+
 ## Throw it away
 
 ```bash

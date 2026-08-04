@@ -43,7 +43,8 @@ services:
 
 Three things in there are worth stopping on.
 
-**`gitea/gitea:1`** pins the major version. Not `latest`, which can
+**`gitea/gitea:1`** is lesson 6.4's tag discipline applied to a service
+you're about to depend on. It pins the major version. Not `latest`, which can
 upgrade across a major release overnight and change things underneath
 you, and not a full version number, which would freeze you out of
 security patches. Major-version tags are the sensible middle for
