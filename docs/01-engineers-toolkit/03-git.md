@@ -49,7 +49,7 @@ git config --global user.email "you@example.com"
 
 ```bash
 # Move into your vault folder first. Adjust the path to yours.
-cd ~/git/lab-vault
+cd ~/git/lab-journal
 
 # Turn this folder into a Git repository. This creates a hidden
 # .git directory where every snapshot will live. Your files are

@@ -176,11 +176,11 @@ ORDER BY r.name;
 ```
 
 ```text
-repo       owner
----------  --------
-lab-vault  sokoth
-sandbox    testuser
-scripts    sokoth
+repo         owner
+-----------  --------
+lab-journal  sokoth
+sandbox      testuser
+scripts      sokoth
 ```
 
 Read the query aloud and it says what it does: take repositories, attach

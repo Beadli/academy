@@ -50,7 +50,7 @@ controller arrives" is an excellent one, and Module 5 answers it
 directly.
 
 ```bash
-cd ~/git/lab-vault
+cd ~/git/lab-journal
 git add -A
 git commit -m "journal: module 4, lab network built"
 git push

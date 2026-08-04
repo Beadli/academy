@@ -10,7 +10,7 @@ checklist, and you run it from your vault folder. Everything here works
 in both PowerShell and bash.
 
 ```bash
-cd ~/git/lab-vault    # adjust to your vault path
+cd ~/git/lab-journal    # adjust to your vault path
 
 # At least three commits, with messages you wrote.
 git log --oneline

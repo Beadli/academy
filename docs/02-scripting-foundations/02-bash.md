@@ -31,7 +31,7 @@ directory. (The `cat > file << 'EOF'` trick is called a here-document,
 and it means "everything until the line EOF goes into the file.")
 
 ```bash
-cd ~/git/lab-vault/Resources/scripts
+cd ~/git/lab-journal/Resources/scripts
 
 cat > auth.log << 'EOF'
 Aug  1 03:11:01 web01 sshd[812]: Failed password for root from 203.0.113.42 port 52144 ssh2

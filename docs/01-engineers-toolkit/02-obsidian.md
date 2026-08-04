@@ -29,10 +29,10 @@ with skills you need anyway.
 Download the starter vault from GitHub:
 [github.com/Beadli/starter-vault](https://github.com/Beadli/starter-vault),
 green **Code** button, **Download ZIP**. Unzip it somewhere sensible and
-rename the folder to `lab-vault`. On my machine that's
-`~/git/lab-vault`; `Documents\lab-vault` is fine on Windows.
+rename the folder to `lab-journal`. On my machine that's
+`~/git/lab-journal`; `Documents\lab-journal` is fine on Windows.
 
-In Obsidian: **Open folder as vault**, pick `lab-vault`, and say yes to
+In Obsidian: **Open folder as vault**, pick `lab-journal`, and say yes to
 trusting the vault.
 
 Open `Home` first. It's the landing page: what each folder is for, what

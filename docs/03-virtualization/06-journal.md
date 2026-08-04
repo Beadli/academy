@@ -33,7 +33,7 @@ snapshot and restoring a backup," which Module 15 takes seriously.
 Commit and push:
 
 ```bash
-cd ~/git/lab-vault
+cd ~/git/lab-journal
 git add -A
 git commit -m "journal: module 3, first VM built, killed, and resurrected"
 git push
