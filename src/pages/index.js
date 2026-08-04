@@ -30,10 +30,18 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
+        {/* Deliberately not siteConfig.title: the navbar already renders the
+            site name a few pixels above, and repeating it wastes the most
+            valuable line on the page. The tagline is the most distinctive
+            sentence we have, so it gets the headline. siteConfig.title still
+            drives the browser tab, the metadata and the navbar. */}
         <Heading as="h1" className="hero__title">
-          {siteConfig.title}
+          Build the enterprise yourself. Then defend it.
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className="hero__subtitle">
+          A free, hands-on course in infrastructure and security. Eighteen
+          modules, one lab, most of it on a laptop you already own.
+        </p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
