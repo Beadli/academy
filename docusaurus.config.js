@@ -75,8 +75,15 @@ const config = {
       colorMode: {
         respectPrefersColorScheme: true,
       },
-      // Review-phase notice. Remove this block at launch, once the
-      // walkthrough has verified the modules on real hardware.
+      // Review-phase notice.
+      //
+      // REMOVAL GATE, set by Steve 2026-08-04: this block comes out only
+      // after he has personally deployed the lab from end to end, following
+      // the course as a student would, and fixed what that surfaces. Not
+      // when the modules are written, not when reviewers stop finding
+      // things, and not because the site is on its real domain. The bar
+      // asserts the course is unverified; removing it earlier makes that
+      // assertion false in the other direction.
       //
       // One line only. The bar is a fixed-height strip above 997px, so a
       // paragraph wraps into itself. This is the whole review notice now;
