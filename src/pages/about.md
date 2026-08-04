@@ -49,6 +49,10 @@ addresses, hostnames or customer detail appears anywhere, and the student
 lab deliberately uses a different domain name so nothing you build can
 collide with anything real.
 
+The course is written with AI assistance, using the same workflow
+[Module 11](/course/engineering-with-ai) teaches. Every technical claim is checked against a lab that exists, and the
+parts I could not verify are marked as unverified rather than smoothed over.
+
 ## How to use it
 
 **Start at [Module 0](/course/intro).** It takes an evening, needs no
