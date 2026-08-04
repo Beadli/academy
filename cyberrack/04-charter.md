@@ -24,6 +24,25 @@ This reads like a formal charter rather than a lesson, because that's what
 it is. Course modules talk to you; this specifies a system.
 :::
 
+:::warning[It contradicts itself in one place, and that's left in]
+§5.4 requires the platform to be portable and easy to relocate. §7's rack
+elevation then puts **UPS and power distribution** in U1 of a ten-inch
+rack. Read those together and they don't hold: the UPS class that phrase
+usually implies is a lead-acid tower that neither fits a ten-inch rack nor
+gets carried anywhere.
+
+The charter is published unedited, so the contradiction stays. It's also
+the most useful thing in here for anyone who has to write one of these.
+Requirements documents contradict themselves constantly, almost always
+between a section about *qualities* and a section about *parts*, and the
+contradiction is invisible until someone tries to buy something.
+
+[The build page](./build#power-and-the-portability-trap) resolves this one
+by asking what the battery is actually for. Read it as a worked example of
+catching a requirements conflict at the specification stage, which is
+where it is cheap.
+:::
+
 ---
 
 ## CyberRack Project Charter

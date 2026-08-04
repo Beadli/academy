@@ -81,12 +81,16 @@ practices that only make sense once there's more than one of something.
 
 ## Stage 5: the rack, and the rest
 
-Only now does a rack make sense, along with a UPS, a patch panel, and
-cable management. These make an existing lab pleasant rather than making a
-lab exist.
+Only now does a rack make sense, along with power protection, a patch
+panel, and cable management. These make an existing lab pleasant rather
+than making a lab exist.
 
-A UPS is the one I'd bring forward if your power is unreliable, since it
-protects the storage you added in stage 2.
+Power protection is the one I'd bring forward if your mains is
+unreliable, since it protects the storage you added in stage 2. Size it
+for a clean shutdown rather than for running through an outage, and if
+you intend to actually carry this rack anywhere, keep it small and
+lithium rather than a lead-acid tower. [The build page](./build#power-and-the-portability-trap)
+does that arithmetic.
 
 ## The order matters more than the parts
 

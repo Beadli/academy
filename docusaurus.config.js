@@ -25,6 +25,9 @@ const config = {
   projectName: 'academy',
 
   onBrokenLinks: 'throw',
+  // Anchors default to 'warn', so a stale #section-link fails silently.
+  // The course cross-references constantly, so make it fatal.
+  onBrokenAnchors: 'throw',
 
   i18n: {
     defaultLocale: 'en',
