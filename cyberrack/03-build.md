@@ -244,12 +244,8 @@ it on the floor and stop pretending it is in the rack.
 
 So the rack carries a power distribution unit and nothing else.
 
-This is worth a moment because it is not what the design said originally.
-Charter version 1.0 asked for a platform that was "portable" and "easy to
-relocate" and also put a UPS in U1. Both are sensible requirements, and
-together they are impossible. Nobody spots that by re-reading the
-document; you spot it when you go to buy the thing. [Charter §33](./charter#33-revision-history)
-records the revision, and the reasoning is in [§24.1](./charter#241-power-protection).
+The charter records the same decision and the sizing behind it in
+[§24.1](./charter#241-power-protection).
 
 :::tip[What you lose, and what to do about it]
 A UPS in a lab this size does one job worth having: it gives ZFS and the

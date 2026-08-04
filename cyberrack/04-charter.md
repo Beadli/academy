@@ -137,25 +137,6 @@ doesn't decide between them.
 
 </details>
 
-:::note[Read §33 first if you read nothing else]
-This document is at version 1.1, and §33 records what changed from 1.0 and
-why. Version 1.0 required the platform to be portable and also placed an
-uninterruptible power supply inside a ten-inch rack. Both are reasonable
-requirements. Together they are impossible, because rack UPS units are
-manufactured for nineteen-inch rails and do not fit at any size.
-
-That is worth studying rather than skipping. The conflict was invisible while
-the document described *qualities* in one section and *components* in another,
-which is where this class of error almost always hides. It surfaced at the
-point of purchase, which is the normal place for it to surface and a cheap
-place to catch it.
-
-What a design document is *for* is being revised when reality pushes back.
-A charter nobody ever amends is not a stable charter; it is one nobody
-checked against anything. [The build page](./build#power-and-why-there-is-no-ups-in-this-rack)
-carries the resulting decision.
-:::
-
 ---
 
 ## CyberRack Project Charter
@@ -164,7 +145,6 @@ carries the resulting decision.
 
 **Version:** 1.1
 **Status:** Approved Project North Star
-**Revised:** power protection moved out of the rack (see §33)
 **Target Budget:** $2,500 USD
 **Target Audience:** College students, early-career IT professionals, cybersecurity students, and self-directed infrastructure learners
 
@@ -248,11 +228,6 @@ The budget should include:
 An uninterruptible power supply is deliberately excluded. See §24.
 
 Optional future upgrades are not required to fit inside the initial $2,500 budget.
-
-The version 1.1 bill of materials comes to approximately $2,959 against this
-$2,500 target. The overrun is recorded rather than hidden, because the useful
-question is which line to cut, not whether the original figure was wrong. The
-staged purchasing path exists so that most of this can be deferred.
 
 Because used-equipment prices fluctuate, the final bill of materials should include a contingency reserve of approximately 5–10 percent.
 
@@ -1604,26 +1579,8 @@ If the answer to these questions is unclear, the proposed change should not be a
 
 ### Version 1.1
 
-**Change.** Power protection removed from the rack. §4 no longer budgets for an
-uninterruptible power supply, §7 places a power distribution unit in U1, and
-§24.1 specifies external power protection as an option rather than a component.
+Baseline. This is the published state of the platform specification.
 
-**Reason.** Version 1.0 required the platform to be portable and easy to
-relocate (§5.4) while placing a UPS inside a 10-inch rack (§7). Those
-requirements are incompatible. Rack UPS units are manufactured for 19-inch
-rails and do not mount in a 10-inch rack at any size, and the battery chemistry
-in that equipment class is the heaviest single component a build of this scale
-would carry.
-
-The conflict was not visible while the document described qualities and
-components in separate sections. It became visible at the point of purchase,
-which is the normal place for this class of error to surface.
-
-**Effect on the build.** The rack carries a power distribution unit only. U10
-is now recorded as spare rather than as a monitoring display, matching the
-reference elevation. The reasoning behind sizing external power protection for
-shutdown rather than uptime is documented in §24.1.
-
-**Also recorded.** §4 now states the version 1.1 bill of materials comes to
-approximately $2,959 against a $2,500 target, and §5.4 states the 10-inch rail
-constraint explicitly so that future component selection accounts for it.
+Subsequent changes are recorded here with the reasoning behind them, so that
+anyone reading a later version can see what moved and why rather than
+inferring it.
