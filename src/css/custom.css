@@ -175,8 +175,34 @@
   --ifm-h3-font-size: 1.25rem;
 }
 
+/* The hero headline is a sentence now, not a two-word title, and a sentence
+   needs different treatment. 2.5rem was sized for "Beadli Lab Academy"; at
+   sentence length it dominates the viewport and pushes everything below the
+   fold.
+
+   The max-width is doing the most work here. At roughly 30 characters the
+   line breaks after "yourself.", so the sentence's own punctuation chooses
+   the wrap instead of the container edge. That is why it reads as two
+   deliberate lines rather than one long one that happened to run out. */
 .hero__title {
-  font-size: 2.5rem;
+  font-size: 2.05rem;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  max-width: 30ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Infima ships this at 1.5rem, which competes with the headline instead of
+   supporting it. It is a supporting sentence, so it reads at body scale with
+   a measure short enough to stay comfortable. */
+.hero__subtitle {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  max-width: 56ch;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.92;
 }
 
 /* Phones. Declared after the rules above so it wins at small widths, and
@@ -202,12 +228,14 @@
     --ifm-h3-font-size: 1.18rem;
   }
 
+  /* A 45-character headline at 2rem fills a phone screen on its own. */
   .hero__title {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    max-width: 22ch;
   }
 
   .hero__subtitle {
-    font-size: 1.05rem;
+    font-size: 0.98rem;
   }
 }
 
