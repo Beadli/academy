@@ -43,11 +43,15 @@ Microsoft, and Microsoft changes the rules about who can have one for free.
 real Active Directory work, and 9.2 in particular fixes something in your
 domain that would block a real migration. Do them regardless.
 
-**From 9.3 onward you need a tenant.** Lesson 9.3 covers the current routes
-and what each one actually costs, including which ones want a card and which
-ones expire. If none of them work for you today, read 9.4 to 9.8 anyway. They
-are written so the reasoning survives without the clicking, and you will meet
-this again with an employer's tenant.
+**From 9.3 onward you need a tenant.** Lesson 9.3 covers the routes, what the
+card is actually for on the ones that ask, and the spending limit that stops
+you being billed. Getting a cloud account and tearing it down cleanly is
+ordinary professional practice, and doing it once where the stakes are zero is
+how it stops being intimidating.
+
+If you would rather not today, read 9.4 to 9.8 anyway. They are written so the
+reasoning survives without the clicking, and you will meet this again with an
+employer's tenant.
 :::
 
 **Tier 2 and up.** You need the domain from Module 5, which means DC01. There
