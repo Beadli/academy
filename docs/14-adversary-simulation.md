@@ -23,3 +23,10 @@ detections fire, and tuning what didn't.
      Module 12 is owed the other half: 9.8 argues that a stalled sync is more
      dangerous than a failed one, and that the thing worth alerting on is the
      absence of an expected event rather than an error. */}
+
+{/* AUTHORING NOTE, not rendered.
+     Promise added 2026-08-04 by lesson 6.9's new SQL injection section:
+     "Defence in depth means the second control matters precisely because
+     the first one sometimes fails. You will meet this idea again in
+     Module 14, from the other side." Owed: the attacker's view of layered
+     controls, and what it feels like when the first one holds. */}

@@ -194,6 +194,68 @@ versions of the truth and no way to know which is current. That single
 idea is what "relational" is really about, and it's most of database
 design.
 
+## The famous way this goes wrong
+
+You are taking a security course and you have just learned to write queries, so
+it would be strange not to mention the vulnerability those queries are famous
+for.
+
+**SQL injection** happens when a program builds a query by gluing user input
+into a string. Imagine Gitea looked up a user like this:
+
+```text
+SELECT * FROM user WHERE name = '<whatever they typed>';
+```
+
+Type `sokoth` and it asks a sensible question. Type this instead:
+
+```text
+' OR '1'='1
+```
+
+and the query the database receives becomes:
+
+```sql
+SELECT * FROM user WHERE name = '' OR '1'='1';
+```
+
+`'1'='1'` is always true, so it matches every row. The input stopped being
+*data* and became part of the *command*.
+
+**That is the whole idea, and it is worth holding onto in general terms:
+somewhere, a boundary between data and instructions was not enforced.** The
+same shape turns up in command injection, in cross-site scripting, and in
+places that have not been invented yet.
+
+The fix is not to filter out quote marks, which is the tempting answer and a
+losing game. It is **parameterised queries**: the program sends the query and
+the values separately, so the database is told "this is the structure, and this
+is a value", and no value can ever change the structure.
+
+```python
+# Wrong. The value becomes part of the command.
+cur.execute("SELECT * FROM user WHERE name = '" + name + "'")
+
+# Right. The value is passed separately and can never be code.
+cur.execute("SELECT * FROM user WHERE name = ?", (name,))
+```
+
+You are not writing the application here, so you will not be fixing this in
+Gitea. What you now have is the ability to recognise the pattern in code you
+read, and to know what question to ask when someone says an application is
+"sanitising input".
+
+:::tip[This is why you opened the database read-only]
+The `?mode=ro` earlier was least privilege applied to your own access. The same
+principle is the second line of defence against injection: an application whose
+database account can only `SELECT` cannot be made to `DROP TABLE`, however
+badly its queries are built.
+
+Defence in depth means the second control matters precisely because the first
+one sometimes fails. You will meet this idea again in Module 14, from the other
+side.
+:::
+
 ## What carries forward
 
 The SQL you just used is not SQLite-specific. `SELECT`, `WHERE`, `COUNT`,
