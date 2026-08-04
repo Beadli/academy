@@ -239,7 +239,7 @@ Show-CurrentHolders | Format-List
 Report first, always:
 
 ```powershell
-cd ~\git\lab-journal\Resources\scripts
+cd ~\git\lab-vault\Resources\scripts
 .\move-fsmo.ps1
 ```
 

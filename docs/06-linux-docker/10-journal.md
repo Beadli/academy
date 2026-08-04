@@ -41,7 +41,7 @@ entirely about it.
 Then commit and push, and notice that this push goes somewhere new:
 
 ```bash
-cd ~/git/lab-journal
+cd ~/git/lab-vault
 git add -A
 git commit -m "journal: module 6, UBNT01 built and hosting my notes"
 git push                 # to your own server now

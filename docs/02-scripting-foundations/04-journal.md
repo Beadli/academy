@@ -31,7 +31,7 @@ examples instead of rules.
 Then commit and push, and make sure the three scripts went with it:
 
 ```bash
-cd ~/git/lab-journal
+cd ~/git/lab-vault
 git add -A
 git commit -m "journal: module 2, first three scripts in the toolbox"
 git push

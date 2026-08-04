@@ -8,7 +8,7 @@ sidebar_position: 5
 Prove the module stuck. Run these from your vault folder.
 
 ```bash
-cd ~/git/lab-journal
+cd ~/git/lab-vault
 
 # The three scripts exist where scripts live.
 ls Resources/scripts/

@@ -29,13 +29,21 @@ with skills you need anyway.
 Download the starter vault from GitHub:
 [github.com/Beadli/starter-vault](https://github.com/Beadli/starter-vault),
 green **Code** button, **Download ZIP**. Unzip it somewhere sensible and
-rename the folder to `lab-journal`. On my machine that's
-`~/git/lab-journal`; `Documents\lab-journal` is fine on Windows.
+rename the folder to `lab-vault`. On my machine that's
+`~/git/lab-vault`; `Documents\lab-vault` is fine on Windows.
 
-In Obsidian: **Open folder as vault**, pick `lab-journal`, and say yes to
-trusting the vault. Have a look around. The README explains what goes
-where, and there's an example daily note in `Journal/` showing what a
-filled-in day looks like.
+In Obsidian: **Open folder as vault**, pick `lab-vault`, and say yes to
+trusting the vault.
+
+Open `Home` first. It's the landing page: what each folder is for, what
+the four daily headings mean, and links through to the rest. The coloured
+boxes in it are Obsidian *callouts*, which are just Markdown with a
+marker on the first line, and you'll meet them again in your own notes
+whenever something deserves to stand out.
+
+Then have a look around. There's an example daily note in `Journal/`
+showing what a filled-in day looks like, including the wrong turn its
+author took before finding the answer.
 
 ## Turn on the two plugins
 
@@ -47,12 +55,23 @@ are on:
 
 The vault ships with both already configured to use the right folders,
 so there's nothing else to set. Click the calendar icon (or Ctrl+P, then
-"daily note") and today's note should appear in `Journal/`, pre-filled
-with four headings: what I did, what broke, what I learned, open
-questions.
+"daily note") and today's note should appear in `Journal/`, named for
+today's date and pre-filled with four headings: what I did, what broke,
+what I learned, open questions.
 
 Those four headings are the whole method. The example note shows why
 "what broke" is the section future-you reads most.
+
+Above them sits a small panel with **date**, **module** and **tags**.
+That's Obsidian's *properties*, and in the file itself it's a block of
+plain text at the very top between two `---` lines. Fill in the module
+number as you go. It costs a second and it means that in Module 17 you
+can pull up every note from the week you built the domain, instead of
+scrolling through months by date.
+
+You'll notice the note has no heading of its own. That's deliberate:
+Obsidian already shows the filename as the title, so a `# 2026-03-14` at
+the top would just say it twice.
 
 ## Move your Module 0 entry in
 

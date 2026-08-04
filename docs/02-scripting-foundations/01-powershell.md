@@ -172,7 +172,7 @@ command in PATH**, which is a step nobody tells you about.
 
 ### Open the vault, not the file
 
-Choose **File > Open Folder** and pick your vault (`lab-journal`), not an
+Choose **File > Open Folder** and pick your vault (`lab-vault`), not an
 individual file. You get a file tree down the left, and every file you
 make lands inside the vault instead of in whatever folder the save dialog
 happened to remember. Fighting a save dialog over where your scripts live
@@ -218,7 +218,7 @@ comments are the lesson.
 
 # A variable in PowerShell starts with $. This one holds the path to
 # your vault. CHANGE THIS if your vault lives somewhere else.
-$vault = "$HOME\git\lab-journal"
+$vault = "$HOME\git\lab-vault"
 
 # Get-CimInstance asks Windows for management objects. Think of these
 # as the OS's own record cards for hardware and system state.
@@ -260,7 +260,7 @@ Write-Host "Report written to $vault\Resources\machine-report.md"
 Run it:
 
 ```powershell
-cd ~\git\lab-journal\Resources\scripts
+cd ~\git\lab-vault\Resources\scripts
 .\machine-report.ps1
 ```
 

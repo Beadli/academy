@@ -14,7 +14,7 @@ In Gitea, at `http://git.lab.internal`, signed in as the account
 you created:
 
 1. Click the **+** in the top right and choose **New Repository**.
-2. Name it `lab-journal`.
+2. Name it `lab-vault`.
 3. Set visibility to **Private**. Your journal has your lab's addresses
    and your "what broke" notes in it, and that's not public reading even
    on a private network.
@@ -29,7 +29,7 @@ you created:
 On the machine where your vault lives:
 
 ```bash
-cd ~/git/lab-journal
+cd ~/git/lab-vault
 
 # Where does it currently point?
 git remote -v
@@ -40,7 +40,7 @@ git remote -v
 git remote rename origin github
 
 # Add your own server as the new default.
-git remote add origin http://git.lab.internal/sam/lab-journal.git
+git remote add origin http://git.lab.internal/sam/lab-vault.git
 
 # Push everything, and set this remote as the tracking default.
 git push -u origin main
@@ -71,7 +71,7 @@ Then, from a *different* machine (your workstation if the vault lives on
 your laptop, or the other way round), clone it fresh:
 
 ```bash
-git clone http://git.lab.internal/sam/lab-journal.git
+git clone http://git.lab.internal/sam/lab-vault.git
 ```
 
 Two copies, one server, both in step. That's the workflow every

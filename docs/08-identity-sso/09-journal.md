@@ -48,7 +48,7 @@ artefact this module produces, and in six months it will remind you what a
 claim actually looks like far better than a description would.
 
 ```bash
-cd ~/git/lab-journal
+cd ~/git/lab-vault
 git add -A
 git commit -m "journal: module 8, single sign-on working"
 git push

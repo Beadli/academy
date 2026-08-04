@@ -39,7 +39,7 @@ dies" is the right question to be asking, and Module 15 takes it
 seriously.
 
 ```bash
-cd ~/git/lab-journal
+cd ~/git/lab-vault
 git add -A
 git commit -m "journal: module 5, lab.internal exists"
 git push

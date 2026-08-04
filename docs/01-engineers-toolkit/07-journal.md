@@ -30,7 +30,7 @@ staging step at all?" is a great one; Module 10 makes the answer obvious.
 Then close the loop with the rhythm from this module:
 
 ```bash
-cd ~/git/lab-journal
+cd ~/git/lab-vault
 git status
 git add -A
 git commit -m "journal: module 1 complete"

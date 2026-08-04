@@ -49,7 +49,7 @@ CA" is a good one, and so is "what happens to my domain if I lose the
 root key". Both have real answers and both are worth sitting with.
 
 ```bash
-cd ~/git/lab-journal
+cd ~/git/lab-vault
 git add -A
 git commit -m "journal: module 7, own CA and real HTTPS"
 git push

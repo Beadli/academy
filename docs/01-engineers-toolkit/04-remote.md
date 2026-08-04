@@ -51,11 +51,11 @@ gh auth login
 ## Create the remote and push
 
 ```bash
-cd ~/git/lab-journal
+cd ~/git/lab-vault
 
-# Create a PRIVATE repository on GitHub named lab-journal, wire
+# Create a PRIVATE repository on GitHub named lab-vault, wire
 # it up as this folder's remote, and push everything in one go.
-gh repo create lab-journal --private --source=. --push
+gh repo create lab-vault --private --source=. --push
 ```
 
 Private matters here. Your journal will eventually contain the guts of
