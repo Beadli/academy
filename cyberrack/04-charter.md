@@ -249,7 +249,7 @@ An uninterruptible power supply is deliberately excluded. See §24.
 
 Optional future upgrades are not required to fit inside the initial $2,500 budget.
 
-The version 1.0 bill of materials came to approximately $2,959 against this
+The version 1.1 bill of materials comes to approximately $2,959 against this
 $2,500 target. The overrun is recorded rather than hidden, because the useful
 question is which line to cut, not whether the original figure was wrong. The
 staged purchasing path exists so that most of this can be deferred.
@@ -496,7 +496,7 @@ CyberRack includes the design and implementation of:
 
 ---
 
-### 6.2 Out of Scope for Version 1.0
+### 6.2 Out of Scope for Version 1.1
 
 The following capabilities are not required for the initial build:
 
@@ -622,11 +622,11 @@ Preference should be given to technologies with:
 
 ---
 
-## 9. Technology Baseline — Version 1.0
+## 9. Technology Baseline — Version 1.1
 
 CyberRack intentionally standardizes on a selected technology stack.
 
-These selections are strategic commitments for Version 1.0 and should only change when there is a compelling architectural, financial, security, or educational reason.
+These selections are strategic commitments for Version 1.1 and should only change when there is a compelling architectural, financial, security, or educational reason.
 
 The baseline is selected according to:
 
@@ -1319,7 +1319,7 @@ A smaller, well-documented, recoverable environment is preferred over a larger e
 
 ---
 
-## 27. CyberRack Version 1.0 Reference Architecture
+## 27. CyberRack Version 1.1 Reference Architecture
 
 | Domain                   | Approved Standard                                 |
 | ------------------------ | ------------------------------------------------- |
@@ -1351,7 +1351,7 @@ A smaller, well-documented, recoverable environment is preferred over a larger e
 
 ## 28. Success Criteria
 
-CyberRack Version 1.0 will be considered successful when it can demonstrate the following capabilities.
+CyberRack Version 1.1 will be considered successful when it can demonstrate the following capabilities.
 
 ### 28.1 Physical Infrastructure
 
@@ -1624,6 +1624,6 @@ is now recorded as spare rather than as a monitoring display, matching the
 reference elevation. The reasoning behind sizing external power protection for
 shutdown rather than uptime is documented in §24.1.
 
-**Also recorded.** §4 now states the version 1.0 bill of materials came to
+**Also recorded.** §4 now states the version 1.1 bill of materials comes to
 approximately $2,959 against a $2,500 target, and §5.4 states the 10-inch rail
 constraint explicitly so that future component selection accounts for it.

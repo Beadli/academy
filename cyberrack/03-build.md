@@ -1,9 +1,9 @@
 ---
-title: "The v1.0 build"
+title: "The v1.1 build"
 sidebar_position: 3
 ---
 
-# The CyberRack v1.0 build
+# The CyberRack v1.1 build
 
 This is the whole design on one page. The [charter](./charter) has the
 reasoning in full; this is the specification and what each part is there
@@ -282,7 +282,7 @@ the storage node despite the worse cost per terabyte.
 
 ## Phase 2: move some routing to the switch
 
-Once v1.0 works and you understand it, this is the upgrade worth doing,
+Once v1.1 works and you understand it, this is the upgrade worth doing,
 and it's a better lesson than either endpoint on its own.
 
 Migrate **Servers, Backup and Monitoring** routing from OPNsense to Layer

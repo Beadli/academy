@@ -65,7 +65,7 @@ aren't. Go back and carry on.
   first, and the running costs people forget.
 - **[What to buy first](./what-to-buy-first)** The incremental path, in
   stages of a few hundred dollars each. You do not start by buying a rack.
-- **[The v1.0 build](./build)** The full specification: compute, storage,
+- **[The v1.1 build](./build)** The full specification: compute, storage,
   firewall, switching, VLANs, power budget, and what each choice teaches.
 - **[The project charter](./charter)** The complete design document,
   published as-is. Also worth reading as an example of what professional

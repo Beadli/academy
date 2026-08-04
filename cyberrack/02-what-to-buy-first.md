@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # What to buy first
 
-The v1.0 build specified in this section costs just under $3,000. Almost nobody
+The v1.1 build specified in this section costs just under $3,000. Almost nobody
 should buy it in one go, and presenting it as a shopping list is exactly
 how these guides mislead people.
 
