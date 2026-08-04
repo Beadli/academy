@@ -5,11 +5,18 @@ sidebar_position: 1
 
 # 0.1 What an enterprise actually looks like
 
-Job postings for junior infrastructure and security roles ask for experience
-with Active Directory, Group Policy, PKI, and a SIEM. College courses teach
-you Java and how to subnet on paper. The space between those two things is
-where this course lives, because almost nobody teaches it and everybody
-expects you to know it.
+Job postings for junior infrastructure and security roles ask for identity
+and access management (IAM), public key infrastructure (PKI), virtualization,
+and a security information and event management platform (SIEM). Strip the
+acronyms and they are asking whether you have run Active Directory and the
+policies that configure every machine on it, issued certificates, built
+virtual machines, and read the logs when something looked wrong.
+
+College courses teach you Java and how to subnet on paper. The space between
+those two things is where this course lives. Not because nobody teaches these
+subjects, plenty of people do, but because they are almost always taught one
+at a time, as separate tools with separate tutorials. The job is the part
+where they connect, and that is the part nobody hands you.
 
 ## The morning login, unpacked
 
