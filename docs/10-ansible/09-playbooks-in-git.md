@@ -124,6 +124,182 @@ secrets manager the automation can authenticate to.
 **Do not commit `.venv/`**, which 10.2 already handled, or generated inventory
 files that contain live addresses you would rather not publish.
 
+## Running it without you
+
+Sooner or later you will want a playbook to run on a schedule rather than
+because you typed something. There is a trap waiting there, and it is
+specific to how you installed Ansible.
+
+**Activation does not survive into automation.** `source .venv/bin/activate`
+edits the PATH of *one interactive shell*. Cron and systemd do not read your
+shell profile, do not run `.bashrc`, and start with a minimal PATH. A scheduled
+job that says `ansible-playbook harden.yml` fails with `command not found`, and
+the error tells you nothing about why.
+
+**The fix is to stop relying on PATH at all.** Every executable inside a
+virtual environment carries a shebang naming that environment's own Python:
+
+```bash
+# Look at the top line. It is an absolute path into .venv.
+head -1 ~/ansible/.venv/bin/ansible-playbook
+```
+
+Because of that line, calling the binary by its full path works with no
+activation and no PATH:
+
+```bash
+/home/sam/ansible/.venv/bin/ansible-playbook /home/sam/ansible/harden.yml
+```
+
+That is the form to use in anything scheduled. Activation is a convenience for
+humans; the shebang is what actually makes the environment work.
+
+:::info[This is not a venv problem]
+Worth knowing, because it looks like one.
+
+If you had installed Ansible with pipx instead, its binaries land in
+`~/.local/bin`, which is on your PATH only because your shell profile puts it
+there. A non-interactive shell does not have it either, and cron has less
+still. The same job fails the same way.
+
+**Anything installed per-user needs an absolute path in automation.** Using
+the full path is arguably better here anyway: reading the crontab or unit file
+tells you exactly which environment ran, which matters the day two projects
+need different Ansible versions.
+:::
+
+### The cron version
+
+Cron is what most people reach for, so here is the working form:
+
+```bash
+# Edit your own crontab.
+crontab -e
+```
+
+```cron
+# Run the hardening playbook at 03:00 daily.
+0 3 * * * cd /home/sam/ansible && ./.venv/bin/ansible-playbook harden.yml >> /home/sam/ansible/logs/harden.log 2>&1
+```
+
+Three parts of that line are doing necessary work, and leaving any of them out
+is a different failure:
+
+**`cd /home/sam/ansible` first.** Ansible looks for `ansible.cfg` in the
+current directory, and cron starts you in your home directory. Without the
+`cd`, your config is not found, the inventory setting from 10.2 is not applied,
+and the run fails with "no hosts matched" rather than anything about config.
+
+**`./.venv/bin/ansible-playbook`, not `ansible-playbook`.** The absolute-path
+rule. Having done the `cd`, the relative form works and reads clearly.
+
+**`>> ... 2>&1` to a log file.** Cron mails output to the local user by
+default, which on a lab machine means it goes nowhere anyone reads. Send it
+somewhere you can look:
+
+```bash
+mkdir -p ~/ansible/logs
+echo "logs/" >> ~/ansible/.gitignore
+```
+
+An alternative that avoids the `cd`, if you prefer absolute paths throughout:
+
+```cron
+0 3 * * * ANSIBLE_CONFIG=/home/sam/ansible/ansible.cfg /home/sam/ansible/.venv/bin/ansible-playbook /home/sam/ansible/harden.yml >> /home/sam/ansible/logs/harden.log 2>&1
+```
+
+:::tip[Test it the way cron will run it, not the way you run it]
+The reason these jobs fail mysteriously is that you test them in a shell that
+has your PATH, your working directory and your environment, and cron has none
+of those.
+
+Reproduce cron's conditions before scheduling anything:
+
+```bash
+# env -i strips the environment completely, which is closer to cron
+# than your shell will ever be.
+env -i /bin/sh -c 'cd /home/sam/ansible && ./.venv/bin/ansible-playbook harden.yml --check'
+```
+
+If that works, the crontab line will work. If it does not, you have found the
+problem at a keyboard rather than at 3am in a log nobody was reading.
+:::
+
+### A systemd timer, rather than cron
+
+You met systemd in lesson 6.3, where you used `systemctl` to start and enable
+services. A **timer** is the same system's answer to scheduled jobs, and it is
+a better answer than cron for this.
+
+Two files. First `/etc/systemd/system/ansible-harden.service`, which describes
+the work:
+
+```ini
+[Unit]
+Description=Apply baseline hardening playbook
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=sam
+WorkingDirectory=/home/sam/ansible
+ExecStart=/home/sam/ansible/.venv/bin/ansible-playbook harden.yml
+```
+
+Then `/etc/systemd/system/ansible-harden.timer`, which describes when:
+
+```ini
+[Unit]
+Description=Run baseline hardening daily
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now ansible-harden.timer
+
+# When does it next run, and when did it last?
+systemctl list-timers ansible-harden.timer
+
+# What happened last time? This is the part cron makes hard.
+journalctl -u ansible-harden.service -n 50
+```
+
+Three reasons to prefer this over a crontab line. **The output goes to the
+journal**, so lesson 6.3's `journalctl` shows you exactly what the last run
+did, rather than cron mailing it somewhere nobody reads. **`Persistent=true`**
+runs a missed job after the machine comes back up, which cron does not.
+And **the failure is visible**: a failed service shows in `systemctl` rather
+than being silent.
+
+### Should you, though?
+
+A playbook that runs unattended is **enforcement**. Drift gets corrected
+without anyone deciding, which is exactly what you want for a hardening
+baseline and exactly what you do not want for something you have not read
+carefully.
+
+The rule from lesson 10.1 does not soften here, it hardens. Scheduling
+automation you have not read means it does the thing you did not check, on a
+timer, while you are asleep.
+
+A reasonable progression, and the one most organisations arrive at eventually:
+
+1. Run it by hand, with `--check --diff`, until the output is boring
+2. Schedule it in `--check` mode only, so it **reports** drift without
+   correcting it
+3. Once you trust both the playbook and the reporting, let it enforce
+
+Step two is the one people skip, and it is the valuable one. A daily job that
+tells you which machines have drifted, changing nothing, is genuinely useful
+long before you are ready to let anything change itself.
+
 ## What this repository is now
 
 Read back what you have.

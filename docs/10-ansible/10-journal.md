@@ -35,11 +35,12 @@ Under **what I learned**: pick one and write it in your own words.
 - Why staging in Git matters more for a repository that configures machines
   than for one holding notes
 
-Under **open questions**: this module leaves good ones. What would it take to
-run these playbooks automatically instead of by hand, and what would have to be
-true before you trusted that? How would you test a playbook before it touched
-anything real? Where does the machine's *existence* get described, rather than
-its configuration?
+Under **open questions**: this module leaves good ones. How would you test a
+playbook before it touched anything real? Where does the machine's *existence*
+get described, rather than its configuration? And the one lesson 10.9 only half
+answers: it showed you how to schedule a playbook, but **at what point would
+you actually trust one to run unattended?** Write down where you think you are
+on that three-step progression today.
 
 That last one is provisioning, and it is the honest edge of what this course
 covers.

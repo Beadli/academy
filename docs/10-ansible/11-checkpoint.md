@@ -64,6 +64,9 @@ ansible windows -m ansible.windows.win_ping
       the playbooks did not cover (lesson 10.8)
 - [ ] The repository is in Gitea, `.venv/` is ignored, and no secrets are
       committed (lesson 10.9)
+- [ ] You can state why a scheduled job must call
+      `~/ansible/.venv/bin/ansible-playbook` by absolute path rather than
+      relying on activation (lesson 10.9)
 - [ ] `Projects/lab-automation.md` exists and includes the rebuild gap list
       (lesson 10.10)
 
