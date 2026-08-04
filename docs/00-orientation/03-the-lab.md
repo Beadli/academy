@@ -118,12 +118,11 @@ accident.
 |---|---|---|---|
 | SURICATA01 | network sensor, dual NIC | 4 GB | always |
 | OPENVAS01 | vulnerability scanner | 4 GB | when scanning |
-| TS01 | Tailscale subnet router, remote access | 1 GB | optional |
 | UBNT01 | *upgraded*: full SIEM, Grafana, Prometheus | 12 GB | always |
 
 </div>
 
-**Roughly 37 GB allocated**, plus a second network segment worth
+**38.5 GB allocated · around 30 GB in normal use**, plus a second network segment worth
 defending. Note UBNT01 isn't a new machine here, it just gets more memory
 once the SIEM stops being a trimmed one, which is most of the jump.
 
@@ -199,7 +198,6 @@ can plan:
 | ADFS01 | 60 GB | 2 |
 | SURICATA01 | 80 GB | 3 |
 | OPENVAS01 | 80 GB | 3 |
-| TS01 | 20 GB | 3 |
 | UBNT01 *(upgraded)* | 150 GB | 3 |
 
 </div>

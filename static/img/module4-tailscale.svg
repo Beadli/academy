@@ -1,0 +1,110 @@
+<svg viewBox="0 0 1120 560" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <style>
+      .box { fill: var(--ifm-background-surface-color, #ffffff); stroke: currentColor; stroke-opacity: 0.75; stroke-width: 1.5; }
+      .name { fill: currentColor; font-size: 15px; font-weight: 600; text-anchor: middle; }
+      .role { fill: currentColor; fill-opacity: 0.62; font-size: 11px; text-anchor: middle; }
+      .wire { stroke: currentColor; stroke-opacity: 0.45; stroke-width: 1.5; fill: none; }
+      .zonelabel { font-size: 12px; font-weight: 600; letter-spacing: 0.4px; }
+      .pilltext { fill: #ffffff; font-size: 10px; font-weight: 700; text-anchor: middle; }
+      .legend { fill: currentColor; fill-opacity: 0.7; font-size: 11px; }
+      .t3 { fill: #8e4ec6; }
+      .step { fill: var(--ifm-color-primary, #2e8555); }
+      .steptext { fill: #ffffff; font-size: 11px; font-weight: 700; text-anchor: middle; }
+      .tunnel { stroke: var(--ifm-color-primary, #2e8555); stroke-width: 3; fill: none; }
+      .dial { stroke: currentColor; stroke-opacity: 0.5; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+    </style>
+    <marker id="dialarrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" fill-opacity="0.5"/>
+    </marker>
+  </defs>
+
+  <!-- ============ the coordination server, top centre ============
+       Drawn deliberately apart from the tunnel: it introduces the two
+       ends and then gets out of the way. Students assume traffic flows
+       through it, which is the misconception this layout exists to kill. -->
+  <rect x="380" y="24" width="360" height="56" rx="12" class="box"/>
+  <text x="560" y="47" class="name">Tailscale coordination server</text>
+  <text x="560" y="66" class="role">introduces the two ends · never carries your traffic</text>
+
+  <!-- (1) your device dials out -->
+  <path d="M 190 218 L 190 130 Q 190 110 240 108 L 372 78" class="dial" marker-end="url(#dialarrow)"/>
+  <circle cx="196" cy="150" r="11" class="step"/>
+  <text x="196" y="154" class="steptext">1</text>
+
+  <!-- (2) the firewall dials out -->
+  <path d="M 1000 288 L 1000 130 Q 1000 110 952 108 L 748 78" class="dial" marker-end="url(#dialarrow)"/>
+  <circle cx="1000" cy="160" r="11" class="step"/>
+  <text x="1000" y="164" class="steptext">2</text>
+
+  <!-- ============ you, elsewhere ============ -->
+  <rect x="40" y="200" width="300" height="150" rx="12"
+        fill="currentColor" fill-opacity="0.035" stroke="currentColor"
+        stroke-opacity="0.3" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="60" y="228" class="zonelabel" fill="currentColor" fill-opacity="0.75">SOMEWHERE ELSE</text>
+  <rect x="70" y="244" width="240" height="60" rx="10" class="box"/>
+  <text x="190" y="268" class="name">your other laptop</text>
+  <text x="190" y="286" class="role">café, office, phone tether</text>
+  <text x="190" y="330" class="role">a network you do not control</text>
+
+  <!-- ============ your home ============ -->
+  <rect x="600" y="128" width="480" height="386" rx="12"
+        fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.045"
+        stroke="var(--ifm-color-primary, #2e8555)" stroke-opacity="0.45" stroke-width="1.5"/>
+  <text x="620" y="156" class="zonelabel" fill="var(--ifm-color-primary, #2e8555)">YOUR HOME NETWORK</text>
+
+  <!-- home router: the point of the whole diagram is that nothing is
+       opened here -->
+  <rect x="742" y="176" width="240" height="54" rx="10" class="box"/>
+  <text x="862" y="199" class="name">home router</text>
+  <text x="862" y="217" class="role">NAT</text>
+  <rect x="742" y="240" width="240" height="26" rx="8"
+        fill="#e5484d" fill-opacity="0.08" stroke="#e5484d" stroke-opacity="0.55" stroke-width="1.2"/>
+  <text x="862" y="258" class="role" fill="#e5484d" fill-opacity="0.95">no port forwarded · nothing opened inbound</text>
+
+  <path d="M 862 266 L 862 288" class="wire"/>
+
+  <!-- FW01, where the tunnel lands -->
+  <rect x="700" y="288" width="324" height="72" rx="10" class="box"/>
+  <text x="862" y="312" class="name">FW01 · OPNsense</text>
+  <text x="862" y="330" class="role">os-tailscale plugin · subnet router</text>
+  <text x="862" y="348" class="role">advertises 10.10.10.0/24</text>
+  <rect x="990" y="280" width="30" height="18" rx="9" class="t3"/>
+  <text x="1005" y="293" class="pilltext">T3</text>
+
+  <!-- the tailscale interface, which is the reason to put it here -->
+  <path d="M 862 360 L 862 388" class="wire"/>
+  <rect x="700" y="388" width="324" height="44" rx="10"
+        fill="var(--ifm-color-primary, #2e8555)" fill-opacity="0.10"
+        stroke="var(--ifm-color-primary, #2e8555)" stroke-opacity="0.7" stroke-width="1.5"/>
+  <text x="862" y="406" class="name" font-size="13">TLSCL interface</text>
+  <text x="862" y="422" class="role">firewall rules apply here, same as any other interface</text>
+  <circle cx="672" cy="410" r="11" class="step"/>
+  <text x="672" y="414" class="steptext">4</text>
+
+  <!-- the lab behind it -->
+  <path d="M 862 432 L 862 456" class="wire"/>
+  <rect x="700" y="456" width="324" height="42" rx="10" class="box"/>
+  <text x="862" y="474" class="name" font-size="13">the whole lab · 10.10.10.0/24</text>
+  <text x="862" y="490" class="role">DC01 · DC02 · SUBCA01 · UBNT01 · every host</text>
+
+  <!-- ============ (3) the tunnel itself ============
+       Straight and thick, and pointedly NOT routed via the coordination
+       server, because that is the thing readers get wrong. -->
+  <path d="M 310 274 L 700 300" class="tunnel"/>
+  <circle cx="505" cy="287" r="13" class="step"/>
+  <text x="505" y="291" class="steptext">3</text>
+  <text x="470" y="322" class="legend" text-anchor="middle">encrypted tunnel, end to end,</text>
+  <text x="470" y="338" class="legend" text-anchor="middle">between the two devices</text>
+
+  <!-- ============ what the numbers mean ============ -->
+  <rect x="40" y="392" width="520" height="122" rx="10"
+        fill="currentColor" fill-opacity="0.035" stroke="currentColor"
+        stroke-opacity="0.25" stroke-width="1.2"/>
+  <text x="60" y="416" class="legend" font-weight="600">Read it in order</text>
+  <text x="60" y="438" class="legend">1 · your laptop dials out to Tailscale. Outbound, like any website.</text>
+  <text x="60" y="458" class="legend">2 · FW01 dials out too. Also outbound. Your router opens nothing.</text>
+  <text x="60" y="478" class="legend">3 · the two are introduced, then talk directly. Encrypted, end to end.</text>
+  <text x="60" y="498" class="legend">4 · the tunnel arrives as an interface you can write firewall rules on.</text>
+</svg>

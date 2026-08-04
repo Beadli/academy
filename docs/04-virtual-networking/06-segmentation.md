@@ -3,6 +3,8 @@ title: "4.6 Segmentation: prove what can reach what (Tier 2)"
 sidebar_position: 6
 ---
 
+import Module4Tailscale from '@site/static/img/module4-tailscale.svg';
+
 # 4.6 Segmentation: prove what can reach what (Tier 2)
 
 A firewall you haven't tested is a firewall you're hoping about. This
@@ -98,24 +100,127 @@ this exact control on this exact lab.
 
 :::note[Tier 3, and genuinely optional]
 Skip this without guilt. It's here because it's the piece people ask
-about most once their lab exists.
+about most once their lab exists, and because doing it wrong is one of
+the more effective ways to get yourself compromised.
 :::
 
 At some point you'll want to reach your lab from a laptop that isn't the
 one it runs on. The wrong answer is forwarding ports from your home
 router to the firewall's WAN, which puts your deliberately vulnerable
-lab on the public internet. Don't.
+lab on the public internet where anyone scanning the address range will
+find it. People do this. Don't.
 
-The right answer is a private overlay network. [Tailscale](https://tailscale.com)
-is free for personal use, installs as a package on OPNsense, and gives
-you an encrypted path to the firewall without opening anything inbound.
-Configured as a **subnet router**, it advertises `10.10.10.0/24` to your
-other devices, so your laptop can reach the whole lab as if it were
-plugged in.
+The right answer is a **private overlay network**: a virtual network laid
+on top of the internet, where only devices you have explicitly added can
+see each other. [Tailscale](https://tailscale.com) is one, free for
+personal use, and it builds that network without opening anything inbound
+at all.
 
-Two things to know before you enable it, because they surprise people:
-it creates a path that bypasses the boundary you just built, so the
-segmentation tests above no longer describe every route into your lab;
-and any device you add to your Tailscale network gets that reach. Set it
-up deliberately, note in your journal that it exists, and remember it in
-Module 14 when you're testing what can reach what.
+That last part is the bit worth understanding rather than just doing.
+
+<Module4Tailscale role="img" aria-label="How Tailscale reaches the lab without opening a port. Your other laptop, on a network you do not control, dials outward to the Tailscale coordination server. FW01 running OPNsense dials outward too, through the home router, which forwards no ports and opens nothing inbound. The coordination server introduces the two, which then build an encrypted tunnel directly between themselves. The tunnel arrives on FW01 as a firewall interface called TLSCL, where normal firewall rules apply, and FW01 advertises the whole 10.10.10.0/24 lab subnet behind it." style={{width: '100%', height: 'auto'}} />
+
+**How to read it.** The numbered steps run in order, and the order is the
+whole trick.
+
+Both ends make **outbound** connections (1 and 2), which is the same kind
+of connection your browser makes to any website, and which every home
+router already allows. Neither end waits for an incoming connection, so
+nothing has to be opened on your router. That red strip is the point of
+the diagram: the thing you were tempted to configure, you don't.
+
+The coordination server then introduces the two devices to each other,
+and steps out of the way. It is drawn away from the tunnel deliberately,
+because the common misconception is that your traffic flows through
+Tailscale's servers. It doesn't. The tunnel at (3) runs directly between
+your laptop and your firewall, encrypted end to end.
+
+Step (4) is why this lesson puts Tailscale on the firewall rather than
+on a machine inside the lab. The tunnel arrives as an interface named
+**TLSCL**, and OPNsense treats it like any other interface, which means
+your firewall rules apply to it. The remote access is inside the boundary
+you spent this module building, rather than around it.
+
+### Install the plugin
+
+OPNsense has shipped a Tailscale plugin since version 24.7, so there's no
+command line involved.
+
+1. **System → Firmware → Plugins.**
+2. At the bottom of the page, click the line about community plugins to
+   reveal them. This step is easy to miss: without it, searching for
+   Tailscale returns nothing and you'll conclude the plugin doesn't
+   exist.
+3. Find **os-tailscale** and click **+** to install.
+4. A **VPN → Tailscale** entry appears in the left menu. If it doesn't,
+   reload the page rather than reinstalling.
+
+:::warning[This is a community plugin]
+OPNsense is a community-supported platform for Tailscale, not an
+officially supported one, and `os-tailscale` is a community plugin rather
+than a core component. In practice it works well. It's worth knowing
+because you're installing extra software onto your firewall, which is the
+one machine in the lab where the course otherwise tells you to keep the
+surface small. That tension is real, and the next section is the reason
+I think it's worth accepting here.
+:::
+
+### Connect it, advertise the lab, and approve the route
+
+Under **VPN → Tailscale → Settings**, enable it and authenticate. You'll
+be handed a URL to open in a browser and sign in with, which is how the
+device joins your tailnet.
+
+Then add `10.10.10.0/24` to the **advertised routes** and apply.
+
+Now the step almost everyone misses. **Advertising a route does not
+publish it.** Open the Tailscale admin console in a browser, find FW01 in
+the machines list, open its route settings, and *approve* the subnet
+route. Until you do, the tunnel comes up, the firewall is reachable by
+its Tailscale address, and nothing behind it works, which looks exactly
+like a broken routing problem and isn't one.
+
+That approval step exists on purpose. A machine can claim to route any
+subnet it likes; requiring a human to approve it means a compromised
+device can't quietly volunteer to route your whole network.
+
+### Prove it, then constrain it
+
+From a device on your tailnet that is not the lab machine:
+
+```bash
+# The firewall itself, over the tunnel.
+ping 10.10.10.254
+
+# Something behind it. This is the one that proves the route works.
+ping 10.10.10.10
+```
+
+The second one is the real test. The first only proves the tunnel is up.
+
+Then do the part most people skip: go to **Firewall → Rules → TLSCL**
+and decide what the overlay is allowed to reach. It is a normal interface
+with normal rules, and leaving it wide open means every device you ever
+add to your tailnet, including your phone, gets unrestricted access to a
+lab that by Module 14 will contain deliberately vulnerable machines.
+
+Write down in your journal that this path exists and what it can reach.
+You'll want that note in Module 14 when you're testing which routes into
+your lab you actually know about.
+
+:::info[If you'd rather not add software to your firewall]
+A reasonable alternative is a small Linux VM inside the lab running the
+Tailscale client as a subnet router. It keeps the firewall untouched, at
+the cost of about 1 GB of RAM.
+
+Two things to get right if you go this way. **It must sit on the LAN
+segment.** A machine on the WAN segment cannot reach the lab servers,
+because that is precisely what you configured FW01 to prevent, so a
+subnet router there would advertise a route to a network it can't reach.
+
+And accept the trade: the tunnel then lands *inside* the LAN, past every
+rule FW01 enforces. You get remote access, but you lose the ability to
+filter it, which is the opposite of the situation the diagram above
+describes. That's the reason this lesson teaches the firewall plugin as
+the main path.
+:::
