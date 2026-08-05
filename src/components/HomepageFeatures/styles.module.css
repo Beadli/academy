@@ -30,8 +30,15 @@
   margin-bottom: 0;
 }
 
+/* Plex's bold is more restrained than the system fonts it replaced, so at
+   700 (which is the top of its weight axis) a card heading reads lighter
+   than it did before. Weight cannot go further, so the presence comes from
+   size and slightly tighter tracking instead: negative letter-spacing makes
+   bold text read denser without making it larger than it should be. */
 .featureCard h3 {
   margin-bottom: 0.35rem;
+  font-size: 1.35rem;
+  letter-spacing: -0.012em;
 }
 
 /* Phones stack to one column, where the extra breathing room between cards
