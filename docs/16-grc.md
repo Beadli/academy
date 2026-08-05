@@ -40,3 +40,19 @@ infrastructure they built themselves.
      - 13.7 says Module 16 "is where an auditor asks you to show evidence
        that it runs", meaning the vulnerability management loop. Owed:
        evidence-of-process as distinct from evidence-of-fix. */}
+
+{/* AUTHORING NOTE, not rendered.
+     Promises made by Module 15 (added 2026-08-05):
+     - 15.1's GRC admonition says RPO and RTO are what a business continuity
+       conversation is built on and "Module 16 asks you for yours". Owed:
+       those two numbers as a documented risk decision.
+     - 15.3 says the restore-test log "is what an auditor asks for in Module
+       16, and it is the difference between 'we have backups' and 'we have
+       backups and here is the evidence they restore'". Owed: evidence of a
+       recurring process, not evidence of a single control.
+     - 15.7's GRC admonition says runbooks demonstrate a repeatable process
+       "and that distinction is what Module 16 assesses".
+     - 15.10 says Module 16 maps what was built to a control framework and
+       that "almost everything you wrote down in this module is evidence".
+       Owed: the mapping should actually reuse lab-operations.md,
+       lab-changes.md and the runbooks rather than inventing new artefacts. */}
