@@ -26,8 +26,7 @@ Open PowerShell (Start menu, type "powershell") and run these:
 (Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory / 1GB
 
 # Physical cores and logical processors (hyperthreading counts double).
-Get-CimInstance Win32_Processor |
-  Select-Object Name, NumberOfCores, NumberOfLogicalProcessors
+Get-CimInstance Win32_Processor | Select-Object Name, NumberOfCores, NumberOfLogicalProcessors
 
 # Free space on C: in GB.
 (Get-PSDrive C).Free / 1GB
@@ -68,12 +67,23 @@ Technology**, or **SVM Mode** on AMD, usually under an Advanced or CPU
 menu. Enable it, save, reboot, and re-run the check. If the option truly
 doesn't exist, the machine is too old for this lab.
 
+## Close the loop
+
+Lesson 0.5 had you write your machine's numbers from memory, or leave
+them blank. Open that entry now and put the measured numbers in. That
+thirty seconds is the first instance of a habit this course leans on
+hard: the journal records what you *verified*, not what you assumed.
+
 ## Pass criteria
 
-- [ ] You know your RAM, cores, and free disk as actual numbers
-- [ ] Virtualization shows **Enabled** (or VT-x / AMD-V in `lscpu`)
-- [ ] You have roughly 150 GB free, or a plan to free it up
+- [ ] You know your RAM, cores, and free disk as actual numbers, from
+      the commands above
+- [ ] Virtualization shows **Enabled** in Task Manager, or VT-x / AMD-V
+      in `lscpu`. Intel Macs: always on, as covered above
+- [ ] You have roughly 180 GB free, the Tier 1 figure from lesson 0.3,
+      or a plan to free it up
 - [ ] You've picked your starting tier from lesson 0.3
-- [ ] All four facts are written in your journal entry from lesson 0.5
+- [ ] All four facts are written in your journal entry from lesson 0.5,
+      measured, not guessed
 
 All checked? Module 1 is waiting, and it's where the tools come out.

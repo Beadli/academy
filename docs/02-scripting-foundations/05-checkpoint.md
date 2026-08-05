@@ -41,21 +41,22 @@ and try again.
 
 ## Pass criteria
 
-- [ ] `failed-logins.sh` ranks the sample log with `5 203.0.113.42`
-      on top
-- [ ] You modified it to report accepted logins, and can say what the
-      output means
-- [ ] `kev-check.py` runs and prints the live catalog count and five
-      newest entries
+- [ ] `failed-logins.sh` from lesson 2.2 ranks the sample log with
+      `5 203.0.113.42` on top
+- [ ] You modified it to report accepted logins, lesson 2.2's closing
+      exercise, and can say what the output means
+- [ ] `kev-check.py` from lesson 2.3 runs and prints the live catalog
+      count and five newest entries
 - [ ] You made at least one "make it yours" change to the Python
-      script
+      script, as lesson 2.3 asked
 - [ ] Windows students: `machine-report.md` is in the vault and the
-      script survived the execution-policy wall
-- [ ] Linux/macOS students: you read the PowerShell script and can
-      explain what `$disk.Free` is (an object property, not text)
+      script survived lesson 2.1's execution-policy wall
+- [ ] Linux/macOS students: you read the PowerShell script in lesson
+      2.1 and can explain what `$disk.Free` is (an object property,
+      not text)
 - [ ] All three scripts are committed and pushed with your journal
-      entry
-- [ ] Module 2 is ticked in `lab-progress.md`
+      entry, the rhythm from lesson 1.3
+- [ ] Module 2 is ticked in `lab-progress.md`, the habit from 1.7
 
 All green? Then you read scripts now. Module 3 finally starts the lab:
 hypervisor installed, first VM booted, and the fun begins.
