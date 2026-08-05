@@ -39,7 +39,19 @@ Install it following the current instructions at
 install methods for actively developed tools change, and a stale command in a
 course is worse than a search.
 
-Then, and this part matters:
+**How we know it installed.** Open a new terminal, so you are not relying on
+the one the installer touched, and run the command:
+
+```bash
+claude
+```
+
+**Success looks like an interactive prompt** waiting for you to type. If you
+get `command not found`, the install did not put it on your PATH, and the
+usual fix is to close and reopen your terminal, which is the same reason you
+reopened one after installing Git in lesson 1.3.
+
+Now the part that matters more than the install:
 
 ```bash
 # Start it INSIDE the directory you want it working on.

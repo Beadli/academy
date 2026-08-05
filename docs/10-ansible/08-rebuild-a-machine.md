@@ -28,9 +28,37 @@ forgotten to write down.
 destroying it means destroying the thing doing the rebuilding.
 
 Use a machine you can lose. If you have a spare Linux VM, use that. If not,
-build a minimal Ubuntu VM the way lesson 6.1 did, add it to your inventory as
-`rebuild01`, and run `harden.yml` and `webserver.yml` against it so it is a
-real, configured machine before you kill it.
+build one now. It does not need to match UBNT01; it needs to exist, be
+reachable, and be worth rebuilding:
+
+- **New VM**, Ubuntu Server, minimal install. 2 GB of memory and 20 GB of disk
+  is plenty.
+- **Same LAN segment** as the rest of the lab, so Ansible can reach it. Give it
+  a free address from your lesson 4.3 plan, or let it take one from DHCP and
+  note what it got.
+- **Install OpenSSH** when the installer offers it. Without this, Ansible has
+  no way in.
+- **Same username** you use elsewhere, so your inventory's `ansible_user`
+  works unchanged.
+
+Then add it to `~/ansible/inventory.ini` under `[linux]`:
+
+```ini
+rebuild01 ansible_host=10.10.10.21
+```
+
+```bash
+# Reachable before you go further.
+ansible rebuild01 -m ansible.builtin.ping
+```
+
+Now make it a real machine rather than an empty one, so the rebuild has
+something to reproduce:
+
+```bash
+ansible-playbook harden.yml --limit rebuild01
+ansible-playbook webserver.yml --limit rebuild01
+```
 
 Take a snapshot first, so this is an experiment rather than a commitment.
 

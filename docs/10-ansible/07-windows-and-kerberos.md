@@ -77,6 +77,26 @@ Installing `krb5-user` prompts for a default realm. Enter your domain in
 **capitals**: `LAB.INTERNAL`. If you get it wrong, edit `/etc/krb5.conf`
 afterwards.
 
+**Confirm all three landed before going further.** This lesson has a lot of
+moving parts and a failure here surfaces much later as a confusing
+authentication error:
+
+```bash
+# 1. Kerberos client tools are on the system.
+kinit --version 2>&1 | head -1
+
+# 2. The Python bindings went into your virtual environment, not the system.
+#    The path in the output should contain .venv.
+pip show pywinrm | grep -i location
+
+# 3. The Windows modules are available to Ansible.
+ansible-galaxy collection list ansible.windows
+```
+
+If `pip show` reports a path outside `.venv`, you installed into the system
+Python because the environment was not activated. Activate it, per lesson
+10.2, and install again.
+
 Check `/etc/krb5.conf` looks roughly like this:
 
 ```ini

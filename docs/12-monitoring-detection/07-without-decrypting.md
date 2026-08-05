@@ -119,7 +119,31 @@ Set the monitored interface and your home network in
 sudo suricata-update
 
 sudo systemctl enable --now suricata
+```
 
+**How we know it worked.** An empty log looks the same whether Suricata is
+capturing quietly or is not running at all, so check the service rather than
+the output:
+
+```bash
+# 1. Running, and not restarting in a loop.
+sudo systemctl status suricata --no-pager | head -5
+
+# 2. Actually capturing. Both counters should climb between runs.
+sudo suricatasc -c "iface-stat <your-sensor-interface>" 2>/dev/null || \
+  sudo grep -c . /var/log/suricata/stats.log
+
+# 3. The interface is in promiscuous mode. Look for PROMISC in the flags.
+ip -brief link show <your-sensor-interface>
+```
+
+**No `PROMISC` flag means the sensor is only seeing its own traffic**, which
+is the failure this whole section exists to avoid, and it is set on the
+virtual switch rather than inside the VM.
+
+Then watch it work:
+
+```bash
 # It logs in the same JSON shape you already know from Wazuh.
 sudo tail -f /var/log/suricata/eve.json | \
   jq -r 'select(.event_type=="alert") |

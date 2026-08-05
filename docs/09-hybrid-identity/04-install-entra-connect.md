@@ -108,6 +108,29 @@ everyday user.
 If it rejects the domain credentials, check you are giving it `LAB\username`
 or `username@lab.internal` rather than a bare username.
 
+## How we know it worked
+
+The installer says it succeeded. Confirm that independently, because "the
+wizard closed" and "the thing is running" are different claims.
+
+On DC01, in PowerShell:
+
+```powershell
+# The sync service exists and is running.
+Get-Service -Name ADSync | Select-Object Name, Status, StartType
+
+# The scheduler is loaded and knows when it next runs.
+Import-Module ADSync
+Get-ADSyncScheduler | Select-Object SyncCycleEnabled, NextSyncCycleStartTimeInUTC
+```
+
+**`Running` and `SyncCycleEnabled: True` is what you want.** If the service is
+stopped, the install completed but something is preventing it starting, and the
+Windows event log on DC01 will say what.
+
+Lesson 9.5 uses these same commands to drive the sync deliberately, so you are
+meeting them here rather than for the first time when something is wrong.
+
 ## Let it finish, then leave it alone for a bit
 
 The first sync runs when the installer completes. In a lab with a handful of

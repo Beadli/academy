@@ -53,6 +53,20 @@ The volume matters, per lesson 6.5: without it every dashboard you build
 disappears the next time the container is recreated, which is a lesson people
 usually learn the hard way.
 
+**How we know it worked:**
+
+```bash
+# Running, not restarting.
+docker ps --filter name=grafana --format '{{.Names}} {{.Status}}'
+
+# Answering. Expect a JSON response with a database status.
+curl -s http://localhost:3000/api/health
+```
+
+Then browse to UBNT01 on port 3000. The default login is `admin` / `admin` and
+it will insist you change it, which is the correct behaviour and worth doing
+rather than dismissing.
+
 Add your Wazuh indexer as a data source, then build exactly four panels.
 **Resist more.**
 
@@ -87,6 +101,19 @@ docker run -d --name prometheus \
   -v ~/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
   prom/prometheus
 ```
+
+**How we know it worked:**
+
+```bash
+docker ps --filter name=prometheus --format '{{.Names}} {{.Status}}'
+
+# Which targets is it polling, and are they up? "health":"up" is what
+# you want; "down" names the target it cannot reach.
+curl -s http://localhost:9090/api/v1/targets | jq -r '.data.activeTargets[] | [.labels.job, .health] | @tsv'
+```
+
+A target showing `down` is almost always a node exporter that is not running,
+or a firewall rule on the machine you are polling.
 
 Then add Prometheus as a second Grafana data source, and you have one place
 showing both what happened and what the state is.
