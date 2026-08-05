@@ -63,13 +63,28 @@ mechanism from lesson 5.1: they're how any machine on this network finds
 out that DC01 provides authentication for this domain. The promotion
 wrote them about itself.
 
-Check your own DNS settings changed too:
+Check your own DNS settings changed too.
+
+**A note on `Ethernet0` before you paste anything.** That is the name VMware
+gives a virtual network card. VirtualBox and Hyper-V call theirs `Ethernet`.
+Lesson 5.3 had you put your own name in a `$adapter` variable, but the
+promotion rebooted this machine, and variables do not survive a reboot. Set
+it again, and use it for the rest of this lesson:
+
+```powershell
+# What is this machine's network card actually called?
+Get-NetAdapter
+
+# Put your name from that output here. If the list shows one adapter
+# and it says Ethernet0, then Ethernet0 is your answer.
+$adapter = "Ethernet0"
+```
 
 ```powershell
 # The promotion should have pointed this machine's DNS at itself,
 # which is correct now that it IS the DNS server. Expect 127.0.0.1
 # or 10.10.10.10.
-Get-DnsClientServerAddress -InterfaceAlias "Ethernet0"
+Get-DnsClientServerAddress -InterfaceAlias $adapter
 
 # Ask the directory's DNS for its own service records.
 Resolve-DnsName -Type SRV _ldap._tcp.lab.internal
@@ -80,8 +95,12 @@ now. A domain controller that asks someone else about its own domain is
 a fault waiting to happen:
 
 ```powershell
-Set-DnsClientServerAddress -InterfaceAlias "Ethernet0" `
+Set-DnsClientServerAddress -InterfaceAlias $adapter `
                            -ServerAddresses 127.0.0.1
+
+# And read it back, because a command that prints nothing has not
+# told you it succeeded. Expect 127.0.0.1 in the ServerAddresses column.
+Get-DnsClientServerAddress -InterfaceAlias $adapter
 ```
 
 Internet names still resolve, by the way, because your DNS server

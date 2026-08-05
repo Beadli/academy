@@ -50,6 +50,28 @@ It'll ask for your Gitea username and password. Refresh the repository
 in your browser and there's your journal: every entry since Module 0,
 every script from Module 2, the whole history, on a server you built.
 
+**How you know it worked:**
+
+```bash
+# Two remotes now: "github" pointing at GitHub, "origin" at your
+# own server. Both are expected.
+git remote -v
+
+# Which remote does this branch push to by default? Expect a line
+# reading: main [origin/main]
+git branch -vv
+```
+
+**If the push failed with `src refspec main does not match any`**, your
+local branch is called `master`, not `main`. That happens if you created
+this repository before lesson 1.3 set `init.defaultBranch`. Rename it and
+push again:
+
+```bash
+git branch -M main
+git push -u origin main
+```
+
 Take a second with that. In lesson 1.3 you learned what a commit was. In
 1.4 you pushed to someone else's machine. Today you're running the
 machine.
@@ -103,11 +125,21 @@ While you're here, your compose files from lesson 6.5 deserve the same
 treatment. Create a `docker-stacks` repository in Gitea and push the
 `~/docker` directory you put under Git:
 
+Create it the same way you created `lab-journal` at the top of this lesson:
+**+** in the top right, **New Repository**, name it `docker-stacks`, private,
+and **initialise nothing**. Then, on UBNT01:
+
 ```bash
 cd ~/docker
 git remote add origin http://git.lab.internal/sam/docker-stacks.git
 git push -u origin main
 ```
+
+**How you know it worked:** refresh the repository page in Gitea and
+`whoami/compose.yaml` should be listed. From the shell, `git branch -vv`
+should show `main [origin/main]`. If the push was rejected for `src refspec
+main`, this is the `master` case from lesson 6.5; `git branch -M main` then
+push again.
 
 Now every service on this machine is described by a file, and every file
 is in version control, with history. When Module 12 adds a SIEM and

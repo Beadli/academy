@@ -37,7 +37,24 @@ sudo apt install git
 # command line tools; accept and you're done.
 ```
 
-Close and reopen your terminal afterward.
+Close and reopen your terminal afterward. That is not superstition: the
+installer adds Git to your PATH, the list of folders your shell searches for
+commands, and a shell only reads that list when it starts.
+
+**How you know it worked:**
+
+```bash
+# Any version number means Git is installed and your shell can find it.
+git --version
+```
+
+Expect something like `git version 2.43.0`. The number does not matter; this
+course uses nothing version-specific.
+
+**If you get "command not found" or "not recognized"**, the shell is still
+running with the old PATH. Close every terminal window and open a fresh one.
+If it still fails after that, the install did not finish, and running it again
+is safe.
 
 ## The shell this course uses
 
@@ -92,6 +109,32 @@ git config --global user.name "Your Name"
 git config --global user.email "you@example.com"
 ```
 
+One more setting, and this one saves you a confusing failure in Module 6.
+
+When Git creates a repository it has to name the first branch. **A branch is
+just a name for a line of history**; you will only have one for a long while.
+Git's own default is still `master`, but the industry moved to `main` years
+ago, and every hosting service, every example in this course, and Modules 10
+and 12 all assume `main`. Mixing the two produces an error message
+(`src refspec main does not match any`) that tells you nothing about the
+actual cause.
+
+```bash
+# Name the first branch "main" in every repository you create from now on.
+git config --global init.defaultBranch main
+```
+
+**How you know all three took:**
+
+```bash
+# Prints back what Git now believes about you.
+git config --global --list
+```
+
+You should see your name, your email, and `init.defaultBranch=main`. If a
+line is missing, run that one command again and watch for a typo in
+`--global`.
+
 ## Put the vault under Git
 
 ```bash
@@ -100,8 +143,10 @@ cd ~/git/lab-journal
 
 # Turn this folder into a Git repository. This creates a hidden
 # .git directory where every snapshot will live. Your files are
-# not touched.
-git init
+# not touched. -b main names the first branch explicitly; the
+# setting above would do it anyway, and saying it out loud here
+# means this command is correct on any machine you paste it into.
+git init -b main
 
 # What does Git see? Everything, currently "untracked."
 git status

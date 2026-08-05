@@ -69,6 +69,25 @@ sudo usermod -aG docker $USER
 ```
 
 Log out and back in for that to take effect (`exit`, then `ssh` again).
+**Group membership is decided at login**, so a session that was already open
+when you ran that command still has the old memberships, no matter how long
+you wait.
+
+**How you know both parts worked:**
+
+```bash
+# 1. Docker is installed. Expect a version number.
+docker --version
+
+# 2. Your account may talk to it without sudo. Expect an empty
+#    table with column headings, because nothing is running yet.
+docker ps
+```
+
+**If step 2 says `permission denied while trying to connect to the Docker
+daemon socket`**, that is not a broken install. It is the log-out-and-back-in
+above, not done. `groups` will confirm it: if `docker` is missing from that
+output, close the session and reconnect.
 
 :::warning[The docker group is root, wearing a different hat]
 Anyone who can talk to the Docker daemon can start a container that

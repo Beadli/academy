@@ -32,6 +32,20 @@ New-Item -ItemType Directory -Force -Path C:\VMs, C:\ISOs
 mkdir -p ~/VMs ~/ISOs
 ```
 
+**How you know it worked**, and it is worth ten seconds because a typo here
+puts every VM you build for the rest of the course in a folder you did not
+mean:
+
+```powershell
+# Windows. Both folders should be listed back at you.
+Get-ChildItem C:\ -Directory | Where-Object { $_.Name -in "VMs","ISOs" }
+```
+
+```bash
+# Linux and macOS. Both paths should print. An error means one is missing.
+ls -d ~/VMs ~/ISOs
+```
+
 Installers go in `ISOs`. Every virtual machine gets **its own folder**
 under `VMs`, named after the machine: `C:\VMs\practice01`,
 `C:\VMs\DC01`, `C:\VMs\UBNT01`, and so on. When you build a VM in lesson

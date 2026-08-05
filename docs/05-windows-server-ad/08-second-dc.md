@@ -144,6 +144,10 @@ One loose end. DC02's DNS still points only at DC01, which means if DC01
 is down, DC02 cannot resolve names, including its own domain's. Fix both
 machines so each prefers itself and falls back to the other:
 
+Substitute your own adapter name again, the same one `Get-NetAdapter`
+reported earlier. It is `Ethernet0` on VMware and `Ethernet` on VirtualBox
+and Hyper-V:
+
 ```powershell
 # On DC01
 Set-DnsClientServerAddress -InterfaceAlias "Ethernet0" `
@@ -153,6 +157,28 @@ Set-DnsClientServerAddress -InterfaceAlias "Ethernet0" `
 Set-DnsClientServerAddress -InterfaceAlias "Ethernet0" `
                            -ServerAddresses 10.10.10.11,10.10.10.10
 ```
+
+**How you know it worked.** Run this on each machine in turn:
+
+```powershell
+# The ServerAddresses column should show both addresses, in the order
+# you set them for that machine.
+Get-DnsClientServerAddress -InterfaceAlias "Ethernet0" -AddressFamily IPv4
+
+# And prove the fallback is real, not just configured: ask the OTHER
+# domain controller directly for a record it should know about. This
+# is the same service record you met in lesson 5.5.
+# From DC01, question DC02:
+Resolve-DnsName -Name _ldap._tcp.lab.internal -Type SRV -Server 10.10.10.11
+
+# From DC02, question DC01:
+Resolve-DnsName -Name _ldap._tcp.lab.internal -Type SRV -Server 10.10.10.10
+```
+
+A `DNS name does not exist` answer from the other machine means the two are
+not replicating, and lesson 5.9's checks are where to look. Configured but
+not answering is precisely the failure this section exists to prevent, so it
+is worth catching now rather than during a power cut.
 
 There is a long-running argument among Windows administrators about
 whether a DC should list itself first or second. The version above is

@@ -45,15 +45,30 @@ Anything that runs in the background is a **service**, managed by
 `systemctl`:
 
 ```bash
-# Is SSH running, and did it start cleanly?
+# Is SSH running, and did it start cleanly? Expect a line containing
+# "active (running)". Press q to leave the pager.
 systemctl status ssh
-
-# The four verbs you'll use constantly.
-sudo systemctl restart ssh
-sudo systemctl stop ssh      # don't, right now: you're connected over it
-sudo systemctl start ssh
-sudo systemctl enable ssh    # start automatically at boot
 ```
+
+Three of the four verbs you will use constantly, and these are safe to run
+right now:
+
+```bash
+sudo systemctl restart ssh   # stop and start it again
+sudo systemctl start ssh     # run it now
+sudo systemctl enable ssh    # run it automatically at every boot
+```
+
+The fourth verb is `stop`, and **do not run it on `ssh` while you are
+connected over SSH.** It will do exactly what you asked, which is to shut
+down the service carrying your session, and you will be locked out until you
+walk over to the VM's console and start it again. The command is
+`sudo systemctl stop <service>` and you will use it plenty on other
+services. Learning that lesson on a machine in a datacentre you cannot drive
+to is a rite of passage worth skipping.
+
+Run `systemctl status ssh` again after the restart. `active (running)` and a
+start time of a few seconds ago is how you know the restart did something.
 
 `enable` versus `start` catches people out, so learn the difference now:
 **start** runs it right now, **enable** makes it come back after a

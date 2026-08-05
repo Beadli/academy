@@ -64,6 +64,26 @@ listed at all and no useful explanation why. That empty interface list is
 the most common "Wireshark is broken" report in existence, and it isn't
 broken. It just can't see the network card.
 
+**How you know it worked.** Two checks, and the second is the one that
+matters, because Wireshark installs perfectly well in a state where it
+cannot capture anything:
+
+1. **It is installed.** Launch Wireshark from your applications menu, or
+   run `wireshark --version` in a terminal. Any version number is fine.
+2. **It can see the network.** On the screen Wireshark opens to, you should
+   see a **list of interfaces**, each with a small jagged line beside it
+   that twitches when traffic moves. Names vary by platform: `eth0`,
+   `ens33`, `Ethernet`, `Wi-Fi`, `en0`. What you need is at least one entry
+   with a moving line, because that is the one carrying your traffic.
+
+**An empty list, or a list with no moving lines, means stop here and fix
+it.** On Linux that is the group question above: run `groups` and confirm
+`wireshark` appears in the output. If it does not, you either answered no
+to the installer's question (`sudo dpkg-reconfigure wireshark-common` asks
+again) or you have not logged out and back in since running `usermod`.
+Group membership is decided when you log in, so the change does nothing to
+a session that was already open.
+
 :::tip[Least privilege]
 That question is the principle from lesson 5.6 showing up in an installer.
 Capturing packets needs privileged access to the network card. The lazy

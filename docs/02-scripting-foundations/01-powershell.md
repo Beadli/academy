@@ -276,8 +276,26 @@ locally created scripts for your user account:
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
-Run the script again, then open `Resources/machine-report.md` in
+**How you know it took:**
+
+```powershell
+# Should print RemoteSigned. This asks specifically about your user
+# account, which is the scope you just changed.
+Get-ExecutionPolicy -Scope CurrentUser
+```
+
+Now run the script again, then open `Resources/machine-report.md` in
 Obsidian and admire a report you didn't type.
+
+**If it still refuses**, you are probably on a computer managed by a school
+or an employer, where an administrator sets the policy centrally and your
+change is overridden. `Get-ExecutionPolicy -List` shows every scope at once,
+and a `MachinePolicy` or `UserPolicy` row with a value set is the culprit.
+You cannot override that, and you should not try to on someone else's
+machine. Two honest options: run the script's commands one at a time by
+pasting them into the shell, which the policy does not restrict, or do the
+scripting parts of this course inside a virtual machine once you build one in
+Module 3.
 
 ## Make it yours
 

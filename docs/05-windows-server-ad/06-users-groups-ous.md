@@ -34,6 +34,26 @@ That `foreach` loop is Module 2 earning its keep: you read it, you know
 what it does, and typing one loop beats clicking the same wizard three
 times.
 
+**How you know it worked:**
+
+```powershell
+# Every OU in the domain, with its full path. -Filter * means
+# "no filter, show me all of them"; the parameter is not optional,
+# which is a quirk of these commands worth meeting once.
+Get-ADOrganizationalUnit -Filter * | Select-Object Name, DistinguishedName
+```
+
+You are looking for four rows of your own: `Lab`, and then `Users`,
+`Servers` and `Groups` whose `DistinguishedName` each contain
+`OU=Lab,DC=lab,DC=internal`. That nesting is the thing to check. An OU
+called `Users` sitting directly under the domain rather than inside `Lab`
+means the `-Path` was wrong, and every command later in this lesson that
+targets `OU=Users,OU=Lab` will fail to find it.
+
+**If you see `Domain Controllers` in that list and did not create it**,
+nothing is wrong. Active Directory builds that one itself during
+promotion.
+
 **Why not use the built-in `Users` container?** Because you cannot
 link a Group Policy to it. Containers and OUs look almost identical in
 the console and behave differently in the one way that matters most, and
@@ -71,6 +91,37 @@ Use your own name rather than Sam's. Note `Read-Host -AsSecureString`:
 it prompts you rather than putting a password in the script, which is
 lesson 1.6's "keep secrets out of places they'll be read" applied to
 code instead of chat windows.
+
+**Expect to be stopped at least once here.** Active Directory enforces a
+password policy by default, and `New-ADUser` rejects anything that fails it
+with *"The password does not meet the length, complexity, or history
+requirement for the domain"*. The default asks for at least seven
+characters and three of the four categories: uppercase, lowercase, digits,
+symbols. This is not you doing it wrong. Pick something that satisfies it
+and move on; you will meet this policy properly in lesson 5.7.
+
+Also note that when the account is rejected, **nothing is created**, so
+just run that block again. There is no half-made user to clean up.
+
+**How you know it worked:**
+
+```powershell
+# 1. Both accounts exist, and they are in the OU you meant.
+Get-ADUser -Filter * -SearchBase "OU=Users,OU=Lab,DC=lab,DC=internal" |
+    Select-Object Name, SamAccountName, Enabled
+
+# 2. The privilege landed on the right one, and only that one.
+#    This is the check that matters most in this lesson.
+Get-ADGroupMember -Identity "Domain Admins" | Select-Object Name
+```
+
+The first should list both of your accounts with `Enabled` showing `True`.
+The second should list `Administrator` (built in, expected) and your `.adm`
+account, and **not** your everyday account. If your everyday account appears
+in that second list, the whole point of the next paragraph is undone;
+remove it with
+`Remove-ADGroupMember -Identity "Domain Admins" -Members "sokoth"`.
+
 
 **The habit:** one human, two accounts. The everyday one for everyday
 things, the privileged one only when you need it. This exists because of

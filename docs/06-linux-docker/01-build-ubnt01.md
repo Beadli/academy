@@ -19,14 +19,47 @@ Same wizard, same Ubuntu Server ISO from lesson 3.3:
 - **Network:** the lab LAN, same as DC01.
 - Decline any offer to install automatically.
 
-Walk the installer exactly as in lesson 3.4, with two differences that
-matter:
+## Install Ubuntu Server
 
-- **Hostname:** `ubnt01`, not `practice01`.
-- **Tick "Install OpenSSH server"** when it offers. Lesson 3.4 told you
-  to do this out of habit; today you'll actually use it, in 6.2.
+You walked this installer in lesson 3.4. The steps are repeated here rather
+than sending you back for them, with the two differences that matter marked.
+It is text-mode: arrow keys, tab, enter.
 
-Let it install and reboot, then log in at the console.
+1. Language and keyboard: yours.
+2. Installation type, network, proxy, mirror: accept the defaults. It picks
+   up an address by DHCP; you replace that with a static one in a minute.
+3. Storage: use the entire disk, defaults throughout, and confirm. You are
+   erasing a 60 GB file, not your laptop.
+4. Profile: your name, **`ubnt01` as the server's name** (not `practice01`
+   this time), a username you will type constantly, and a password you will
+   remember. This course writes the username as `sam`; substitute yours
+   everywhere it appears.
+5. **Tick "Install OpenSSH server."** Lesson 3.4 told you to do this out of
+   habit. Today you actually use it, in 6.2, and skipping it means
+   installing it by hand at the console later.
+6. Skip the featured snaps list. Let it install, and reboot when offered. If
+   it complains about the CD-ROM on reboot, that is the ISO still "in the
+   drive"; disconnecting it in the VM's settings fixes it.
+
+Log in at the console with the account you created.
+
+**How you know it worked**, before you go any further:
+
+```bash
+# The name you set in step 4. Expect: ubnt01
+hostname
+
+# Was OpenSSH actually installed and started? Expect a line
+# containing "active (running)". Press q to get out of the pager.
+systemctl status ssh
+```
+
+**If `systemctl status ssh` says `Unit ssh.service could not be found`**,
+step 5 did not happen. That is recoverable and takes one command:
+
+```bash
+sudo apt update && sudo apt install -y openssh-server
+```
 
 ## Give it a fixed address
 

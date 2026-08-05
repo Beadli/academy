@@ -111,12 +111,50 @@ That's infrastructure as code, in its smallest useful form, and it's the
 same idea Module 10 scales up with Ansible. Which is a good reason to
 start now:
 
+**This is a different machine, so Git does not know you here.** In lesson
+1.3 you told Git your name and email on your laptop. That setting lives in
+your home directory, not in Git itself, and UBNT01 has never met you. Skip
+this and `git commit` refuses with *"Author identity unknown"*:
+
+```bash
+# Same two values you used in lesson 1.3. Every commit is stamped
+# with them, which is how history says who did what.
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+
+# And the branch-name setting from 1.3, for the same reason: this
+# server would otherwise create branches called "master" while
+# lesson 6.8 pushes "main", and the error you would get names
+# neither cause.
+git config --global init.defaultBranch main
+```
+
 ```bash
 # Your stacks belong in version control from the first one.
 cd ~/docker
-git init
+
+# -b main names the first branch explicitly. The setting above would
+# do it anyway; writing it here means this block works even if you
+# skipped a line.
+git init -b main
 git add whoami/compose.yaml
 git commit -m "whoami: first compose stack"
+```
+
+**How you know it worked:**
+
+```bash
+# One commit, by you, on a branch called main. That last part
+# matters in 6.8, so check it now rather than debugging a push.
+git log --oneline --decorate
+```
+
+Expect a single line ending in your commit message, with `(HEAD -> main)`
+in it. **If it says `master` instead of `main`**, the repository was created
+before the config took. Rename the branch, which is safe and instant:
+
+```bash
+git branch -M main
 ```
 
 Leave it local for now. In lesson 6.8 it gets a remote, on a Git server
