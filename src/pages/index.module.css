@@ -27,8 +27,11 @@
   text-align: center;
 }
 
+/* Explicit, so lowering the lesson heading scale does not shrink the landing
+   page. The two are doing different jobs and no longer share a size. */
 .labSection h2 {
   margin-bottom: 0.5rem;
+  font-size: 1.65rem;
 }
 
 .labCaption {

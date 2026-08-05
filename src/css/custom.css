@@ -214,23 +214,30 @@
    Body text stays at the 16px default on purpose. These are long reading
    lessons, and shrinking body copy is the quickest way to make a course
    painful to read. The wasted space was all in the headings. */
+/* Lesson headings sit smaller than the landing page's on purpose.
+ *
+ * A landing page is announcing itself to someone deciding whether to stay.
+ * A lesson is being read for forty minutes by someone who already decided,
+ * and there the headings' job is to mark structure without interrupting.
+ * The lesson title used to be 2.25rem, larger than the hero headline, which
+ * had it shouting at a reader who was already listening. */
 :root {
   --ifm-h1-font-size: 2rem;
-  --ifm-h2-font-size: 1.65rem;
-  --ifm-h3-font-size: 1.3rem;
-  --ifm-h4-font-size: 1.1rem;
+  --ifm-h2-font-size: 1.4rem;
+  --ifm-h3-font-size: 1.18rem;
+  --ifm-h4-font-size: 1.05rem;
 }
 
 .markdown h1:first-child {
-  --ifm-h1-font-size: 2.25rem;
+  --ifm-h1-font-size: 1.75rem;
 }
 
 .markdown > h2 {
-  --ifm-h2-font-size: 1.65rem;
+  --ifm-h2-font-size: 1.4rem;
 }
 
 .markdown > h3 {
-  --ifm-h3-font-size: 1.3rem;
+  --ifm-h3-font-size: 1.18rem;
 }
 
 /* Tracking, revisited for IBM Plex Sans.
@@ -295,22 +302,22 @@ h3 {
    so these values are what actually apply. */
 @media (max-width: 768px) {
   :root {
-    --ifm-h1-font-size: 1.8rem;
-    --ifm-h2-font-size: 1.45rem;
-    --ifm-h3-font-size: 1.2rem;
-    --ifm-h4-font-size: 1.05rem;
+    --ifm-h1-font-size: 1.7rem;
+    --ifm-h2-font-size: 1.28rem;
+    --ifm-h3-font-size: 1.12rem;
+    --ifm-h4-font-size: 1rem;
   }
 
   .markdown h1:first-child {
-    --ifm-h1-font-size: 1.95rem;
+    --ifm-h1-font-size: 1.55rem;
   }
 
   .markdown > h2 {
-    --ifm-h2-font-size: 1.45rem;
+    --ifm-h2-font-size: 1.28rem;
   }
 
   .markdown > h3 {
-    --ifm-h3-font-size: 1.2rem;
+    --ifm-h3-font-size: 1.12rem;
   }
 
   /* A 45-character headline at 2rem fills a phone screen on its own. */
