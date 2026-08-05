@@ -1,9 +1,9 @@
 ---
-title: "12.11 Checkpoint: it notices, and you can explain why"
-sidebar_position: 11
+title: "12.12 Checkpoint: it notices, and you can explain why"
+sidebar_position: 12
 ---
 
-# 12.11 Checkpoint: it notices, and you can explain why
+# 12.12 Checkpoint: it notices, and you can explain why
 
 Prove the module stuck. The test is that you can attack your own lab, watch it
 be noticed, and explain both why it fired and why it was not real.
@@ -25,6 +25,10 @@ Step five is the one that separates tuning from silencing.
 On UBNT01:
 
 ```bash
+# The whole stack is up: manager, indexer, dashboard.
+sudo systemctl is-active wazuh-manager
+docker compose ps    # from the single-node directory
+
 # The manager is running and agents are reporting.
 sudo systemctl is-active wazuh-manager
 sudo /var/ossec/bin/agent_control -l
@@ -67,8 +71,14 @@ sudo cat /var/ossec/logs/alerts/alerts.json | \
       (lessons 12.4, 12.10)
 - [ ] `Projects/lab-detection.md` lists every tuning exception and what each one
       silences (lesson 12.10)
-- [ ] Tier 3: the indexer and dashboard are up with a tuned heap, and Grafana
-      shows alert volume over time (lesson 12.9)
+- [ ] The indexer and dashboard are running with a tuned heap, and you changed
+      the default credentials (lesson 12.9)
+- [ ] You investigated one alert in the dashboard and found the **first** event
+      in the sequence, not just the one that alerted (lesson 12.9)
+- [ ] You can explain the difference between an event and a metric, and why
+      they need different tools (lesson 12.10)
+- [ ] Tier 3: Grafana shows alert volume over time, agents reporting, and your
+      noisiest rules (lesson 12.10)
 
 ## What you can now say
 

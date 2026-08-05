@@ -47,9 +47,10 @@ A full Wazuh deployment has three parts: the **manager** (receives events,
 runs rules, raises alerts), the **indexer** (stores and searches them), and
 the **dashboard** (draws them).
 
-You installed the manager only. That is the part that detects. The other two
-are for searching and looking, they carry the 8 GB requirement between them,
-and Tier 3 adds them in lesson 12.9.
+You installed the manager only, and you will add the other two in lesson 12.9.
+That is deliberate: the manager is the part that detects, and lessons 12.3 to
+12.8 have you write and tune rules while reading their raw output, before a
+dashboard starts rendering it for you.
 
 This split is worth understanding beyond Wazuh, because most SIEMs have the
 same shape: something that decides, something that stores, something that
@@ -126,7 +127,7 @@ sudo tail -f /var/ossec/logs/alerts/alerts.json | \
 Now each line is a level, a rule ID, and what the rule thinks happened.
 
 :::tip[Reading alerts as JSON is a skill worth having deliberately]
-Tier 3 will put a dashboard in front of this. Learn to read the raw form
+Lesson 12.9 will put a dashboard in front of this. Learn to read the raw form
 first, because it is what the dashboard is rendering and it is what you will
 be looking at when something is wrong with the dashboard.
 

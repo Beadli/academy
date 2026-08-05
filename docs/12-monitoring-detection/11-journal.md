@@ -1,9 +1,9 @@
 ---
-title: "12.10 Journal: what you watch, and what you decided not to"
-sidebar_position: 10
+title: "12.11 Journal: what you watch, and what you decided not to"
+sidebar_position: 11
 ---
 
-# 12.10 Journal: what you watch, and what you decided not to
+# 12.11 Journal: what you watch, and what you decided not to
 
 **Make a permanent note.** In your vault, create `Projects/lab-detection.md`
 and record:
