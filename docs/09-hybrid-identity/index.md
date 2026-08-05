@@ -9,7 +9,10 @@ Almost no enterprise runs purely on-premises anymore, and almost none runs
 purely in the cloud either. What they run is **hybrid**: the Active Directory
 you built in Module 5 stays the source of truth for identity, and it
 synchronises to a cloud directory that fronts email, SaaS applications, and
-everything else the business signs in to.
+everything else the business signs in to. If touching the cloud end makes
+the last eight modules feel like the warm-up act, revisit the argument in
+lesson 0.4: that cloud is another person's on-prem, and you have spent
+eight modules learning what it is made of.
 
 This module builds that bridge with your own domain. By the end, the account
 you created for Sam Okoth in Module 5 will exist in a cloud directory, sign in

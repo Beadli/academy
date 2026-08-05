@@ -71,6 +71,17 @@ onward you'll also see short "in cloud terms" notes translating what
 you just built into its Azure equivalent, so the vocabulary is familiar
 long before you need it.
 
+One more thing, because you will hear "why learn on-prem, everything's
+cloud now" from someone within the month. Be suspicious of the premise. A
+cloud region is a building full of computers connected with wires: racks,
+hypervisors, virtual networks, DNS, certificate authorities, load
+balancers, run by somebody else at a scale you'll never see. It is another
+person's on-prem. When you build these things small, on your laptop,
+you're learning what the cloud is made of, and the people who operate
+those buildings, and the people employers trust to use them well, are
+hired for exactly that understanding. Cloud skills aren't a different
+subject. They're this subject, with someone else holding the racks.
+
 There's a practical reason too. Your laptop costs nothing per month,
 runs on a plane, and lets you break things in ways no cloud account
 should ever let you break them. Rented infrastructure would put a
