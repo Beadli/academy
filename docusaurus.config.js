@@ -49,6 +49,20 @@ const config = {
         editUrl: 'https://github.com/Beadli/academy/edit/main/',
       },
     ],
+    // Third instance: Drills. Exercises against the lab the course builds,
+    // as opposed to the course itself, which teaches how to build it.
+    // A docs instance rather than a single page so the eventual module and
+    // submodule structure needs no URL migration.
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'drills',
+        path: 'drills',
+        routeBasePath: 'drills',
+        sidebarPath: './sidebarsDrills.js',
+        editUrl: 'https://github.com/Beadli/academy/edit/main/',
+      },
+    ],
   ],
 
   presets: [
@@ -126,6 +140,13 @@ const config = {
             sidebarId: 'cyberrackSidebar',
             position: 'left',
             label: 'CyberRack',
+          },
+          {
+            type: 'docSidebar',
+            docsPluginId: 'drills',
+            sidebarId: 'drillsSidebar',
+            position: 'left',
+            label: 'Drills',
           },
           {
             href: 'https://github.com/Beadli/academy',
