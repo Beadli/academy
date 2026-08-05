@@ -496,6 +496,16 @@ div[class^='announcementBar_'] button[class*='closeButton']:hover {
  * lifted. That is one bold item against twelve, which is contrast that
  * actually helps you find yourself.
  * ------------------------------------------------------------------------- */
+.menu {
+  /* Infima ships this at 500 (--ifm-font-weight-semibold). With Plex that
+     reads heavier than it did with the old system stack, and a column of
+     thirteen module names all at 500 is a lot of weight for something you
+     scan rather than read.
+     400 is body weight. Plex's axis is continuous, so 450 is available if
+     this overshoots. */
+  font-weight: 400;
+}
+
 .menu__link--active {
   font-weight: 600;
 }
