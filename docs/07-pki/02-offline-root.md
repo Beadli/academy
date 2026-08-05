@@ -94,6 +94,22 @@ Install-AdcsCertificationAuthority `
     -Force
 ```
 
+**How we know it worked.** This machine is the foundation everything else in
+your lab will be signed by, so confirm it before you build on it:
+
+```powershell
+# The CA service is running.
+Get-Service -Name CertSvc | Select-Object Name, Status
+
+# What it thinks it is. Read the type, the name and the validity dates.
+certutil -cainfo
+```
+
+Expect `CA type: 3 -- Standalone Root CA`, the common name you gave it, and a
+validity ending ten years out. **If the type says anything other than
+standalone root, the install used the wrong parameters** and it is far cheaper
+to rebuild this VM now than after a sub-CA has been signed by it.
+
 Then set how long its revocation lists stay valid. Lesson 7.8 explains
 why this number turns out to be one of the most consequential settings
 in your whole lab:
@@ -120,6 +136,23 @@ dir C:\Windows\System32\CertSrv\CertEnroll\
 Copy the `.crt` and `.crl` somewhere your other machines can reach: a
 shared folder, or an ISO you attach to the other VMs. In a real
 organization this is a USB stick, carried by two people, and logged.
+
+**How we know it worked, and the check that actually matters.** Two things,
+and the second is the important one:
+
+```powershell
+# 1. You have both files, and the .crt is the root you just made.
+certutil -dump C:\Windows\System32\CertSrv\CertEnroll\*.crt
+
+# 2. You did NOT copy a private key. Expect NO results from this.
+Get-ChildItem <the folder you copied to> -Include *.pfx,*.p12,*.key -Recurse
+```
+
+That second command should return nothing. **A private key is the one thing
+that must never leave this machine**, and the moment to confirm it is now,
+while you can still remember what you copied. A root private key on a shared
+folder means the root is no longer offline in any meaningful sense, and the
+only remedy is building a new one.
 
 Leave the machine powered on for now. Lesson 7.3 needs it to sign one
 more thing, and then it goes dark for good.

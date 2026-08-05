@@ -120,9 +120,40 @@ Add-DnsServerResourceRecordA -ZoneName "lab.internal" `
 
 That points `id.lab.internal` at UBNT01, where the container runs.
 
-**Certificate and vhost.** Issue a certificate for `id.lab.internal` from
-your own CA exactly as lesson 7.6 did, then create
-`/etc/nginx/sites-available/keycloak`:
+Confirm it resolves before going further, because everything below depends
+on the name working:
+
+```bash
+# On UBNT01. Expect 10.10.10.20.
+dig +short id.lab.internal
+```
+
+**Certificate.** Same acme.sh client you installed in lesson 7.6, pointed at
+the same CA, for a new name. You do not need to reread that lesson; the two
+commands are here:
+
+```bash
+# Issue it from your own CA.
+~/.acme.sh/acme.sh --issue -d id.lab.internal --standalone
+
+# Put it where nginx will read it, and register the reload for renewals.
+mkdir -p /etc/nginx/certs
+~/.acme.sh/acme.sh --install-cert -d id.lab.internal \
+  --key-file       /etc/nginx/certs/id.key \
+  --fullchain-file /etc/nginx/certs/id.crt \
+  --reloadcmd      "systemctl reload nginx"
+```
+
+The certificate and key must be a pair, which is lesson 7.6's check and is
+worth repeating whenever you issue a new one:
+
+```bash
+# These two hashes must match.
+openssl x509 -noout -modulus -in /etc/nginx/certs/id.crt | openssl md5
+openssl rsa  -noout -modulus -in /etc/nginx/certs/id.key | openssl md5
+```
+
+**Vhost.** Now create `/etc/nginx/sites-available/keycloak`:
 
 ```nginx
 server {

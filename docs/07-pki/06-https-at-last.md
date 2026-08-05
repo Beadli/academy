@@ -34,6 +34,16 @@ sh get-acme.sh --home /root/.acme.sh --accountemail "you@example.com"
 
 You'll need it as root, since it writes certificates nginx must read.
 
+**How we know it worked:**
+
+```bash
+# Installed, and reports a version.
+~/.acme.sh/acme.sh --version
+```
+
+If the command is not found, the installer wrote somewhere other than
+`/root/.acme.sh`, and its output near the end says where.
+
 ## Point it at your own CA
 
 ```bash
@@ -81,6 +91,25 @@ mkdir -p /etc/nginx/certs
   --fullchain-file /etc/nginx/certs/git.crt \
   --reloadcmd      "systemctl reload nginx"
 ```
+
+**How we know it worked.** Two checks, and the second catches a failure that
+would otherwise appear as a baffling nginx error:
+
+```bash
+# 1. Both files are there, and the key is not world-readable.
+ls -l /etc/nginx/certs/
+
+# 2. The certificate and the key are actually a pair. These two
+#    commands must print the SAME hash. If they differ, nginx will
+#    refuse to start with a "key values mismatch" error.
+openssl x509 -noout -modulus -in /etc/nginx/certs/git.crt | openssl md5
+openssl rsa  -noout -modulus -in /etc/nginx/certs/git.key | openssl md5
+```
+
+That pairing check is worth keeping for life. **A certificate and key that do
+not match is one of the most common TLS failures**, it happens whenever files
+get copied around or a certificate is reissued without updating the key, and
+the error message rarely says so plainly.
 
 The `--fullchain-file` matters, and it's lesson 7.1's chain-of-trust
 point in practice. That file contains your server's certificate *and*

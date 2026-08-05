@@ -110,6 +110,26 @@ add a *user* to a group, they must log out and back in for the same reason.
 Set-AdfsProperties -ServiceAccount "LAB\gmsa-adfs$"
 ```
 
+**How we know it worked:**
+
+```powershell
+# 1. AD FS reports the account it is now running as.
+(Get-AdfsProperties).ServiceAccount
+
+# 2. The machine can actually retrieve the account's password from AD.
+#    This is the check that matters: the account can exist and be assigned
+#    while this machine is not permitted to use it.
+Test-AdServiceAccount -Identity gmsa-adfs
+
+# 3. The service came back up after the change.
+Get-Service -Name adfssrv | Select-Object Name, Status
+```
+
+**`Test-AdServiceAccount` returning `False` is the common failure**, and it
+means this computer is not in the group allowed to retrieve the password.
+That is a property of the gMSA in Active Directory, set when it was created,
+not of AD FS.
+
 In practice, changing the service account of a running AD FS farm is
 fiddly, and the supported path is often to specify the gMSA when the farm
 is first created:

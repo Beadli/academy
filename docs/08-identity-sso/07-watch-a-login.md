@@ -14,14 +14,31 @@ lesson.
 
 ## First, the shape: Wireshark
 
-Start a capture as you did in lesson 4.7, filter for your identity
-provider, and sign in to Gitea.
+You met Wireshark in lesson 4.7. The steps are here rather than there, so you
+do not have to go back for them:
+
+1. **Open Wireshark on your own machine**, the one you browse from.
+2. **Pick the interface** carrying your lab traffic. If several are listed,
+   the one with a moving line beside it is the one in use.
+3. **Start the capture** with the blue shark-fin button, or double-click the
+   interface.
+4. **Type this into the display filter bar** at the top and press Enter. This
+   narrows the view to HTTPS traffic with UBNT01, discarding everything else
+   your machine is doing:
 
 ```text
 ip.addr == 10.10.10.20 && tcp.port == 443
 ```
 
-Stop the capture and look at what you collected. You will see TLS
+5. **Now sign in to Gitea** through your identity provider, in a browser.
+6. **Stop the capture** with the red square once you have landed back in
+   Gitea signed in.
+
+If the packet list stays empty, the usual cause is the wrong interface, or an
+address that is not yours: substitute UBNT01's actual address if it differs
+from `10.10.10.20`.
+
+Look at what you collected. You will see TLS
 handshakes to two different hosts and a good deal of traffic, and you will
 be able to read **none of it**, exactly as lesson 7.6 promised.
 
