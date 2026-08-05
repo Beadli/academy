@@ -481,3 +481,21 @@ div[class^='announcementBar_'] button[class*='closeButton']:hover {
   opacity: 0.7;
   text-align: center;
 }
+
+/* ---------------------------------------------------------------------------
+ * Sidebar weight.
+ *
+ * Infima renders the menu at 500. That read well with the old system stack,
+ * whose semibold is heavier than Plex's, so after the font change the module
+ * list came out softer than it should.
+ *
+ * 600 rather than 700: this is navigation, which you scan rather than read,
+ * and scanning benefits from contrast. Full bold would compete with the
+ * lesson title beside it.
+ *
+ * Set on .menu rather than .menu__link so category labels and lesson links
+ * move together; they are one list and should not disagree.
+ * ------------------------------------------------------------------------- */
+.menu {
+  font-weight: 600;
+}
