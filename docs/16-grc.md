@@ -25,3 +25,18 @@ The artifacts you leave with (an SSP and a POA&M describing a system
 that exists) are the portfolio pieces GRC interviews ask about, and
 almost nobody applying for those roles has ever produced one about
 infrastructure they built themselves.
+
+
+{/* AUTHORING NOTE, not rendered.
+     Promises made by Module 13 (added 2026-08-05):
+     - 13.8 has the student write one risk acceptance in a five-part format
+       (what it is, why not fixing, mitigation, who decided, review date)
+       and says "it is the document Module 16 asks you to produce at
+       scale". Owed: the risk register built from those.
+     - 13.8's "In GRC terms" admonition says plainly "Module 16 builds one",
+       referring to a risk register. That is a direct promise.
+     - 13.6 says the one-sentence privilege justification for the scanning
+       account "is the thing an auditor asks for in Module 16".
+     - 13.7 says Module 16 "is where an auditor asks you to show evidence
+       that it runs", meaning the vulnerability management loop. Owed:
+       evidence-of-process as distinct from evidence-of-fix. */}
