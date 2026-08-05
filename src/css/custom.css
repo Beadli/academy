@@ -215,9 +215,10 @@
    lessons, and shrinking body copy is the quickest way to make a course
    painful to read. The wasted space was all in the headings. */
 :root {
-  --ifm-h1-font-size: 1.9rem;
-  --ifm-h2-font-size: 1.5rem;
-  --ifm-h3-font-size: 1.25rem;
+  --ifm-h1-font-size: 2rem;
+  --ifm-h2-font-size: 1.65rem;
+  --ifm-h3-font-size: 1.3rem;
+  --ifm-h4-font-size: 1.1rem;
 }
 
 .markdown h1:first-child {
@@ -225,11 +226,37 @@
 }
 
 .markdown > h2 {
-  --ifm-h2-font-size: 1.55rem;
+  --ifm-h2-font-size: 1.65rem;
 }
 
 .markdown > h3 {
-  --ifm-h3-font-size: 1.25rem;
+  --ifm-h3-font-size: 1.3rem;
+}
+
+/* Tracking, revisited for IBM Plex Sans.
+ *
+ * The sizes above were set against the old system stack, whose bold is
+ * visually heavier than Plex's. Plex tops out at 700, so where a heading
+ * needs more presence the weight cannot supply it. Tightening the letter
+ * spacing does: the same words occupy slightly less width and read denser,
+ * which is what "bolder" actually looks like to the eye.
+ *
+ * Scaled by size, which is the standard rule. Large type can carry more
+ * negative tracking before it starts to look cramped; small type cannot,
+ * so h4 and below are left alone. */
+.markdown h1:first-child,
+.hero__title {
+  letter-spacing: -0.02em;
+}
+
+.markdown > h2,
+h2 {
+  letter-spacing: -0.015em;
+}
+
+.markdown > h3,
+h3 {
+  letter-spacing: -0.01em;
 }
 
 /* The hero headline is a sentence now, not a two-word title, and a sentence
@@ -268,9 +295,10 @@
    so these values are what actually apply. */
 @media (max-width: 768px) {
   :root {
-    --ifm-h1-font-size: 1.75rem;
-    --ifm-h2-font-size: 1.4rem;
-    --ifm-h3-font-size: 1.18rem;
+    --ifm-h1-font-size: 1.8rem;
+    --ifm-h2-font-size: 1.45rem;
+    --ifm-h3-font-size: 1.2rem;
+    --ifm-h4-font-size: 1.05rem;
   }
 
   .markdown h1:first-child {
@@ -278,11 +306,11 @@
   }
 
   .markdown > h2 {
-    --ifm-h2-font-size: 1.4rem;
+    --ifm-h2-font-size: 1.45rem;
   }
 
   .markdown > h3 {
-    --ifm-h3-font-size: 1.18rem;
+    --ifm-h3-font-size: 1.2rem;
   }
 
   /* A 45-character headline at 2rem fills a phone screen on its own. */

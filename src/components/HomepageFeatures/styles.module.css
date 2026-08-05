@@ -30,15 +30,13 @@
   margin-bottom: 0;
 }
 
-/* Plex's bold is more restrained than the system fonts it replaced, so at
-   700 (which is the top of its weight axis) a card heading reads lighter
-   than it did before. Weight cannot go further, so the presence comes from
-   size and slightly tighter tracking instead: negative letter-spacing makes
-   bold text read denser without making it larger than it should be. */
+/* Slightly larger than the site's h3 (1.3rem), deliberately. These are card
+   titles sitting under an icon, not subsections inside running text, so they
+   have to hold their own against the artwork above them. Tracking comes from
+   the global heading rules in custom.css; no need to restate it. */
 .featureCard h3 {
   margin-bottom: 0.35rem;
-  font-size: 1.35rem;
-  letter-spacing: -0.012em;
+  font-size: 1.4rem;
 }
 
 /* Phones stack to one column, where the extra breathing room between cards
