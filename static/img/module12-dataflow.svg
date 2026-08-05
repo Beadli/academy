@@ -1,0 +1,94 @@
+<svg viewBox="0 0 1120 470" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <style>
+      .box { fill: var(--ifm-background-surface-color, #ffffff); stroke: currentColor; stroke-opacity: 0.75; stroke-width: 1.5; }
+      .name { fill: currentColor; font-size: 14px; font-weight: 600; text-anchor: middle; }
+      .role { fill: currentColor; fill-opacity: 0.62; font-size: 11px; text-anchor: middle; }
+      .legend { fill: currentColor; fill-opacity: 0.7; font-size: 11px; }
+      .wire { stroke: currentColor; stroke-opacity: 0.5; stroke-width: 2; fill: none; }
+      .step { fill: var(--ifm-color-primary, #2e8555); }
+      .steptext { fill: #ffffff; font-size: 11px; font-weight: 700; text-anchor: middle; }
+      .zonelabel { font-size: 12px; font-weight: 600; letter-spacing: 0.4px; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" fill-opacity="0.55"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="30" class="zonelabel" fill="currentColor" fill-opacity="0.75">THE MACHINES BEING WATCHED</text>
+
+  <!-- sources -->
+  <rect x="40" y="48" width="210" height="62" rx="10" class="box"/>
+  <text x="145" y="72" class="name">DC01</text>
+  <text x="145" y="90" class="role">Windows log + Sysmon</text>
+
+  <rect x="40" y="126" width="210" height="62" rx="10" class="box"/>
+  <text x="145" y="150" class="name">UBNT01</text>
+  <text x="145" y="168" class="role">system journal</text>
+
+  <rect x="40" y="204" width="210" height="62" rx="10" class="box"/>
+  <text x="145" y="228" class="name">SURICATA01</text>
+  <text x="145" y="246" class="role">eve.json, Tier 3</text>
+
+  <!-- agent -->
+  <rect x="300" y="48" width="150" height="218" rx="10" class="box"/>
+  <text x="375" y="140" class="name">the agent</text>
+  <text x="375" y="160" class="role">reads what you</text>
+  <text x="375" y="176" class="role">told it to read</text>
+  <circle cx="316" cy="64" r="11" class="step"/>
+  <text x="316" y="68" class="steptext">1</text>
+
+  <path d="M 250 79 L 296 130" class="wire" marker-end="url(#arrow)"/>
+  <path d="M 250 157 L 296 157" class="wire" marker-end="url(#arrow)"/>
+  <path d="M 250 235 L 296 184" class="wire" marker-end="url(#arrow)"/>
+
+  <!-- manager -->
+  <text x="500" y="30" class="zonelabel" fill="var(--ifm-color-primary, #2e8555)">UBNT01</text>
+  <rect x="500" y="48" width="230" height="218" rx="10" class="box"/>
+  <text x="615" y="74" class="name">the manager</text>
+  <text x="615" y="92" class="role">decides what matters</text>
+
+  <rect x="520" y="110" width="190" height="46" rx="8" class="box"/>
+  <text x="615" y="130" class="name" font-size="12">decoder</text>
+  <text x="615" y="146" class="role">raw text into fields</text>
+  <circle cx="536" cy="126" r="11" class="step"/>
+  <text x="536" y="130" class="steptext">2</text>
+
+  <rect x="520" y="172" width="190" height="46" rx="8" class="box"/>
+  <text x="615" y="192" class="name" font-size="12">rules</text>
+  <text x="615" y="208" class="role">is this interesting?</text>
+  <circle cx="536" cy="188" r="11" class="step"/>
+  <text x="536" y="192" class="steptext">3</text>
+
+  <path d="M 450 157 L 496 157" class="wire" marker-end="url(#arrow)"/>
+  <path d="M 615 156 L 615 168" class="wire" marker-end="url(#arrow)"/>
+
+  <!-- outputs -->
+  <rect x="790" y="48" width="290" height="62" rx="10" class="box"/>
+  <text x="935" y="72" class="name">alerts.json</text>
+  <text x="935" y="90" class="role">every alert, as a line of JSON</text>
+  <circle cx="806" cy="64" r="11" class="step"/>
+  <text x="806" y="68" class="steptext">4</text>
+
+  <rect x="790" y="132" width="290" height="62" rx="10" class="box"/>
+  <text x="935" y="156" class="name">the indexer</text>
+  <text x="935" y="174" class="role">stores it so you can search it</text>
+
+  <rect x="790" y="216" width="290" height="62" rx="10" class="box"/>
+  <text x="935" y="240" class="name">the dashboard</text>
+  <text x="935" y="258" class="role">draws what the indexer holds</text>
+
+  <path d="M 730 130 L 786 79" class="wire" marker-end="url(#arrow)"/>
+  <path d="M 730 157 L 786 163" class="wire" marker-end="url(#arrow)"/>
+  <path d="M 935 194 L 935 212" class="wire" marker-end="url(#arrow)"/>
+
+  <!-- the point -->
+  <rect x="40" y="310" width="1040" height="120" rx="10"
+        fill="currentColor" fill-opacity="0.035" stroke="currentColor"
+        stroke-opacity="0.25" stroke-width="1.2"/>
+  <text x="62" y="336" class="legend" font-weight="600">Read it in order</text>
+  <text x="62" y="360" class="legend">1 &#183; The agent reads a log. It only reads what you list in its config, which is why adding a log source is an edit to that file.</text>
+  <text x="62" y="380" class="legend">2 &#183; A decoder turns the raw line into named fields. If this fails, a rule has nothing to compare against.</text>
+  <text x="62" y="400" class="legend">3 &#183; Rules test those fields and decide a level. This is the only part that detects anything.</text>
+  <text x="62" y="420" class="legend">4 &#183; Alerts land in a file. The indexer and dashboard are optional layers on top; they store and draw, they never decide.</text>
+</svg>

@@ -74,23 +74,105 @@ it**, which is the point. Open it. It is heavily commented and it is a genuine
 education in what defenders care about.
 :::
 
-## Tell Wazuh to collect it
+## Tell the agent to collect it
 
-Sysmon writes to its own event channel. The agent must be told to read it.
+**What we are doing.** Adding one log source to the agent's configuration file
+on DC01.
 
-On DC01, edit `C:\Program Files (x86)\ossec-agent\ossec.conf` and add, inside
-`<ossec_config>`:
+**Why.** Installing Sysmon made DC01 *record* these events. It did not send
+them anywhere. Look back at step 1 of the diagram in lesson 12.2: the agent
+reads only the log sources listed in its configuration, and Sysmon writes to a
+channel that is not in that list.
+
+So right now you have excellent telemetry sitting on a machine, and a manager
+that has never heard of it. This step connects the two.
+
+### Where Windows puts logs, briefly
+
+Windows does not keep logs in text files. It has an **event log service**, and
+events go into named **channels**. `Security` is the channel holding logons and
+account changes. `System` holds service and driver events.
+
+**Sysmon creates its own channel**, called
+`Microsoft-Windows-Sysmon/Operational`, and writes everything there. That name
+is what you are about to give the agent. It is not a file path; it is the name
+of a channel, and the agent asks Windows for its contents.
+
+You can see it yourself, which is worth doing once so the name means something
+rather than being a string you pasted. On DC01, open **Event Viewer** and
+navigate to **Applications and Services Logs → Microsoft → Windows → Sysmon →
+Operational**. Those are the events you are about to start shipping.
+
+### Make the change
+
+On DC01, open the agent's configuration in an editor running as
+administrator:
+
+```text
+C:\Program Files (x86)\ossec-agent\ossec.conf
+```
+
+It is XML, and everything lives inside a single `<ossec_config>` element. Find
+the closing `</ossec_config>` at the bottom, and add this block **above** it:
 
 ```xml
+<!-- Collect Sysmon's events. "location" is the Windows channel name,
+     not a file path. "eventchannel" tells the agent to read it through
+     the Windows event log API rather than treating it as a text file. -->
 <localfile>
   <location>Microsoft-Windows-Sysmon/Operational</location>
   <log_format>eventchannel</log_format>
 </localfile>
 ```
 
+Two things to understand rather than copy:
+
+**`<localfile>`** is how you add any log source to an agent. Every log the
+agent collects is one of these blocks. When you later want it to read
+something else, this is the shape you will use again, and lesson 12.7 does
+exactly that for a different source.
+
+**`<log_format>eventchannel</log_format>`** tells the agent *how* to read it.
+Windows channels are not text files, so the agent has to ask the event log
+service rather than opening a file. Using the wrong format here is a common
+mistake and produces silence rather than an error.
+
+### Restart the agent so it re-reads the file
+
 ```powershell
 Restart-Service -Name WazuhSvc
 ```
+
+Configuration is read at startup. Without this, you have edited a file and
+changed nothing, which is a confusing five minutes if you go straight to
+looking for events.
+
+### How we know it worked
+
+Three checks, cheapest first. Do them in order, because each one narrows down
+where a problem would be.
+
+**One: the agent restarted cleanly.** On DC01:
+
+```powershell
+Get-Service -Name WazuhSvc | Select-Object Name, Status
+```
+
+`Running` means the file parsed. **If the service will not start, your XML is
+malformed**, which is nearly always a missing closing tag or the block pasted
+outside `</ossec_config>`.
+
+**Two: the manager still sees the agent.** On UBNT01:
+
+```bash
+sudo /var/ossec/bin/agent_control -l
+```
+
+DC01 should still be `Active`. If it went to `Disconnected`, the agent is
+struggling to start rather than struggling to read Sysmon.
+
+**Three: Sysmon events are actually arriving.** This is the real test, and
+lesson 12.3's next section walks through generating one deliberately.
 
 ## Prove it works
 

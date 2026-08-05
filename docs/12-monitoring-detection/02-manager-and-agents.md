@@ -3,9 +3,44 @@ title: "12.2 Install the manager, enrol your first agent"
 sidebar_position: 2
 ---
 
+import Module12Dataflow from '@site/static/img/module12-dataflow.svg';
+
 # 12.2 Install the manager, enrol your first agent
 
 **Everyone does this lesson.** It builds the part that actually detects things.
+
+## The shape of what you are building
+
+Before installing anything, here is where every piece sits and what it does.
+Come back to this picture whenever a later lesson asks you to change a
+configuration file, because it will tell you which box you are editing.
+
+<Module12Dataflow role="img" aria-label="Data flow: DC01, UBNT01 and SURICATA01 produce logs. An agent on each machine reads only the log sources listed in its configuration and sends them to the manager on UBNT01. In the manager, a decoder turns each raw line into named fields, then rules test those fields and decide whether it is interesting and at what level. Alerts are written to alerts.json. Optionally an indexer stores them for searching and a dashboard draws them; neither decides anything." style={{width: '100%', height: 'auto'}} />
+
+**How to read it.** Follow it left to right, in the four numbered steps.
+
+**The agent (1) is a reader, not a thinker.** It sits on the machine being
+watched and ships logs elsewhere. It makes no decisions, and critically **it
+only reads the log sources listed in its configuration file**. That last point
+is the one that catches people: installing an agent does not mean it is
+collecting everything on that machine. It collects what you told it to. This
+is why lessons 12.3 and 12.7 both involve editing that file.
+
+**The manager (2 and 3) is where detection happens.** Two stages, and keeping
+them separate in your head will save you hours later. A **decoder** parses a
+raw log line into named fields, turning `Failed password for sam from
+10.10.10.50` into a username and a source address. Then **rules** test those
+fields and decide whether it matters. If a decoder does not extract a field, a
+rule referencing it has nothing to compare against and silently never fires.
+
+**The output (4) is a file.** Every alert becomes a line of JSON in
+`alerts.json`. That is the whole product of the system.
+
+**The indexer and dashboard, added in lesson 12.9, are optional layers on
+top.** They store and draw. **Neither of them detects anything**, and if you
+switched both off your detections would carry on working exactly as before.
+Knowing that keeps you from confusing "the dashboard is down" with "we are not
+monitoring".
 
 ## Give UBNT01 the memory first
 

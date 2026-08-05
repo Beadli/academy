@@ -143,19 +143,112 @@ which is the claim lesson 7.6 made and this is the demonstration.
 
 ## Send it to Wazuh
 
-A second alert stream in a second place is two places to not look. On
-SURICATA01, install the Wazuh agent as in 12.2, then add:
+**What we are doing.** Putting an agent on SURICATA01 and telling it to read
+Suricata's output file.
+
+**Why.** You now have two separate places where alerts appear: Wazuh on
+UBNT01, and Suricata's `eve.json` here. **Two alert streams in two places is
+two places to not look**, and during an incident you would be correlating them
+by hand, by timestamp, in your head.
+
+The whole argument for a SIEM is one place where a host event and a network
+event about the same incident sit next to each other. Right now you do not
+have that. This step gets it.
+
+Look at the diagram in lesson 12.2 again. SURICATA01 is the third source box
+on the left, and it is currently disconnected. You are adding the arrow.
+
+### Install the agent, exactly as in 12.2
+
+Nothing new here. SURICATA01 is a Linux machine, so it is the same install you
+did on UBNT01, pointed at the manager instead of at itself:
+
+```bash
+sudo apt install -y wazuh-agent
+```
+
+When it asks for the manager address, give it `10.10.10.20`, which is UBNT01.
+On UBNT01 that address was `127.0.0.1` because the agent and manager were on
+the same box. Here they are not, which is the normal case.
+
+```bash
+sudo systemctl enable --now wazuh-agent
+```
+
+### Tell it to read Suricata's output
+
+The agent's configuration on Linux lives at `/var/ossec/etc/ossec.conf`. Same
+file, same job, different path from the Windows one in lesson 12.3.
+
+```bash
+sudo nano /var/ossec/etc/ossec.conf
+```
+
+Add this above the closing `</ossec_config>`:
 
 ```xml
+<!-- Suricata writes one JSON object per line to this file. Telling the
+     agent the format is "json" means it parses each line into fields
+     directly, so no decoder has to guess at the structure. -->
 <localfile>
   <log_format>json</log_format>
   <location>/var/log/suricata/eve.json</location>
 </localfile>
 ```
 
-Now network alerts arrive in the same queue as host alerts, which is what a
-SIEM is for: **one place where a host event and a network event about the same
-incident sit next to each other.**
+**Same `<localfile>` shape as lesson 12.3**, which is the point: adding a log
+source always looks like this. What changes is `location` and `log_format`.
+
+**`json` rather than `eventchannel` this time**, because this is a text file
+where every line is a JSON object, not a Windows channel. That is a genuine
+convenience: step 2 of the 12.2 diagram, decoding, is mostly done for you,
+because JSON already has named fields. Rules can reference them without a
+decoder having to pull them out of free text first.
+
+```bash
+# Configuration is read at startup, so this is not optional.
+sudo systemctl restart wazuh-agent
+```
+
+### How we know it worked
+
+**One: the manager sees a third agent.** On UBNT01:
+
+```bash
+sudo /var/ossec/bin/agent_control -l
+```
+
+You should now have three, all `Active`. If SURICATA01 says `Never connected`,
+the agent cannot reach the manager, which is an address or firewall problem
+rather than anything to do with Suricata.
+
+**Two: the agent is actually reading the file.** On SURICATA01:
+
+```bash
+# Errors here name the file they could not read.
+sudo tail -n 30 /var/ossec/logs/ossec.log
+```
+
+The usual failure is permissions: the agent runs as its own user and
+`eve.json` may not be readable by it. The log says so plainly, which is why it
+is worth looking here before anything else.
+
+**Three: network alerts arrive in the host alert stream.** This is the one
+that proves the point of the whole section. On UBNT01:
+
+```bash
+sudo tail -f /var/ossec/logs/alerts/alerts.json | \
+  jq -r 'select(.agent.name | test("suricata"; "i")) |
+         [.rule.level, .rule.description] | @tsv'
+```
+
+Then generate some traffic worth noticing from KALI01, a scan as in lesson
+12.6 will do.
+
+**What you should notice:** that alert arrived in the same file, in the same
+format, through the same rules engine as the Windows and Linux host events.
+You now have one queue. That is what a SIEM is, and everything before this was
+just collection.
 
 ## Tier 1 and 2: what to take from this
 
