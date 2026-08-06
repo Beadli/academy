@@ -28,24 +28,29 @@ find things that are broken.
 
 ## What is coming
 
-Thirteen categories, roughly 120 exercises mapped out, in rough order of how
-soon:
+Fourteen categories, roughly 130 exercises mapped out.
 
-| Category | What it covers | Live | Planned |
-|---|---|---|---|
-| **Integrations** | Alert routing, notification, status pages | 1 | 10 |
-| **Detection** | Write and tune rules against real techniques | | 12 |
-| **Offensive** | Attack your own domain, under the Module 14 rules | 1 | 12 |
-| **Defensive** | Hardening, tiering, allowlisting, LAPS | 1 | 11 |
-| **Operations** | Failure injection, restore drills, patching | | 10 |
-| **PKI** | Revocation, expiry, CA compromise, rotation | | 8 |
-| **Identity** | Lifecycle, access review, MFA, federation | | 8 |
-| **Investigation** | Timelines, memory, correlation, false positives | | 8 |
-| **GRC** | Extend the assessment, crosswalk, questionnaires | | 8 |
-| **Automation** | Make a drill idempotent, compliance as code | | 7 |
-| **Networking** | Segmentation, DNS failure, rogue devices | | 7 |
-| **Meta** | Cold start, drift audits, explain it in one page | | 6 |
-| **New services** | Deploy something new, then defend it | | 15 |
+Every drill is numbered by its category, so `INT-01` is the first
+Integrations drill and `DEF-11` the eleventh Defensive one. Those prefixes
+are how drills refer to each other, and they are how the sidebar is grouped.
+Roughly in the order they will arrive:
+
+| ID | Category | What it covers | Live | Planned |
+|---|---|---|---|---|
+| **INT** | Integrations | Alert routing, notification, status pages | 1 | 10 |
+| **DET** | Detection | Write and tune rules against real techniques | | 12 |
+| **OFF** | Offensive | Attack your own domain, under the Module 14 rules | 1 | 12 |
+| **DEF** | Defensive | Hardening, tiering, allowlisting, LAPS | 1 | 11 |
+| **AI** | Engineering with AI | Review discipline, context drift, prompt injection against your own agent | | 8 |
+| **OPS** | Operations | Failure injection, restore drills, patching | | 10 |
+| **PKI** | Certificates | Revocation, expiry, CA compromise, rotation | | 8 |
+| **IAM** | Identity | Lifecycle, access review, MFA, federation | | 8 |
+| **IR** | Investigation | Timelines, memory, correlation, false positives | | 8 |
+| **GRC** | Governance | Extend the assessment, crosswalk, questionnaires | | 8 |
+| **AUTO** | Automation | Make a drill idempotent, compliance as code | | 7 |
+| **NET** | Networking | Segmentation, DNS failure, rogue devices | | 7 |
+| **META** | The lab itself | Cold start, drift audits, explain it in one page | | 6 |
+| **APP** | New services | Deploy something new, then defend it | | 15 |
 
 **Each drill has one objective and a way to tell whether you succeeded.** No
 drill is an open-ended "explore X", because if there is no way to fail there

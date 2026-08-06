@@ -126,5 +126,5 @@ you check that policies you scoped *out* stayed out. That second half is
 the one almost nobody practises, and it's how a policy linked one level
 too high goes unnoticed.
 
-Drill [DEF-11](/drills/def-11-prove-policy-applied) does it properly once
+Drill [DEF-11](/drills/defensive/def-11-prove-policy-applied) does it properly once
 you have somewhere to do it.

@@ -1,0 +1,9 @@
+{
+  "label": "OFF: Offensive",
+  "position": 60,
+  "link": {
+    "type": "generated-index",
+    "slug": "/offensive",
+    "description": "Attacks against your own lab, under the Module 14 authorisation rules."
+  }
+}
