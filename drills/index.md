@@ -5,7 +5,8 @@ sidebar_position: 0
 
 # Drills
 
-**Coming soon.** This section opens when the course is finished.
+**Opening now, one drill at a time.** The first is below; the rest arrive as
+they are written and tested.
 
 ## The problem it solves
 
@@ -25,4 +26,36 @@ attack your own domain and check whether your detections noticed, write and
 tune rules against real techniques, run automation with a defined outcome,
 find things that are broken.
 
-[Start at Module 0](/course/intro) and build the thing they will run against.
+## Available now
+
+- **[INT-01: Get alerts where you will see them](/drills/int-01-chat-alerts)**
+  Wazuh alerts into a chat channel you actually read. Needs Module 12. Under
+  an hour.
+
+## Planned
+
+Thirteen categories, roughly 120 exercises mapped out. What is coming, in
+rough order of how soon:
+
+| Category | What it covers | Planned |
+|---|---|---|
+| **Integrations** | Alert routing, notification, status pages | 10 |
+| **Detection** | Write and tune rules against real techniques | 12 |
+| **Offensive** | Attack your own domain, under the Module 14 rules | 12 |
+| **Defensive** | Hardening, tiering, allowlisting, LAPS | 11 |
+| **Operations** | Failure injection, restore drills, patching | 10 |
+| **PKI** | Revocation, expiry, CA compromise, rotation | 8 |
+| **Identity** | Lifecycle, access review, MFA, federation | 8 |
+| **Investigation** | Timelines, memory, correlation, false positives | 8 |
+| **GRC** | Extend the assessment, crosswalk, questionnaires | 8 |
+| **Automation** | Make a drill idempotent, compliance as code | 7 |
+| **Networking** | Segmentation, DNS failure, rogue devices | 7 |
+| **Meta** | Cold start, drift audits, explain it in one page | 6 |
+| **New services** | Deploy something new, then defend it | 15 |
+
+**Each drill has one objective and a way to tell whether you succeeded.** No
+drill is an open-ended "explore X", because if there is no way to fail there
+is no way to have passed.
+
+Not started the course yet? [Start at Module 0](/course/intro) and build the
+thing they will run against.
