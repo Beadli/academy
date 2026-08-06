@@ -32,6 +32,22 @@ Get-CimInstance Win32_Processor | Select-Object Name, NumberOfCores, NumberOfLog
 (Get-PSDrive C).Free / 1GB
 ```
 
+**What that looks like when it works**, so you can check your own against
+something real rather than wondering:
+
+![PowerShell showing the three commands and their output. Total physical memory divided by 1GB prints 30.769847869873. The processor query prints a table with Name, NumberOfCores and NumberOfLogicalProcessors columns, listing an AMD Ryzen 5 PRO 6650U with Radeon Graphics, 6 cores and 12 logical processors. The free space query prints 433.693004608154.](./img/checkpoint-06-windows-measure.png)
+
+Your numbers will be different and that is the entire point of the exercise.
+What should match is the *shape*: a long decimal for the memory, a table with
+three columns for the processor, and another long decimal for the disk. Round
+the decimals when you write them down. `30.769847869873` is 30 GB, and nobody
+needs the rest of it.
+
+**If a command prints an error instead**, the usual cause is a typo in
+`Get-CimInstance`. If it prints nothing at all, you are probably still inside
+a continuation prompt from an unclosed bracket: press Ctrl+C and try the line
+again.
+
 For virtualization, the quickest check is Task Manager: press
 Ctrl+Shift+Esc, open the **Performance** tab, click **CPU**, and look for
 the line **Virtualization: Enabled** on the right.
