@@ -5,6 +5,12 @@ sidebar_position: 0
 
 # Module 9: Hybrid identity with Entra ID
 
+<div className="stackLine">
+
+Microsoft Entra ID · Entra Connect
+
+</div>
+
 Almost no enterprise runs purely on-premises anymore, and almost none runs
 purely in the cloud either. What they run is **hybrid**: the Active Directory
 you built in Module 5 stays the source of truth for identity, and it

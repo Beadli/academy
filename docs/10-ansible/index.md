@@ -5,6 +5,12 @@ sidebar_position: 0
 
 # Module 10: Automation with Ansible
 
+<div className="stackLine">
+
+Ansible
+
+</div>
+
 You have built nine modules of infrastructure by hand. Every domain
 controller promoted, every firewall rule written, every container started, you
 did yourself, in a terminal, one command at a time.

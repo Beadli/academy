@@ -7,6 +7,12 @@ import PkiChains from '@site/static/img/module7-pki-chains.svg';
 
 # Module 7: PKI and certificates
 
+<div className="stackLine">
+
+Active Directory Certificate Services · step-ca · Nginx
+
+</div>
+
 You have collected two browser warnings so far. OPNsense threw one in
 Module 4, Gitea threw another in Module 6, and both times I told you to
 click through and that Module 7 would fix it properly. This is that

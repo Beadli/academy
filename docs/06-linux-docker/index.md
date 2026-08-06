@@ -5,6 +5,12 @@ sidebar_position: 0
 
 # Module 6: Linux server and Docker
 
+<div className="stackLine">
+
+Ubuntu Server · Docker · Compose · Gitea · Nginx
+
+</div>
+
 Your lab has a Windows half. Now it gets its Linux half, and by the end
 of this module that machine will be doing real work: running containers,
 serving a website, and hosting the Git server your engineering journal

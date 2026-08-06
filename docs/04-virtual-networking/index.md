@@ -5,6 +5,12 @@ sidebar_position: 0
 
 # Module 4: Virtual networking
 
+<div className="stackLine">
+
+OPNsense · Kali Linux · Wireshark · nmap
+
+</div>
+
 At the end of Module 3 your practice VM had an IP address you never
 typed, a route to the internet you never configured, and a working DNS
 lookup you never set up. That was deliberate. This module explains where

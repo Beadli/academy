@@ -5,6 +5,12 @@ sidebar_position: 0
 
 # Module 11: Engineering with AI
 
+<div className="stackLine">
+
+Claude Code
+
+</div>
+
 Lesson 1.6 gave you a chat window and two rules, then told you the deep end was
 locked until Module 11. It said the pain had a payoff date.
 

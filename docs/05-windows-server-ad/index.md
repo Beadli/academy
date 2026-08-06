@@ -5,6 +5,12 @@ sidebar_position: 0
 
 # Module 5: Windows Server and Active Directory
 
+<div className="stackLine">
+
+Windows Server · Active Directory · DNS · Group Policy
+
+</div>
+
 This is the one. Everything so far has been groundwork; today
 `lab.internal` stops being a string in a planning document and
 becomes a real domain, with a real directory, holding real accounts that
