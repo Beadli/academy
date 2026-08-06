@@ -104,7 +104,7 @@ Write yours. Create `Projects/gss1-boundary.md` in your vault:
 | UBNT01 | 10.10.10.20 | Docker host: Gitea, monitoring, scanning | 6 |
 | SUBCA01 | 10.10.10.30 | Issuing certificate authority | 7 |
 | ROOTCA01 | offline | Offline root CA, powered off | 7 |
-| KALI01 | 10.10.10.50 | Authorised testing host | 4 |
+| KALI01 | 10.10.10.50 | Authorised testing host (Tier 1 address; Tier 2, use your outer-segment one) | 4 |
 
 ## The network
 10.10.10.0/24, a single segment behind FW01.

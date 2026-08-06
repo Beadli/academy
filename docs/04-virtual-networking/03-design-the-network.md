@@ -31,8 +31,25 @@ every command and screenshot in every later module matches your screen.
 | `10.10.10.20` | UBNT01, Docker and Ansible host | Module 6 |
 | `10.10.10.30` | SUBCA01, issuing certificate authority (Tier 2) | Module 7 |
 | `10.10.10.40` | ADFS01, single sign-on (Tier 2) | Module 8 |
+| `10.10.10.50` | KALI01, your attacker box (**Tier 1 only**, see below) | this module |
 | `10.10.10.100` to `.199` | DHCP pool, for anything that doesn't need a fixed address | this module |
 | `10.10.10.254` | FW01, the firewall and gateway (Tier 2 only) | this module |
+
+**KALI01 is the one entry that depends on your tier**, and it is worth
+understanding rather than copying.
+
+- **Tier 1** has one network, so your attacker box sits on it at
+  `10.10.10.50`. Later modules refer to that address directly.
+- **Tier 2** puts KALI01 on the *outer* segment, outside the firewall, which
+  is a different range chosen by your hypervisor. **Write your own KALI01
+  address in your journal next to this table.** Wherever a later lesson says
+  `10.10.10.50`, that is the Tier 1 address and you substitute yours.
+
+An attacker box you cannot name by address is one you cannot write a firewall
+rule about, or a detection rule, or a line in a scope document. Module 12 has
+you write a rule that recognises your own scanner, Module 14 records this
+machine as the authorised source of testing, and Module 16 lists it in an
+asset inventory. All three need an address that does not change.
 
 Servers get the low numbers, statically. The pool starts at `.100` so
 there's no chance of DHCP handing out an address you've already nailed

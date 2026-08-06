@@ -72,7 +72,8 @@ real values:
 - 10.10.10.0/24, the lab LAN, in its entirety
 - Specifically: DC01 (10.10.10.10), DC02 (10.10.10.11),
   UBNT01 (10.10.10.20), FW01 (10.10.10.254)
-- Testing is performed from KALI01 (10.10.10.50)
+- Testing is performed from KALI01 (10.10.10.50 on Tier 1; on Tier 2 use the
+  outer-segment address you recorded in lesson 4.4)
 
 ## Out of scope
 - Every address outside 10.10.10.0/24 without exception

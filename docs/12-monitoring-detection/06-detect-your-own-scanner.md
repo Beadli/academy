@@ -108,6 +108,11 @@ still alert.
 </rule>
 ```
 
+**Use your own KALI01 address in `<srcip>`.** `10.10.10.50` is the Tier 1
+address from the plan in lesson 4.3. If you are on Tier 2 your KALI01 lives on
+the outer segment, on a different range, and this rule will never match
+anything until you correct it.
+
 **Read the comment before you accept the rule.** You are creating a blind
 spot on purpose. That is a legitimate thing to do and it must be a decision
 somebody can find later, which is why it is written down and in Git.
@@ -115,6 +120,18 @@ somebody can find later, which is why it is written down and in Git.
 An attacker who compromises KALI01 now has a quiet place to work from. That is
 the real cost, it is a reasonable trade for a testing host, and it is the kind
 of trade worth being able to articulate.
+:::
+
+:::note[Why that address had to be pinned]
+Lesson 4.4 had you fix KALI01's address rather than leave it on DHCP, and this
+rule is the reason. **A rule keyed to an address that changes on reboot does
+not fail loudly.** It simply stops matching, and the first symptom is an alert
+you were certain you had already tuned, months later, with nothing in between
+to suggest why.
+
+Anything you allowlist by address inherits that fragility. It is a good reason
+to prefer allowlisting by something more stable when you can, and a good
+reason to write the address down where you will find it again when you cannot.
 :::
 
 ## Write it up

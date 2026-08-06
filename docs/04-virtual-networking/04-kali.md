@@ -102,6 +102,79 @@ order, and you will find the layer that's broken instead of guessing.
 I still do this exact sequence, in this exact order, and it still finds
 the problem faster than thinking hard does.
 
+## Pin the address, because other things will refer to it
+
+DHCP was the right way to *start*: it proved the network works without you
+typing anything, and it showed you the four answers arriving on their own.
+It's the wrong way to *stay*, for this machine specifically.
+
+Later modules refer to this box by address. Module 12 has you write a
+detection rule that recognises your own scanner, Module 14 names it in a scope
+document as the authorised source of all testing, and Module 16 lists it in an
+asset inventory. **A rule written against an address that changes on reboot is
+a rule that quietly stops matching**, and you would have no reason to suspect
+it.
+
+:::note[Tier 2: read this, then skip the commands]
+Your KALI01 is on the *outer* segment, on your hypervisor's own NAT range
+rather than `10.10.10.0/24`, and that range is managed by the hypervisor. Leave
+it on DHCP.
+
+Do this instead: run `ip -brief addr`, and **write the address it shows in your
+journal next to the addressing plan from lesson 4.3.** Wherever a later lesson
+says `10.10.10.50`, that is the Tier 1 address and you substitute yours. If it
+ever changes, that note is the thing you update.
+:::
+
+**Tier 1**, pin it to the `10.10.10.50` from your plan. Kali manages
+connections with NetworkManager, so `nmcli` is the tool:
+
+```bash
+# What NetworkManager calls this connection. Usually "Wired connection 1",
+# but read it rather than assuming, because the next command needs it.
+nmcli con show
+```
+
+```bash
+# Substitute the connection name above, and the gateway and DNS server
+# you read a moment ago with "ip route" and "cat /etc/resolv.conf".
+# Those two differ between VMware and VirtualBox, which is why the
+# lesson keeps telling you to read them rather than printing them.
+sudo nmcli con mod "Wired connection 1" \
+  ipv4.addresses 10.10.10.50/24 \
+  ipv4.gateway 10.10.10.2 \
+  ipv4.dns 10.10.10.2 \
+  ipv4.method manual
+```
+
+```bash
+# Apply it. The connection drops and comes back.
+sudo nmcli con up "Wired connection 1"
+```
+
+**How you know it worked**, and run all three, because the first only proves
+the address took:
+
+```bash
+ip -brief addr          # expect 10.10.10.50/24
+ping -c 3 1.1.1.1       # routing still works
+dig +short ubuntu.com   # DNS still works
+```
+
+**If you lose the network**, nothing is lost and you have not locked yourself
+out: you are sitting at the machine's console, not connected over SSH. Put it
+back on DHCP and try again:
+
+```bash
+sudo nmcli con mod "Wired connection 1" ipv4.method auto
+sudo nmcli con up "Wired connection 1"
+```
+
+The usual cause is a gateway that doesn't match your hypervisor. VMware's NAT
+device conventionally takes `.2` and VirtualBox's takes `.1`, which is exactly
+why lesson 4.3 told you to read yours off the machine instead of trusting a
+number in a document.
+
 ## See your neighbors
 
 Kali ships with `nmap`, and this is a fair use of it: scanning a network
