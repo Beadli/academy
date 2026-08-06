@@ -55,13 +55,6 @@ to do and what is true, drafting is delegated, and I check the result against
 the lab. That is the division of labour Module 11 argues for, and it would be
 strange to teach it and hide it.
 
-**What that buys you is a verification standard, not a promise.** Anything
-that can be executed has been, and output quoted in a lesson comes from a real
-run rather than from memory. Anything I cannot execute from a keyboard is
-marked unverified until I have run it on hardware. I am walking the entire
-course as a student before it leaves draft, and the notice at the top of every
-page stays until I have.
-
 ## How to use it
 
 **Start at [Module 0](/course/intro).** It takes an evening, needs no
