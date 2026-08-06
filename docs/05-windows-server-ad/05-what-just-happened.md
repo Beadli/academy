@@ -126,6 +126,36 @@ now points at itself. This is for UBNT01 in Module 6 and every machine
 after it.
 :::
 
+:::note[Tier 1: your DHCP server doesn't know about the domain, and can't be told]
+There's no firewall on Tier 1, so the DHCP server handing out addresses on
+your lab network is your **hypervisor**. It has never heard of
+`lab.internal` and there's no practical way to teach it: the setting lives
+in hypervisor configuration files that differ by product, version and
+operating system, and editing them is a detour with nothing transferable at
+the end of it.
+
+**In a real network this is solved once, centrally.** The DHCP server hands
+out the domain controller's address as the DNS server, every machine that
+asks for an address gets the domain for free, and nobody touches a
+workstation to configure it. That's exactly what Tier 2 readers are doing in
+the box above.
+
+You don't have that, so on Tier 1 the rule is: **any machine you add that
+needs to find the domain gets its DNS set by hand, pointing at
+`10.10.10.10`.**
+
+That costs you nothing today. Every machine the course builds from here is
+given a static address and its DNS set explicitly in the lesson that builds
+it, starting with UBNT01 in Module 6. It only becomes a chore the day you add
+a machine that takes DHCP and expects to find the domain, and the first
+symptom is the confusing one from lesson 5.1: the machine browses the
+internet perfectly and cannot see `lab.internal` at all.
+
+**Write the rule in your journal now**, next to your addressing plan. In two
+months it will read as an obvious thing you always knew, and it will save you
+an evening anyway.
+:::
+
 ## Kerberos exists, and you're holding a ticket
 
 You logged in a minute ago, so the authentication you read about in 5.1
