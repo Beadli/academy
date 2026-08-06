@@ -135,9 +135,9 @@ say so. Someone reading it later needs to know what was ruled out.
 
 ## What you can say about this
 
-"I built a detection stack, attacked my own lab, triaged the alert, and tuned
-the false positive with a documented exception" is a genuinely strong sentence
-in an interview for an analyst role.
+You attacked your own lab and then had to work out whether the alert was
+real. That is the whole analyst loop, and the exception you wrote afterwards
+is the part most people never get to practise.
 
 The part that impresses is not the tooling. It is that you can explain why the
 scan was indistinguishable from an attack, and what you did about it.

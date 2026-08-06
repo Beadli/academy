@@ -232,7 +232,6 @@ You can take a detection stack that technically works and make it reach a
 human, which is the difference between a lab and something you would trust to
 tell you about a real intrusion.
 
-**In an interview**, the version of this worth saying is not "I set up Slack
-alerts". It is: *"I picked a severity threshold deliberately, tested the
-delivery path before wiring it in, and I know that the integration itself is
-now an unmonitored dependency."*
+The part worth talking about is not that you set up Slack alerts. It is why
+you picked level 10 and not 7, and what you would do about the fact that
+nothing is watching the integration itself.
