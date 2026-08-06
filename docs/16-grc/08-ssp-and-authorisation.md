@@ -187,6 +187,51 @@ items. **The whole discipline is built out of things that expire on
 purpose**, because the alternative is a document describing a system that
 stopped existing two years ago.
 
+## Two worked examples, in the formats the industry actually uses
+
+Everything you have written this module is Markdown, because that is what
+your vault is and because it keeps the reasoning in version control.
+
+**Real GRC work is not in Markdown.** An SSP is a Word document and a POA&M
+is an Excel workbook, in almost every organisation you will meet. You will be
+handed a template on your first day, and the structure will be imposed on you
+rather than chosen.
+
+So here are both, fully worked for GSS-1:
+
+- **[GSS-1 System Security Plan (.docx)](/templates/GSS-1-SSP.docx)**, about
+  25 pages: every section from this module, with each of the fifteen controls
+  written up individually.
+- **[GSS-1 Plan of Action and Milestones (.xlsx)](/templates/GSS-1-POAM.xlsx)**,
+  five worksheets: the POA&M itself, the risk register with computed scores,
+  an empty Closed Items sheet, control status with a chart, and maintenance
+  instructions.
+
+**Use them as a comparison, not a substitute.** Write yours first, then open
+these and see what a longer treatment of the same system looks like. The
+things worth stealing are structural: how each control section separates the
+requirement from the implementation from the evidence from the conclusion,
+and how the limitations section is worded.
+
+**They describe the same GSS-1 you have been assessing**, with the same
+categorisation, the same fifteen controls and the same honest grade split of
+seven Implemented and eight Partially Implemented. If your own assessment came
+out very differently, that is worth understanding rather than correcting; your
+lab is not identical to the one described.
+
+:::note[A tension worth noticing]
+These are binary files. Git cannot diff them, cannot merge them, and cannot
+tell you what changed between two versions.
+
+That is a real cost, and it is the same problem lesson 15.8 identified: the
+things hardest to track are the things changed by clicking. Real GRC documents
+live in SharePoint and get emailed around as attachments, which is exactly why
+"which version is current" is a chronic problem in that job.
+
+**Keep your Markdown originals.** The Word and Excel versions are what you
+hand to somebody; the text ones are what you actually maintain.
+:::
+
 ## What you take from this
 
 An SSP that assembles five lessons of work into one argument, a limitations

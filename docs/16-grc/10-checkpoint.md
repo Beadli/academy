@@ -121,6 +121,9 @@ is committed.
       findings, accepts specific residual risks, and **expires** (lesson 16.8)
 - [ ] You can explain why an engineer accepting organisational risk is a
       structural problem, and what to do if asked (lesson 16.8)
+- [ ] You compared your own package against the worked `.docx` and `.xlsx`
+      examples, and can name one structural thing you would change in yours
+      (lesson 16.8)
 - [ ] `gss1.md` exists as a front door with a reading order (lesson 16.9)
 - [ ] You worked through "which Implemented grades would survive an assessor
       who wanted to fail you", and moved any that would not (lesson 16.9)
