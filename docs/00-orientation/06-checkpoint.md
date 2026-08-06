@@ -58,13 +58,45 @@ the line **Virtualization: Enabled** on the right.
 # RAM, human readable. Look at the "total" column.
 free -h
 
-# CPU model, core count, and a "Virtualization:" line that should say
-# VT-x (Intel) or AMD-V.
-lscpu
+# CPU model, how many processors, and whether hardware virtualization
+# is available. lscpu prints about forty lines and you need four of
+# them, so the "| grep" part keeps only the lines whose labels match.
+# Pipes get explained properly in Module 2; today just run it.
+lscpu | grep -E 'Model name|^CPU\(s\)|Core\(s\) per socket|Thread\(s\) per core|Virtualization'
 
 # Free space on your home filesystem.
 df -h ~
 ```
+
+**What that middle command prints**, from a real run:
+
+```text
+CPU(s):                                  8
+Model name:                              Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz
+Thread(s) per core:                      1
+Core(s) per socket:                      1
+Virtualization type:                     full
+```
+
+**Use `CPU(s)` as your processor count.** It is the number the machine
+actually offers, and it is the one that matters when you size virtual
+machines later.
+
+**The virtualization line has two different forms and they mean opposite
+things**, which is worth knowing before you misread yours:
+
+- **`Virtualization: VT-x`** or **`Virtualization: AMD-V`** is what you want.
+  It says this machine's processor can run a hypervisor.
+- **`Virtualization type: full`** means something else entirely: you are
+  already *inside* a virtual machine. That is what the example above is
+  showing, because it was run on one. Whether you can then run another
+  hypervisor inside it is a separate question your host has to answer.
+- **Neither line appearing at all** usually means virtualization is switched
+  off in your firmware. The next section deals with that.
+
+**If the whole command prints nothing**, do not conclude anything about your
+hardware. It means no label matched, which happens on some distributions and
+in some languages. Run `lscpu` on its own and read the output yourself.
 
 ## macOS
 
