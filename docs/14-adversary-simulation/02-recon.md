@@ -134,17 +134,39 @@ segment:
 ```bash
 # Can the lab reach the internet? Probably yes, by design.
 ping -c 3 1.1.1.1
+```
 
-# Can the lab reach your HOME network? Find your home router's
-# address first, on your own computer, then try it.
-# Substitute your real home range.
-nmap -sn 192.168.1.0/24
+Now the harder question: can the lab reach your **home** network? Before you
+answer it, notice that you already ruled that network out of scope an hour
+ago, in the document you wrote in 14.1. "My home network, my router, my
+internet provider's equipment" and "any machine I do not personally own"
+are both on your out-of-scope list.
+
+**Reaching a network and scanning it are different acts**, and the
+distinction is the professional one. Scanning your home range touches
+whatever else lives there: a housemate's laptop, a landlord's router, a
+device your internet provider owns and you merely rent. None of that is
+yours to test, and your own rules of engagement say so.
+
+You do not need a scan to answer the question. **One address you personally
+own answers it completely:**
+
+```bash
+# Find your home router's address from your own computer first:
+# "ipconfig" on Windows, "ip route" on Linux or macOS. Then, from
+# KALI01, try that ONE address. Not the range.
+ping -c 3 192.168.1.1
 ```
 
 **What you want here is failure**, and lesson 4.6 said the same thing:
 failure is the pass condition. Your lab is about to contain a deliberately
 vulnerable machine. If KALI01 can reach your home network, so can anything
 that compromises that machine.
+
+If the ping succeeds, you have your answer and you still have no business
+enumerating what else is over there. **A reachable boundary is the finding.**
+What sits behind it is somebody else's estate, even when the somebody else
+is your family.
 
 If it succeeds, stop and fix your segmentation before lesson 14.3. That is
 not a detour from the module; it is the module doing its job before you have
