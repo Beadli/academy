@@ -232,10 +232,18 @@ You can take a detection stack that technically works and make it reach a
 human. Most home labs never close that gap, and most of the ones that do
 close it badly, by sending everything.
 
-Nobody will be impressed that you configured a webhook. The two things worth
-having an answer ready for are why you picked level 10 and not 7, and what
-you would do about the fact that nothing is watching the integration itself.
+Nobody will be impressed that you configured a webhook. What earns a second
+question is the reasoning around it, and that is the part that fades.
 
-Write both in your own words in your journal now, while the reasoning is
-fresh. Six months from now you will remember that you did this, and not why
-you chose 10.
+:::note[Write this down before you close the tab]
+
+In your own words, in your journal, while it is fresh:
+
+- Why level 10, and not 7 or 12.
+- What you would do about the fact that nothing is watching the integration
+  itself.
+
+Six months from now you will remember that you did this, and not why you
+chose 10.
+
+:::
