@@ -69,5 +69,28 @@ a Markdown file called `module-0.md`. Give it a heading, put your four
 facts (why, machine, tier, hours) under sub-headings, and format your RAM
 and disk numbers as `inline code`. Any text editor works; Notepad works.
 
+:::note[What you'll see, and two ways the save goes wrong]
+**You will see the `#` and the `**` characters, exactly as you typed them.**
+Nothing is wrong. A plain text editor shows you plain text, and Markdown is
+plain text. The app that turns it into headings and bold arrives in lesson
+1.2, and the file you write today is already the finished article. That's the
+point made above about the file staying readable whether or not anything is
+rendering it, and this is the moment you actually see it.
+
+Recent Windows 11 versions of Notepad added a little Markdown formatting of
+their own, so you may instead see real bold text and a formatting toolbar.
+That's fine too. Either view is the same file on disk.
+
+**Notepad: set "Save as type" to "All Files" before you save.** Left on "Text
+Documents" it appends `.txt` and you get `module-0.md.txt`, which is not the
+file you meant and which Windows will hide the end of. If the next lesson
+can't find your file, this is why.
+
+**TextEdit on macOS: choose Format > Make Plain Text first.** It starts new
+documents in rich text and will otherwise save something that only looks like
+what you typed. The menu item is a toggle, and you want it showing "Make Rich
+Text" once you're done, which means plain is currently on.
+:::
+
 Keep the file next to your original notes. In the next lesson it gets a
 proper home.
