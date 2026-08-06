@@ -1,0 +1,9 @@
+{
+  "label": "DET: Detection",
+  "position": 35,
+  "link": {
+    "type": "generated-index",
+    "slug": "/detection",
+    "description": "Write and tune detections against real techniques, and prove they fire on the thing and stay quiet on everything else."
+  }
+}

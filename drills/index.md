@@ -38,7 +38,7 @@ Roughly in the order they will arrive:
 | ID | Category | What it covers | Live | Planned |
 |---|---|---|---|---|
 | **INT** | Integrations | Alert routing, notification, status pages | 1 | 10 |
-| **DET** | Detection | Write and tune rules against real techniques | | 12 |
+| **DET** | Detection | Write and tune rules against real techniques | 1 | 12 |
 | **OFF** | Offensive | Attack your own domain, under the Module 14 rules | 1 | 12 |
 | **DEF** | Defensive | Hardening, tiering, allowlisting, LAPS | 1 | 11 |
 | **AI** | Engineering with AI | Review discipline, context drift, prompt injection against your own agent | | 8 |
