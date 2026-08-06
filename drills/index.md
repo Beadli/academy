@@ -51,5 +51,16 @@ soon:
 drill is an open-ended "explore X", because if there is no way to fail there
 is no way to have passed.
 
+## Extensions
+
+A few drills need a machine or a service the course never builds, because
+making every student build it would have cost them memory they may not have.
+Those builds live under **Extensions** in the sidebar, written as proper
+walkthroughs, and a drill that needs one says so at the top.
+
+**Only build one when a drill you want needs it.** An extension with no drill
+behind it is a lab growing for its own sake, which is the habit this whole
+section argues against.
+
 Not started the course yet? [Start at Module 0](/course/intro) and build the
 thing they will run against.
