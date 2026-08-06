@@ -49,9 +49,18 @@ addresses, hostnames or customer detail appears anywhere, and the student
 lab deliberately uses a different domain name so nothing you build can
 collide with anything real.
 
-The course is written with AI assistance, using the same workflow
-[Module 11](/course/engineering-with-ai) teaches. Every technical claim is checked against a lab that exists, and the
-parts I could not verify are marked as unverified rather than smoothed over.
+**AI is part of how the course is written**, using the workflow
+[Module 11](/course/engineering-with-ai) teaches: I decide what a lesson has
+to do and what is true, drafting is delegated, and I check the result against
+the lab. That is the division of labour Module 11 argues for, and it would be
+strange to teach it and hide it.
+
+**What that buys you is a verification standard, not a promise.** Anything
+that can be executed has been, and output quoted in a lesson comes from a real
+run rather than from memory. Anything I cannot execute from a keyboard is
+marked unverified until I have run it on hardware. I am walking the entire
+course as a student before it leaves draft, and the notice at the top of every
+page stays until I have.
 
 ## How to use it
 
