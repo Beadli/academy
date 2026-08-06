@@ -5,6 +5,12 @@ sidebar_position: 0
 
 # Module 1: The engineer's toolkit
 
+<div className="stackLine">
+
+Obsidian · Git · GitHub · tmux · Claude
+
+</div>
+
 No VMs yet. This module sets up the tools you'll use every single day for
 the rest of the course, and I put it before the fun stuff on purpose:
 every hour spent here pays back for sixteen modules.

@@ -509,3 +509,32 @@ div[class^='announcementBar_'] button[class*='closeButton']:hover {
 .menu__link--active {
   font-weight: 600;
 }
+
+/* ── Module stack line ──────────────────────────────────────────────────
+   A row of tool names directly under a module index title, so a reader
+   scanning the course can see what a module actually contains before
+   reading a word of prose.
+
+   Deliberately not bold-inside-prose: the emphasis system reserves amber
+   for paragraph-opening bold acting as a section marker, and five bolded
+   tool names in one sentence would dilute that everywhere. This is its
+   own element instead.
+
+   It also avoids the link colour, so a reader never mistakes a tool name
+   for something clickable. The accent is carried by the left rule, and
+   the text sits at the muted end so the h1 above it still leads. */
+.stackLine {
+  margin: -0.35rem 0 1.6rem;
+  padding: 0.35rem 0 0.35rem 0.85rem;
+  border-left: 3px solid var(--ifm-color-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* Docusaurus wraps loose text in <p>; strip its margins so the band
+   hugs the rule rather than floating inside it. */
+.stackLine p {
+  margin: 0;
+}
