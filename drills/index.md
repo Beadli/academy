@@ -28,7 +28,7 @@ find things that are broken.
 
 ## What is coming
 
-Fourteen categories, roughly 130 exercises mapped out.
+Fifteen categories, roughly 138 exercises mapped out.
 
 Every drill is numbered by its category, so `INT-01` is the first
 Integrations drill and `DEF-11` the eleventh Defensive one. Those prefixes
@@ -42,6 +42,7 @@ Roughly in the order they will arrive:
 | **OFF** | Offensive | Attack your own domain, under the Module 14 rules | 1 | 12 |
 | **DEF** | Defensive | Hardening, tiering, allowlisting, LAPS | 1 | 11 |
 | **AI** | Engineering with AI | Review discipline, context drift, prompt injection against your own agent | | 8 |
+| **CI** | Continuous integration | Workflows, runners, secrets, and treating your pipeline as a privileged machine | | 8 |
 | **OPS** | Operations | Failure injection, restore drills, patching | | 10 |
 | **PKI** | Certificates | Revocation, expiry, CA compromise, rotation | | 8 |
 | **IAM** | Identity | Lifecycle, access review, MFA, federation | | 8 |
