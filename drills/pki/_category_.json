@@ -1,0 +1,9 @@
+{
+  "label": "PKI: Certificates",
+  "position": 70,
+  "link": {
+    "type": "generated-index",
+    "slug": "/pki",
+    "description": "Revocation, expiry, CA compromise and rotation, against the certificate authority you built in Module 7."
+  }
+}
