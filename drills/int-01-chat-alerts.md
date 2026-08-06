@@ -1,6 +1,6 @@
 ---
 title: "INT-01 Get alerts where you will see them"
-sidebar_position: 1
+sidebar_position: 10
 ---
 
 # INT-01: Get alerts where you will see them

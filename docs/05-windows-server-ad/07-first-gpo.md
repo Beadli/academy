@@ -112,3 +112,19 @@ troubleshooting Group Policy consists of:
 Work that list top to bottom and you'll find it. It's the same
 discipline as the network ladder in lesson 4.4: check each layer in
 order rather than guessing which one is broken.
+
+## One honest caveat about what you just proved
+
+You verified this on a domain controller, because at this point in the
+course it's the only Windows machine you have. A domain controller is
+close to the worst machine in the estate to test a policy against: it
+sits in its own OU, with its own policies, and it's the one machine
+you'd never deploy a workstation setting to.
+
+In production you verify on a machine that represents the estate, and
+you check that policies you scoped *out* stayed out. That second half is
+the one almost nobody practises, and it's how a policy linked one level
+too high goes unnoticed.
+
+Drill [DEF-11](/drills/def-11-prove-policy-applied) does it properly once
+you have somewhere to do it.

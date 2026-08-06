@@ -36,7 +36,7 @@ soon:
 | **Integrations** | Alert routing, notification, status pages | 1 | 10 |
 | **Detection** | Write and tune rules against real techniques | | 12 |
 | **Offensive** | Attack your own domain, under the Module 14 rules | | 12 |
-| **Defensive** | Hardening, tiering, allowlisting, LAPS | | 11 |
+| **Defensive** | Hardening, tiering, allowlisting, LAPS | 1 | 11 |
 | **Operations** | Failure injection, restore drills, patching | | 10 |
 | **PKI** | Revocation, expiry, CA compromise, rotation | | 8 |
 | **Identity** | Lifecycle, access review, MFA, federation | | 8 |
