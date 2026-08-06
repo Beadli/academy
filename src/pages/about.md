@@ -71,14 +71,13 @@ of the course.
 
 ## Using the material yourself
 
-The course text is **CC BY-NC-SA 4.0**. You can copy it, adapt it and teach
-from it, provided you credit Beadli Lab Academy, don't sell it, and share
-your version under the same terms. The scripts and code are **MIT**, which
-means you can use those however you like, including commercially.
+**Text: CC BY-NC-SA 4.0.** Copy it, adapt it, teach from it. Credit Beadli
+Lab Academy, don't sell it, share your version on the same terms.
 
-Teachers and training providers: the non-commercial clause is about selling
-the material, not about using it in a classroom. If you want to run this
-course with students, that's exactly what it's for.
+**Code and scripts: MIT.** Use them however you like, commercially included.
+
+**Teaching it is fine.** The non-commercial clause is about selling the
+material, not about classroom use.
 
 ## Getting in touch
 
