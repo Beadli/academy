@@ -18,10 +18,10 @@ solves it again from scratch and learns nothing new doing it. I've been
 both people. The journal is better.
 
 So this module gives you a note system (Obsidian), version control for it
-(Git), a place it lives beyond your laptop (a hosted remote), a terminal
-that survives disconnects (tmux), and an AI assistant with rules
-(Claude). Together they're the toolkit; separately none of them is
-impressive.
+(Git), a place it lives beyond your laptop (GitHub now, your own Gitea
+later), a terminal that survives disconnects (tmux), and an AI assistant
+with rules (Claude). Together they're the toolkit; separately none of them
+is impressive.
 
 What's in it:
 
