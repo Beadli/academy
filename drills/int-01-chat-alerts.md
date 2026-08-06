@@ -229,9 +229,13 @@ and nothing is watching it.
 ## What this proves
 
 You can take a detection stack that technically works and make it reach a
-human, which is the difference between a lab and something you would trust to
-tell you about a real intrusion.
+human. Most home labs never close that gap, and most of the ones that do
+close it badly, by sending everything.
 
-The part worth talking about is not that you set up Slack alerts. It is why
-you picked level 10 and not 7, and what you would do about the fact that
-nothing is watching the integration itself.
+Nobody will be impressed that you configured a webhook. The two things worth
+having an answer ready for are why you picked level 10 and not 7, and what
+you would do about the fact that nothing is watching the integration itself.
+
+Write both in your own words in your journal now, while the reasoning is
+fresh. Six months from now you will remember that you did this, and not why
+you chose 10.
