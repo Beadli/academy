@@ -1,9 +1,9 @@
 ---
-title: "1.4 A remote: your journal, off your laptop"
+title: "1.4 Push your journal to GitHub"
 sidebar_position: 4
 ---
 
-# 1.4 A remote: your journal, off your laptop
+# 1.4 Push your journal to GitHub
 
 Right now every snapshot of your vault lives in one place: the laptop
 that could be stolen, dropped, or die of an SSD failure the week before

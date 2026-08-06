@@ -28,7 +28,7 @@ What's in it:
 - **1.1** note-taking with Markdown, the format your journal is written in
 - **1.2** Obsidian and the starter vault
 - **1.3** Git, the five commands that matter
-- **1.4** a remote: your journal, off your laptop
+- **1.4** push your journal to GitHub
 - **1.5** tmux, the terminal that survives
 - **1.6** Claude, with the rules that keep it useful
 - **1.7** journal entry
