@@ -80,17 +80,22 @@ vendor for.
 which is always: what could go wrong, what have you done about it, and can
 you show me?
 
-:::warning[Control identifiers change between revisions]
-The control numbers in this module (SC-7, AC-8, RA-5 and so on) come from
-NIST 800-53, and **some were renumbered or renamed between Revision 4 and
-Revision 5.**
+:::warning[Always cite a control from the publication, never from memory]
+The control numbers you will meet here, SC-7, AC-8, RA-5 and the rest, come
+from NIST 800-53. **Identifiers and control text change between revisions of
+that publication**, and several were renumbered or reworded between Revision 4
+and Revision 5.
 
-Treat the identifiers here as teaching examples rather than a citation. When
-you do this for real, read the control text in the current revision of the
-publication itself rather than trusting any secondary source, including this
-one. Getting a control ID slightly wrong in a real assessment is the kind of
-error that undermines everything else in the document.
+That makes one habit non-negotiable in this work: **when you cite a control in
+a real assessment, open the current revision and read the control text
+yourself.** Not a blog post, not a vendor's mapping table, not a course. The
+publication.
 
-The *reasoning* in this module does not depend on the numbers being current.
-The habit of checking them does.
+The reason is practical rather than pedantic. A wrong control ID is the kind
+of small error an assessor spots immediately, and once one citation is wrong
+they start checking all of them. Accuracy on the identifiers is what buys
+your judgement a hearing.
+
+Build the habit here, on the fifteen controls in this module, where being
+wrong costs nothing.
 :::

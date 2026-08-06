@@ -44,10 +44,9 @@ Resize-Partition -DriveLetter C -Size $max
 Your lab has two users. The sync database will be a few megabytes, not
 gigabytes, and the 70 GB figure is Microsoft sizing for real organisations.
 
-The installer may warn, and it may proceed anyway. If it hard-blocks, you will
-have to grow the disk. **I have not verified which it does at this size**, so
-try it and find out rather than trusting me. If you hit a hard block, say so
-and it belongs in the errata.
+The installer checks against that production figure rather than against your
+actual data, so it may warn. **A warning is not a blocker: read it and
+continue.** If it refuses outright, grow the disk and run it again.
 :::
 
 :::warning[You are about to do something the documentation advises against]

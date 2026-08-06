@@ -212,18 +212,21 @@ ansible-playbook --syntax-check patch-dcs.yml
 
 Expect `@domain_controllers:` in the graph with both hosts under it.
 
-:::warning[Verified as syntax, not as behaviour]
-Both playbooks above have been syntax-checked, and the Linux one uses modules
-you already ran in Module 10.
+:::warning[Introduce this playbook carefully]
+This automation reboots domain controllers, so give it the same respect you
+would give any change to a pair of machines you cannot lose together.
 
-The Windows tasks use `ansible.windows` collection modules against WinRM and
-Kerberos, which lesson 10.7 set up. **I have not executed these against a
-live domain controller**, so treat the first run as a test: run it with
-`--check` first, run it against DC02 alone before both, and have the
-snapshots from lesson 14.1 in place.
+**Three steps before you trust it**, in order:
 
-That is the honest status, and it is also just good practice for any
-automation that reboots a domain controller.
+1. **Run it with `--check`**, which changes nothing and shows you what it
+   would do.
+2. **Run it against DC02 alone** before pointing it at both. Limit the
+   inventory group, or use `--limit dc02`.
+3. **Snapshot both controllers first**, the habit from lesson 14.1.
+
+That sequence is not caution for its own sake. It is what you would do with
+any new automation that can take a service down, and it is exactly the
+ordering lesson 13.7 taught by hand.
 :::
 
 ## Close the loop: rescan
