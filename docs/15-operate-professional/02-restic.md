@@ -159,6 +159,28 @@ Your numbers will be much larger. **The line that matters is the last one:
 `snapshot <id> saved`.** No snapshot ID means no backup, whatever else the
 output said.
 
+:::tip[What this is called at work]
+restic is doing what **Veeam, Commvault, Rubrik and Cohesity** do: a
+repository, deduplicated snapshots, a retention policy, and encryption.
+
+**What enterprise backup adds is mostly awareness of what it is backing up.**
+It can quiesce a database or a domain controller so the copy is consistent
+rather than merely recent, which is the problem lesson 15.4 is about. It backs
+up virtual machines through the hypervisor rather than from inside them. And
+it schedules and reports across thousands of jobs, because at that scale the
+question is not "did it work" but "which twelve of last night's four thousand
+jobs failed".
+
+**The feature everybody is buying right now is immutability**: backups that
+cannot be deleted or encrypted even by an administrator, because ransomware
+operators go for the backups first and often succeed. Your restic repository
+does not have that, and knowing the gap exists is more useful than pretending
+it does not.
+
+The thing that does not change is lesson 15.3. **An untested backup is not a
+backup**, at any price.
+:::
+
 ## Now run it again, and watch why restic is worth it
 
 ```bash

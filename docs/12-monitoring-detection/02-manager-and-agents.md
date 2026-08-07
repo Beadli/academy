@@ -93,6 +93,25 @@ draws. When a vendor quotes you a hardware requirement, it is almost always
 the storage layer talking.
 :::
 
+:::tip[What this is called at work]
+You are building a **SIEM**, and the commercial ones are Splunk, Microsoft
+Sentinel, IBM QRadar and Elastic Security. Wazuh is doing the same job with
+the same parts: agents ship logs, a pipeline normalises them into fields,
+rules decide what is interesting, and somebody triages a queue.
+
+**What changes with a paid one is the money model, and it changes the
+engineering.** They are typically priced by how much data you ingest, so the
+question stops being "what could we collect" and becomes "what can we justify
+collecting". Arguments about excluding a chatty log source are budget
+conversations as much as technical ones, which is not obvious until you are
+in one.
+
+The other difference is who runs it. At a certain size you do not operate the
+platform at all: a separate team does, and your job is writing detections and
+working alerts. **The tuning you do in lesson 12.5 is that job**, and it
+transfers directly no matter whose logo is on the console.
+:::
+
 ## Where things live
 
 Two paths to remember, because everything in this module happens in them:

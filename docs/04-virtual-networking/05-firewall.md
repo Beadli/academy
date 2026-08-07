@@ -97,6 +97,29 @@ Leave WAN alone. It takes its address from your hypervisor's NAT DHCP,
 which is the correct behaviour: to your firewall, that side simply looks
 like an internet connection.
 
+:::tip[What this is called at work]
+OPNsense is a real firewall, and the ones in most enterprises are **Palo Alto,
+Fortinet, Cisco and Check Point**. The model you are about to learn is the
+model they use: interfaces, zones, rules evaluated in order, default deny
+inbound, stateful return traffic and NAT.
+
+**Three things are different, and only one of them is technical.**
+
+Enterprise firewalls identify traffic by application rather than by port, and
+can write rules about *users* by talking to Active Directory, so a rule reads
+"finance can reach the finance app" instead of "this subnet can reach port
+443". The threat and filtering subscriptions are usually where the real cost
+sits.
+
+They are managed centrally, because nobody logs into forty firewalls
+individually.
+
+And the one that surprises people most: **you will not click Apply.** A
+firewall change goes through a change request, a review and a window. The
+technical work is ten minutes and the process is two weeks, and learning the
+rule logic here is what lets you argue for the change convincingly.
+:::
+
 ## Reach the web interface
 
 From your own computer, browse to `https://10.10.10.254`.

@@ -127,6 +127,28 @@ service. Create it first, test the credentials by logging in with them
 once, then run the command.
 :::
 
+:::tip[What this is called at work]
+AD FS is Microsoft's on-premises identity provider, and the ones you are more
+likely to meet are **Okta, Microsoft Entra ID, Ping and Auth0**. They do the
+same job: an application trusts them to say who a user is.
+
+**The protocol knowledge transfers completely.** SAML assertions, claims,
+relying parties, signing certificates and the trust relationship you are about
+to configure are the same everywhere, because they are standards rather than
+products.
+
+**What does not transfer is running the thing.** A hosted identity provider
+takes away the farm, the patching, the certificate renewals and the database,
+and adds things AD FS never had: user provisioning into applications,
+conditional access policies, and MFA that somebody else maintains.
+
+Worth knowing honestly: **many organisations are moving off AD FS** towards
+Entra ID, so you may meet it mainly in migrations. That is not a reason to
+skip it. Understanding what a federation trust actually is makes the hosted
+version comprehensible rather than magic, and somebody has to do the
+migration.
+:::
+
 ## Prove it works
 
 AD FS publishes a metadata document describing itself. That document is

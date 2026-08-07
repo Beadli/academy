@@ -198,6 +198,22 @@ sudo systemctl reload nginx
 Browse to **`https://id.lab.internal`**. Padlock, no warning, Keycloak's
 welcome page.
 
+:::tip[What this is called at work]
+Keycloak's commercial equivalents are **Okta, Auth0, Ping and Entra ID**, and
+Keycloak itself is genuinely used in production, usually where an organisation
+wants to own its identity layer rather than rent it.
+
+The concepts you are about to meet are the ones those products charge for:
+**realms** are tenants, **clients** are applications, and mappers decide which
+attributes an application is told about. Every one of those exists in Okta and
+Auth0 under a slightly different name.
+
+**The paid ones mostly sell you not operating it**, plus the integration
+catalogue. Thousands of pre-built application connectors is a real feature and
+the reason procurement chooses them, and it is worth knowing that is what the
+money buys rather than better protocol support.
+:::
+
 ## First login and a realm
 
 Sign in to the administration console with `admin` and the password from
