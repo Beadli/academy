@@ -189,7 +189,7 @@ weeks. Lifetimes get shorter as you move down the chain, because the
 lower you are the easier you are to replace. That pattern holds in every
 PKI you will ever meet.
 
-:::tip[In GRC language]
+:::tip[In GRC terms]
 You are now a key custodian, which is a role with control requirements
 attached. **SC-12** covers cryptographic key establishment and
 management, **SC-17** covers PKI certificates specifically, and

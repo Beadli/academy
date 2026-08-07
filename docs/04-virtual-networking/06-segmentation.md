@@ -85,7 +85,7 @@ Module 14 you'll run these again from a position of having
 compromised something, and having today's baseline to compare against is
 what turns "I poked at it" into an assessment.
 
-:::tip[In GRC language]
+:::tip[In GRC terms]
 What you just built and tested has a name in control frameworks:
 **boundary protection**, SC-7 in NIST 800-53, and it's one of the
 controls auditors ask about first. Notice what made it assessable: not

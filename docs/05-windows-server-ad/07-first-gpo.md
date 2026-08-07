@@ -83,7 +83,7 @@ You configured a machine by editing a directory object. Nothing was
 installed, nothing was copied, and the same edit would have hit ten
 thousand machines identically.
 
-:::tip[In GRC language]
+:::tip[In GRC terms]
 That notice has a control number. It's **AC-8, System Use
 Notification** in NIST 800-53, and it's a common audit finding precisely
 because it's easy to skip. Notice what you can now produce as evidence:

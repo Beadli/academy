@@ -214,7 +214,7 @@ between an attacker and this machine.
 You'll open more ports as you add services, and each time it should feel
 like a decision.
 
-:::tip[In GRC language]
+:::tip[In GRC terms]
 The two changes you just made are among the most-audited controls in any
 framework. Key-based authentication with passwords disabled speaks to
 **IA-2** (identification and authentication) and **IA-5** (authenticator
