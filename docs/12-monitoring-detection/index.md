@@ -5,12 +5,6 @@ sidebar_position: 0
 
 # Module 12: Monitoring and detection
 
-<div className="stackLine">
-
-Wazuh · Sysmon · Suricata · Grafana
-
-</div>
-
 Lesson 0.2 described a security analyst as the person who watches the SIEM,
 triages alerts and decides what is real, and said the scanner-on-the-domain-
 controller story from lesson 0.1 was a day in their life.

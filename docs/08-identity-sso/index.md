@@ -5,12 +5,6 @@ sidebar_position: 0
 
 # Module 8: Identity and single sign-on
 
-<div className="stackLine">
-
-AD FS · Keycloak · Gitea
-
-</div>
-
 Module 5 gave your lab a directory that knows who people are. Module 7 gave
 it certificates so machines can prove who they are. This module connects
 the two to something a user actually touches: signing in to an application

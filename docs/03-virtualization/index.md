@@ -5,12 +5,6 @@ sidebar_position: 0
 
 # Module 3: Virtualization
 
-<div className="stackLine">
-
-VMware Workstation · VirtualBox
-
-</div>
-
 Two modules of tooling, and now the payoff starts: by the end of this
 one there will be a machine running inside your machine, you'll have
 killed it on purpose, and you'll have brought it back from the dead with

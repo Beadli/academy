@@ -5,12 +5,6 @@ sidebar_position: 0
 
 # Module 2: Scripting foundations
 
-<div className="stackLine">
-
-PowerShell · Bash · Python
-
-</div>
-
 You're about to meet the three languages that run this field: PowerShell
 for anything Windows, Bash for anything Linux, and Python for the glue in
 between. You'll use all three constantly for the rest of the course, and

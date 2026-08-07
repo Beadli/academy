@@ -5,12 +5,6 @@ sidebar_position: 0
 
 # Module 15: Operate like a professional
 
-<div className="stackLine">
-
-restic · Ansible · Gitea
-
-</div>
-
 This module has no new technology in it, and it is the one that most changes
 whether you are trusted with anything.
 

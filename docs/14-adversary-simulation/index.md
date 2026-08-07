@@ -5,12 +5,6 @@ sidebar_position: 0
 
 # Module 14: Adversary simulation
 
-<div className="stackLine">
-
-Kali Linux · BloodHound · Impacket · Certipy · DVWA
-
-</div>
-
 You have spent thirteen modules building an environment and two of them
 watching it. This module attacks it.
 
