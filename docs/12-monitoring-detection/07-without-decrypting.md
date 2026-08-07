@@ -274,6 +274,23 @@ format, through the same rules engine as the Windows and Linux host events.
 You now have one queue. That is what a SIEM is, and everything before this was
 just collection.
 
+:::tip[What this is called at work]
+Suricata's commercial cousins live under the label **NDR**, network detection
+and response: Darktrace, Vectra, ExtraHop, and Zeek on the open-source side
+doing the analysis half rather than the signature half.
+
+The problem you are meeting in this lesson is the one the whole category
+exists for. **Most traffic is encrypted, so detection moved to metadata**: who
+talked to whom, how often, how much, with what certificate and what timing.
+That is what the expensive products reason about too, they just add
+statistical baselining on top rather than rules you write.
+
+**The physical part is the same and it surprises people.** Enterprise sensors
+still need traffic delivered to them by a network TAP or a SPAN port, and
+somebody still has to decide where in the network to look. A sensor in the
+wrong place is blind at any price.
+:::
+
 ## Tier 1 and 2: what to take from this
 
 You have not built a sensor, and the ideas are the point.

@@ -54,6 +54,24 @@ that turning it off trades a Windows hardening feature for VM speed.
 That's a real trade with a real cost; I'm telling you the lever
 exists, not pulling it for you.
 
+:::tip[What this is called at work]
+Workstation and VirtualBox are **type 2** hypervisors, running on top of your
+operating system. Data centres run **type 1**, straight on the hardware:
+**VMware ESXi managed by vCenter, Microsoft Hyper-V, Proxmox, or Nutanix**,
+and in the cloud the same idea is somebody else's ESXi that you rent slices
+of.
+
+**The concepts are identical and that is the point of this module.** Virtual
+disks, snapshots, virtual switches, CPU and memory allocation, and the fact
+that a VM is a folder of files all behave the same way. Lesson 3.1 explains
+the type 1 and type 2 split properly.
+
+**What changes is who is affected when you get it wrong.** On your laptop a
+snapshot you forgot to delete costs you disk. On a shared cluster it costs
+somebody else their performance, which is why production virtualisation comes
+with change control and capacity planning rather than a right-click menu.
+:::
+
 ## Prove it works
 
 Open the application. You don't need to build anything yet; that's

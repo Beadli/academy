@@ -101,6 +101,23 @@ page** rather than skipping it. Skipping means the first person to
 register becomes the admin, which on a private lab is you, and in the
 wild is whoever finds it first.
 
+:::tip[What this is called at work]
+Gitea is a lighter version of **GitHub Enterprise, GitLab and Bitbucket**, and
+the daily interaction is identical: clone, branch, pull request, review,
+merge.
+
+**What the larger platforms add is everything around the repository.** CI/CD
+pipelines that build and deploy on push, branch protection that stops you
+merging without a review, secret scanning, and identity integration so
+joiners and leavers are handled by the directory rather than by hand.
+
+**Self-hosting is a real choice, not a budget one.** Plenty of organisations
+run their own Git server because the code cannot leave their network, and
+somebody has to operate it: backups, upgrades, storage. That somebody is doing
+what you are doing in this lesson, and in Module 15 you will back this exact
+service up.
+:::
+
 ## Why organizations do this
 
 Gitea is small, but the reasoning behind running it is not.

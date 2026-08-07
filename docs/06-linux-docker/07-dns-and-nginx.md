@@ -157,6 +157,23 @@ sudo systemctl reload nginx
 error caught by `-t` costs you five seconds; the same error found by
 `restart` takes the site down until you fix it.
 
+:::tip[What this is called at work]
+Nginx as a reverse proxy is doing the job of an **F5 BIG-IP**, a Citrix
+NetScaler, or a cloud load balancer like AWS ALB and Azure Application
+Gateway. Nginx itself is also genuinely used in production at very large
+scale, so this is not a toy standing in for a real thing.
+
+**What the appliances add is what happens when one is not enough.** Health
+checks that pull a failing backend out of rotation, balancing across many
+servers, session persistence, and a web application firewall in front of the
+lot. The cloud versions add certificate management you do not have to touch.
+
+**The concept that transfers is the one you are learning here**: the client
+talks to the proxy, the proxy talks to the service, and the service never
+needs a public address. Every product above is a more expensive way of saying
+that, and lesson 6.7's diagram is the whole idea.
+:::
+
 ## Use it
 
 From your own computer, browse to **`http://git.lab.internal`**.

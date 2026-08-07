@@ -309,6 +309,23 @@ fingerprint. The answer then was to look at it rather than dismiss it. It is
 still the answer.
 :::
 
+:::tip[What this is called at work]
+This is Ansible, and at work it is often still Ansible, which is unusual for
+this course. Its supported form is **Ansible Automation Platform**, and its
+competitors are Puppet, Chef, SaltStack, and on the Windows side Microsoft
+Configuration Manager and Intune.
+
+**What the paid platform adds is mostly other people.** A web interface so
+somebody who does not live in a terminal can run a job, role-based access so
+they can run *only* that job, credential storage so secrets are not in
+someone's home directory, and an audit log of who ran what against which
+hosts.
+
+**None of that changes the playbook.** The YAML you write in this module is
+the same YAML, which is exactly why this is worth learning in its raw form
+first: you are learning the product, not a lab substitute for it.
+:::
+
 ## What you have
 
 A control node, a description of your lab, and a proven connection to it. No

@@ -265,6 +265,23 @@ Stop the server on KALI01 with **Ctrl+C** when you're done.
   tool problem. Something in between dropped it, and if you're Tier 2 the
   firewall from lesson 4.5 is the first suspect.
 
+:::tip[What this is called at work]
+Wireshark needs no enterprise equivalent, because it **is** the enterprise
+tool. Network engineers, security analysts and vendor support all use exactly
+this, and "send me a packet capture" is a sentence you will hear from support
+desks for the rest of your career.
+
+**What is different is getting the traffic.** On your laptop you capture on an
+interface. In a data centre the traffic you care about is between two other
+machines, so it has to be delivered to you by a **network TAP** or a **SPAN
+port** on a switch, and getting that arranged is often slower than the
+analysis.
+
+At high volumes teams use `tshark` or `tcpdump` to capture headlessly and open
+only the interesting slice in Wireshark, because a graphical tool struggles
+with a hundred gigabytes. Same file format, same filters, same skill.
+:::
+
 ## Make it yours
 
 1. Capture a `ping` between two lab machines, filter on `icmp`, and find

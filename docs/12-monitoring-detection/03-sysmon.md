@@ -199,6 +199,25 @@ running, is the event visible in Event Viewer under
 `Applications and Services Logs > Microsoft > Windows > Sysmon`, did the agent
 restart cleanly, and is the agent still `Active` on the manager.
 
+:::tip[What this is called at work]
+Sysmon is free and it is doing the visible half of what **EDR** does:
+CrowdStrike Falcon, Microsoft Defender for Endpoint, SentinelOne. Process
+creation with parents, network connections tied to processes, image loads,
+registry writes. That is the same telemetry those products collect, and the
+event IDs you are about to learn are the vocabulary of the whole field.
+
+**What you are paying for with EDR is the other half.** It decides on its own
+that a chain looks malicious and kills it, without a rule you wrote. It keeps
+months of history searchable centrally. And it can isolate a machine from the
+network from a console, which is the feature people actually buy after their
+first incident.
+
+**Sysmon does not respond, it only reports.** Knowing where that line sits
+matters, because the interview question is not "have you used CrowdStrike",
+it is "what would you look for to spot process injection", and that answer is
+the same either way.
+:::
+
 ## The part worth remembering
 
 Sysmon does not detect anything. It is **telemetry**, not detection: it makes

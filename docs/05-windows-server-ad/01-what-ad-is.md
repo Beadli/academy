@@ -87,6 +87,24 @@ more often than anywhere else. When something in your domain misbehaves
 over the next twelve modules, check DNS first. You will be right often
 enough to feel psychic.
 
+:::tip[What this is called at work]
+Active Directory needs no substitute here either: **the thing you are about to
+build is the thing organisations run**, and it has been the backbone of
+corporate identity for twenty-five years. A domain controller in a bank does
+what DC01 will do, with more of everything.
+
+**What scale changes is caution, not concepts.** Sites and replication
+topology matter when controllers are in different countries. Group Policy
+becomes hundreds of objects with conflicting precedence. And nobody makes
+changes on a Friday, because the failure mode is that nobody in the company
+can log in.
+
+**The direction of travel is worth knowing.** Many organisations now run this
+alongside **Microsoft Entra ID** rather than replacing it, which is Module 9's
+whole subject. On-premises Active Directory is not going away, and being able
+to explain how the two relate is more employable than either alone.
+:::
+
 ## What you're about to build
 
 One Windows Server, promoted to be the first domain controller of a new

@@ -181,6 +181,23 @@ Module 4, is it open now.
 That table is what a real assessment's appendix looks like, and it is the
 artefact Module 16 wants.
 
+:::tip[What this is called at work]
+The tools in this module are the tools. **Impacket, BloodHound, Certipy and
+nmap are what professional testers actually run**, not lab approximations of
+something better.
+
+The commercial layer above them is **Cobalt Strike**, and increasingly its
+competitors, which exist for the part this module deliberately does not cover:
+managing many compromised machines at once, over channels built to survive
+detection. That is a red team problem rather than a penetration testing one.
+
+**What separates a professional from somebody with the same tools is the
+paperwork**, which is the least glamorous sentence in this course and the most
+accurate. Lesson 14.1's authorisation document, a defined scope, and a report
+somebody can act on. The tools are free and the discipline is what is being
+paid for.
+:::
+
 ## What you take from this
 
 A current picture of your own network, compared against a recorded past one,

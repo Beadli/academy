@@ -104,6 +104,23 @@ Issue**, and select **Subordinate Certification Authority**.
 That's it. You've just granted your issuing CA the ability to delegate,
 which is what makes the next lesson possible.
 
+:::tip[What this is called at work]
+Active Directory Certificate Services **is** the enterprise product. If you
+meet a Windows-heavy organisation with an internal PKI, this is very often
+exactly what is running, two-tier and offline-root just as you are building
+it.
+
+**What gets bought on top is lifecycle management**: Venafi, Keyfactor, or
+DigiCert's managed offerings. They do not issue better certificates. They
+answer "where are all our certificates, and which expire next month", which
+is the question that takes services down, and they automate renewal across
+estates too large to track by hand.
+
+**That is worth knowing before you need it.** The expired-certificate outage
+is one of the most common self-inflicted incidents in the industry, and the
+entire product category exists because spreadsheets do not work.
+:::
+
 ## Where you are
 
 One root, offline. One issuing CA, online and domain-joined, holding a

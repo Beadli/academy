@@ -139,6 +139,22 @@ Do not immediately start changing things and re-running it. Lesson 9.5 is
 about driving the sync deliberately, and it is much easier to read what is
 happening if the first cycle has completed cleanly on its own.
 
+:::tip[What this is called at work]
+This one needs no translation: **Entra Connect is the enterprise product**,
+and organisations with a hundred thousand users run this exact software.
+
+**What differs is the blast radius.** At work the sync is configured once by a
+small group and changed through a formal process, because a filtering mistake
+can disable thousands of accounts in the cloud in one cycle. Staging mode
+exists precisely so changes can be rehearsed before they take effect, and it
+is used seriously.
+
+**And the direction of authority you are learning here is the thing people get
+wrong.** Editing a synced attribute in the cloud portal and watching it be
+overwritten is a support ticket somebody raises every week, in every
+organisation running this.
+:::
+
 ## What you have just built
 
 A one-way pipe from a directory you promoted, to a cloud directory you own,
