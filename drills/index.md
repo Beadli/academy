@@ -43,7 +43,7 @@ Roughly in the order they will arrive:
 | **DEF** | Defensive | Hardening, tiering, allowlisting, LAPS | 1 | 11 |
 | **AI** | Engineering with AI | Review discipline, context drift, prompt injection against your own agent | | 8 |
 | **CI** | Continuous integration | Workflows, runners, secrets, and treating your pipeline as a privileged machine | | 8 |
-| **OPS** | Operations | Failure injection, restore drills, patching | | 10 |
+| **OPS** | Operations | Failure injection, restore drills, patching | 1 | 10 |
 | **PKI** | Certificates | Revocation, expiry, CA compromise, rotation | 1 | 8 |
 | **IAM** | Identity | Lifecycle, access review, MFA, federation | | 8 |
 | **IR** | Investigation | Timelines, memory, correlation, false positives | | 8 |

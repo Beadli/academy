@@ -1,0 +1,9 @@
+{
+  "label": "OPS: Operations",
+  "position": 65,
+  "link": {
+    "type": "generated-index",
+    "slug": "/operations",
+    "description": "Failure injection and recovery. Break something on purpose, then bring it back with a stopwatch running."
+  }
+}
