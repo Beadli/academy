@@ -7,7 +7,7 @@ sidebar_position: 0
 
 <div className="stackLine">
 
-Ubuntu Server · Docker · Compose · Gitea · Nginx
+Ubuntu Server · Docker · Compose · Gitea · Nginx · PostgreSQL
 
 </div>
 

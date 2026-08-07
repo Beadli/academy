@@ -7,7 +7,7 @@ sidebar_position: 0
 
 <div className="stackLine">
 
-Bash · PowerShell · awk
+PowerShell · Bash · Python
 
 </div>
 

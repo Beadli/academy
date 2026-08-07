@@ -7,7 +7,7 @@ sidebar_position: 0
 
 <div className="stackLine">
 
-Wazuh · Sysmon · Suricata
+Wazuh · Sysmon · Suricata · Grafana
 
 </div>
 
