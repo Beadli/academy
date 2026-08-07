@@ -1,0 +1,9 @@
+{
+  "label": "IR: Investigation",
+  "position": 50,
+  "link": {
+    "type": "generated-index",
+    "slug": "/investigation",
+    "description": "Timelines, correlation, memory and the unglamorous majority of the job: clearing things safely."
+  }
+}

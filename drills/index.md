@@ -46,7 +46,7 @@ Roughly in the order they will arrive:
 | **OPS** | Operations | Failure injection, restore drills, patching | 1 | 10 |
 | **PKI** | Certificates | Revocation, expiry, CA compromise, rotation | 1 | 8 |
 | **IAM** | Identity | Lifecycle, access review, MFA, federation | | 8 |
-| **IR** | Investigation | Timelines, memory, correlation, false positives | | 8 |
+| **IR** | Investigation | Timelines, memory, correlation, false positives | 1 | 8 |
 | **GRC** | Governance | Extend the assessment, crosswalk, questionnaires | | 8 |
 | **AUTO** | Automation | Make a drill idempotent, compliance as code | | 7 |
 | **NET** | Networking | Segmentation, DNS failure, rogue devices | | 7 |
