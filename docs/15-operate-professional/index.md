@@ -17,18 +17,18 @@ between a lab and an environment.
 
 Four modules made promises that come due here:
 
-- Lesson 3.5 said a snapshot is not a backup, and "Module 15 covers the real
-  thing".
-- Lesson 3.6 left "what's the difference between reverting a snapshot and
-  restoring a backup" as an open question this module "takes seriously".
+- Lesson 3.5 said snapshots are an undo button rather than protection against
+  hardware, and left the real thing to this module.
+- Lesson 3.6 had you write down an open question: what is the difference
+  between reverting a snapshot and restoring a backup?
 - Lesson 5.13 said "what happens if this single domain controller dies" is
-  the right question, and that the production answer is proper backup and
-  restore "rather than hypervisor snapshots at all".
-- Lesson 6.8 called pushing to two remotes "the 3-2-1 idea in its smallest
-  form" and said Module 15 "makes it a real backup strategy rather than a
-  habit you have to remember".
-- Lesson 13.7 said the scan, prioritise, fix, rescan loop "is what you will
-  automate in Module 15".
+  the right question to be asking, and that the production answer is a proper
+  backup and restore rather than hypervisor snapshots at all.
+- Lesson 6.8 called pushing to two remotes the 3-2-1 idea in its smallest
+  form, and said this module would turn it into a real backup strategy rather
+  than a habit you have to remember.
+- Lesson 13.7 said the scan, prioritise, fix, rescan loop was the one you
+  would automate here.
 
 What's in it:
 
