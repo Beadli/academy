@@ -78,9 +78,10 @@ you for yours.
 
 ## 3-2-1, properly this time
 
-Lesson 6.8 introduced this: "more than one copy, in more than one place" when
-you pushed your journal to both Gitea and GitHub, and said Module 15 "makes
-it a real backup strategy rather than a habit you have to remember."
+Lesson 6.8 introduced the idea of keeping "more than one copy, in more than
+one place" when you pushed your journal to both Gitea and GitHub. It also
+said that Module 15 would turn that practice into "a real backup strategy
+rather than a habit you have to remember."
 
 The full rule:
 
