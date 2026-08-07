@@ -59,10 +59,10 @@ you can still do 17.4 onwards from the machine's own logs, and 17.3 becomes a
 finding rather than an exercise.
 
 **Everything else you need, you already have**: the addressing plan from
-lesson 4.3, which said you would "still be able to read it in Module 17"; the
-journal with module numbers in its properties, which lesson 1.2 said would
-let you "pull up every note from the week you built the domain"; the
-runbooks from 15.7; and the GSS-1 package from Module 16.
+lesson 4.3, written so you would still be able to read it this far into the
+course; the journal with module numbers in its properties, which lesson 1.2
+set up so you could pull up every note from the week you built the domain;
+the runbooks from 15.7; and the GSS-1 package from Module 16.
 
 **Take a snapshot of UBNT01 before you start.** Lesson 14.1's habit. The
 cleanup script undoes everything, and a snapshot means you do not have to

@@ -9,11 +9,11 @@ Real intrusions do not start with an exploit. They start with somebody
 quietly working out what is there, and that phase is usually the longest one.
 
 You have done pieces of this already. Lesson 5.11 pointed `nmap` and
-`ldapsearch` at DC01 and I told you that was "the reconnaissance step of
-Module 14 against your own machine". Lesson 4.9's checkpoint had you record
-the commands "as the baseline Module 14 will compare against". This lesson
-does it properly, and the baseline is what makes it an assessment rather than
-poking.
+`ldapsearch` at DC01, and I told you at the time that you were running this
+module's reconnaissance step against your own machine. Lesson 4.9's
+checkpoint then had you record those commands, so this module would have a
+baseline to compare against. This lesson does it properly, and the baseline
+is what makes it an assessment rather than poking.
 
 **Boot KALI01** and put it on the lab segment, as lesson 4.6 described. Your
 rules of engagement from 14.1 say testing comes from this machine.

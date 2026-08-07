@@ -5,10 +5,9 @@ sidebar_position: 1
 
 # 14.1 The authorisation gate
 
-Lesson 4.7 said this module "formalises this with an authorization gate
-before any offensive work", and lesson 13.5 said Module 14 "makes you write
-one properly". This is that lesson, and it is a real one rather than a
-warning label.
+Lesson 4.7 said this module would put an authorisation gate in front of any
+offensive work, and lesson 13.5 said it would make you write one properly.
+This is that lesson, and it is a real one rather than a warning label.
 
 ## The uncomfortable part first
 

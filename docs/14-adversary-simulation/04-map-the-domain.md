@@ -88,8 +88,9 @@ carries a different edition than the project's current one.
 If `apt` cannot find it, go to the **BloodHound project's own documentation**
 and follow their current installation guide rather than an older blog post.
 Search their docs for "installation"; the community edition is the one you
-want. This is lesson 5's evergreen problem, and the honest instruction is to
-use the source rather than a command I pinned in a course.
+want. Offensive tooling moves faster than any course text can, so the honest
+instruction is to use the project's own docs rather than a command I pinned
+here.
 :::
 
 **Collect the data.** The collector runs as your unprivileged user and asks

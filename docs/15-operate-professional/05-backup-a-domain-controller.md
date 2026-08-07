@@ -58,8 +58,9 @@ boot files.
 
 **And note what that means**, having done Module 14: a system state backup
 contains `ntds.dit`, which contains every password hash in your domain.
-Lesson 14.8 called domain controllers the crown jewels, and said their backups
-are as sensitive as the controllers themselves. Now you are creating one. Wherever this file goes is, effectively, a domain controller.
+Lesson 5.5 said the backups of a domain controller are as sensitive as the
+controller itself, and Module 14 showed you why from the attacker's side. Now
+you are creating one. Wherever this file goes is, effectively, a domain controller.
 
 ## Do it
 

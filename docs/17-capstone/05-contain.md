@@ -182,8 +182,8 @@ account cannot log in, cannot escalate, and nothing is calling out.
 You have contained UBNT01. You have not established that UBNT01 is the whole
 of it, and assuming so is the most common error in real incidents.
 
-**Open your addressing plan from lesson 4.3**, which promised you would
-"still be able to read it in Module 17". This is what it is for: scoping
+**Open your addressing plan from lesson 4.3**, written so you would still be
+able to read it this far into the course. This is what it is for: scoping
 requires a list of every host that exists, and reconstructing that from
 memory during an incident is how machines get missed. Work down the list.
 

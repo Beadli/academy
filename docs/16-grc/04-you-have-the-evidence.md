@@ -9,11 +9,11 @@ This is the lesson where fifteen modules of journal entries pay off.
 
 Every module ended with a journal entry and a permanent note, and several
 lessons told you specifically that what you were writing would be needed
-here. Lesson 5.9 said "we tested DC failure and here is the evidence" is
-"exactly the kind of thing Module 16 will ask you to produce for real".
-Lesson 15.3 said the restore-test log "is what an auditor asks for in Module
-16". Lesson 14.1 called the rules of engagement "the first evidence in the
-folder Module 16 turns into an audit package".
+here. Lesson 5.9 told you that "we tested DC failure and here is the
+evidence" was exactly the kind of thing this module would ask you to produce
+for real. Lesson 15.3 said the restore-test log is what an auditor asks for.
+Lesson 14.1 called your rules of engagement the first item in the folder that
+becomes an audit package.
 
 Time to collect the folder.
 

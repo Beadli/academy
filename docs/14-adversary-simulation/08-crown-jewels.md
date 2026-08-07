@@ -164,12 +164,12 @@ administration from 14.6, so no privileged credential lands on a machine an
 attacker can reach. Monitoring for 4662 so the request is noticed. And
 reviewing who holds replication rights, which you just did.
 
-**Also: backups.** Lesson 5.5 said domain controller backups "are as
-sensitive as they are". Now you know why literally: a DC backup contains
-`ntds.dit`, so it contains every credential. A backup system that can restore
-a domain controller is a system that can hand somebody the domain. Treat its
-access controls as though they were the domain controller's own, because
-effectively they are.
+**Also: backups.** Lesson 5.5 said the backups of a domain controller are as
+sensitive as the controller itself. Now you know why literally: a DC backup
+contains `ntds.dit`, so it contains every credential. A backup system that
+can restore a domain controller is a system that can hand somebody the
+domain. Treat its access controls as though they were the domain
+controller's own, because effectively they are.
 
 ## What you take from this
 

@@ -42,8 +42,8 @@ bold are the ones that are genuinely unusual.
 
 ## The problem with showing it
 
-Lesson 16.9 raised this and called sanitisation "itself a professional
-skill":
+Lesson 16.9 raised this, and called sanitisation a professional skill in its
+own right:
 
 > Your SSP describes, in one place, every control protecting your lab and
 > every place it is weak.

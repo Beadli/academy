@@ -5,8 +5,8 @@ sidebar_position: 3
 
 # 14.3 A deliberately vulnerable target
 
-Lesson 4.6 warned that your lab "by Module 14 will contain deliberately
-vulnerable machines". Here is the first one.
+Lesson 4.6 warned you that by this module your lab would contain deliberately
+vulnerable machines. Here is the first one.
 
 Lesson 6.9 taught you SQL injection as a concept, ending with: "Defence in
 depth means the second control matters precisely because the first one
