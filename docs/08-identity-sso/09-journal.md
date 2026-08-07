@@ -56,6 +56,6 @@ git push
 
 Tick Module 8 in `Projects/lab-progress.md`.
 
-Snapshot ADFS01 if you built it, and remember the rule from lesson 5.12:
+Snapshot ADFS01 if you built it, and remember the rule from lesson 5.13:
 domain controllers are the machines that need care with snapshots, and
 ADFS01 is not one. Snapshot it freely.

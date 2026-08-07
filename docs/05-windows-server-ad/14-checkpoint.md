@@ -1,9 +1,9 @@
 ---
-title: "5.13 Checkpoint: a working domain"
-sidebar_position: 13
+title: "5.14 Checkpoint: a working domain"
+sidebar_position: 14
 ---
 
-# 5.13 Checkpoint: a working domain
+# 5.14 Checkpoint: a working domain
 
 Run these on DC01, in an administrator PowerShell window.
 
@@ -100,8 +100,15 @@ sudo nmap -Pn 10.10.10.10
       mode, moved the PDC Emulator to DC02 and back, and confirmed with
       `netdom query fsmo` rather than trusting the script's own output
       (lesson 5.10)
+- [ ] **Tier 1:** DHCP runs on DC01, hands out `10.10.10.10` as the DNS
+      server, and your hypervisor's DHCP is switched off. You proved it by
+      putting one machine back on DHCP and watching it resolve a name only
+      your domain knows (lesson 5.12)
+- [ ] **Tier 2:** you can say why FW01 already does this job, and name one
+      reason a real network might move it onto a domain controller
+      instead (lesson 5.12)
 - [ ] `Projects/lab-domain.md` written, journal committed and pushed,
-      DC01 snapshotted as `domain-built` (lesson 5.12)
+      DC01 snapshotted as `domain-built` (lesson 5.13)
 
 ## What you just finished
 

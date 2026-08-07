@@ -121,7 +121,7 @@ you want once you've decided to keep the changes.
 :::warning[Domain controllers are a special case]
 From Module 5 you'll be running domain controllers, and reverting *those*
 to an old snapshot can corrupt Active Directory replication in a way that
-is genuinely painful to repair. Lesson 5.12 explains why and what to do
+is genuinely painful to repair. Lesson 5.13 explains why and what to do
 instead. Taking snapshots of them is fine; reverting one of a pair on its
 own is not.
 :::

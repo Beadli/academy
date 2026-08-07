@@ -5,7 +5,7 @@ sidebar_position: 5
 
 # 15.5 Back up a domain controller
 
-Lesson 5.12 left you with an open question it called "the right question to be
+Lesson 5.13 left you with an open question it called "the right question to be
 asking": what happens if this domain controller dies. It also said, when
 warning you about snapshotting DCs:
 
@@ -41,7 +41,7 @@ reconcile because neither one thinks anything is wrong. It has a name,
 **USN rollback**, and it is genuinely one of the nastier states in Windows
 administration precisely because nothing looks broken.
 
-**That is why lesson 5.12 told you to snapshot both DCs together with both
+**That is why lesson 5.13 told you to snapshot both DCs together with both
 powered off, or not at all.** You now know what the rule was protecting you
 from.
 
@@ -184,7 +184,7 @@ were for.
 ## What you take from this
 
 You know why a domain controller cannot be restored like a file server, what
-USN rollback is and what lesson 5.12's snapshot rule was protecting you from,
+USN rollback is and what lesson 5.13's snapshot rule was protecting you from,
 the difference between the two restore types and how to choose, and the
 honest answer that with two DCs your real recovery is rebuild rather than
 restore.

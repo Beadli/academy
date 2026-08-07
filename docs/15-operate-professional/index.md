@@ -21,7 +21,7 @@ Four modules made promises that come due here:
   thing".
 - Lesson 3.6 left "what's the difference between reverting a snapshot and
   restoring a backup" as an open question this module "takes seriously".
-- Lesson 5.12 said "what happens if this single domain controller dies" is
+- Lesson 5.13 said "what happens if this single domain controller dies" is
   the right question, and that the production answer is proper backup and
   restore "rather than hypervisor snapshots at all".
 - Lesson 6.8 called pushing to two remotes "the 3-2-1 idea in its smallest

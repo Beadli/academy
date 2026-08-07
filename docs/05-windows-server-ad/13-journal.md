@@ -1,9 +1,9 @@
 ---
-title: "5.12 Journal: you have a domain"
-sidebar_position: 12
+title: "5.13 Journal: you have a domain"
+sidebar_position: 13
 ---
 
-# 5.12 Journal: you have a domain
+# 5.13 Journal: you have a domain
 
 Two notes today: one permanent, one daily.
 

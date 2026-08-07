@@ -32,8 +32,9 @@ What's in it:
 - **5.9** watch replication work, then break it on purpose
 - **5.10** FSMO roles, and a script to move them
 - **5.11** see your domain from the network
-- **5.12** journal entry
-- **5.13** checkpoint
+- **5.12** take over DHCP from your hypervisor
+- **5.13** journal entry
+- **5.14** checkpoint
 
 **Tier 1 and up.** DC01 wants 3 GB of RAM and stays running for the rest
 of the course. DC02 wants another 3 GB but is only powered on for lessons

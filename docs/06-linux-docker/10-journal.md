@@ -50,4 +50,4 @@ git push github main     # and the off-lab copy
 
 Tick Module 6 in `Projects/lab-progress.md`, and snapshot UBNT01 as
 `docker-and-gitea`. Unlike DC01, this machine is safe to snapshot
-freely; the warning in lesson 5.12 was specific to domain controllers.
+freely; the warning in lesson 5.13 was specific to domain controllers.
