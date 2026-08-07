@@ -54,8 +54,9 @@ Entra Connect does when it syncs: it takes that hash and hashes it again,
 with a deliberately slow algorithm and many iterations, precisely because the
 original is so weak.
 
-**And now the part that closes lesson 9.6's loop.** It said "syncing to the
-cloud does not improve the on-premises hash's weaknesses". This is the
+**And now the part that closes lesson 9.6's loop.** It told you the
+on-premises hash keeps its original weaknesses no matter what syncs to the
+cloud. This is the
 demonstration: the slow, salted, cloud-side hash protects the cloud copy. The
 on-premises hash on your domain controller is unchanged, still fast, still
 unsalted, still directly usable against every machine in your domain. **Cloud
