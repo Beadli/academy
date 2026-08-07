@@ -81,15 +81,16 @@ Recent Windows 11 versions of Notepad added a little Markdown formatting of
 their own, so you may instead see real bold text and a formatting toolbar.
 That's fine too. Either view is the same file on disk.
 
-**Notepad: set "Save as type" to "All Files" before you save.** Left on "Text
-Documents" it appends `.txt` and you get `module-0.md.txt`, which is not the
-file you meant and which Windows will hide the end of. If the next lesson
-can't find your file, this is why.
+**Notepad: set "Save as type" to "All Files" before you save.** If you leave
+it on "Text Documents", Notepad adds `.txt` to the end and you get
+`module-0.md.txt`, which is not the file you meant and which Windows will hide
+the end of. If the next lesson can't find your file, this is why.
 
-**TextEdit on macOS: choose Format > Make Plain Text first.** It starts new
-documents in rich text and will otherwise save something that only looks like
-what you typed. The menu item is a toggle, and you want it showing "Make Rich
-Text" once you're done, which means plain is currently on.
+**TextEdit on macOS: choose Format > Make Plain Text first.** TextEdit starts
+new documents in rich text. If you don't switch it, you save a file that only
+looks like what you typed. The menu item is a toggle, so once you have
+switched it the menu reads "Make Rich Text" instead, and that is how you know
+plain text is on.
 :::
 
 Keep the file next to your original notes. In the next lesson it gets a
