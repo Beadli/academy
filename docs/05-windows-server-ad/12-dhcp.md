@@ -100,6 +100,20 @@ A **scope** is a range of addresses a DHCP server may hand out, plus the
 settings that go with them. Yours was designed in lesson 4.3 and you have
 been reserving it ever since: `.100` to `.199`.
 
+**In the console**, which is how most administrators do this the first time:
+open **Server Manager**, then **Tools > DHCP**. Expand your server, right-click
+**IPv4** and choose **New Scope**. The wizard asks for a name, the start and
+end addresses, a subnet mask, then the router and DNS settings in later
+steps, which are the same values as the commands below.
+
+**Learn the console even though the commands are faster**, because reading is
+a console job. When somebody asks which machine had `10.10.10.137` last
+Tuesday, you open this and look at **Address Leases**. There is no satisfying
+way to eyeball that from a command line.
+
+Or, as in lesson 5.6, do it in PowerShell, which is what the rest of this
+lesson uses because it is copy-pasteable and every step can be verified:
+
 ```powershell
 # The range. Everything below .100 stays reserved for machines you
 # address by hand, exactly as the plan in 4.3 says.
