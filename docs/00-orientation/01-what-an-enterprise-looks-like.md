@@ -15,8 +15,8 @@ virtual machines, and read the logs when something looked wrong.
 College courses teach you Java and how to subnet on paper. The space between
 those two things is where this course lives. Not because nobody teaches these
 subjects, plenty of people do, but because they are almost always taught one
-at a time, as separate tools with separate tutorials. The job is the part
-where they connect, and that is the part nobody hands you.
+at a time, as separate tools with separate tutorials. The job is where they
+connect, and that is the part nobody hands you.
 
 ## The morning login, unpacked
 
