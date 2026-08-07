@@ -39,6 +39,50 @@ failure when you don't have them is a confusing "access denied" rather
 than a helpful "run me as admin". You'll know it worked because the
 window title says Administrator.
 
+### There are three of these, and you will meet all three
+
+This confuses people for years, so take two minutes on it now. "PowerShell"
+names three different things you will run into.
+
+**Windows PowerShell 5.1** is what you just opened. It ships with every
+version of Windows and Windows Server, it is already on every machine you are
+about to build, and it is what this course uses on servers. Microsoft is not
+adding features to it. That is fine: everything the course does works here,
+and needing no installation on a fresh server is worth more than new features.
+
+**PowerShell 7** is the current one, sometimes called PowerShell Core. It is a
+separate program that installs alongside 5.1 rather than replacing it, its
+command is `pwsh` instead of `powershell`, and it runs on Linux and macOS too.
+It is where new automation should be written, and it is worth installing on
+your own machine. **It is not on Windows Server by default**, and a handful of
+older Windows-management commands were dropped from it, so this course does
+not assume it.
+
+**The PowerShell ISE**, for Integrated Scripting Environment, is an editor
+that shipped with Windows for years. It only runs Windows PowerShell 5.1, it
+cannot run PowerShell 7 at all, and Microsoft has stopped developing it in
+favour of the editor you'll install further down this page.
+
+**Learn that the ISE exists anyway, because one day it may be all you get.**
+Plenty of organisations hand administrators a locked-down management server
+with no editor installed, no package manager, and no permission to add
+either. The ISE sitting in the Start menu is then the entire toolkit.
+Somebody who has only ever written PowerShell in a modern editor arrives on
+that machine and cannot work. Open it once, notice it has a script pane on
+top and a console underneath, and file it away.
+
+**Which one am I in?** Ask, rather than guessing:
+
+```powershell
+# 5.1 prints a version starting with 5. PowerShell 7 prints 7.
+$PSVersionTable.PSVersion
+```
+
+For the rest of this course, "PowerShell" means Windows PowerShell 5.1 unless
+a lesson says otherwise.
+
+## Your first commands
+
 You get a prompt that looks like `PS C:\Users\you>`. Type a command,
 press Enter, read what comes back. That's the whole interaction:
 
