@@ -5,8 +5,8 @@ sidebar_position: 5
 
 # 15.5 Back up a domain controller
 
-Lesson 5.13 left you with an open question it called "the right question to be
-asking": what happens if this domain controller dies. It also said, when
+Lesson 5.13 left you with an open question, and called it the right one to be
+asking: what happens if this domain controller dies? It also said, when
 warning you about snapshotting DCs:
 
 > In production the answer is a proper backup and restore rather than
@@ -58,8 +58,8 @@ boot files.
 
 **And note what that means**, having done Module 14: a system state backup
 contains `ntds.dit`, which contains every password hash in your domain.
-Lesson 14.8 said DC backups "are as sensitive as they are" and now you are
-creating one. Wherever this file goes is, effectively, a domain controller.
+Lesson 14.8 called domain controllers the crown jewels, and said their backups
+are as sensitive as the controllers themselves. Now you are creating one. Wherever this file goes is, effectively, a domain controller.
 
 ## Do it
 

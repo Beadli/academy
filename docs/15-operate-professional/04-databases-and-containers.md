@@ -162,9 +162,11 @@ or you need a version that is no longer published, your restore stalls.
 Lesson 13.8's supply chain point, arriving in an operations context.
 
 Recording the exact image tag in your compose file, rather than `latest`, is
-what makes a restore reproducible. This is the one place a version pin is
-correct, and it is why lesson 5's evergreen rule made an exception for
-"deliberate pins in build tooling when reasoned".
+what makes a restore reproducible. Pinning a version is usually a maintenance
+debt, because a pin stops being current the day after you write it. This is
+the exception: here the pin is part of what you are restoring, and `latest`
+means you get whichever version exists on the day you restore rather than the
+one that was running when the backup was taken.
 
 ## The restore drill for a service
 

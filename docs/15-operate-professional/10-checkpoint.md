@@ -89,8 +89,9 @@ ansible-inventory --graph | grep -A3 domain_controllers
 
 **Tier 2 and up, the domain:**
 
-- [ ] You can explain **USN rollback**, and what lesson 5.13's "snapshot both
-      DCs together or not at all" rule was protecting you from (lesson 15.5)
+- [ ] You can explain **USN rollback**, and what lesson 5.13's rule about
+      snapshotting both DCs together or not at all was protecting you from
+      (lesson 15.5)
 - [ ] A system state backup exists, and you understand it contains every
       password hash in your domain (lesson 15.5, building on 14.8)
 - [ ] You can state the difference between authoritative and non-authoritative
