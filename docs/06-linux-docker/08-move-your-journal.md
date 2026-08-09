@@ -89,19 +89,37 @@ git commit -m "journal: moved to self-hosted Gitea"
 git push
 ```
 
-Then, from a *different* machine (your workstation if the vault lives on
-your laptop, or the other way round), clone it fresh:
+Now clone it back fresh, so you watch the journal arrive *from the server*
+rather than reading the copy already on your disk.
+
+If you own a second computer, do this on that one and it proves the point
+most vividly. Most people taking this course have one machine, though, so
+the version below runs on the machine you are already sitting at. It clones
+into a scratch folder under a different name on purpose: your vault is
+already at `~/git/lab-journal`, and cloning on top of it fails with
+`fatal: destination path 'lab-journal' already exists and is not an empty
+directory.`
 
 ```bash
-# That machine has never had a git folder made on it, because lesson 1.2
-# made one on your laptop and folders do not travel between machines.
-mkdir -p ~/git && cd ~/git
+# A throwaway copy, deliberately not in ~/git and deliberately not named
+# lab-journal, so nothing you already have is touched.
+git clone http://git.lab.internal/sam/lab-journal.git /tmp/journal-check
 
-git clone http://git.lab.internal/sam/lab-journal.git
+# The line you pushed a minute ago should be the last one here.
+tail -3 /tmp/journal-check/Projects/lab-progress.md
 ```
 
-Two copies, one server, both in step. That's the workflow every
-development team on earth runs, and you just built the middle of it.
+Seeing `- Journal now hosted on UBNT01` come back out of a server you built,
+in a folder you have never edited, is the whole point of the exercise. Two
+copies, one server, both in step. That's the workflow every development team
+on earth runs, and you just built the middle of it.
+
+Delete the scratch copy once you've seen it. A second copy of your journal
+lying around is a copy that will drift out of date and confuse you later:
+
+```bash
+rm -rf /tmp/journal-check
+```
 
 ## Keep the other copy
 
