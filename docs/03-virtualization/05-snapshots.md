@@ -118,6 +118,15 @@ Deleting a snapshot does not undo your work. It merges the changes
 permanently into the disk and reclaims the space, which is exactly what
 you want once you've decided to keep the changes.
 
+**What changes at work is who pays for ignoring all of that.** Here, a
+snapshot you forgot about costs you disk and a slower VM, and you are the only
+person inconvenienced. On a shared cluster the same delta files sit on storage
+another team is billed for, and the slowdown lands on whoever else happens to
+be running on that host. The rules above do not change when you get a job.
+What changes is that production virtualisation wraps them in change control
+and capacity planning, rather than leaving them to a right-click menu and your
+memory.
+
 :::warning[Domain controllers are a special case]
 From Module 5 you'll be running domain controllers, and reverting *those*
 to an old snapshot can corrupt Active Directory replication in a way that
