@@ -37,9 +37,13 @@ sudo apt install git
 # command line tools; accept and you're done.
 ```
 
-Close and reopen your terminal afterward. That is not superstition: the
-installer adds Git to your PATH, the list of folders your shell searches for
-commands, and a shell only reads that list when it starts.
+Close and reopen your terminal window afterward. That is not superstition.
+The installer puts the `git` program in a new folder, and adds that folder to
+your PATH, the list of folders searched whenever you type a command name. PATH
+is read once, at the moment a terminal window opens. So a window that was
+already open when you installed Git is still working from the older PATH, the
+one with no `git` in it, and retyping the command will not change that. A
+window you open now reads the updated PATH and finds Git.
 
 **How you know it worked:**
 
@@ -51,12 +55,22 @@ git --version
 Expect something like `git version 2.43.0`. The number does not matter; this
 course uses nothing version-specific.
 
-**If you get "command not found" or "not recognized"**, the shell is still
-running with the old PATH. Close every terminal window and open a fresh one.
+**If you get "command not found" or "not recognized"**, the window you are
+typing in is still running with the old PATH. Close every terminal window and
+open a fresh one.
 If it still fails after that, the install did not finish, and running it again
 is safe.
 
 ## The shell this course uses
+
+Two words have been doing similar work above, so here is the difference once,
+because from now on they mean different things. The **terminal** is the
+window. The **shell** is the program running inside that window: it reads what
+you type, works out what you meant, and runs it. Windows machines come with
+PowerShell, Linux with bash, macOS with zsh, which is bash's close relative.
+Change the shell and the window looks identical while the commands it accepts
+change underneath you. That is exactly the trap this section is about to spare
+you.
 
 Windows users just got something extra without being told: the Git
 installer ships **Git Bash**, a real bash shell running on Windows. Find

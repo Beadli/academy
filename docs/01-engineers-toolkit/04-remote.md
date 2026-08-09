@@ -71,6 +71,9 @@ git remote -v
 gh repo view --web
 ```
 
+`repo` in those commands is just the usual short form of repository. Both
+words mean the same thing and you will meet both everywhere.
+
 From now on the daily rhythm from lesson 1.3 gains one beat: `status`,
 `add`, `commit`, **`push`**. Commit is the snapshot; push is the
 snapshot leaving the building.
