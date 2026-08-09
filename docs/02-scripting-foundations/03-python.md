@@ -28,8 +28,21 @@ machines; the day it matches something, I want to know before breakfast.
 # a course goes stale. So ask winget what's current, then install the
 # newest 3.x it lists:
 winget search Python.Python.3
+```
 
-winget install --id Python.Python.3.13 -e   # use the newest id FROM YOUR SEARCH, not this line
+**Read that list by the numbers, not by position.** winget sorts it as text
+rather than as versions, so `3.10` through `3.14` land between `3.1` and
+`3.2`, and the highest version sits somewhere in the middle. The **last row
+is 3.9**, which is years old and out of support, and it is the row you will
+take if you do what everybody does and read to the bottom of a sorted list.
+
+Compare the second number in each id and pick the largest. Then install that
+one:
+
+```powershell
+# Substitute the highest id your own search printed. The number below
+# will be wrong by the time you read this, which is the entire point.
+winget install --id Python.Python.3.14 -e
 ```
 
 (If you'd rather click than search, the installer at
