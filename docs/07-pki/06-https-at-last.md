@@ -244,7 +244,8 @@ pane. You can read, in the clear:
 
 - the TLS version the client is willing to speak
 - the list of cipher suites it supports
-- the **Server Name Indication**, which is the hostname it's asking for
+- the **Server Name Indication**, usually written **SNI**, which is the
+  hostname it's asking for
 
 That last one surprises people, and it's worth understanding rather than
 being alarmed by. The client has to say which site it wants *before*

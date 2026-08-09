@@ -102,8 +102,10 @@ impacket-secretsdump lab.internal/sokoth.adm@10.10.10.10 \
 **How you know it worked:** you get a line in the shape
 `svc-backup:1234:aad3b435b51404eeaad3b435b51404ee:<32 hex characters>:::`
 
-The second long field is the **LM hash**, and on any modern domain it is
-always that same constant, which means "no LM hash stored". The third is the
+The second long field is the **LM hash**, short for LAN Manager, an
+authentication scheme so old and so weak that Windows stopped storing its
+hashes years ago. On any modern domain that field is always the same
+constant, which means "no LM hash stored". The third is the
 **NTLM hash**, and that is what you are about to use.
 
 ## Use it without cracking it

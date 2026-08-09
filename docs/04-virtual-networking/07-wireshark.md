@@ -274,8 +274,9 @@ desks for the rest of your career.
 **What is different is getting the traffic.** On your laptop you capture on an
 interface. In a data centre the traffic you care about is between two other
 machines, so it has to be delivered to you by a **network TAP** or a **SPAN
-port** on a switch, and getting that arranged is often slower than the
-analysis.
+port** on a switch. SPAN is Switched Port Analyzer, the switch feature that
+copies traffic from one port to another so you can watch it, and getting
+either of these arranged is often slower than the analysis.
 
 At high volumes teams use `tshark` or `tcpdump` to capture headlessly and open
 only the interesting slice in Wireshark, because a graphical tool struggles

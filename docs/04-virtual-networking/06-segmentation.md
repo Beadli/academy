@@ -88,7 +88,9 @@ what turns "I poked at it" into an assessment.
 :::tip[In GRC terms]
 What you just built and tested has a name in control frameworks:
 **boundary protection**, SC-7 in NIST 800-53, and it's one of the
-controls auditors ask about first. Notice what made it assessable: not
+controls auditors ask about first. NIST is the US National Institute of
+Standards and Technology, and 800-53 is its catalogue of security controls,
+which Module 16 puts to work on your own lab. Notice what made it assessable: not
 the fact that a firewall exists, but that you can state the policy, show
 the rules that implement it, and produce evidence you tested both
 directions. That's the difference between a control that's implemented
