@@ -11,7 +11,8 @@ When a task involves "fetch data from a service and make sense of it,"
 Python is usually the shortest path, and that's exactly today's job.
 
 The data source is worth knowing on its own. CISA (the US cybersecurity
-agency) publishes the **Known Exploited Vulnerabilities catalog**: not
+agency) publishes the **Known Exploited Vulnerabilities catalog**, which
+everyone including this course calls the **KEV catalog**: not
 every CVE ever filed, just the ones attackers are *confirmed to be using
 right now*. When vulnerability counts get overwhelming (and in Module 13
 you'll see scanners hand you hundreds per host), KEV is the shortlist
