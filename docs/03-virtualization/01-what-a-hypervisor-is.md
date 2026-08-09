@@ -148,14 +148,19 @@ same concept has a different name on each platform:
 
 <div className="labTable">
 
-| Concept | VMware | Hyper-V | Proxmox |
-|---|---|---|---|
-| point-in-time copy | snapshot | checkpoint | snapshot |
-| move a running VM | vMotion | live migration | migrate |
-| where disks live | datastore | SMB/CSV share | storage pool |
-| management console | vCenter | Windows Admin Center | web UI, built in |
+| Concept | VMware | Hyper-V | Proxmox | Nutanix |
+|---|---|---|---|---|
+| point-in-time copy | snapshot | checkpoint | snapshot | snapshot |
+| move a running VM | vMotion | live migration | migrate | migrate |
+| where disks live | datastore | SMB/CSV share | storage pool | storage container |
+| management console | vCenter | Windows Admin Center | web UI, built in | Prism |
 
 </div>
+
+Nutanix makes the point better than the others do: its own API documentation
+writes "the snapshot (VM Recovery Point)", using two names for one object in a
+single line, because *recovery point* is the formal term and *snapshot* is
+what everybody actually says.
 
 Don't go and learn all of these. Recognise the names, know which family
 each belongs to, and remember that the concepts underneath are the ones
