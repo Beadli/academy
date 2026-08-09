@@ -93,6 +93,10 @@ Then, from a *different* machine (your workstation if the vault lives on
 your laptop, or the other way round), clone it fresh:
 
 ```bash
+# That machine has never had a git folder made on it, because lesson 1.2
+# made one on your laptop and folders do not travel between machines.
+mkdir -p ~/git && cd ~/git
+
 git clone http://git.lab.internal/sam/lab-journal.git
 ```
 

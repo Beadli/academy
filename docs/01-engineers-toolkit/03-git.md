@@ -152,7 +152,7 @@ line is missing, run that one command again and watch for a typo in
 ## Put the vault under Git
 
 ```bash
-# Move into your vault folder first. Adjust the path to yours.
+# Move into the vault folder you made in lesson 1.2.
 cd ~/git/lab-journal
 
 # Turn this folder into a Git repository. This creates a hidden

@@ -261,7 +261,9 @@ comments are the lesson.
 # Measures this machine and writes a Markdown report into the vault.
 
 # A variable in PowerShell starts with $. This one holds the path to
-# your vault. CHANGE THIS if your vault lives somewhere else.
+# the vault you made in lesson 1.2. $HOME is your user folder, so this
+# is the same place bash writes as ~/git/lab-journal. Change it only if
+# you named your vault something else.
 $vault = "$HOME\git\lab-journal"
 
 # Get-CimInstance asks Windows for management objects. Think of these

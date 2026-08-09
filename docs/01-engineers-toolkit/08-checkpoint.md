@@ -10,7 +10,7 @@ checklist, and you run it from your vault folder. It's a `bash` block, so
 Git Bash on Windows, per lesson 1.3.
 
 ```bash
-cd ~/git/lab-journal    # adjust to your vault path
+cd ~/git/lab-journal    # the vault folder from lesson 1.2
 
 # At least three commits, with messages you wrote.
 git log --oneline

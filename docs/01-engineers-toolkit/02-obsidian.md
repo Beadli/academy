@@ -31,14 +31,45 @@ Download the starter vault from GitHub:
 green **Code** button, **Download ZIP**.
 
 You'll get a file called `starter-vault-main.zip`. That `-main` is the
-branch name, which GitHub tacks on to every ZIP it makes; it means
-nothing here. Unzip it somewhere sensible and you'll have a folder
-called `starter-vault-main`.
+branch name, which GitHub tacks on to every ZIP it makes; it means nothing
+here.
 
-**Rename that folder to `lab-journal`.** On my machine it ends up at
-`~/git/lab-journal`; `Documents\lab-journal` is fine on Windows. The name
-is yours to choose, but the rest of the course says `lab-journal` when it
-needs to name your vault, so following along is easier if you match it.
+**Before you unzip it, decide where it lives, because that decision outlives
+this lesson.** Engineers keep repositories together in one folder instead of
+scattering them across the desktop, Documents and Downloads. You are going to
+have several by the end of this course, and every later lesson that says "go
+into your vault" needs to be able to name the path. So the course uses one
+convention: a folder called `git`, directly inside your home folder.
+
+Make that folder now.
+
+- **Windows.** Open File Explorer and go to `C:\Users\<your username>`, the
+  folder that has Desktop, Documents and Downloads inside it. Do not use
+  `C:\Program Files` or the root of `C:`, both of which need administrator
+  rights and will fight you later. Create a new folder there and call it
+  `git`, all lowercase.
+- **macOS.** In Finder, choose **Go > Home**, then create a new folder called
+  `git`.
+- **Linux.** In your file manager, open Home and create a folder called
+  `git`. If you would rather use a terminal, `mkdir -p ~/git` does the same
+  thing.
+
+Now unzip `starter-vault-main.zip` into that `git` folder, and **rename the
+unzipped `starter-vault-main` folder to `lab-journal`.**
+
+You should end up with one folder holding `Home.md`, `Journal/` and
+`Resources/`. If instead you have `lab-journal` containing another folder
+called `starter-vault-main`, the unzip nested it one level too deep: move the
+inner folder's contents up, or just unzip again more carefully.
+
+**That path is now `~/git/lab-journal`, and the rest of the course writes it
+exactly that way.** The `~` is shorthand for your home folder, which is
+`C:\Users\<your username>` on Windows and `/home/<you>` or `/Users/<you>` on
+Linux and macOS. Every shell you meet in this course expands `~` for you, so
+one written path works on all three systems. You can name the vault something
+else if you want, but then every command in this course that says
+`lab-journal` needs editing to match, and that is a tax you pay for the rest
+of the course.
 
 In Obsidian: **Open folder as vault**, pick `lab-journal`, and say yes to
 trusting the vault.
