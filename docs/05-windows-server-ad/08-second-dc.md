@@ -100,7 +100,11 @@ Install-ADDSDomainController -DomainName "lab.internal" `
 ```
 
 Expect it to ask for the domain Administrator password, then a DSRM
-password. **Write DC02's DSRM password in your journal too**, labelled
+password. **DSRM is Directory Services Restore Mode**, a special way of
+starting a domain controller for the times when Active Directory itself will
+not start. Domain accounts are unavailable then, for the obvious reason that
+the thing holding them is what is broken, so the DSRM password is the account
+you log in with instead. **Write DC02's DSRM password in your journal too**, labelled
 separately from DC01's. They are per-machine, not per-domain, and
 discovering that during a recovery is a bad time to learn it.
 

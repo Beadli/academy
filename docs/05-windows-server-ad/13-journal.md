@@ -55,7 +55,10 @@ Reverting a domain controller to an old snapshot in a domain that has
 *more than one* can corrupt replication. The reverted DC starts handing
 out change numbers it has already issued, the other DCs see updates they
 believe they already have, and the two quietly stop agreeing. It's called
-a USN rollback, and the supported fix is to demote the rolled-back DC and
+a USN rollback, after the *update sequence number* every domain controller
+stamps on each change it makes. Those are the change numbers described just
+above, and reverting the snapshot is what rewinds the counter. The supported
+fix is to demote the rolled-back DC and
 rebuild it.
 
 **Until lesson 5.8 your lab had one DC and this was purely theoretical.

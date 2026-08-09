@@ -142,8 +142,8 @@ Worth stating, because it looks alarming to change everyone's sign-in name.
 Their **SamAccountName** is untouched. `LAB\sokoth` still works, and that is
 what the older sign-in prompts and most internal systems actually use. Their
 password is untouched. Their group memberships, permissions and profile are
-untouched. Their SID, which is what Windows genuinely uses for access control,
-is untouched.
+untouched. Their SID, the security identifier that is what Windows genuinely
+uses for access control underneath every name you see, is untouched.
 
 What changes is the name they type in a modern sign-in box, and the name that
 will cross into the cloud.

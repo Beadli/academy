@@ -26,6 +26,13 @@ stolen password, because you would have to crack it first.
 
 **For NTLM authentication in Windows, that conclusion is wrong.**
 
+NTLM stands for NT LAN Manager, and it is the older of the two ways a Windows
+network authenticates people. Kerberos from lesson 5.1 is the one your domain
+prefers, but NTLM is still enabled underneath it, and Windows falls back to
+NTLM whenever Kerberos cannot be used: connecting to a machine by IP address
+rather than by name, or to one that was never joined to the domain. That
+fallback is what the rest of this lesson depends on.
+
 Here is why. When you authenticate over NTLM, the protocol never uses your
 password directly. It uses the hash of your password to answer a challenge.
 Your Windows client takes your typed password, hashes it, and uses the hash.

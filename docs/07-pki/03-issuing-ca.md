@@ -66,7 +66,11 @@ certreq -retrieve <RequestId> C:\SUBCA01.crt
 ```
 
 **3. Carry three files back** to SUBCA01: the issued `SUBCA01.crt`, the
-root's own certificate, and the root's CRL.
+root's own certificate, and the root's CRL. **CRL is a certificate revocation
+list**: the signed file in which a certificate authority names the
+certificates it has cancelled before their expiry date. You are carrying the
+root's copy across now because SUBCA01 needs it to hand out a complete chain.
+Lesson 7.8 is about what these files do and what happens when one goes stale.
 
 **4. Install the chain and start the service:**
 

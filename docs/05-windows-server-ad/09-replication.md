@@ -73,9 +73,10 @@ This trips people up, so meet it now.
 **Directory objects** (your users, groups, computers, OUs) replicate
 through AD's own replication, which is what you just watched.
 
-**SYSVOL** (logon scripts, and the actual files behind the Group Policy
-object you created in lesson 5.7) replicates separately, over DFS
-Replication. It's a file share, not directory data.
+**SYSVOL**, short for *system volume*, is a folder every domain controller
+shares out to the whole domain. It holds logon scripts and the actual files
+behind the Group Policy object you created in lesson 5.7, and it replicates
+separately, over DFS Replication. It's a file share, not directory data.
 
 Check the second one exists on DC02:
 

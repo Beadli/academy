@@ -36,6 +36,13 @@ Three are per-domain:
 | **RID Master** | Hands out blocks of the numbers used to build new account identifiers | Existing accounts fine. Eventually you cannot create new ones, once the current DC's block runs out. |
 | **Infrastructure Master** | Keeps references to objects in other domains current | Irrelevant in a single-domain forest like yours. Genuinely matters in a multi-domain one. |
 
+**PDC Emulator** spells out as Primary Domain Controller Emulator, and the
+name is a leftover worth knowing. Windows NT 4 domains had exactly one
+primary domain controller and the rest were read-only backups. Active
+Directory replaced that arrangement with peers, and this role kept the old
+name because it inherited the odd jobs the primary used to do. The name
+describes history; the first row of the table describes the work.
+
 Notice how unevenly that table falls. Losing the Schema Master is
 survivable for months. Losing the PDC Emulator is felt the same afternoon.
 That asymmetry is why "which roles were on the dead server" is one of the

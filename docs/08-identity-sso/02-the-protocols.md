@@ -73,7 +73,8 @@ possible privilege for the narrowest possible need.
 
 ## OpenID Connect: OAuth 2.0, plus the missing piece
 
-**OIDC** is the fix. It is a specification layered directly on OAuth 2.0
+**OIDC**, which is how OpenID Connect is written nearly everywhere you will
+meet it, is the fix. It is a specification layered directly on OAuth 2.0
 that adds one thing: alongside the access token, the identity provider
 returns an **ID token**, a signed statement about who the user is.
 
