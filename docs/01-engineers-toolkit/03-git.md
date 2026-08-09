@@ -55,6 +55,25 @@ git --version
 Expect something like `git version 2.43.0`. The number does not matter; this
 course uses nothing version-specific.
 
+**What that looks like when it works**, on Windows:
+
+![A Windows PowerShell window, its title bar reading Administrator: Windows PowerShell. At the prompt PS C:\Users\steve\git the command git --version has been typed, and the line below it reads git version 2.55.0.windows.3, followed by a fresh empty prompt.](./img/git-version-windows.png)
+
+Four things in that picture will differ on your machine and none of them
+matter. The version is `2.55.0.windows.3` there and will be something else on
+yours. The window says Administrator because that one happened to be elevated,
+and this command does not need it. The prompt shows `C:\Users\steve\git`
+because that is where the window happened to be sitting, and `git --version`
+works from any folder, so you do not need to go anywhere first. And it is
+PowerShell rather than Git Bash, because this is one of the commands that
+behaves the same in both, and the next section is where the course picks a
+shell and explains why.
+
+What should match is the shape: you type the command, one line comes back
+starting with `git version`, and you get a fresh prompt. If you have never
+worked in a terminal before, that loop is the entire interface, and you are
+about to spend the rest of this course in it.
+
 **If you get "command not found" or "not recognized"**, the window you are
 typing in is still running with the old PATH. Close every terminal window and
 open a fresh one.
