@@ -199,6 +199,12 @@ The starter vault shipped one; confirm it survived the unzip, since
 files starting with a dot like to play hidden:
 
 ```bash
+# Say where you are out loud before looking for a file. This should
+# print the path to your vault, ending in lab-journal. If it ends in
+# just "git", you are one folder too high up.
+pwd
+cd ~/git/lab-journal
+
 # -a lists dotfiles too, and .gitignore is one. This is a bash flag:
 # in PowerShell the equivalent is "Get-ChildItem -Force", which is
 # the sort of difference the shell rule above exists to spare you.
@@ -219,6 +225,31 @@ You should be looking at this:
 .obsidian/cache
 .trash/
 ```
+
+**If `cat` said `No such file or directory`, check where you are before you
+believe it.** Nine times out of ten the file is fine and the shell is in the
+wrong folder, because the `cd` above happened a few minutes and one section
+ago, and a terminal you closed and reopened comes back in your home folder.
+`~/git` is a particularly easy place to be standing, since that is the folder
+you made in lesson 1.2 and it is one level above the vault. Run `pwd` again
+and read the answer properly: it has to end in `lab-journal`.
+
+Only if `pwd` is right is the file genuinely missing, and then the cause is
+almost never the `.gitignore` on its own. Dot-files travel badly when a folder
+is copied by hand, because Finder and File Explorer hide them by default and a
+select-all misses what it cannot see. So check whether the others made it:
+
+```bash
+# Both of these should exist. .obsidian holds your Obsidian settings.
+ls -a
+ls .obsidian
+```
+
+If `.obsidian` is missing too, do not patch the `.gitignore` by hand. You are
+looking at a half-copied vault, and hand-fixing one file leaves you with the
+other losses still in place, discovered one at a time over the next week.
+Unzip `starter-vault-main.zip` again, and this time move the folder itself
+rather than selecting its contents, which is what drops the hidden files.
 
 Note what's *not* ignored: the rest of `.obsidian/`, including the
 daily-notes and template settings. Those you want travelling with the

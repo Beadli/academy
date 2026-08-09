@@ -35,6 +35,43 @@ cat .env
 Expect two long random values. Keep this file; the admin password is the
 only way into the console.
 
+**You just wrote two live passwords into a Git repository**, because `~/docker`
+has been under version control since lesson 6.5 and gets pushed to Gitea.
+Check that the rule you wrote back then is doing its job:
+
+```bash
+cd ~/docker
+
+# -uall names untracked files individually, the flag from lesson 1.3.
+# Without it Git collapses the folder to "keycloak/" and you learn
+# nothing. Expect keycloak/compose.yaml. Do NOT expect .env.
+git status --short -uall
+
+# The direct question, the same one lesson 1.3 asked about the vault.
+# Printing the path back means "yes, ignored".
+git check-ignore keycloak/.env
+```
+
+That silence in `git status` is the whole point of writing the rule three
+modules before you had a file to put in it.
+
+Now record what the file *contains* without recording the values, because a
+repository that cannot rebuild the stack is not doing its job either:
+
+```bash
+# The keys, with the values deliberately left out. This one IS committed.
+printf 'KC_ADMIN_PASSWORD=\nDB_PASSWORD=\n' > keycloak/.env.example
+
+git add keycloak/.env.example
+git commit -m "keycloak: document the required environment variables"
+```
+
+**That pairing is the convention**, and it is worth carrying to every project
+you ever touch: `.env` is ignored and holds the secrets, `.env.example` is
+committed and holds the shape. Six months from now the example file is what
+tells you the stack needs two passwords, and nothing anywhere tells anyone
+what they were.
+
 Write `~/docker/keycloak/compose.yaml`:
 
 ```yaml

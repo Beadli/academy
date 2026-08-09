@@ -137,9 +137,49 @@ cd ~/docker
 # do it anyway; writing it here means this block works even if you
 # skipped a line.
 git init -b main
-git add whoami/compose.yaml
-git commit -m "whoami: first compose stack"
 ```
+
+**Write the ignore rules before the first commit, not after.** This is the
+half of `.gitignore` that lesson 1.3 could not show you, because the vault
+already had one.
+
+```bash
+# A file named .env is the standard place a compose stack keeps its
+# passwords. Git will now refuse to see any of them, at any depth,
+# because a pattern with no slash in it matches in every folder.
+cat > .gitignore <<'EOF'
+# Secrets. Compose reads .env automatically, so this is where
+# passwords end up. They must never reach a Git server.
+.env
+
+# Data directories that containers write into. Lesson 6.6 gives Gitea
+# a ./data holding its database, and lesson 7.4 gives step-ca one
+# holding a private key. Those are state and secrets, not configuration.
+*/data/
+EOF
+
+git add .gitignore whoami/compose.yaml
+git commit -m "whoami: first compose stack, with ignore rules"
+```
+
+You do not have a single `.env` file yet. That is precisely why you are
+writing this rule now. **A `.gitignore` only stops files Git has never been
+told about.** Anything already in a commit stays tracked forever, so adding a
+secret to `.gitignore` after you committed it changes nothing at all, which is
+the most common misunderstanding about this file in the whole of Git. If you ever
+land in that situation, `git rm --cached .env` stops the tracking while
+leaving the file on disk.
+
+Being honest about the limit of that: `git rm --cached` removes the file from
+the *next* commit, not from the history behind it, and not from any server you
+already pushed to. A secret that has been pushed has to be treated as leaked,
+and the fix is to change the password rather than to rewrite history. In a
+lab that costs you two minutes. In a job it costs considerably more, which is
+why the rule goes in first.
+
+Module 8 builds Keycloak, whose `.env` holds an admin password and a database
+password, and it lands in this repository. You will not have to remember any
+of this when it does.
 
 **How you know it worked:**
 
