@@ -1,9 +1,9 @@
 ---
-title: "DET-14 Wire your identity server into detection"
+title: "DET-13 Wire your identity server into detection"
 sidebar_position: 15
 ---
 
-# DET-14: Wire your identity server into detection
+# DET-13: Wire your identity server into detection
 
 |  |  |
 |---|---|
@@ -33,8 +33,8 @@ attacks live entirely inside PowerShell, and without that log they are invisible
 even on the hosts you did enrol. This drill closes both gaps on ADFS01, and the
 method is the same for any host you add later.
 
-**Do this drill before [DET-13](/drills/detection/det-13-catch-a-forged-identity).**
-DET-13 asks you to catch an attack on ADFS01.
+**Do this drill before [DET-14](/drills/detection/det-14-catch-a-forged-identity).**
+DET-14 asks you to catch an attack on ADFS01.
 There is no point writing a detection for events your manager never receives.
 
 ## The trap this drill is built around
@@ -305,7 +305,7 @@ In your own words, in your journal, while it is fresh:
 - What script-block logging records that Sysmon does not, and why an attacker who
   lives in PowerShell would have been invisible to you until you turned it on.
 
-Now go do [DET-13](/drills/detection/det-13-catch-a-forged-identity). Your identity server is finally being watched, so you can find
+Now go do [DET-14](/drills/detection/det-14-catch-a-forged-identity). Your identity server is finally being watched, so you can find
 out whether being watched is the same as being caught.
 
 :::

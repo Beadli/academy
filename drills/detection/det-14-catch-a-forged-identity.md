@@ -1,27 +1,27 @@
 ---
-title: "DET-13 Catch a forged identity (Golden SAML)"
+title: "DET-14 Catch a forged identity (Golden SAML)"
 sidebar_position: 20
 ---
 
-# DET-13: Catch a forged identity (Golden SAML)
+# DET-14: Catch a forged identity (Golden SAML)
 
 |  |  |
 |---|---|
 | **Objective** | When someone lifts your AD FS token-signing key and forges a login token, get an alert that names it, and does not fire when you run a routine Defender command |
 | **Success signal** | You run the key-theft and token-forge tooling and an alert that names the technique arrives; a benign Defender command you run straight after produces nothing |
-| **Needs** | Modules 8, 12 and 14, and **[DET-14](/drills/detection/det-14-wire-a-host-into-detection) done first** (Tier 2: this uses the AD FS server) |
+| **Needs** | Modules 8, 12 and 14, and **[DET-13](/drills/detection/det-13-wire-a-host-into-detection) done first** (Tier 2: this uses the AD FS server) |
 | **Effort** | More than one sitting |
 | **Risk** | Reversible with care. You extract your own signing key on an isolated lab you own, then clean it up. Read the authorisation note below |
 | **Check** | Mechanical: the rule fires on the technique and stays silent on the benign command |
 
-:::warning[Do DET-14 first, or this drill will show you nothing]
+:::warning[Do DET-13 first, or this drill will show you nothing]
 
-DET-13 assumes ADFS01 is already sending its logs to your manager: an agent
+DET-14 assumes ADFS01 is already sending its logs to your manager: an agent
 enrolled, the Sysmon channel forwarded, and PowerShell script-block logging turned
 on. Module 12 wired those up on DC01, **not on ADFS01**, which you built later in
 Module 8. If you run this drill on an unwired ADFS01, the attack will produce total
 silence in your SIEM, and you will not be able to tell whether your rule is wrong,
-the attack failed, or the events simply never arrived. [DET-14](/drills/detection/det-14-wire-a-host-into-detection)
+the attack failed, or the events simply never arrived. [DET-13](/drills/detection/det-13-wire-a-host-into-detection)
 closes that gap in an evening. Do it first.
 
 :::
