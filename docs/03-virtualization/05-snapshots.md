@@ -14,9 +14,10 @@ It changes how professionals work too. Before I replaced the TLS
 certificate on the single most load-bearing VM in my lab, I snapshotted
 it first. The swap went fine, but I'd have bet money it would; the
 snapshot wasn't pessimism, it was the reason my hands were steady.
-Snapshot before risk is the habit this lesson installs, and I want it
-installed the memorable way: you're going to destroy a working server
-and then make that not have happened.
+The habit I want you to leave this lesson with is simple: before you
+take a risk, take a snapshot. To make it stick, you're going to
+deliberately destroy a working server, and then put it back as though
+you never touched it.
 
 ## Take the snapshot
 
