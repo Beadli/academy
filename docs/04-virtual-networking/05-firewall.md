@@ -41,11 +41,20 @@ add them.
 - **Guest OS type:** FreeBSD (64-bit). OPNsense is built on FreeBSD, and
   telling the hypervisor that gets you sensible defaults.
 - **Name and location:** `FW01`, in `C:\VMs\FW01`, per lesson 3.3.
-- **RAM:** 2 GB. **CPU:** 1 core. **Disk:** 20 GB, grow-as-used.
+- **RAM:** 3 GB. **CPU:** 1 core. **Disk:** 20 GB, grow-as-used.
 - **Network adapter 1:** your NAT network. This becomes **WAN**, the
   outside.
 - **Network adapter 2:** your host-only network (VMnet2). This becomes
   **LAN**, your lab.
+
+**Why 3 GB.** OPNsense publishes hardware sizing guidance in its own
+documentation, and at the time of writing the minimum it states is 3 GB.
+A lab firewall passing a trickle of traffic between a handful of
+machines would very likely run on less. Give it 3 GB anyway. This is the
+one machine every other machine depends on for its route out, and
+running it below the vendor's own floor means every strange thing it
+does from now on has an explanation you cannot rule out. If your host
+has room to spare, 4 GB is the figure the same page calls reasonable.
 
 **Order matters.** OPNsense names the cards in the order the hypervisor
 presents them and will offer to call the first one WAN. If you add them
@@ -65,13 +74,35 @@ confuses people who expect an installer to appear.
    are shown on screen at the login prompt; at the time of writing that
    is `installer` with password `opnsense`, and the on-screen text is
    authoritative over this page.
-3. Accept the defaults through the installer, including the filesystem
-   choice, unless you have a reason to change one.
+3. Accept the defaults through the installer, with one exception worth
+   making deliberately: when it asks which filesystem to use, choose
+   **ZFS**.
 4. When it offers to set a root password, set one you'll remember and
    write it in your journal. This is a lab, and you're allowed to write
    lab passwords down. You're not allowed to reuse a real one.
 5. Reboot when prompted, and make sure the ISO is disconnected so it
    boots from disk.
+
+**Why ZFS and not UFS.** Both are filesystems, which is the scheme an
+operating system uses to lay data out on a disk. UFS is the Unix File
+System, and FreeBSD has used it for decades. ZFS came later, from Sun
+Microsystems, where the letters originally stood for Zettabyte File
+System, an expansion its developers later dropped. The difference
+between the two shows up in a situation you are guaranteed to hit in a
+lab. You will
+suspend this VM, power the host off with it still running, and revert it
+to a snapshot. UFS answers an interrupted write with a filesystem check
+on the next boot, and sometimes with a file that never finished being
+written. ZFS writes the new copy of a block before it releases the old
+one, so an interrupted write leaves the previous good version in place
+and the machine boots. That matters more here than on any other machine
+you build: from lesson 5.3 onward FW01 is the gateway for everything in
+the lab, so a firewall that will not boot is every VM offline at once.
+ZFS gives you a second thing as well. It keeps boot environments, which
+let you roll a failed firmware upgrade back from the boot menu without
+having needed to remember a hypervisor snapshot first. OPNsense's own
+documentation reaches the same conclusion and recommends ZFS for its
+reliability.
 
 ## Assign the interfaces
 
