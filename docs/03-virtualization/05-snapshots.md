@@ -87,12 +87,14 @@ current disk and starts writing every subsequent change to a **separate
 delta file**. That file starts at nothing and grows with every write the
 VM makes from that moment on.
 
-The consequence catches everyone once: **a snapshot's cost depends on how
-long you keep it and how busy the machine is, not on how big the VM was
-when you took it.** A snapshot taken this morning is nearly free. The same
-snapshot left on a domain controller for two months, through a round of
-Windows updates, can grow larger than the original disk. Windows Update
-alone will do it.
+The consequence catches everyone once: **a snapshot's cost is driven by
+how much data changes after you take it, not by how big the VM was when
+you took it.** A snapshot taken this morning on a quiet server is nearly
+free. Leave that same one on a domain controller for two months and
+every changed block lands in the delta file: logs, database writes,
+ordinary OS churn. The delta can end up nearly as large as the virtual
+disk itself, and a single round of Windows updates will get you most of
+the way there.
 
 They also slow the machine down, because every read may have to walk back
 through the chain of deltas to find the current data. Several stacked
@@ -109,8 +111,8 @@ snapshots on one VM is genuinely noticeable.
 - **One or two per machine, not a museum.** If a VM has five snapshots,
   that's a decision nobody made.
 - **Check the folder occasionally.** Your VM's directory shows the delta
-  files. If they're bigger than the disk they belong to, that's your
-  answer.
+  files. If they're getting close to the size of the disk they belong to,
+  that's your answer.
 - **Never leave a snapshot on a machine for weeks** and then wonder where
   the disk went. This is the single most common way lab builders run out
   of space.
